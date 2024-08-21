@@ -6,6 +6,7 @@
 
 - Added button component
 - Added modal component
+- Added icon component
 
 ### Changed
 

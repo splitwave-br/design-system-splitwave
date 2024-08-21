@@ -1,0 +1,42 @@
+.footer {
+  width: 100%;
+  position: fixed;
+  z-index: 1004;
+  bottom: 0;
+  left: 0;
+  height: 88px;
+  padding: var(--spaces-3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  button {
+    &:only-of-type {
+      margin-left: auto;
+    }
+  }
+
+  border-top: none;
+  border-bottom-left-radius: calc(var(--border-radius-3) * 2);
+  border-bottom-right-radius: calc(var(--border-radius-3) * 2);
+  background: linear-gradient(
+    0deg,
+    #fff 30.68%,
+    rgba(255, 255, 255, 0.66) 223.12%,
+    rgba(255, 255, 255, 0) 249.43%
+  );
+
+  @include temporary_mobile {
+    flex-direction: column-reverse;
+    gap: var(--spaces-2);
+    height: max-content;
+    justify-content: flex-end;
+    position: static;
+    border-radius: 0px;
+    background: var(--surface-background);
+    margin-top: auto;
+
+    button {
+      width: 100%;
+    }
+  }
+}
