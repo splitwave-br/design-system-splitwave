@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "outDir": "./dist", // Specifies the output directory for compiled JavaScript files
+    "target": "ES6",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -23,6 +24,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": [".d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [".d.ts", "**/*.ts", "**/*.tsx", "src/**/*", "dist/**/*"],
   "exclude": ["node_modules", "babel.config.js"]
 }
