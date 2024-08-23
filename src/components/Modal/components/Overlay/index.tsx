@@ -1,7 +1,7 @@
 import { MouseEvent, MouseEventHandler } from 'react';
 import styles from './styles.module.scss';
 
-interface OverlayProps {
+type OverlayProps = {
   onClose: any;
   children: React.ReactNode;
 }

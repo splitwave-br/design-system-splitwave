@@ -1,8 +1,8 @@
 import { Icon } from '@/components/Icon';
 import styles from './styles.module.scss';
-import { useModal } from '../../hooks/useModal';
+import {ModalProvider, useModal} from '../../hooks/useModal';
 
-interface OverlayProps {
+type OverlayProps = {
   children: React.ReactNode;
   title?: string;
   onClose?: (...args: any) => void;

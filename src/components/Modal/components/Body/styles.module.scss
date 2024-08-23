@@ -1,3 +1,5 @@
+@use '../../../styles/breakpoints.scss' as *;
+
 .body {
   max-height: 569px;
   overflow-y: auto;

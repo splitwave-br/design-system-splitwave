@@ -29,7 +29,7 @@ const ModalContext = createContext({} as IModalContextData);
 
 let id = 0;
 
-function ModalProvider({ children }: ModalProviderProps) {
+export function ModalProvider({ children }: ModalProviderProps) {
   const [modalQueue, setModalQueue] = useState<IModal[]>([]);
 
   const { handleRemoveScrollbar } = useAdjustScrollbar();
@@ -81,8 +81,8 @@ function ModalProvider({ children }: ModalProviderProps) {
     </ModalContext.Provider>
   );
 }
-function useModal(): IModalContextData {
+
+export function useModal(): IModalContextData {
   return useContext(ModalContext);
 }
 
-export { ModalProvider, useModal };

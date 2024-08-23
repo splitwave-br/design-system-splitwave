@@ -1,6 +1,6 @@
 import styles from './styles.module.scss';
 
-interface ModalBodyProps {
+type ModalBodyProps = {
   children: React.ReactNode;
   className?: string;
 }

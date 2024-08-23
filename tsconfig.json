@@ -2,16 +2,19 @@
   "compilerOptions": {
     "outDir": "dist", // Specifies the output directory for compiled JavaScript files
     "target": "ES6",
-    "lib": ["dom"],
+    "lib": ["ES6", "DOM"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
+    "declaration": true,
+    "declarationDir": "./dist",
     "module": "CommonJS",
     "jsx": "react-jsx",
+    "esModuleInterop": true,
     "paths": {
       "@/*": ["./src/*"]
     }
   },
-  "include": [".d.ts", "**/*.ts", "**/*.tsx", "src/**/*", "./index.ts"],
+  "include": [".d.ts", "**/*.ts", "**/*.tsx", "src/**/*", "src/index.ts"],
   "exclude": ["node_modules", "babel.config.js", "dist"]
 }
