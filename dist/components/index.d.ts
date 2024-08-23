@@ -1,2 +1,2 @@
-export * from './Button';
-export * from './Modal';
+export { Button } from './Button';
+export { Modal } from './Modal';

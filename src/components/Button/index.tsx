@@ -12,7 +12,7 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   className?: string
 }
 
-export function Button({
+export const Button = ({
   children,
   variant = 'primary',
   size = 'large',
@@ -21,7 +21,7 @@ export function Button({
   loading,
   className,
   ...props
-}: ButtonProps) {
+}: ButtonProps) => {
   return (
     <>
       {loading && <div className={styles.loading_overlay}> </div>}

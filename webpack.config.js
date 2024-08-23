@@ -1,12 +1,13 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.ts', // Entry point for your library
+  entry: './src/index.js', // Entry point for your library
   output: {
     path: path.resolve(__dirname, 'dist'), // Output directory
     filename: 'index.js', // Output file name
-    library: 'DesignSystem', // Global variable name for UMD builds
+    library: 'design-system-splitwave', // Global variable name for UMD builds
     libraryTarget: 'umd', // UMD module system (works for CommonJS, AMD, and as a global variable)
   },
   resolve: {
@@ -45,6 +46,9 @@ module.exports = {
       
     ],
   },
+  optimization: {
+    minimize: false, // Turn off minimization to prevent name mangling
+  },
   plugins: [
     new CleanWebpackPlugin(), // Clean the `dist` folder before each build,
   ],
@@ -53,15 +57,21 @@ module.exports = {
     react: {
       commonjs: 'react',
       commonjs2: 'react',
-      amd: 'React',
+      amd: 'react',
       root: 'React',
     },
     'react-dom': {
       commonjs: 'react-dom',
       commonjs2: 'react-dom',
-      amd: 'ReactDOM',
+      amd: 'react-dom',
       root: 'ReactDOM',
     },
+    "styled-components": {
+      root: "styled-components",
+      commonjs2: "styled-components",
+      commonjs: "styled-components",
+      amd: "styled-components"
+    }
   },
-  mode: 'production', // Set the mode to 'production' for optimizations
+  mode: 'production',
 };
