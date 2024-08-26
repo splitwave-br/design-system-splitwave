@@ -4,6 +4,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js', // Entry point for your library
+  devtool: "source-map",
   output: {
     path: path.resolve(__dirname, 'dist'), // Output directory
     filename: 'index.js', // Output file name

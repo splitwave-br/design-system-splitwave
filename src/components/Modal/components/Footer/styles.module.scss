@@ -7,7 +7,7 @@
   bottom: 0;
   left: 0;
   height: 88px;
-  padding: var(--spaces-3);
+  padding: var(--spaces-lg);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -18,8 +18,8 @@
   }
 
   border-top: none;
-  border-bottom-left-radius: calc(var(--border-radius-3) * 2);
-  border-bottom-right-radius: calc(var(--border-radius-3) * 2);
+  border-bottom-left-radius: calc(var(--border-radius-md) * 2);
+  border-bottom-right-radius: calc(var(--border-radius-md) * 2);
   background: linear-gradient(
     0deg,
     #fff 30.68%,
@@ -29,12 +29,12 @@
 
   @include temporary_mobile {
     flex-direction: column-reverse;
-    gap: var(--spaces-2);
+    gap: var(--spaces-md);
     height: max-content;
     justify-content: flex-end;
     position: static;
     border-radius: 0px;
-    background: var(--surface-background);
+    background: var(--colors-neutral-50);
     margin-top: auto;
 
     button {

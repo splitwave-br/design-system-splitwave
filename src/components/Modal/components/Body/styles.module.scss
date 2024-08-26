@@ -4,19 +4,19 @@
   max-height: 569px;
   overflow-y: auto;
 
-  padding: var(--spaces-3);
+  padding: var(--spaces-md);
   padding-bottom: 88px;
 
   display: flex;
   flex-direction: column;
-  gap: var(--spaces-3);
+  gap: var(--spaces-md);
 
-  border-bottom-left-radius: calc(var(--border-radius-3) * 2);
-  border-bottom-right-radius: calc(var(--border-radius-3) * 2);
+  border-bottom-left-radius: calc(var(--border-radius-md) * 2);
+  border-bottom-right-radius: calc(var(--border-radius-md) * 2);
   background: var(--color-background-sunken);
 
   &::-webkit-scrollbar {
-    width: var(--spaces-micro);
+    width: var(--spaces-xs);
   }
   &::-webkit-scrollbar-track {
     background: var(--color-background-sunken);
