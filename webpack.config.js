@@ -1,28 +1,42 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js', // Entry point for your library
-  devtool: "source-map",
+  entry: './src/index.js',
+  devtool: 'source-map',
   output: {
-    path: path.resolve(__dirname, 'dist'), // Output directory
-    filename: 'index.js', // Output file name
-    library: 'design-system-splitwave', // Global variable name for UMD builds
-    libraryTarget: 'umd', // UMD module system (works for CommonJS, AMD, and as a global variable)
-  },
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src')
-    },
-    extensions: ['.ts', '.tsx', '.js', '.jsx', '.scss'], // Resolve these extensions
+    clean: true,
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'index.js',
+    libraryTarget: 'umd',
+    library: 'design-system-splitwave',
   },
   module: {
-    rules: [
+		rules: [
+			{
+				test: /\.tsx?$/,
+				loader: "ts-loader",
+				options: {
+					transpileOnly: true
+				}
+			},
       {
-        test: /\.tsx?$/, // Compile TypeScript files
-        use: 'ts-loader',
-        exclude: /node_modules/,
+        test: /\.s[ac]ss$/i,
+        use: [
+          "style-loader",
+          "css-loader",
+          {
+            loader: "sass-loader",
+            options: {
+              // Prefer `dart-sass`, even if `sass-embedded` is available
+              implementation: require("sass"),
+              sourceMap: true,
+              sassOptions: {
+                outputStyle: "compressed",
+              },
+            },
+          },
+        ],
       },
       {
         test: /\.(png|jpg|gif|svg)$/, // Image files
@@ -36,25 +50,18 @@ module.exports = {
           },
         ],
       },
-      {
-        test: /\.scss$/, // SASS files
-        use: [
-          'style-loader', // Injects styles into DOM
-          'css-loader',   // Translates CSS into CommonJS
-          'sass-loader',  // Compiles SASS to CSS
-        ],
-      },
-      
-    ],
-  },
+		]
+	},
   optimization: {
     minimize: false, // Turn off minimization to prevent name mangling
   },
-  plugins: [
-    new CleanWebpackPlugin(), // Clean the `dist` folder before each build,
-  ],
+	resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src')
+    },
+		extensions: ['.ts', '.tsx', '.js', '.jsx', '.scss']
+	},
   externals: {
-    // Define external libraries that should not be bundled with your library
     react: {
       commonjs: 'react',
       commonjs2: 'react',
@@ -74,5 +81,8 @@ module.exports = {
       amd: "styled-components"
     }
   },
+  plugins: [
+    new CleanWebpackPlugin(), // Clean the `dist` folder before each build,
+  ],
   mode: 'production',
 };

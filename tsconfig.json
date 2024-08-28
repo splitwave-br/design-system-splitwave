@@ -13,7 +13,8 @@
     "esModuleInterop": true,
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "inlineSourceMap": true
   },
   "include": [".d.ts", "**/*.ts", "**/*.tsx", "src/**/*", "src/index.js"],
   "exclude": ["node_modules", "babel.config.js", "dist"]
