@@ -21,19 +21,24 @@ module.exports = {
 				}
 			},
       {
+        test: /\.css$/i,
+        use: [
+          { loader: "style-loader", options: { injectType: "styleTag" } },
+          {
+            loader: "css-loader",
+          },
+        ],
+      },
+      {
         test: /\.s[ac]ss$/i,
         use: [
           "style-loader",
           "css-loader",
+          "sass-loader",
           {
             loader: "sass-loader",
             options: {
-              // Prefer `dart-sass`, even if `sass-embedded` is available
-              implementation: require("sass"),
-              sourceMap: true,
-              sassOptions: {
-                outputStyle: "compressed",
-              },
+              warnRuleAsWarning: true,
             },
           },
         ],
@@ -59,7 +64,7 @@ module.exports = {
     alias: {
       '@': path.resolve(__dirname, './src')
     },
-		extensions: ['.ts', '.tsx', '.js', '.jsx', '.scss']
+		extensions: ['.ts', '.tsx', '.js', '.jsx', '.scss'],
 	},
   externals: {
     react: {
