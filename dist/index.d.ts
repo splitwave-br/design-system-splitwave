@@ -1,3 +1,1 @@
-import { Button } from './components/Button';
-import { Modal } from './components/Modal';
-export { Button, Modal };
+export { Button } from "./components/Button";
