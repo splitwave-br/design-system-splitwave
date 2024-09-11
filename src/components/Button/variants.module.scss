@@ -1,7 +1,7 @@
 .variant__primary {
-  border-radius: var(--border-radius-md);
-  border: 1px solid var(--colors-brand-600);
-  background-color: var(--colors-brand-600);
+  border-radius: var(--border-radius-3);
+  border: 1px solid var(--colors-brand);
+  background-color: var(--colors-brand);
 
   color: var(--background);
   box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
@@ -12,13 +12,13 @@
   will-change: box-shadow, background-color;
 
   &:hover:not(:disabled):not(:active) {
-    border-color: var(--colors-brand-700);
-    background-color: var(--colors-brand-700);
+    border-color: var(--colors-brand);
+    background-color: var(--colors-brand);
   }
 
   &:active:not(:disabled) {
-    border-color: var(--colors-brand-600);
-    background-color: var(--colors-brand-600);
+    border-color: var(--colors-brand);
+    background-color: var(--colors-brand);
 
     box-shadow:
       0px 0px 0px 4px #f4ebff,
@@ -26,13 +26,13 @@
   }
 
   &:disabled:not(.loading) {
-    border: 1px solid var(--colors-brand-200);
-    background: var(--colors-brand-200);
+    border: 1px solid var(--colors-brand);
+    background: var(--colors-brand);
   }
 }
 
 .variant__success {
-  border-radius: var(--border-radius-md);
+  border-radius: var(--border-radius-3);
   border: 1px solid var(--colors-success-500);
   background-color: var(--colors-success-500);
 
@@ -65,13 +65,13 @@
 }
 
 .variant__secondary {
-  border-radius: var(--border-radius-md);
-  border: 1px solid var(--colors-brand-50);
-  background-color: var(--colors-brand-50);
+  border-radius: var(--border-radius-3);
+  border: 1px solid var(--colors-brand);
+  background-color: var(--colors-brand);
 
   box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
 
-  color: var(--colors-brand-700);
+  color: var(--colors-brand);
 
   transition:
     box-shadow 0.3s,
@@ -85,8 +85,8 @@
   }
 
   &:active:not(:disabled) {
-    border-color: var(--colors-brand-50);
-    background-color: var(--colors-brand-50);
+    border-color: var(--colors-brand);
+    background-color: var(--colors-brand);
 
     box-shadow:
       0px 0px 0px 4px #f4ebff,
@@ -100,7 +100,7 @@
 }
 
 .variant__outline {
-  border-radius: var(--border-radius-md);
+  border-radius: var(--border-radius-3);
   border: 1px solid var(--colors-gray-300);
   background: var(--background);
 
@@ -137,7 +137,7 @@
 .variant__danger {
   color: var(--background);
 
-  border-radius: var(--border-radius-md);
+  border-radius: var(--border-radius-3);
   border: 1px solid var(--colors-error-600);
   background: var(--colors-error-600);
 
@@ -156,7 +156,7 @@
 
 .variant__text {
   border: none;
-  border-radius: var(--border-radius-md);
+  border-radius: var(--border-radius-3);
   background-color: transparent;
   color: var(--colors-gray-700);
 
@@ -166,7 +166,7 @@
   will-change: box-shadow, background-color;
 
   &:hover:not(:disabled) {
-    background-color: var(--colors-brand-50);
+    background-color: var(--colors-brand);
 
     :global(.dark-theme) & {
       background-color: var(--colors-dark-gray-700);

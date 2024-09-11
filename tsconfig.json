@@ -12,7 +12,8 @@
     "jsx": "react-jsx",
     "esModuleInterop": true,
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "design-system/*": ["./dist/*"]
     },
     "inlineSourceMap": true
   },

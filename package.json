@@ -5,11 +5,16 @@
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./Button": "./dist/components/Button/index.js",
+    "./Badge": "./dist/components/Badge/index.js"
+  },
   "scripts": {
     "clean": "rimraf dist/",
     "copy-files": "copyfiles -u 1 src/**/*.scss dist/",
-    "build": "yarn clean && tsc && yarn copy-files",
-    "prepublishOnly": "npm run build"
+    "declaration": "npx tsc --declaration",
+    "build": "yarn clean && yarn declaration && tsc && yarn copy-files"
   },
   "keywords": [],
   "author": "",
