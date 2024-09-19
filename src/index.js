@@ -1,2 +1,2 @@
-export * as Button  from './components/Button'
-export * as Badge from './components/Badge'
+export { Button, ButtonProps } from './components/Button'
+export { Badge, TVariant } from './components/Badge'
