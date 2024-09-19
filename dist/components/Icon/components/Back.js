@@ -1,8 +1,0 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const jsx_runtime_1 = require("react/jsx-runtime");
-const Back = () => {
-    return ((0, jsx_runtime_1.jsxs)("svg", { xmlns: 'http://www.w3.org/2000/svg', width: '20', height: '20', viewBox: '0 0 20 20', fill: 'none', children: [(0, jsx_runtime_1.jsx)("path", { d: 'M8 5L3 10L8 15', stroke: 'currentColor', strokeWidth: '1.5', strokeLinecap: 'round', strokeLinejoin: 'round' }), (0, jsx_runtime_1.jsx)("path", { d: 'M4 10L16 10', stroke: 'currentColor', strokeWidth: '1.5', strokeLinecap: 'round', strokeLinejoin: 'round' })] }));
-};
-exports.default = Back;
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQmFjay5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uL3NyYy9jb21wb25lbnRzL0ljb24vY29tcG9uZW50cy9CYWNrLnRzeCJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7QUFFQSxNQUFNLElBQUksR0FBRyxHQUFHLEVBQUU7SUFDaEIsT0FBTyxDQUNMLGlDQUNFLEtBQUssRUFBQyw0QkFBNEIsRUFDbEMsS0FBSyxFQUFDLElBQUksRUFDVixNQUFNLEVBQUMsSUFBSSxFQUNYLE9BQU8sRUFBQyxXQUFXLEVBQ25CLElBQUksRUFBQyxNQUFNLGFBRVgsaUNBQ0UsQ0FBQyxFQUFDLGdCQUFnQixFQUNsQixNQUFNLEVBQUMsY0FBYyxFQUNyQixXQUFXLEVBQUMsS0FBSyxFQUNqQixhQUFhLEVBQUMsT0FBTyxFQUNyQixjQUFjLEVBQUMsT0FBTyxHQUN0QixFQUNGLGlDQUNFLENBQUMsRUFBQyxhQUFhLEVBQ2YsTUFBTSxFQUFDLGNBQWMsRUFDckIsV0FBVyxFQUFDLEtBQUssRUFDakIsYUFBYSxFQUFDLE9BQU8sRUFDckIsY0FBYyxFQUFDLE9BQU8sR0FDdEIsSUFDRSxDQUNQLENBQUM7QUFDSixDQUFDLENBQUM7QUFFRixrQkFBZSxJQUFJLENBQUMifQ==

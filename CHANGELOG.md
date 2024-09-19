@@ -4,17 +4,16 @@
 
 ### Added
 
-- Added button component
-- Added modal component
-- Added icon component
+- Added Button component
+- Added Badge component
 
 ### Changed
 
--
+- Changed globals styles to be the same as admin repository 
 
 ### Fixed
 
--
+- Fixed styles variables in Button component
 
 ### Removed
 
