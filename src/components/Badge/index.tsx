@@ -1,21 +1,21 @@
-import { ButtonHTMLAttributes, ReactNode } from 'react';
-import styles from './styles.module.scss';
-import variants from './variants.module.scss';
-import sizes from './sizes.module.scss';
-
+import { ButtonHTMLAttributes, ReactNode } from "react";
+import styles from "./styles.module.scss";
+import variants from "./variants.module.scss";
+import sizes from "./sizes.module.scss";
+import "../styles/global.scss";
 export type TVariant =
-  | 'purple'
-  | 'gray'
-  | 'dark-gray'
-  | 'blue-light'
-  | 'error'
-  | 'blue'
-  | 'orange'
-  | 'warning'
-  | 'indigo'
-  | 'success';
+  | "purple"
+  | "gray"
+  | "dark-gray"
+  | "blue-light"
+  | "error"
+  | "blue"
+  | "orange"
+  | "warning"
+  | "indigo"
+  | "success";
 
-export type TSizes = 'sm' | 'md' | 'lg';
+export type TSizes = "sm" | "md" | "lg";
 
 export type TBadge = ButtonHTMLAttributes<HTMLButtonElement> & {
   children: ReactNode;
@@ -27,8 +27,8 @@ export type TBadge = ButtonHTMLAttributes<HTMLButtonElement> & {
 
 export function Badge({
   children,
-  variant = 'gray',
-  size = 'sm',
+  variant = "gray",
+  size = "sm",
   disabled,
   className,
   ...props
@@ -38,10 +38,10 @@ export function Badge({
       disabled={disabled}
       className={[
         styles.button,
-        size ? sizes[size] : '',
-        variant ? variants[variant] : '',
-        className ? className : '',
-      ].join(' ')}
+        size ? sizes[size] : "",
+        variant ? variants[variant] : "",
+        className ? className : "",
+      ].join(" ")}
       {...props}
     >
       {children}
