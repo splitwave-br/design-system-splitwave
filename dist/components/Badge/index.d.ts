@@ -1,6 +1,7 @@
-import { ButtonHTMLAttributes, ReactNode } from 'react';
-export type TVariant = 'purple' | 'gray' | 'dark-gray' | 'blue-light' | 'error' | 'blue' | 'orange' | 'warning' | 'indigo' | 'success';
-export type TSizes = 'sm' | 'md' | 'lg';
+import { ButtonHTMLAttributes, ReactNode } from "react";
+import "../styles/global.scss";
+export type TVariant = "purple" | "gray" | "dark-gray" | "blue-light" | "error" | "blue" | "orange" | "warning" | "indigo" | "success";
+export type TSizes = "sm" | "md" | "lg";
 export type TBadge = ButtonHTMLAttributes<HTMLButtonElement> & {
     children: ReactNode;
     variant?: TVariant;
