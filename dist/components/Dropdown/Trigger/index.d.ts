@@ -1,4 +1,4 @@
-import { ButtonProps } from "@/components/Button";
+import { ButtonProps } from "../../../components/Button";
 import "./variables.scss";
 export interface TriggerProps extends ButtonProps {
     children: any;

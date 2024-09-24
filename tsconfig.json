@@ -1,21 +1,21 @@
 {
   "compilerOptions": {
-    "outDir": "dist", // Specifies the output directory for compiled JavaScript files
-    "target": "ES6",
-    "lib": ["ES6", "DOM"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "declaration": true,
-    "declarationDir": "./dist",
-    "module": "CommonJS",
-    "jsx": "react-jsx",
-    "esModuleInterop": true,
+    "baseUrl": "./",
     "paths": {
-      "@/*": ["./src/*"],
+      "design-system/theme": ["src/styles/global.scss"]
     },
-    "inlineSourceMap": true
+    "target": "ESNext",
+    "module": "CommonJS",
+    "lib": ["dom", "esnext"],
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    "strict": true,
+    "outDir": "dist",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "noEmit": false
   },
-  "include": [".d.ts", "**/*.ts", "**/*.tsx", "src/**/*", "src/index.js"],
-  "exclude": ["node_modules", "babel.config.js", "dist"]
+  "include": ["src/**/*"]
 }

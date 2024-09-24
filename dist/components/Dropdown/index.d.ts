@@ -1,7 +1,7 @@
 import Item from "./Item";
 export declare const Dropdown: {
     Container: ({ children, className }: {
-        children: import("react").ReactNode;
+        children: React.ReactNode;
         className?: string;
     }) => import("react/jsx-runtime").JSX.Element | null;
     Trigger: import("react").ForwardRefExoticComponent<import("./Trigger").TriggerProps & import("react").RefAttributes<HTMLButtonElement>>;
