@@ -1,0 +1,19 @@
+.content {
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spaces-2);
+
+  padding: var(--spaces-2) var(--spaces-3);
+  border-radius: var(--spaces-1);
+  border: 1px solid var(--colors-border);
+  font-size: var(--font-size-3);
+  min-width: 240px !important;
+
+  position: absolute;
+}
+
+.clean {
+  cursor: pointer;
+  color: var(--colors-brand-400);
+}
