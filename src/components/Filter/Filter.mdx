@@ -1,0 +1,36 @@
+import { Canvas, Meta, Controls } from "@storybook/blocks";
+import { Filter } from ".";
+import * as FilterStories from "./Filter.stories";
+
+<Meta of={FilterStories} title="Filter" />
+
+O componente \`Filter\` é usado para criar filtros dinâmicos e personalizáveis com campos e opções variadas. Ele permite a filtragem de dados através de campos de entrada, seleções e botões.
+
+### Uso do Hook \`useFilter\`:
+
+Para registrar e gerenciar o estado do filtro, você pode utilizar o hook \`useFilter\`:
+
+```tsx
+const filterRegister = useFilter({ ...config });
+const { ... } = filterRegister; // Para acessar as funções e estados do filtro
+```
+
+Você também pode usar o useFilterContext se estiver dentro do <Filter.Wrapper />:
+
+```tsx
+const { ... } = useFilterContext(); // Disponível somente dentro de <Filter.Wrapper />
+```
+
+Esses hooks permitem que você acesse e controle o estado do filtro de maneira centralizada.
+
+## Exemplos de Uso
+
+### Campo básico
+
+<Canvas of={FilterStories.Basic} />
+
+### Com select
+
+<Canvas of={FilterStories.FilterWithSelect} />
+
+<Controls />
