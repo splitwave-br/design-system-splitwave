@@ -12,7 +12,7 @@
     "clean": "rimraf dist/",
     "copy-files": "copyfiles -u 1 'src/**/*.scss' dist",
     "declaration": "npx tsc --declaration",
-    "build": "yarn clean && yarn declaration && tsc && yarn copy-files",
+    "build": "yarn clean && yarn declaration && tsc && tsc-alias && yarn copy-files",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -46,6 +46,7 @@
     "style-loader": "^4.0.0",
     "styled-components": "^6.1.1",
     "ts-loader": "^9.5.1",
+    "tsc-alias": "^1.8.10",
     "typescript": "^5.5.4"
   }
 }

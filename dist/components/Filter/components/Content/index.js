@@ -9,7 +9,7 @@ const jsx_runtime_1 = require("react/jsx-runtime");
 const react_1 = require("react");
 const styles_module_scss_1 = __importDefault(require("./styles.module.scss"));
 const useFilter_1 = require("../../hooks/useFilter");
-const concatStyles_1 = require("@/utils/concatStyles");
+const concatStyles_1 = require("../../../../utils/concatStyles");
 const useFields_1 = require("../../hooks/useFields");
 exports.Content = (0, react_1.forwardRef)(({ children, className, onClose, ...props }, ref) => {
     const { clean } = (0, useFilter_1.useFilterContext)();
