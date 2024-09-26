@@ -7,7 +7,7 @@ import React, {
   useMemo,
   useState,
 } from "react";
-import { get } from "src/utils/get";
+import { get } from "@/utils/get";
 
 interface IUseFilterReturn {
   filter: IFilter;
