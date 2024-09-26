@@ -2,6 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
+      "@/*": ["./src/*"],
       "design-system/theme": ["src/styles/global.scss"]
     },
     "target": "ESNext",

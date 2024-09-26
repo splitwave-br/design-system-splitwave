@@ -1,9 +1,7 @@
 import type { Preview } from "@storybook/react";
-import "../src/components/styles/global.scss";
-
-// TODO: Find a better way to import components variables
-import "../src/components/Dropdown/Trigger/variables.scss";
-import "../src/components/Dropdown/Item/variables.scss";
+import "@/styles/global.scss";
+import "@/styles/breakpoints.scss";
+import "@/styles/components-variables.scss";
 
 const preview: Preview = {
   parameters: {
