@@ -18,9 +18,17 @@ export const Default: Story = {
 
 export const Secondary: Story = {
   args: {
-    name: "Button Ouline",
+    name: "Button Secondary",
     variant: "secondary",
     children: "Secondary",
+  },
+};
+
+export const Tertiary: Story = {
+  args: {
+    name: "Button Tertiary",
+    variant: "tertiary",
+    children: "Tertiary",
   },
 };
 
@@ -33,7 +41,7 @@ export const Outline: Story = {
 };
 export const Danger: Story = {
   args: {
-    name: "Button Ouline",
+    name: "Button Danger",
     variant: "danger",
     children: "Danger",
   },
@@ -41,14 +49,14 @@ export const Danger: Story = {
 
 export const Success: Story = {
   args: {
-    name: "Button Ouline",
+    name: "Button Success",
     variant: "success",
     children: "Success",
   },
 };
 export const Text: Story = {
   args: {
-    name: "Button Ouline",
+    name: "Button Text",
     variant: "text",
     children: "Text",
   },

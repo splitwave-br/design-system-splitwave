@@ -71,7 +71,7 @@
 
   box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
 
-  color: var(--colors-brand);
+  color: var(--colors-neutral-50);
 
   transition:
     box-shadow 0.3s,
@@ -96,6 +96,23 @@
   &:disabled {
     border-color: var(--colors-brand-25);
     background-color: var(--colors-brand-25);
+  }
+}
+
+.variant__tertiary {
+  color: var(--colors-neutral-50);
+  border-radius: var(--border-radius-3);
+
+  border: 2px solid var(--color-background);
+  background: var(--colors-black);
+  box-shadow: 0px 0px 0px 2px #000;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  will-change: background-color box-shadow;
+
+  &:hover {
+    border: 2px solid #000;
+    background: #1d2939;
+    box-shadow: 0px 0px 0px 2px #fff;
   }
 }
 

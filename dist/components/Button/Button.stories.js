@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Text = exports.Success = exports.Danger = exports.Outline = exports.Secondary = exports.Default = void 0;
+exports.Text = exports.Success = exports.Danger = exports.Outline = exports.Tertiary = exports.Secondary = exports.Default = void 0;
 const index_1 = require("./index");
 const meta = {
     component: index_1.Button,
@@ -14,9 +14,16 @@ exports.Default = {
 };
 exports.Secondary = {
     args: {
-        name: "Button Ouline",
+        name: "Button Secondary",
         variant: "secondary",
         children: "Secondary",
+    },
+};
+exports.Tertiary = {
+    args: {
+        name: "Button Tertiary",
+        variant: "tertiary",
+        children: "Tertiary",
     },
 };
 exports.Outline = {
@@ -28,21 +35,21 @@ exports.Outline = {
 };
 exports.Danger = {
     args: {
-        name: "Button Ouline",
+        name: "Button Danger",
         variant: "danger",
         children: "Danger",
     },
 };
 exports.Success = {
     args: {
-        name: "Button Ouline",
+        name: "Button Success",
         variant: "success",
         children: "Success",
     },
 };
 exports.Text = {
     args: {
-        name: "Button Ouline",
+        name: "Button Text",
         variant: "text",
         children: "Text",
     },

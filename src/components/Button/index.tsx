@@ -3,11 +3,13 @@ import { ButtonHTMLAttributes, ReactNode } from 'react'
 import styles from './styles.module.scss'
 import variants from './variants.module.scss'
 
+export type TButtonVariants = 'primary' | 'text' | 'secondary' | 'tertiary' | 'outline' | 'success' | 'danger';
+
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   children: ReactNode
   disabled?: boolean
   loading?: boolean
-  variant?: 'primary' | 'text' | 'secondary' | 'outline' | 'success' | 'danger'
+  variant?: TButtonVariants
   size?: 'small' | 'medium' | 'large'
   className?: string
 }

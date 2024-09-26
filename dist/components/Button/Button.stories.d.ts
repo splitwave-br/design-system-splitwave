@@ -7,6 +7,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 export declare const Default: Story;
 export declare const Secondary: Story;
+export declare const Tertiary: Story;
 export declare const Outline: Story;
 export declare const Danger: Story;
 export declare const Success: Story;
