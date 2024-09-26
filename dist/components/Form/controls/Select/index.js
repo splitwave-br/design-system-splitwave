@@ -9,7 +9,7 @@ const jsx_runtime_1 = require("react/jsx-runtime");
 // import { Icon, TIcons } from '@/components/Icon';
 const react_1 = require("react");
 const styles_module_scss_1 = __importDefault(require("./styles.module.scss"));
-const concatStyles_1 = require("@/utils/concatStyles");
+const concatStyles_1 = require("../../../../utils/concatStyles");
 function Select({ className, 
 // suffix,
 options, getLabel, getValue, getId, placeholder = "Selecione", onChange, renderItem, value: defaultValue, ...props }) {
