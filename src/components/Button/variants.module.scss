@@ -11,23 +11,26 @@
     background-color 0.3s;
   will-change: box-shadow, background-color;
 
+  &:disabled {
+    cursor: not-allowed;
+    background: var(--colors-gray-300);
+    border-color: var(--colors-gray-300);
+    color: var(--colors-gray-400);
+  }
+
   &:hover:not(:disabled):not(:active) {
     border-color: 1px solid var(--colors-brand-700);
-    background-color: var(--colors-brand);
+    background-color: var(--colors-brand-700);
   }
 
   &:active:not(:disabled) {
-    border-color: var(--colors-brand);
-    background-color: var(--colors-brand);
+    background: var(--colors-gray-300);
+    border-color: var(--colors-gray-300);
+    color: var(--colors-gray-400);
 
     box-shadow:
       0px 0px 0px 4px #f4ebff,
       0px 1px 2px 0px rgba(16, 24, 40, 0.05);
-  }
-
-  &:disabled:not(.loading) {
-    border-color: 1px solid var(--colors-brand-800);
-    background: var(--colors-brand-800);
   }
 }
 
@@ -94,8 +97,10 @@
   }
 
   &:disabled {
-    border-color: var(--colors-brand-25);
-    background-color: var(--colors-brand-25);
+    cursor: not-allowed;
+    background: var(--colors-gray-300);
+    border-color: var(--colors-gray-300);
+    color: var(--colors-gray-400);
   }
 }
 
@@ -183,7 +188,7 @@
   will-change: box-shadow, background-color;
 
   &:hover:not(:disabled) {
-    background-color: var(--colors-brand);
+    background: var(--colors-gray-300);
 
     :global(.dark-theme) & {
       background-color: var(--colors-dark-gray-700);
@@ -197,7 +202,7 @@
   }
 
   &:disabled {
-    cursor: default;
+    cursor: not-allowed;
     background-color: var(--background);
   }
 }
