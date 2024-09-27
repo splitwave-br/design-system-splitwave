@@ -3,10 +3,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Field = void 0;
 const jsx_runtime_1 = require("react/jsx-runtime");
-const Input_1 = require("../../../../components/Form/controls/Input");
+const Input_1 = require("@/components/Form/controls/Input");
 const useFilter_1 = require("../../hooks/useFilter");
 const react_1 = require("react");
-const Form_1 = require("../../../../components/Form");
+const Form_1 = require("@/components/Form");
 const useFields_1 = require("../../hooks/useFields");
 const Field = ({ field, label, mask }) => {
     const { setFilter, getValue } = (0, useFilter_1.useFilterContext)();
