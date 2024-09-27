@@ -11,16 +11,14 @@ export interface TriggerProps extends ButtonProps {
 }
 
 const Trigger = forwardRef<HTMLButtonElement, TriggerProps>(
-  ({ children, isOpen, ...props }, ref) => {
+  ({ children, className, isOpen, ...props }, ref) => {
     if (typeof children === "function") {
       return children(props, ref);
     }
+
+    const triggerStyles = concatStyles([styles.wrapper, className]);
     return (
-      <button
-        ref={ref}
-        className={concatStyles([styles.wrapper, isOpen ? styles.isOpen : ""])}
-        {...props}
-      >
+      <button ref={ref} className={triggerStyles} {...props}>
         {children}
       </button>
     );
@@ -28,5 +26,4 @@ const Trigger = forwardRef<HTMLButtonElement, TriggerProps>(
 );
 
 Trigger.displayName = "Trigger";
-
 export default Trigger;
