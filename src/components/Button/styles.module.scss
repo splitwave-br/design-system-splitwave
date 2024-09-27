@@ -49,16 +49,16 @@
 }
 
 .size__small {
-  padding: 0 var(--spaces-1);
+  padding: 0 var(--spaces-2);
   height: var(--spaces-4);
 }
 
 .size__medium {
   padding: 0 var(--spaces-2);
-  height: var(--spaces-5);
+  height: var(--spaces-4);
 }
 
 .size__large {
-  padding: 0 var(--spaces-3);
+  padding: 0 var(--spaces-2);
   height: calc(var(--spaces-5) + var(--spaces-micro));
 }

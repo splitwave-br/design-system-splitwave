@@ -9,7 +9,7 @@ const react_1 = require("react");
 // import { Icon } from '@/components/Icon';
 const styles_module_scss_1 = __importDefault(require("./styles.module.scss"));
 const useFilter_1 = require("../../hooks/useFilter");
-const concatStyles_1 = require("../../../../utils/concatStyles");
+const concatStyles_1 = require("@/utils/concatStyles");
 const useFields_1 = require("../../hooks/useFields");
 exports.Button = (0, react_1.forwardRef)(({ children, isOpen, ...props }, ref) => {
     const { getIsActive } = (0, useFilter_1.useFilterContext)();
