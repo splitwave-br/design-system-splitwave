@@ -6,7 +6,7 @@ exports.useFilter = useFilter;
 exports.useFilterContext = useFilterContext;
 const jsx_runtime_1 = require("react/jsx-runtime");
 const react_1 = require("react");
-const get_1 = require("@/utils/get");
+const get_1 = require("../../../utils/get");
 function useFilter(config) {
     const [filter, setFilter] = (0, react_1.useState)({});
     // TODO: We can remove it after implement the filter on the backend
