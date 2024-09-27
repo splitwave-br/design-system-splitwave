@@ -3,9 +3,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Select = void 0;
 const jsx_runtime_1 = require("react/jsx-runtime");
-const Select_1 = require("@/components/Form/controls/Select");
+const Select_1 = require("../../../../components/Form/controls/Select");
 const useFilter_1 = require("../../hooks/useFilter");
-const Form_1 = require("@/components/Form");
+const Form_1 = require("../../../../components/Form");
 const useFields_1 = require("../../hooks/useFields");
 const react_1 = require("react");
 const Select = ({ getLabel, getValue: getValueOption, getId, field, label, options, className, }) => {
