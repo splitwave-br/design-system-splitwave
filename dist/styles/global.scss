@@ -237,6 +237,7 @@ body.dark-theme {
 
 * {
   -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
 }
 
 body > div {

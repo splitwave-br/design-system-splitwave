@@ -13,8 +13,14 @@ type TRenderItem = {
   onClick: (option: any) => any;
 };
 
-// TODO: Add icons
+const OPTION_WRAPPER_CLASSES = {
+  top: styles.optionsWrapperTop,
+  bottom: styles.optionsWrapperBottom,
+};
+
 export interface ISelect extends React.InputHTMLAttributes<HTMLInputElement> {
+  direction?: "top" | "bottom";
+  size?: 1 | 2;
   className?: string;
   value?: string;
   options: any[];
@@ -27,6 +33,8 @@ export interface ISelect extends React.InputHTMLAttributes<HTMLInputElement> {
   // suffix?: TIcons;
 }
 export function Select({
+  size = 2,
+  direction = "bottom",
   className,
   // suffix,
   options,
@@ -36,12 +44,19 @@ export function Select({
   placeholder = "Selecione",
   onChange,
   renderItem,
-  value: defaultValue,
+  value: _value,
   ...props
 }: ISelect) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState<any>(null);
-  const [value, setValue] = useState<string | undefined>(defaultValue);
+  const [value, setValue] = useState<string | undefined>(_value);
+
+  // Need to set the value when the prop changes to control the value by the parent
+  useEffect(() => {
+    if (_value) {
+      setValue(_value);
+    }
+  }, [_value]);
 
   const handleGetValue = useCallback(
     (option: any) => {
@@ -72,11 +87,14 @@ export function Select({
     }
   }, [value, options, handleGetValue, selectedOption]);
 
-  const handleOpenOptions = () => {
+  const handleOpenOptions = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation();
+
     if (!props.disabled) setIsOpen((prev) => !prev);
   };
 
   const handleClickWindow = useCallback(() => {
+    console.log("Click Window!");
     setIsOpen(false);
     document.removeEventListener("click", handleClickWindow);
   }, []);
@@ -96,16 +114,24 @@ export function Select({
     isOpen ? styles["wrapper-opened"] : "",
     isDisabled && styles.disabled,
   ].join(" ");
-  const selectClass = [styles.select, isDisabled && styles.disabled].join(" ");
+
+  const selectClass = [
+    styles.select,
+    isDisabled && styles.disabled,
+    styles[`select-size-${size}`],
+  ].join(" ");
+
   const selectedValueClass = [
     styles.selected_value,
     isDisabled && styles.disabled,
   ].join(" ");
 
+  const optionWrapperClass = OPTION_WRAPPER_CLASSES[direction];
+
   return (
     <div className={wrapperClass} onClick={handleOpenOptions}>
       <div className={selectClass}>
-        {/* <Icon name='chevron-down' size={1} /> */}
+        {/* <Icon name='chevron-down' size={2} /> */}
         {selectedOption ? (
           <span className={selectedValueClass}>{getLabel(selectedOption)}</span>
         ) : (
@@ -113,14 +139,14 @@ export function Select({
         )}
       </div>
       {isOpen && (
-        <div className={styles.optionsWrapper}>
+        <div className={optionWrapperClass}>
           {!!options.length ? (
             options.map((option: any) => {
               const isSelected =
                 handleGetValue(option) === handleGetValue(selectedOption);
               const className = concatStyles([
                 styles.option,
-                isSelected ? styles.optionSelected : "",
+                isSelected && styles.optionSelected,
               ]);
               const onClick = () => handleSelect(option);
 
