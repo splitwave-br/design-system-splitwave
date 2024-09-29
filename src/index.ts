@@ -17,3 +17,7 @@ export {
   useFilter,
 } from "./components/Filter/hooks/useFilter";
 export { useFilterFields } from "./components/Filter/hooks/useFields";
+
+// Table
+export { Table, Cell, Header } from "./components/Table";
+
