@@ -1,0 +1,58 @@
+import { Canvas, Meta, Controls } from "@storybook/blocks";
+import { Table } from ".";
+import * as TableStories from "./Table.stories";
+
+<Meta of={TableStories} title="Table" />
+
+# Table
+
+O componente `Table` é usado para criar tabelas personalizáveis.
+
+```tsx
+    import { Table, Header, Cell } from "design-system/Table"
+
+    function Component() {
+        return (
+            <Table<TData>
+                data={[
+                    { id: "1", name: "Lucas Costa Amaral", email: "lucas@splitwave.com.br" },
+                    { id: "2", name: "Thiago Nunes", email: "thiago@splitwave.com.br" },
+                    { id: "3", name: "Eduardo Souto", email: "eduardo@splitwave.com.br" },
+                    { id: "4", name: "Erika Nishimura", email: "erika@splitwave.com.br" },
+                ]}
+                renderHeader={() => (
+                    <>
+                        <Header width="80px">#</Header>
+                        <Header>Nome</Header>
+                        <Header>E-mail</Header>
+                    </>
+                )}
+                renderRow={({ date, name, price, status }) => (
+                    <>
+                        <Cell.Text>{item.id}</Cell.Text>
+                        <Cell.Text>{item.name}</Cell.Text>
+                        <Cell.Text>{item.email}</Cell.Text>
+                    </>
+                )}
+            />
+        )
+    }
+```
+
+### Tabela básica
+
+<Canvas of={TableStories.Basic} />
+
+### Tabela com campos personalizados
+
+<Canvas of={TableStories.TableWithCustomFields} />
+
+### Table com ações
+
+<Canvas of={TableStories.TableWithActions} />
+
+### Table com paginação
+
+<Canvas of={TableStories.TableWithPages} />
+
+<Controls />

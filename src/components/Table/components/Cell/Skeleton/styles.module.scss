@@ -1,0 +1,16 @@
+.wrapper {
+  position: relative;
+
+  > span {
+    background-color: var(--table-border-color);
+    position: absolute;
+    top: 50%;
+    left: var(--spaces-2);
+    transform: translateY(-50%);
+    
+    width: 70%;
+    height: var(--spaces-3);
+
+    border-radius: var(--border-radius-2);
+  }
+}

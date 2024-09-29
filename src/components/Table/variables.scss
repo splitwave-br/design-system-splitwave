@@ -1,0 +1,38 @@
+:root {
+  --table-font-size: var(--font-size-3);
+  --table-border-radius: var(--border-radius-3);
+
+  --table-spacing: var(--spaces-2) var(--spaces-3);
+
+  --table-header-spacing: var(--spaces-nano) var(--spaces-3);
+  --table-header-height: var(--spaces-5);
+
+  --table-price-positive-color: var(--colors-success-400);
+  --table-price-negative-color: var(--colors-error-500);
+}
+
+.light-theme {
+  --table-text-color-primary: var(--colors-gray-900);
+  --table-text-color-secondary: var(--colors-dark-gray-500);
+
+  --table-border-color: var(--colors-gray-200);
+  --table-pagination-background: var(--colors-brand-300);
+  --table-pagination-active-text: var(--colors-brand-700);
+  --table-header-background: var(--colors-gray-100);
+  --table-header-color: var(--colors-dark-gray-500);
+  --table-footer-background: var(--colors-gray-200);
+  --table-cell-background: #fff;
+}
+
+.dark-theme {
+  --table-text-color-primary: #fff;
+  --table-text-color-secondary: var(--colors-dark-gray-500);
+
+  --table-border-color: var(--colors-dark-gray-700);
+  --table-pagination-background: var(--colors-brand-700);
+  --table-pagination-active-text: var(--colors-brand-300);
+  --table-header-background: var(--colors-dark-gray-800);
+  --table-header-color: var(--colors-dark-gray-500);
+  --table-footer-background: var(--colors-dark-gray-800);
+  --table-cell-background: var(--colors-dark-gray-900);
+}
