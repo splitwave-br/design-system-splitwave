@@ -5,7 +5,7 @@ export type { TButtonVariants } from "./components/Button";
 
 // Badge
 export { Badge } from "./components/Badge";
-export type { TVariant } from "./components/Badge";
+export type { TVariant, TBadge } from "./components/Badge";
 
 // Dropdown
 export { Dropdown } from "./components/Dropdown";
