@@ -1,5 +1,4 @@
 "use strict";
-"use client";
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -11,17 +10,18 @@ const styles_module_scss_1 = __importDefault(require("./styles.module.scss"));
 const useFilter_1 = require("../../hooks/useFilter");
 const concatStyles_1 = require("../../../../utils/concatStyles");
 const useFields_1 = require("../../hooks/useFields");
-exports.Content = (0, react_1.forwardRef)(({ children, className, onClose, ...props }, ref) => {
+exports.Content = (0, react_1.forwardRef)(({ hasClear = true, children, className, onClose, ...props }, ref) => {
     const { clean } = (0, useFilter_1.useFilterContext)();
     const { fields } = (0, useFields_1.useFilterFields)();
-    const contentStyles = (0, concatStyles_1.concatStyles)([styles_module_scss_1.default.content, className]);
-    return ((0, jsx_runtime_1.jsxs)("div", { ref: ref, onClick: (e) => e.stopPropagation(), onKeyDown: (e) => {
+    return ((0, jsx_runtime_1.jsxs)("div", { ref: ref, onClick: (e) => {
+            e.stopPropagation();
+        }, onKeyDown: (e) => {
             if (e.key === "Escape" || e.key === "Enter") {
                 onClose?.();
             }
-        }, className: contentStyles, ...props, children: [children, (0, jsx_runtime_1.jsx)("span", { onClick: () => {
+        }, className: (0, concatStyles_1.concatStyles)([styles_module_scss_1.default.content, className]), ...props, children: [children, hasClear && ((0, jsx_runtime_1.jsx)("span", { onClick: () => {
                     clean(fields);
                     onClose?.();
-                }, className: styles_module_scss_1.default.clean, children: "Limpar" })] }));
+                }, className: styles_module_scss_1.default.clean, children: "Limpar" }))] }));
 });
 exports.Content.displayName = "Menu";

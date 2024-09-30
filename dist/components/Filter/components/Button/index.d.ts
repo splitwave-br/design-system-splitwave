@@ -1,4 +1,6 @@
+import { ElementType } from "react";
 type TButton = {
+    icon?: ElementType;
     children: React.ReactNode;
     isOpen?: boolean;
 };

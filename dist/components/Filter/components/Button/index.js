@@ -11,12 +11,12 @@ const styles_module_scss_1 = __importDefault(require("./styles.module.scss"));
 const useFilter_1 = require("../../hooks/useFilter");
 const concatStyles_1 = require("../../../../utils/concatStyles");
 const useFields_1 = require("../../hooks/useFields");
-exports.Button = (0, react_1.forwardRef)(({ children, isOpen, ...props }, ref) => {
+exports.Button = (0, react_1.forwardRef)(({ icon: IconCustom, children, isOpen, ...props }, ref) => {
     const { getIsActive } = (0, useFilter_1.useFilterContext)();
     const { fields } = (0, useFields_1.useFilterFields)();
-    return ((0, jsx_runtime_1.jsx)("button", { ...props, ref: ref, className: (0, concatStyles_1.concatStyles)([
+    return ((0, jsx_runtime_1.jsxs)("button", { ...props, ref: ref, className: (0, concatStyles_1.concatStyles)([
             styles_module_scss_1.default.button,
             getIsActive(fields) ? styles_module_scss_1.default.active : "",
-        ]), children: children }));
+        ]), children: [children, IconCustom ? (0, jsx_runtime_1.jsx)(IconCustom, {}) : null] }));
 });
 exports.Button.displayName = "Trigger";

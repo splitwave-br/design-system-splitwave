@@ -4,6 +4,7 @@ import { Field } from "@/components/Filter/components/Field";
 import { Select } from "@/components/Filter/components/Select";
 import { Content } from "@/components/Filter/components/Content";
 import { Wrapper } from "@/components/Filter/components/Wrapper";
+import { Sort } from "./components/Sort";
 
 export const Filter = {
   Container,
@@ -12,4 +13,5 @@ export const Filter = {
   Select,
   Content,
   Wrapper,
+  Sort,
 };

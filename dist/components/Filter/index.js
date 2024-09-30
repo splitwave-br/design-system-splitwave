@@ -7,6 +7,7 @@ const Field_1 = require("../../components/Filter/components/Field");
 const Select_1 = require("../../components/Filter/components/Select");
 const Content_1 = require("../../components/Filter/components/Content");
 const Wrapper_1 = require("../../components/Filter/components/Wrapper");
+const Sort_1 = require("./components/Sort");
 exports.Filter = {
     Container: Container_1.Container,
     Button: Button_1.Button,
@@ -14,4 +15,5 @@ exports.Filter = {
     Select: Select_1.Select,
     Content: Content_1.Content,
     Wrapper: Wrapper_1.Wrapper,
+    Sort: Sort_1.Sort,
 };
