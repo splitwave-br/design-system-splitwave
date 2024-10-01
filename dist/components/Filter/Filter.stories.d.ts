@@ -3,3 +3,4 @@ declare const _default: Meta;
 export default _default;
 export declare const Basic: StoryFn;
 export declare const FilterWithSelect: StoryFn;
+export declare const SortFilter: StoryFn;

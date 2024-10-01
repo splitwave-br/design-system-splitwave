@@ -1,4 +1,4 @@
-import { ForwardedRef, forwardRef } from "react";
+import { ElementType, ForwardedRef, forwardRef } from "react";
 // import { Icon } from '@/components/Icon';
 import styles from "./styles.module.scss";
 import { useFilterContext } from "../../hooks/useFilter";
@@ -6,11 +6,12 @@ import { concatStyles } from "@/utils/concatStyles";
 import { useFilterFields } from "../../hooks/useFields";
 
 type TButton = {
+  icon?: ElementType;
   children: React.ReactNode;
   isOpen?: boolean;
 };
 export const Button = forwardRef<HTMLButtonElement, TButton>(
-  ({ children, isOpen, ...props }, ref) => {
+  ({ icon: IconCustom, children, isOpen, ...props }, ref) => {
     const { getIsActive } = useFilterContext();
     const { fields } = useFilterFields();
 
@@ -24,7 +25,11 @@ export const Button = forwardRef<HTMLButtonElement, TButton>(
         ])}
       >
         {children}
-        {/* TODO: Add icon */}
+        {IconCustom ? <IconCustom /> : null}
+
+        {/* TODO: Add chevron icon */}
+        {/* {IconCustom ? <IconCustom /> : <Icon name='chevron-down' size={1} />} */}
+
         {/* <Icon name='chevron-down' size={1} /> */}
       </button>
     );

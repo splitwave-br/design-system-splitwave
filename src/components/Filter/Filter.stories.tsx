@@ -58,3 +58,45 @@ export const FilterWithSelect: StoryFn = () => {
     </Filter.Container>
   );
 };
+
+export const SortFilter: StoryFn = () => {
+  return (
+    <Filter.Container>
+      <Filter.Button
+      // TODO: Add sort icon
+      // icon={() => <Icon name="sort" size={1} />}
+      >
+        Ordem
+      </Filter.Button>
+      <Filter.Sort
+        getLabel={(item) => item.label}
+        getValue={(item) => item.value}
+        field={"orderByField"}
+        options={[
+          { label: "Alfabética", value: "client-asc" },
+          "divider",
+          { label: "Total em vendas (crescente)", value: "totalSales-asc" },
+          {
+            label: "Total em vendas (decrescente)",
+            value: "totalSales-desc",
+          },
+          "divider",
+          {
+            label: "Lucro do gateway (crescente)",
+            value: "profitGateway-asc",
+          },
+          {
+            label: "Lucro do gateway (decrescente)",
+            value: "profitGateway-desc",
+          },
+          "divider",
+          { label: "Reserva financeira (crescente)", value: "reserve-asc" },
+          {
+            label: "Reserva financeira (decrescente)",
+            value: "reserve-desc",
+          },
+        ]}
+      />
+    </Filter.Container>
+  );
+};

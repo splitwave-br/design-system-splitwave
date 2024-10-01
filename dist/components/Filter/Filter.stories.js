@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.FilterWithSelect = exports.Basic = void 0;
+exports.SortFilter = exports.FilterWithSelect = exports.Basic = void 0;
 const jsx_runtime_1 = require("react/jsx-runtime");
 const _1 = require(".");
 const useFilter_1 = require("./hooks/useFilter");
@@ -34,3 +34,33 @@ const FilterWithSelect = () => {
     return ((0, jsx_runtime_1.jsxs)(_1.Filter.Container, { children: [(0, jsx_runtime_1.jsx)(_1.Filter.Button, { children: "Permiss\u00E3o" }), (0, jsx_runtime_1.jsx)(_1.Filter.Content, { children: (0, jsx_runtime_1.jsx)(_1.Filter.Select, { label: "Permiss\u00E3o", getLabel: (item) => item.label, getValue: (item) => item.value, field: "role", options: ROLES }) })] }));
 };
 exports.FilterWithSelect = FilterWithSelect;
+const SortFilter = () => {
+    return ((0, jsx_runtime_1.jsxs)(_1.Filter.Container, { children: [(0, jsx_runtime_1.jsx)(_1.Filter.Button
+            // TODO: Add sort icon
+            // icon={() => <Icon name="sort" size={1} />}
+            , { children: "Ordem" }), (0, jsx_runtime_1.jsx)(_1.Filter.Sort, { getLabel: (item) => item.label, getValue: (item) => item.value, field: "orderByField", options: [
+                    { label: "Alfabética", value: "client-asc" },
+                    "divider",
+                    { label: "Total em vendas (crescente)", value: "totalSales-asc" },
+                    {
+                        label: "Total em vendas (decrescente)",
+                        value: "totalSales-desc",
+                    },
+                    "divider",
+                    {
+                        label: "Lucro do gateway (crescente)",
+                        value: "profitGateway-asc",
+                    },
+                    {
+                        label: "Lucro do gateway (decrescente)",
+                        value: "profitGateway-desc",
+                    },
+                    "divider",
+                    { label: "Reserva financeira (crescente)", value: "reserve-asc" },
+                    {
+                        label: "Reserva financeira (decrescente)",
+                        value: "reserve-desc",
+                    },
+                ] })] }));
+};
+exports.SortFilter = SortFilter;
