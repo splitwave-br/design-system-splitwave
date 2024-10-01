@@ -6,7 +6,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Select = Select;
 const jsx_runtime_1 = require("react/jsx-runtime");
-// import { Icon, TIcons } from '@/components/Icon';
+// import { Icon, TIcons } from '../../../../components/Icon';
 const react_1 = require("react");
 const styles_module_scss_1 = __importDefault(require("./styles.module.scss"));
 const concatStyles_1 = require("../../../../utils/concatStyles");

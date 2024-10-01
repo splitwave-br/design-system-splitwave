@@ -7,7 +7,7 @@ exports.Pagination = void 0;
 const jsx_runtime_1 = require("react/jsx-runtime");
 const styles_module_scss_1 = __importDefault(require("./styles.module.scss"));
 // import classnames from 'classnames';
-// import { Icon } from '@/components/Icon';
+// import { Icon } from '../../../../components/Icon';
 const react_1 = require("react");
 const Select_1 = require("../../../../components/Form/controls/Select");
 const Pagination = ({ totalPages, handleClickOnPage, handleClickPrevPage, handleClickNextPage, currentPage, }) => {

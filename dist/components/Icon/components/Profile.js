@@ -1,0 +1,7 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const jsx_runtime_1 = require("react/jsx-runtime");
+const Profile = () => {
+    return ((0, jsx_runtime_1.jsxs)("svg", { xmlns: 'http://www.w3.org/2000/svg', width: '24', height: '24', viewBox: '0 0 24 24', fill: 'none', children: [(0, jsx_runtime_1.jsx)("path", { d: 'M2.5 12C2.5 7.52166 2.5 5.28249 3.89124 3.89124C5.28249 2.5 7.52166 2.5 12 2.5C16.4783 2.5 18.7175 2.5 20.1088 3.89124C21.5 5.28249 21.5 7.52166 21.5 12C21.5 16.4783 21.5 18.7175 20.1088 20.1088C18.7175 21.5 16.4783 21.5 12 21.5C7.52166 21.5 5.28249 21.5 3.89124 20.1088C2.5 18.7175 2.5 16.4783 2.5 12Z', stroke: 'currentColor', strokeWidth: '1.5' }), (0, jsx_runtime_1.jsx)("path", { d: 'M11 7H17', stroke: 'currentColor', strokeWidth: '1.5', strokeLinecap: 'round' }), (0, jsx_runtime_1.jsx)("path", { d: 'M7 7H8', stroke: 'currentColor', strokeWidth: '1.5', strokeLinecap: 'round' }), (0, jsx_runtime_1.jsx)("path", { d: 'M7 12H8', stroke: 'currentColor', strokeWidth: '1.5', strokeLinecap: 'round' }), (0, jsx_runtime_1.jsx)("path", { d: 'M7 17H8', stroke: 'currentColor', strokeWidth: '1.5', strokeLinecap: 'round' }), (0, jsx_runtime_1.jsx)("path", { d: 'M11 12H17', stroke: 'currentColor', strokeWidth: '1.5', strokeLinecap: 'round' }), (0, jsx_runtime_1.jsx)("path", { d: 'M11 17H17', stroke: 'currentColor', strokeWidth: '1.5', strokeLinecap: 'round' })] }));
+};
+exports.default = Profile;

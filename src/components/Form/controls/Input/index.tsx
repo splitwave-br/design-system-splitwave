@@ -1,12 +1,11 @@
 "use client";
-// import { Icon, TIcons } from "@/components/Icon";
+import { Icon, TIcons } from "@/components/Icon";
 import styles from "./styles.module.scss";
 import { ForwardedRef, forwardRef, useState } from "react";
 
-// TODO: Add icons
 export interface IInput extends React.InputHTMLAttributes<HTMLInputElement> {
-  // prefix?: TIcons;
-  // suffix?: TIcons;
+  prefix?: TIcons;
+  suffix?: TIcons;
   textPrefix?: string;
   textSuffix?: string;
   hasError?: boolean;
@@ -17,8 +16,8 @@ export const InputWithRef = (
   {
     textPrefix,
     textSuffix,
-    // prefix,
-    // suffix,
+    prefix,
+    suffix,
     hasError,
     onFocus,
     onBlur,
@@ -43,8 +42,8 @@ export const InputWithRef = (
     props.className,
     styles.input,
     props.disabled ? styles.disabled : "",
-    // prefix ? styles.prefix : "",
-    // suffix ? styles.suffix : "",
+    prefix ? styles.prefix : "",
+    suffix ? styles.suffix : "",
     textSuffix ? styles.textSuffix : "",
     textPrefix ? styles.textPrefix : "",
   ].join(" ");
@@ -61,7 +60,7 @@ export const InputWithRef = (
   return (
     <div className={wrapperClassName}>
       {textPrefix && <span className={styles.text__prefix}>{textPrefix}</span>}
-      {/* {prefix && <Icon name={prefix} size={"micro"} />} */}
+      {prefix && <Icon name={prefix} size={"micro"} />}
       <input
         ref={ref}
         {...props}
@@ -71,7 +70,7 @@ export const InputWithRef = (
         onBlur={handleBlur}
         className={className}
       />
-      {/* {suffix && <Icon name={suffix} size={"micro"} />} */}
+      {suffix && <Icon name={suffix} size={"micro"} />}
       {textSuffix && <span className={styles.text__sufix}>{textSuffix}</span>}
     </div>
   );
