@@ -27,7 +27,8 @@ jobs:
         with:
           release-type: node
           target-branch: dev
-          prerelease: true
+          versioning-strategy: "prerelease"
+          package-name: design-system
 
       - name: Create Release
         if: steps.release.outputs.release_created == 'true'
