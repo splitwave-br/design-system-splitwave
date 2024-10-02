@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.3.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.2.0...v1.3.0) (2024-10-02)
+
+
+### Features
+
+* **pre-release:** Fix pre release not working ([7134c89](https://github.com/splitwave-br/design-system-splitwave/commit/7134c8908e45640fda715ce64e9671eef9f89584))
+
+## [1.2.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.1.0...v1.2.0) (2024-10-02)
+
+
+### Features
+
+* **pre-release:** Add pre release support ([94820b3](https://github.com/splitwave-br/design-system-splitwave/commit/94820b37481e5b183d3c03e49fc8128942cf8143))
+
 ## [1.1.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.0.1...v1.1.0) (2024-10-02)
 
 

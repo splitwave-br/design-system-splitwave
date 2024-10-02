@@ -1,9 +1,9 @@
-name: Release Please
+name: Release Main
 
 on:
   push:
     branches:
-      - dev
+      - main
 
 jobs:
   release:
@@ -19,14 +19,14 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "16"
+          node-version: "18"
 
-      - name: Release
+      - name: Release Please
         id: release
         uses: googleapis/release-please-action@v4
         with:
           release-type: node
-          package-name: design-system
+          target-branch: main
 
       - name: Create Release
         if: steps.release.outputs.release_created == 'true'
