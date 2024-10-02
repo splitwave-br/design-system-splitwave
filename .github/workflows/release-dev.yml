@@ -1,4 +1,4 @@
-name: Release Please
+name: Release Dev
 
 on:
   push:
@@ -19,14 +19,15 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "16"
+          node-version: "18"
 
-      - name: Release
+      - name: Release Please
         id: release
         uses: googleapis/release-please-action@v4
         with:
           release-type: node
-          package-name: design-system
+          target-branch: dev
+          prerelease: true
 
       - name: Create Release
         if: steps.release.outputs.release_created == 'true'
@@ -36,6 +37,6 @@ jobs:
           release_name: ${{ steps.release.outputs.tag_name }}
           body: ${{ steps.release.outputs.changelog }}
           draft: false
-          prerelease: false
+          prerelease: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
