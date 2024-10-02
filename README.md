@@ -23,6 +23,7 @@ component__
    ```bash
    npm install github:splitwave-br/design-system-splitwave#your-branch-name
 - Quando estiver satisfeito com suas alterações, crie uma solicitação pull para mesclar seu branch com o dev.
+- Atualize a main para geração automática de versionamento
 ## Using the lib
 
 To instal the lib in your project run:
