@@ -27,10 +27,7 @@ export const Button = forwardRef<HTMLButtonElement, TButton>(
       >
         {children}
         {IconCustom ? <IconCustom /> : null}
-
         {IconCustom ? <IconCustom /> : <Icon name='chevron-down' size={1} />}
-
-        <Icon name='chevron-down' size={1} />
       </button>
     );
   },
