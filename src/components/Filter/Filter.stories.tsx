@@ -1,6 +1,7 @@
 import { Meta, StoryFn } from "@storybook/react";
 import { Filter } from ".";
 import { useFilter, useFilterContext } from "./hooks/useFilter";
+import { Icon } from "../Icon";
 
 export default {
   title: "Components/Filter",
@@ -63,8 +64,7 @@ export const SortFilter: StoryFn = () => {
   return (
     <Filter.Container>
       <Filter.Button
-      // TODO: Add sort icon
-      // icon={() => <Icon name="sort" size={1} />}
+      icon={() => <Icon name="sort" size={1} />}
       >
         Ordem
       </Filter.Button>

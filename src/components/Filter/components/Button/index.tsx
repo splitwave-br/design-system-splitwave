@@ -4,6 +4,7 @@ import styles from "./styles.module.scss";
 import { useFilterContext } from "../../hooks/useFilter";
 import { concatStyles } from "@/utils/concatStyles";
 import { useFilterFields } from "../../hooks/useFields";
+import { Icon } from "@/components/Icon";
 
 type TButton = {
   icon?: ElementType;
@@ -26,11 +27,7 @@ export const Button = forwardRef<HTMLButtonElement, TButton>(
       >
         {children}
         {IconCustom ? <IconCustom /> : null}
-
-        {/* TODO: Add chevron icon */}
-        {/* {IconCustom ? <IconCustom /> : <Icon name='chevron-down' size={1} />} */}
-
-        {/* <Icon name='chevron-down' size={1} /> */}
+        {IconCustom ? <IconCustom /> : <Icon name='chevron-down' size={1} />}
       </button>
     );
   },
