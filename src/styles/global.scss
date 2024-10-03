@@ -1,4 +1,4 @@
-@import './tailwind-theme.scss';
+@import "./tailwind-theme.scss";
 
 :root {
   --root-font-size: 10px;
@@ -253,4 +253,10 @@ body > div {
 
 input::placeholder {
   color: var(--color-placeholder);
+}
+
+figure {
+  margin: 0;
+  padding: 0;
+  display: inline;
 }

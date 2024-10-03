@@ -107,7 +107,6 @@ const Container = ({ children, className }) => {
     }, [menuChild]);
     if (isEmpty)
         return null;
-    console.log(isOpen);
     return ((0, jsx_runtime_1.jsxs)("div", { className: containerStyles, children: [triggerChild &&
                 (0, react_1.cloneElement)(triggerChild, {
                     onClick: handleToggle,

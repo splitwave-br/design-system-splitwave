@@ -21,3 +21,5 @@ export { useFilterFields } from "./components/Filter/hooks/useFields";
 // Table
 export { Table, Cell, Header } from "./components/Table";
 
+// Icon
+export { Icon, TIconSizes, TIcons } from './components/Icon'

@@ -148,7 +148,7 @@ export const Container = ({ children, className }: TDropdown) => {
   }, [menuChild]);
 
   if (isEmpty) return null;
-  console.log(isOpen);
+
   return (
     <div className={containerStyles}>
       {triggerChild &&
