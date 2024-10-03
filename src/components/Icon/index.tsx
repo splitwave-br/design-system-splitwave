@@ -52,6 +52,7 @@ import Lock from './components/Lock';
 import Logout from './components/Logout';
 import Menu from './components/Menu';
 import { MoneyBag } from './components/MoneyBag'
+import MoneyDown from './components/MoneyDown'
 import MoneyExchange from './components/MoneyExchange';
 import { MoneySend } from './components/MoneySend';
 import MoneyUp from './components/MoneyUp';
@@ -144,6 +145,7 @@ const icons = {
   logout: Logout,
   menu: Menu,
   'money-bag': MoneyBag,
+  'money-down': MoneyDown,
   'money-exchange': MoneyExchange,
   'money-send': MoneySend,
   'money-up': MoneyUp,

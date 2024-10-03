@@ -86,6 +86,7 @@ declare const icons: {
     logout: () => import("react/jsx-runtime").JSX.Element;
     menu: () => import("react/jsx-runtime").JSX.Element;
     'money-bag': typeof MoneyBag;
+    'money-down': () => import("react/jsx-runtime").JSX.Element;
     'money-exchange': () => import("react/jsx-runtime").JSX.Element;
     'money-send': typeof MoneySend;
     'money-up': () => import("react/jsx-runtime").JSX.Element;
