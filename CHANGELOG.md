@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.3.0...v1.3.1) (2024-10-03)
+
+
+### Bug Fixes
+
+* **#18:** Fix missing Icon export ([906b443](https://github.com/splitwave-br/design-system-splitwave/commit/906b443b3c32ff2298581a4a5bd0d895585bbec1))
+* **icon:** Fix figure default margin, remove log and remove filter button duplicated icon ([010d7c8](https://github.com/splitwave-br/design-system-splitwave/commit/010d7c84ffdbffb8d1387369eae972e9d419352f))
+
 ## [1.3.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.2.0...v1.3.0) (2024-10-02)
 
 
