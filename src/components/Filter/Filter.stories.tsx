@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from "@storybook/react";
 import { Filter } from ".";
-import { useFilter, useFilterContext } from "./hooks/useFilter";
+import { useFilter } from "./hooks/useFilter";
 import { Icon } from "../Icon";
 
 export default {
@@ -60,12 +60,32 @@ export const FilterWithSelect: StoryFn = () => {
   );
 };
 
+export const FilterWithCheckboxes: StoryFn = () => {
+  const PAYMENT_METHODS = [
+    { label: "Pago", id: "PAGO" },
+    {
+      id: "PENDENTE",
+      label: "Pendente",
+    },
+  ];
+
+  return (
+    <Filter.Container>
+      <Filter.Button>Status</Filter.Button>
+      <Filter.Check
+        getLabel={(option) => option.label}
+        getValue={(option) => option.id}
+        field="paymentMethod"
+        options={PAYMENT_METHODS}
+      />
+    </Filter.Container>
+  );
+};
+
 export const SortFilter: StoryFn = () => {
   return (
     <Filter.Container>
-      <Filter.Button
-      icon={() => <Icon name="sort" size={1} />}
-      >
+      <Filter.Button icon={() => <Icon name="sort" size={1} />}>
         Ordem
       </Filter.Button>
       <Filter.Sort

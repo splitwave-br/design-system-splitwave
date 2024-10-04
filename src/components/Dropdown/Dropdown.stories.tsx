@@ -1,3 +1,5 @@
+import React from "react";
+
 import { Dropdown } from ".";
 import { Meta, StoryFn, StoryObj } from "@storybook/react";
 import { TriggerProps } from "./Trigger";
