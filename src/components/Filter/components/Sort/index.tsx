@@ -45,7 +45,7 @@ export const Sort = forwardRef<HTMLDivElement, TSelect>(
     }, [field, registerField]);
 
     return (
-      <Filter.Content hasClear={false} ref={ref} className={styles.sort}>
+      <Filter.Content spacing={"sm"} hasClear={false} ref={ref}>
         {options.map((option: any, index: number) => {
           const value = getValueOption(option);
 

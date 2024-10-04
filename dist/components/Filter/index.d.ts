@@ -26,8 +26,16 @@ export declare const Filter: {
         className?: string;
         onClose?: () => void;
         hasClear?: boolean;
+        spacing?: "default" | "sm";
     } & import("react").RefAttributes<HTMLDivElement>>;
     Wrapper: ({ children, register }: import("./hooks/useFilter").IFilterProviderProps) => import("react/jsx-runtime").JSX.Element;
+    Check: import("react").ForwardRefExoticComponent<{
+        field: string;
+        options: any[];
+        getLabel: (option: any) => string;
+        getValue: (option: any) => string;
+        getId?: (option: any) => string;
+    } & import("react").RefAttributes<HTMLInputElement>>;
     Sort: import("react").ForwardRefExoticComponent<{
         getLabel: (option: any) => string;
         getValue: (option: any) => string;

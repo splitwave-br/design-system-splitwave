@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from "@storybook/react";
 import { Filter } from ".";
-import { useFilter, useFilterContext } from "./hooks/useFilter";
+import { useFilter } from "./hooks/useFilter";
 import { Icon } from "../Icon";
 
 export default {
@@ -60,12 +60,63 @@ export const FilterWithSelect: StoryFn = () => {
   );
 };
 
+export const FilterWithCheckboxes: StoryFn = () => {
+  const Status = [
+    { label: "Alfabética", id: "client-asc" },
+    "divider",
+    { label: "Total em vendas (crescente)", id: "totalSales-asc" },
+    {
+      label: "Total em vendas (decrescente)",
+      id: "totalSales-desc",
+    },
+    "divider",
+    {
+      label: "Lucro do gateway (crescente)",
+      id: "profitGateway-asc",
+    },
+    {
+      label: "Lucro do gateway (decrescente)",
+      id: "profitGateway-desc",
+    },
+    "divider",
+    { label: "Reserva financeira (crescente)", id: "reserve-asc" },
+    {
+      label: "Reserva financeira (decrescente)",
+      id: "reserve-desc",
+    },
+    {
+      label: "Lucro do gateway (crescente)",
+      id: "profitGateway-asc",
+    },
+    {
+      label: "Lucro do gateway (decrescente)",
+      id: "profitGateway-desc",
+    },
+    "divider",
+    { label: "Reserva financeira (crescente)", id: "reserve-asc" },
+    {
+      label: "Reserva financeira (decrescente)",
+      id: "reserve-desc",
+    },
+  ];
+
+  return (
+    <Filter.Container>
+      <Filter.Button>Status</Filter.Button>
+      <Filter.Check
+        getLabel={(option) => option.label}
+        getValue={(option) => option.id}
+        field="status"
+        options={Status}
+      />
+    </Filter.Container>
+  );
+};
+
 export const SortFilter: StoryFn = () => {
   return (
     <Filter.Container>
-      <Filter.Button
-      icon={() => <Icon name="sort" size={1} />}
-      >
+      <Filter.Button icon={() => <Icon name="sort" size={1} />}>
         Ordem
       </Filter.Button>
       <Filter.Sort

@@ -9,13 +9,29 @@ type TContentProps = {
   className?: string;
   onClose?: () => void;
   hasClear?: boolean;
+  spacing?: "default" | "sm";
 };
 
 export const Content = forwardRef<HTMLDivElement, TContentProps>(
-  ({ hasClear = true, children, className, onClose, ...props }, ref) => {
+  (
+    {
+      hasClear = true,
+      spacing = "default",
+      children,
+      className,
+      onClose,
+      ...props
+    },
+    ref,
+  ) => {
     const { clean } = useFilterContext();
     const { fields } = useFilterFields();
 
+    const contentStyles = concatStyles([
+      styles.content,
+      styles[`spacing__${spacing}`],
+      className,
+    ]);
     return (
       <div
         ref={ref}
@@ -27,7 +43,7 @@ export const Content = forwardRef<HTMLDivElement, TContentProps>(
             onClose?.();
           }
         }}
-        className={concatStyles([styles.content, className])}
+        className={contentStyles}
         {...props}
       >
         {children}
