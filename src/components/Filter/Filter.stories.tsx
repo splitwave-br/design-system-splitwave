@@ -61,42 +61,11 @@ export const FilterWithSelect: StoryFn = () => {
 };
 
 export const FilterWithCheckboxes: StoryFn = () => {
-  const Status = [
-    { label: "Alfabética", id: "client-asc" },
-    "divider",
-    { label: "Total em vendas (crescente)", id: "totalSales-asc" },
+  const PAYMENT_METHODS = [
+    { label: "Pago", id: "PAGO" },
     {
-      label: "Total em vendas (decrescente)",
-      id: "totalSales-desc",
-    },
-    "divider",
-    {
-      label: "Lucro do gateway (crescente)",
-      id: "profitGateway-asc",
-    },
-    {
-      label: "Lucro do gateway (decrescente)",
-      id: "profitGateway-desc",
-    },
-    "divider",
-    { label: "Reserva financeira (crescente)", id: "reserve-asc" },
-    {
-      label: "Reserva financeira (decrescente)",
-      id: "reserve-desc",
-    },
-    {
-      label: "Lucro do gateway (crescente)",
-      id: "profitGateway-asc",
-    },
-    {
-      label: "Lucro do gateway (decrescente)",
-      id: "profitGateway-desc",
-    },
-    "divider",
-    { label: "Reserva financeira (crescente)", id: "reserve-asc" },
-    {
-      label: "Reserva financeira (decrescente)",
-      id: "reserve-desc",
+      id: "PENDENTE",
+      label: "Pendente",
     },
   ];
 
@@ -106,8 +75,8 @@ export const FilterWithCheckboxes: StoryFn = () => {
       <Filter.Check
         getLabel={(option) => option.label}
         getValue={(option) => option.id}
-        field="status"
-        options={Status}
+        field="paymentMethod"
+        options={PAYMENT_METHODS}
       />
     </Filter.Container>
   );
