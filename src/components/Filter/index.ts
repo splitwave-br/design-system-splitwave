@@ -5,6 +5,7 @@ import { Select } from "@/components/Filter/components/Select";
 import { Content } from "@/components/Filter/components/Content";
 import { Wrapper } from "@/components/Filter/components/Wrapper";
 import { Sort } from "./components/Sort";
+import { CheckboxFilters } from "./components/Checkboxes";
 
 export const Filter = {
   Container,
@@ -13,5 +14,6 @@ export const Filter = {
   Select,
   Content,
   Wrapper,
+  Check: CheckboxFilters,
   Sort,
 };

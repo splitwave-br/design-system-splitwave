@@ -22,7 +22,7 @@ exports.Sort = (0, react_1.forwardRef)(({ getLabel, getValue: getValueOption, ge
     (0, react_1.useEffect)(() => {
         registerField(field);
     }, [field, registerField]);
-    return ((0, jsx_runtime_1.jsx)(__1.Filter.Content, { hasClear: false, ref: ref, className: styles_module_scss_1.default.sort, children: options.map((option, index) => {
+    return ((0, jsx_runtime_1.jsx)(__1.Filter.Content, { spacing: "sm", hasClear: false, ref: ref, children: options.map((option, index) => {
             const value = getValueOption(option);
             if (option === "divider") {
                 return (0, jsx_runtime_1.jsx)(Dropdown_1.Dropdown.Divider, {}, value + index);
