@@ -59,6 +59,7 @@ const Lock_1 = __importDefault(require("./components/Lock"));
 const Logout_1 = __importDefault(require("./components/Logout"));
 const Menu_1 = __importDefault(require("./components/Menu"));
 const MoneyBag_1 = require("./components/MoneyBag");
+const MoneyDown_1 = __importDefault(require("./components/MoneyDown"));
 const MoneyExchange_1 = __importDefault(require("./components/MoneyExchange"));
 const MoneySend_1 = require("./components/MoneySend");
 const MoneyUp_1 = __importDefault(require("./components/MoneyUp"));
@@ -150,6 +151,7 @@ const icons = {
     logout: Logout_1.default,
     menu: Menu_1.default,
     'money-bag': MoneyBag_1.MoneyBag,
+    'money-down': MoneyDown_1.default,
     'money-exchange': MoneyExchange_1.default,
     'money-send': MoneySend_1.MoneySend,
     'money-up': MoneyUp_1.default,
