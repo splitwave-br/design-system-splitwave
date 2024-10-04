@@ -8,4 +8,5 @@ export { Filter } from "./components/Filter";
 export { useFilterContext, useFilter, } from "./components/Filter/hooks/useFilter";
 export { useFilterFields } from "./components/Filter/hooks/useFields";
 export { Table, Cell, Header } from "./components/Table";
-export { Icon, TIconSizes, TIcons } from './components/Icon';
+export { Icon, TIconSizes, TIcons } from "./components/Icon";
+export { TestComponent } from "./components/TestComponent";
