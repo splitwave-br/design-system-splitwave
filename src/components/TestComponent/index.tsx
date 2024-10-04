@@ -1,3 +1,3 @@
 export const TestComponent = () => {
-  <span>Is testing</span>;
+  return <span>Is testing</span>;
 };

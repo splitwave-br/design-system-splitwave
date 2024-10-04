@@ -1,1 +1,1 @@
-export declare const TestComponent: () => void;
+export declare const TestComponent: () => import("react/jsx-runtime").JSX.Element;
