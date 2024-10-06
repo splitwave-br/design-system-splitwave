@@ -3,10 +3,6 @@ export { Button } from "./components/Button";
 export type { ButtonProps } from "./components/Button";
 export type { TButtonVariants } from "./components/Button";
 
-// ButtonLink
-export { ButtonLink } from "./components/ButtonLink";
-export type { ButtonLinkProps } from "./components/ButtonLink";
-
 // Badge
 export { Badge } from "./components/Badge";
 export type { TVariant, TBadge } from "./components/Badge";
@@ -26,4 +22,4 @@ export { useFilterFields } from "./components/Filter/hooks/useFields";
 export { Table, Cell, Header } from "./components/Table";
 
 // Icon
-export { Icon, TIconSizes, TIcons } from "./components/Icon";
+export { Icon, TIconSizes, TIcons } from './components/Icon'

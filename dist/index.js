@@ -1,12 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Icon = exports.Header = exports.Cell = exports.Table = exports.useFilterFields = exports.useFilter = exports.useFilterContext = exports.Filter = exports.Dropdown = exports.Badge = exports.ButtonLink = exports.Button = void 0;
+exports.Icon = exports.Header = exports.Cell = exports.Table = exports.useFilterFields = exports.useFilter = exports.useFilterContext = exports.Filter = exports.Dropdown = exports.Badge = exports.Button = void 0;
 // Button
 var Button_1 = require("./components/Button");
 Object.defineProperty(exports, "Button", { enumerable: true, get: function () { return Button_1.Button; } });
-// ButtonLink
-var ButtonLink_1 = require("./components/ButtonLink");
-Object.defineProperty(exports, "ButtonLink", { enumerable: true, get: function () { return ButtonLink_1.ButtonLink; } });
 // Badge
 var Badge_1 = require("./components/Badge");
 Object.defineProperty(exports, "Badge", { enumerable: true, get: function () { return Badge_1.Badge; } });
