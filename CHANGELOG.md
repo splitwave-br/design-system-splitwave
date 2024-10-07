@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.6.0...v1.6.1) (2024-10-07)
+
+
+### Bug Fixes
+
+* **build:** Add missing ButtonLink build files ([6b77c72](https://github.com/splitwave-br/design-system-splitwave/commit/6b77c722106da503d020dd3077cfbf021cb72f15))
+
 ## [1.6.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.5.0...v1.6.0) (2024-10-07)
 
 
