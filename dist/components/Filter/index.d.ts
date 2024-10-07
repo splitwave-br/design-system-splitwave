@@ -34,7 +34,7 @@ export declare const Filter: {
         options: any[];
         getLabel: (option: any) => string;
         getValue: (option: any) => string;
-        getId?: (option: any) => string;
+        hasClear?: boolean;
     } & import("react").RefAttributes<HTMLInputElement>>;
     Sort: import("react").ForwardRefExoticComponent<{
         getLabel: (option: any) => string;
