@@ -1,5 +1,5 @@
 import { ReactNode, useCallback } from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { Button, ButtonProps } from "@/components/Button";
 
 export type ButtonLinkProps = ButtonProps & {
