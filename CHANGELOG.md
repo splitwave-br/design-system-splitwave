@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.5.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.4.0...v1.5.0) (2024-10-07)
+
+
+### Features
+
+* **#32:** Add missing build files ([be5f4c4](https://github.com/splitwave-br/design-system-splitwave/commit/be5f4c4dbe6d221e215281bb284fd8a07c174485))
+* **button-link:** Added a ButtonLink component to shortcut useRouter logic ([5c0e295](https://github.com/splitwave-br/design-system-splitwave/commit/5c0e295ba4864b4895be2c675ee78a3ba286913d))
+* **button-link:** Added a ButtonLink component to shortcut useRouter logic ([6ab33fe](https://github.com/splitwave-br/design-system-splitwave/commit/6ab33fe460556c5efb5d0b89d292249562dab915))
+* **button-link:** changed import next/router to next/navigation ([5cbee15](https://github.com/splitwave-br/design-system-splitwave/commit/5cbee155ddcdd0a66a2f1271392db0970fbec0af))
+
+
+### Bug Fixes
+
+* **#32:** Fix dropdown alignment ([698865b](https://github.com/splitwave-br/design-system-splitwave/commit/698865bdcb4f5dc58cd47d60625ae4fd4b5d479a))
+
 ## [1.4.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.3.1...v1.4.0) (2024-10-04)
 
 
