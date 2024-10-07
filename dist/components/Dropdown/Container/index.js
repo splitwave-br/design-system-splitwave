@@ -30,16 +30,16 @@ const Container = ({ children, className }) => {
     const menuRef = (0, react_1.useRef)(null);
     const [isOpen, setIsOpen] = (0, react_1.useState)(false);
     const handleToggle = (0, react_1.useCallback)(() => {
-        console.log("toggle chamado");
         setIsOpen((v) => !v);
     }, []);
     (0, react_1.useEffect)(() => {
         if (isOpen && triggerRef.current && menuRef.current) {
             const { top, left } = getElementPosition(triggerRef.current);
             const { height, width } = triggerRef.current?.getBoundingClientRect();
-            const { height: menuHeight, width: menuWidth } = menuRef.current?.getBoundingClientRect();
+            const { height: menuHeight, width: _menuWidth } = menuRef.current?.getBoundingClientRect();
             const documentWidth = document.documentElement.scrollWidth;
             const documentHeight = document.documentElement.scrollHeight;
+            const menuWidth = _menuWidth < width ? width : _menuWidth;
             const menuTop = top + height;
             const menuLeft = left - width / 2;
             const menuRight = menuLeft + menuWidth;
@@ -117,7 +117,6 @@ const Container = ({ children, className }) => {
                 (0, react_dom_1.createPortal)((0, react_1.cloneElement)(menuChild, {
                     ref: menuRef,
                     onClose: () => {
-                        console.log("close chamado");
                         setIsOpen(false);
                     },
                 }), document.body)] }));

@@ -18,10 +18,15 @@
   &.spacing__sm {
     padding: var(--spaces-micro) var(--spaces-micro);
     gap: var(--spaces-micro);
-  }
-}
 
-.clean {
-  cursor: pointer;
-  color: var(--colors-brand-400);
+    .clean {
+      margin: var(--spaces-micro) 12px;
+    }
+  }
+
+  .clean {
+    width: fit-content;
+    cursor: pointer;
+    color: var(--colors-brand-400);
+  }
 }

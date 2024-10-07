@@ -50,7 +50,6 @@ export const Container = ({ children, className }: TDropdown) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const handleToggle = useCallback(() => {
-    console.log("toggle chamado");
     setIsOpen((v) => !v);
   }, []);
 
@@ -58,11 +57,13 @@ export const Container = ({ children, className }: TDropdown) => {
     if (isOpen && triggerRef.current && menuRef.current) {
       const { top, left } = getElementPosition(triggerRef.current);
       const { height, width } = triggerRef.current?.getBoundingClientRect();
-      const { height: menuHeight, width: menuWidth } =
+      const { height: menuHeight, width: _menuWidth } =
         menuRef.current?.getBoundingClientRect();
 
       const documentWidth = document.documentElement.scrollWidth;
       const documentHeight = document.documentElement.scrollHeight;
+
+      const menuWidth = _menuWidth < width ? width : _menuWidth;
 
       const menuTop = top + height;
       const menuLeft = left - width / 2;
@@ -164,7 +165,6 @@ export const Container = ({ children, className }: TDropdown) => {
           cloneElement(menuChild, {
             ref: menuRef,
             onClose: () => {
-              console.log("close chamado");
               setIsOpen(false);
             },
           }),
