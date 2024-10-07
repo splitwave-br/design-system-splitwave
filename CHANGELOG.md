@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.4.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.3.1...v1.4.0) (2024-10-04)
+
+
+### Features
+
+* **#32:** Add checkbox icon ([873c4f6](https://github.com/splitwave-br/design-system-splitwave/commit/873c4f63663bf3eb91a7c33045e2bcd4b7d75fef))
+* **#32:** Add missing build files ([af2764a](https://github.com/splitwave-br/design-system-splitwave/commit/af2764ae979747b9c8710c8950e10d621527d3d0))
+
+
+### Bug Fixes
+
+* **#32:** Fix checkboxes filter stories ([4380f4e](https://github.com/splitwave-br/design-system-splitwave/commit/4380f4eb7077b4c3ef9edc71ff58e38e3fa1c935))
+
+## [1.3.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.3.0...v1.3.1) (2024-10-03)
+
+
+### Bug Fixes
+
+* **#18:** Fix missing Icon export ([906b443](https://github.com/splitwave-br/design-system-splitwave/commit/906b443b3c32ff2298581a4a5bd0d895585bbec1))
+* **icon:** Fix figure default margin, remove log and remove filter button duplicated icon ([010d7c8](https://github.com/splitwave-br/design-system-splitwave/commit/010d7c84ffdbffb8d1387369eae972e9d419352f))
+
 ## [1.3.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.2.0...v1.3.0) (2024-10-02)
 
 
