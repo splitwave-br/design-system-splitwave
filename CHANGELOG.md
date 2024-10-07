@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.5.0...v1.6.0) (2024-10-07)
+
+
+### Features
+
+* **button-link:** Removed styles ([63264f0](https://github.com/splitwave-br/design-system-splitwave/commit/63264f0ece431c009dbc5afccd83555b6722bd4a))
+
 ## [1.5.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.4.0...v1.5.0) (2024-10-07)
 
 
