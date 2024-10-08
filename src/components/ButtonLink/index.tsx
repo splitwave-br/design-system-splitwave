@@ -13,7 +13,7 @@ export const ButtonLink = ({ href, children, ...props }: ButtonLinkProps) => {
   const onClick = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     router.push(href);
-  }, []);
+  }, [href]);
 
   return (
     <Button {...props} onClick={onClick}>
