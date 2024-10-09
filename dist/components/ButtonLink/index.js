@@ -10,7 +10,7 @@ const ButtonLink = ({ href, children, ...props }) => {
     const onClick = (0, react_1.useCallback)((e) => {
         e.preventDefault();
         router.push(href);
-    }, []);
+    }, [href]);
     return ((0, jsx_runtime_1.jsx)(Button_1.Button, { ...props, onClick: onClick, children: children }));
 };
 exports.ButtonLink = ButtonLink;
