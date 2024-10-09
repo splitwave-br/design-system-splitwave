@@ -27,3 +27,6 @@ export { Table, Cell, Header } from "./components/Table";
 
 // Icon
 export { Icon, TIconSizes, TIcons } from "./components/Icon";
+
+// DatePicker
+export { DatePicker } from "./components/DatePicker";

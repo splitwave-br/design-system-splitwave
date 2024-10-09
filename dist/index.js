@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Icon = exports.Header = exports.Cell = exports.Table = exports.useFilterFields = exports.useFilter = exports.useFilterContext = exports.Filter = exports.Dropdown = exports.Badge = exports.ButtonLink = exports.Button = void 0;
+exports.DatePicker = exports.Icon = exports.Header = exports.Cell = exports.Table = exports.useFilterFields = exports.useFilter = exports.useFilterContext = exports.Filter = exports.Dropdown = exports.Badge = exports.ButtonLink = exports.Button = void 0;
 // Button
 var Button_1 = require("./components/Button");
 Object.defineProperty(exports, "Button", { enumerable: true, get: function () { return Button_1.Button; } });
@@ -29,3 +29,6 @@ Object.defineProperty(exports, "Header", { enumerable: true, get: function () { 
 // Icon
 var Icon_1 = require("./components/Icon");
 Object.defineProperty(exports, "Icon", { enumerable: true, get: function () { return Icon_1.Icon; } });
+// DatePicker
+var DatePicker_1 = require("./components/DatePicker");
+Object.defineProperty(exports, "DatePicker", { enumerable: true, get: function () { return DatePicker_1.DatePicker; } });
