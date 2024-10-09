@@ -2,6 +2,7 @@ import type { Preview } from "@storybook/react";
 import "@/styles/global.scss";
 import "@/styles/breakpoints.scss";
 import "@/styles/components-variables.scss";
+import "react-day-picker/dist/style.css";
 
 const preview: Preview = {
   parameters: {
