@@ -2,6 +2,7 @@ type TContentProps = {
     children: React.ReactNode;
     className?: string;
     onClose?: () => void;
+    shouldCloseOnClick?: boolean;
     hasClear?: boolean;
     spacing?: "default" | "sm";
 };

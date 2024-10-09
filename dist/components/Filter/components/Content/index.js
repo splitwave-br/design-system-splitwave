@@ -10,7 +10,7 @@ const styles_module_scss_1 = __importDefault(require("./styles.module.scss"));
 const useFilter_1 = require("../../hooks/useFilter");
 const concatStyles_1 = require("../../../../utils/concatStyles");
 const useFields_1 = require("../../hooks/useFields");
-exports.Content = (0, react_1.forwardRef)(({ hasClear = true, spacing = "default", children, className, onClose, ...props }, ref) => {
+exports.Content = (0, react_1.forwardRef)(({ hasClear = true, spacing = "default", children, shouldCloseOnClick = false, className, onClose, ...props }, ref) => {
     const { clean } = (0, useFilter_1.useFilterContext)();
     const { fields } = (0, useFields_1.useFilterFields)();
     const contentStyles = (0, concatStyles_1.concatStyles)([
@@ -19,7 +19,7 @@ exports.Content = (0, react_1.forwardRef)(({ hasClear = true, spacing = "default
         className,
     ]);
     return ((0, jsx_runtime_1.jsxs)("div", { ref: ref, onClick: (e) => {
-            e.stopPropagation();
+            shouldCloseOnClick ? onClose?.() : e.stopPropagation();
         }, onKeyDown: (e) => {
             if (e.key === "Escape" || e.key === "Enter") {
                 onClose?.();

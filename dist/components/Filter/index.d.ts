@@ -25,6 +25,7 @@ export declare const Filter: {
         children: React.ReactNode;
         className?: string;
         onClose?: () => void;
+        shouldCloseOnClick?: boolean;
         hasClear?: boolean;
         spacing?: "default" | "sm";
     } & import("react").RefAttributes<HTMLDivElement>>;
