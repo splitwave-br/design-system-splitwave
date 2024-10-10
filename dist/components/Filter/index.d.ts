@@ -25,6 +25,7 @@ export declare const Filter: {
         children: React.ReactNode;
         className?: string;
         onClose?: () => void;
+        shouldCloseOnClick?: boolean;
         hasClear?: boolean;
         spacing?: "default" | "sm";
     } & import("react").RefAttributes<HTMLDivElement>>;
@@ -45,4 +46,5 @@ export declare const Filter: {
         options: any;
         className?: string;
     } & import("react").RefAttributes<HTMLDivElement>>;
+    Date: ({ isPeriod, formatter, label, ...props }: import("./components/Date/types").DateFilterProps) => import("react/jsx-runtime").JSX.Element;
 };

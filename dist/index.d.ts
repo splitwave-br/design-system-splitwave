@@ -11,3 +11,5 @@ export { useFilterContext, useFilter, } from "./components/Filter/hooks/useFilte
 export { useFilterFields } from "./components/Filter/hooks/useFields";
 export { Table, Cell, Header } from "./components/Table";
 export { Icon, TIconSizes, TIcons } from "./components/Icon";
+export { DatePicker } from "./components/DatePicker";
+export { default as useClickOutside } from "./hooks/useClickOutside";

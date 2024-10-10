@@ -8,6 +8,7 @@ type TContentProps = {
   children: React.ReactNode;
   className?: string;
   onClose?: () => void;
+  shouldCloseOnClick?: boolean;
   hasClear?: boolean;
   spacing?: "default" | "sm";
 };
@@ -18,6 +19,7 @@ export const Content = forwardRef<HTMLDivElement, TContentProps>(
       hasClear = true,
       spacing = "default",
       children,
+      shouldCloseOnClick = false,
       className,
       onClose,
       ...props
@@ -36,7 +38,7 @@ export const Content = forwardRef<HTMLDivElement, TContentProps>(
       <div
         ref={ref}
         onClick={(e) => {
-          e.stopPropagation();
+          shouldCloseOnClick ? onClose?.() : e.stopPropagation();
         }}
         onKeyDown={(e) => {
           if (e.key === "Escape" || e.key === "Enter") {
