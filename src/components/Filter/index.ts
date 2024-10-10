@@ -6,6 +6,7 @@ import { Content } from "@/components/Filter/components/Content";
 import { Wrapper } from "@/components/Filter/components/Wrapper";
 import { Sort } from "./components/Sort";
 import { CheckboxFilters } from "./components/Checkboxes";
+import { DateFilter } from "./components/Date";
 
 export const Filter = {
   Container,
@@ -16,4 +17,5 @@ export const Filter = {
   Wrapper,
   Check: CheckboxFilters,
   Sort,
+  Date: DateFilter,
 };

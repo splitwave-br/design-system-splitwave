@@ -21,37 +21,36 @@ export default {
       );
     },
   ],
-  parameters: {
-    layout: "centered",
-  },
 } as Meta;
 
 export const RangeMode: StoryFn = () => {
   const handleToggle = () => alert("Toggle DatePicker");
-  const handleSetCustomDate = (period: IFilterPeriod | Date | undefined) =>
-    console.log("Selected Date", period);
+
+  const handlePickDate = (period: IFilterPeriod | undefined) => {
+    console.log("Período selecionado:", period);
+  };
 
   return (
     <DatePicker
       isOpen={true}
       mode="range"
       handleToggle={handleToggle}
-      handleSetCustomDate={handleSetCustomDate}
+      handlePickDate={handlePickDate}
     />
   );
 };
 
 export const SingleMode: StoryFn = () => {
-  const handleToggle = () => alert("Toggle DatePicker");
-  const handleSetCustomDate = (period: IFilterPeriod | Date | undefined) =>
-    console.log("Selected Date", period);
+  const handlePickDate = (period: string | undefined) => {
+    console.log(period);
+  };
 
   return (
     <DatePicker
       isOpen={true}
+      handlePickDate={handlePickDate}
       mode="single"
-      handleToggle={handleToggle}
-      handleSetCustomDate={handleSetCustomDate}
+      handleToggle={() => alert("Toggle DatePicker")}
     />
   );
 };
