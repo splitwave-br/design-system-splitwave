@@ -9,6 +9,7 @@ const Content_1 = require("../../components/Filter/components/Content");
 const Wrapper_1 = require("../../components/Filter/components/Wrapper");
 const Sort_1 = require("./components/Sort");
 const Checkboxes_1 = require("./components/Checkboxes");
+const Date_1 = require("./components/Date");
 exports.Filter = {
     Container: Container_1.Container,
     Button: Button_1.Button,
@@ -18,4 +19,5 @@ exports.Filter = {
     Wrapper: Wrapper_1.Wrapper,
     Check: Checkboxes_1.CheckboxFilters,
     Sort: Sort_1.Sort,
+    Date: Date_1.DateFilter,
 };
