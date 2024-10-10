@@ -30,3 +30,5 @@ export { Icon, TIconSizes, TIcons } from "./components/Icon";
 
 // DatePicker
 export { DatePicker } from "./components/DatePicker";
+
+export { default as useClickOutside } from "./hooks/useClickOutside";

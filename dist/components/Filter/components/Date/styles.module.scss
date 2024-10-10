@@ -1,0 +1,8 @@
+.container {
+  position: relative;
+  min-width: 238px; //To prevent menu growing when picked date change
+}
+
+.datePickerTrigger {
+  justify-content: flex-start !important;
+}
