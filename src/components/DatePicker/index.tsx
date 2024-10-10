@@ -10,45 +10,40 @@ import { Button } from "@/components/Button";
 
 import styles from "./styles.module.scss";
 import { format } from "date-fns";
-import { IFilterPeriod } from "./types";
-import { Dropdown } from "../Dropdown";
+import { DatePickerProps, IFilterPeriod } from "./types";
 import "react-day-picker/dist/style.css";
-
-interface DatePickerProps {
-  isOpen: boolean;
-  mode?: "range" | "single";
-  handleToggle: () => void;
-  handleSetCustomDate: (period: IFilterPeriod | Date | undefined) => void;
-}
 
 const defaultClassNames = {
   root: styles.rdpRoot,
-  month: styles.monthContainer,
   months: styles.months,
-  table: styles.rdpTable,
-  day_today: styles.actualDay,
-  day: styles.day,
-  day_selected: styles.selectedDay,
-  day_range_start: styles.selectedStart + " selectedEnd",
-  day_range_middle: styles.selectedRange + " selectedRange",
-  day_range_end: styles.selectedEnd + " selectedEnd",
-  day_outside: styles.dayHidden,
-  caption_label: styles.month,
+  month: styles.monthContainer,
   row: styles.tableRow,
   tbody: styles.tableBody,
   head_row: styles.headRow,
   head_cell: styles.weekDay,
-  button: styles.rdpButton,
-  button_reset: styles.rdpButton,
+  day: styles.day,
+  table: styles.table,
+  day_selected: styles.selectedDay,
+  caption: styles.caption,
+  caption_label: styles.monthLabel,
+  cell: styles.cell,
+  day_range_middle: styles.range,
+  day_range_end: styles.rangeEnd,
+  day_range_start: styles.rangeStart,
+  day_today: styles.today,
+  day_outside: styles.dayOutside,
+  day_hidden: styles.dayOutside,
 };
+
 const today = new Date();
 const oneMonthAgo = new Date(today.getFullYear(), today.getMonth() - 1);
-
 export const DatePicker = ({
   isOpen,
-  mode = "range",
+  mode,
+  align = "start",
+  formatter,
   handleToggle,
-  handleSetCustomDate,
+  handlePickDate,
 }: DatePickerProps) => {
   const [selectedDate, setSelectedDate] = useState<
     DateRange | Date | undefined
@@ -56,17 +51,20 @@ export const DatePicker = ({
   const datePickerRef = useRef<HTMLDivElement>(null);
   const { size } = useWindowSize();
 
+  const isSmallScreen = (size?.width || 1366) < 1024;
+  const numberOfMonths = isSmallScreen ? 1 : 2;
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target as HTMLElement;
-      if (datePickerRef.current && !datePickerRef.current.contains(target)) {
-        handleToggle();
-      }
+      const isOutsideClick =
+        datePickerRef.current &&
+        !datePickerRef.current.contains(event.target as Node);
+
+      if (isOutsideClick) handleToggle();
     };
+
     if (isOpen) {
       document.addEventListener("click", handleClickOutside);
-    } else {
-      document.removeEventListener("click", handleClickOutside);
     }
 
     return () => {
@@ -74,45 +72,46 @@ export const DatePicker = ({
     };
   }, [isOpen, handleToggle]);
 
-  const handleClick = () => {
-    if (!selectedDate) {
-      return handleSetCustomDate(undefined);
-    }
-
-    if (typeof selectedDate === "object") {
-      const { from, to } = selectedDate as DateRange;
-      if (!from) {
-        return handleSetCustomDate(undefined);
-      }
-      const formattedDateFrom = format(from, "yyyy-MM-dd");
-      const formattedDateTo = format(to || from, "yyyy-MM-dd");
-      const period: IFilterPeriod = {
-        startDate: formattedDateFrom,
-        endDate: formattedDateTo,
-      };
-      handleSetCustomDate(period);
-      return;
-    }
-    const formattedDate = format(selectedDate, "yyyy-MM-dd");
-    const period: IFilterPeriod = {
-      startDate: formattedDate,
-      endDate: formattedDate,
-    };
-    handleSetCustomDate(period);
+  const formatDate = (date: Date) => {
+    const formattedDate = formatter
+      ? formatter?.(date)
+      : format(date, "yyyy-MM-dd");
+    return formattedDate;
   };
 
-  const numberOfMonths = (size?.width || 1366) <= 1025 ? 1 : 2;
-  const isSmallScreen = (size?.width || 1366) < 1024;
+  const handleApplyClick = () => {
+    if (!selectedDate) {
+      handlePickDate(undefined);
+      handleToggle();
+      return;
+    }
 
-  const mobileClassNames = isSmallScreen
-    ? {
-        caption: styles.rdpCaption,
-        nav_button: styles.navButton,
-        nav: styles.rdpNav,
+    if (mode === "range") {
+      const { from, to } = selectedDate as DateRange;
+      if (!from) {
+        handlePickDate(undefined);
+        handleToggle();
+        return;
       }
-    : {};
 
-  const combinedClassNames = { ...defaultClassNames, ...mobileClassNames };
+      const startDate = formatDate(from);
+      const endDate = formatDate(to || from);
+      handlePickDate({ startDate, endDate });
+      handleToggle();
+      return;
+    }
+
+    const singleDate = selectedDate as Date;
+    handlePickDate(formatDate(singleDate));
+    handleToggle();
+  };
+
+  const combinedClassNames = {
+    ...defaultClassNames,
+    ...(isSmallScreen
+      ? { nav_button: styles.navButton, nav: styles.rdpNav }
+      : {}),
+  };
 
   const modeSpecificProps =
     mode === "range"
@@ -130,32 +129,27 @@ export const DatePicker = ({
     defaultMonth: oneMonthAgo,
     showOutsideDays: true,
     fixedWeeks: true,
-    disabled: { after: today },
     numberOfMonths,
     classNames: combinedClassNames,
-    ...modeSpecificProps,
     onSelect: setSelectedDate,
+    ...modeSpecificProps,
   };
 
-  if (!isOpen) {
-    return null;
-  }
+  const containerStyles = concatStyles([
+    styles.container,
+    styles[`align__${align}`],
+  ]);
+
+  if (!isOpen) return null;
 
   return (
-    <div className={styles.monthsContainer} ref={datePickerRef}>
-      <DayPicker
-        {...commonProps}
-        classNames={{
-          ...commonProps.classNames,
-          cell: concatStyles([styles.cell, mode === "single" && styles.single]),
-        }}
-      />
-      <Dropdown.Divider />
-      <div className={styles.datePickerFooter}>
-        <Button onClick={handleToggle} variant="outline">
+    <div className={containerStyles} ref={datePickerRef}>
+      <DayPicker {...commonProps} />
+      <div className={styles.footer}>
+        <Button variant="outline" onClick={handleToggle}>
           Cancelar
         </Button>
-        <Button onClick={handleClick}>Aplicar</Button>
+        <Button onClick={handleApplyClick}>Aplicar</Button>
       </div>
     </div>
   );

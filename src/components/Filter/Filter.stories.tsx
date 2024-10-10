@@ -1,8 +1,8 @@
 import { Meta, StoryFn } from "@storybook/react";
 import { Filter } from ".";
-import { useFilter, useFilterContext } from "./hooks/useFilter";
+import { useFilter } from "./hooks/useFilter";
 import { Icon } from "../Icon";
-
+import React from "react";
 export default {
   title: "Components/Filter",
   component: Filter.Wrapper,
@@ -121,6 +121,27 @@ export const SortFilter: StoryFn = () => {
   );
 };
 
+export const DateFilter: StoryFn = () => {
+  return (
+    <Filter.Container>
+      <Filter.Button>Data</Filter.Button>
+      <Filter.Content>
+        <Filter.Date label="Por período" isPeriod />
+        <Filter.Date
+          field="createdAt"
+          label="Data de criação"
+          isPeriod={false}
+        />
+        <Filter.Date
+          field="updatedAt"
+          label="Data da última atualização"
+          isPeriod={false}
+        />
+      </Filter.Content>
+    </Filter.Container>
+  );
+};
+
 export const MultipleFilters: StoryFn = () => {
   const PAYMENT_METHODS = [
     { label: "Pago", id: "PAGO" },
@@ -208,6 +229,22 @@ export const MultipleFilters: StoryFn = () => {
             },
           ]}
         />
+      </Filter.Container>
+      <Filter.Container>
+        <Filter.Button>Data</Filter.Button>
+        <Filter.Content>
+          <Filter.Date label="Por período" isPeriod />
+          <Filter.Date
+            field="createdAt"
+            label="Data de criação"
+            isPeriod={false}
+          />
+          <Filter.Date
+            field="updatedAt"
+            label="Data da última atualização"
+            isPeriod={false}
+          />
+        </Filter.Content>
       </Filter.Container>
     </div>
   );
