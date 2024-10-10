@@ -1,3 +1,5 @@
+import { RefObject } from "react";
+
 export interface IFilterPeriod {
   startDate: string;
   endDate: string;
@@ -15,9 +17,9 @@ export interface DatePickerSingleProps {
 
 export interface DatePickerCommonProps {
   isOpen: boolean;
-  align?: "start" | "middle" | "end";
   handleToggle: () => void;
   formatter?: (date: Date) => string;
+  parentRef: RefObject<HTMLDivElement>;
 }
 
 export type DatePickerProps = DatePickerCommonProps &

@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { concatStyles } from "@/utils/concatStyles";
 import { DateRange, DayPicker } from "react-day-picker";
 import { ptBR } from "date-fns/locale";
 
@@ -10,8 +9,10 @@ import { Button } from "@/components/Button";
 
 import styles from "./styles.module.scss";
 import { format } from "date-fns";
-import { DatePickerProps, IFilterPeriod } from "./types";
+import { DatePickerProps } from "./types";
 import "react-day-picker/dist/style.css";
+import { adjustHorizontalPosition } from "./utils/adjustHorizontalPosition";
+import useClickOutside from "@/hooks/useClickOutside";
 
 const defaultClassNames = {
   root: styles.rdpRoot,
@@ -40,7 +41,7 @@ const oneMonthAgo = new Date(today.getFullYear(), today.getMonth() - 1);
 export const DatePicker = ({
   isOpen,
   mode,
-  align = "start",
+  parentRef,
   formatter,
   handleToggle,
   handlePickDate,
@@ -51,26 +52,18 @@ export const DatePicker = ({
   const datePickerRef = useRef<HTMLDivElement>(null);
   const { size } = useWindowSize();
 
-  const isSmallScreen = (size?.width || 1366) < 1024;
+  const isSmallScreen = (size?.width || 1366) < 768;
   const numberOfMonths = isSmallScreen ? 1 : 2;
 
+  useClickOutside({
+    callback: handleToggle,
+    isActive: isOpen,
+    ref: datePickerRef,
+  });
+
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const isOutsideClick =
-        datePickerRef.current &&
-        !datePickerRef.current.contains(event.target as Node);
-
-      if (isOutsideClick) handleToggle();
-    };
-
-    if (isOpen) {
-      document.addEventListener("click", handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, [isOpen, handleToggle]);
+    adjustHorizontalPosition(datePickerRef, parentRef);
+  }, [isOpen]);
 
   const formatDate = (date: Date) => {
     const formattedDate = formatter
@@ -135,15 +128,10 @@ export const DatePicker = ({
     ...modeSpecificProps,
   };
 
-  const containerStyles = concatStyles([
-    styles.container,
-    styles[`align__${align}`],
-  ]);
-
   if (!isOpen) return null;
 
   return (
-    <div className={containerStyles} ref={datePickerRef}>
+    <div className={styles.container} ref={datePickerRef}>
       <DayPicker {...commonProps} />
       <div className={styles.footer}>
         <Button variant="outline" onClick={handleToggle}>

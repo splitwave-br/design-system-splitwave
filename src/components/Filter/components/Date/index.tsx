@@ -5,6 +5,8 @@ import { Button } from "@/components/Button";
 import { Form } from "@/components/Form";
 import { DateFilterProps } from "./types";
 import { useDateFilter } from "./hooks/useDateFilter";
+import { useRef } from "react";
+import useClickOutside from "@/hooks/useClickOutside";
 
 export const DateFilter = ({
   isPeriod,
@@ -16,25 +18,35 @@ export const DateFilter = ({
     props,
     isPeriod,
   );
+  const fieldRef = useRef<HTMLDivElement>(null);
+
+  useClickOutside({
+    callback: handleToggle,
+    isActive: isOpen,
+    ref: fieldRef,
+  });
 
   return (
-    <Form.Field className={styles.field}>
-      {label && <Form.Label>{label}</Form.Label>}
-      <Button
-        className={styles.datePickerTrigger}
-        variant="outline"
-        onClick={handleToggle}
-      >
-        <Icon name="calendar" size={1} />
-        {buttonLabel}
-      </Button>
-      <DatePicker
-        formatter={formatter}
-        mode={isPeriod ? "range" : "single"}
-        isOpen={isOpen}
-        handlePickDate={handlePickDate}
-        handleToggle={handleToggle}
-      />
-    </Form.Field>
+    <div ref={fieldRef} className={styles.container}>
+      <Form.Field>
+        {label && <Form.Label>{label}</Form.Label>}
+        <Button
+          className={styles.datePickerTrigger}
+          variant="outline"
+          onClick={handleToggle}
+        >
+          <Icon name="calendar" size={1} />
+          {buttonLabel}
+        </Button>
+        <DatePicker
+          formatter={formatter}
+          parentRef={fieldRef}
+          mode={isPeriod ? "range" : "single"}
+          isOpen={isOpen}
+          handlePickDate={handlePickDate}
+          handleToggle={handleToggle}
+        />
+      </Form.Field>
+    </div>
   );
 };
