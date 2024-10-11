@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   border-radius: var(--border-radius-3);
-  border: 1px solid var(--colors-border-highlight);
+  border: 1px solid var(--colors-gray-300);
   background: var(--background);
 
   box-shadow:
@@ -73,8 +73,8 @@
   color: var(--colors-gray-500);
 }
 .today {
-  background-color: var(--colors-gray-600);
-  color: white !important;
+  background-color: var(--colors-gray-100);
+  color: var(--colors-gray-700) !important;
 }
 
 .day {
@@ -91,10 +91,10 @@
   color: white;
 
   font-weight: 500;
-  background: var(--colors-brand-400);
+  background: var(--colors-brand-600);
   &:hover {
     color: white !important;
-    background: var(--colors-brand-400) !important;
+    background: var(--colors-brand-600) !important;
   }
 }
 .weekDay {
@@ -118,7 +118,7 @@
   td {
     &:hover {
       button {
-        color: var(--colors-brand-400);
+        color: var(--colors-brand-700);
       }
       background: var(--colors-brand-50);
     }
@@ -138,21 +138,22 @@
 
     &:has(.rangeEnd):has(.rangeStart) {
       border-radius: 20px;
+      color: white;
     }
     &:has(.rangeEnd) {
-      background: var(--colors-brand-300);
+      background: var(--colors-brand-50);
       border-top-left-radius: 0px;
       border-bottom-left-radius: 0px;
       &:hover {
-        background: var(--colors-brand-300);
+        background: var(--colors-brand-50);
       }
     }
     &:has(.rangeStart) {
-      background: var(--colors-brand-300);
+      background: var(--colors-brand-50);
       border-top-right-radius: 0px;
       border-bottom-right-radius: 0px;
       &:hover {
-        background: var(--colors-brand-300);
+        background: var(--colors-brand-50);
       }
     }
     padding: 0px;
@@ -164,11 +165,11 @@
 
     .range {
       border-radius: 0;
-      color: var(--colors-brand-400);
-      background: var(--colors-brand-300);
+      color: var(--colors-brand-700);
+      background: var(--colors-brand-50);
       &:hover {
-        color: var(--colors-brand-400) !important;
-        background: var(--colors-brand-300) !important;
+        color: var(--colors-brand-700) !important;
+        background: var(--colors-brand-50) !important;
       }
     }
   }
