@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.6.1...v1.7.0) (2024-10-13)
+
+
+### Features
+
+* **#79:** adicionado componente de Modal ([be75b67](https://github.com/splitwave-br/design-system-splitwave/commit/be75b67a6f886f7224624f5e013aa5065ea1cd0f))
+
 ## [1.6.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.6.0...v1.6.1) (2024-10-07)
 
 
