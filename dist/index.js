@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Icon = exports.Header = exports.Cell = exports.Table = exports.useFilterFields = exports.useFilter = exports.useFilterContext = exports.Filter = exports.Dropdown = exports.Badge = exports.ButtonLink = exports.Button = void 0;
+exports.ConfirmationModal = exports.ModalProvider = exports.useModal = exports.Modal = exports.Icon = exports.Header = exports.Cell = exports.Table = exports.useFilterFields = exports.useFilter = exports.useFilterContext = exports.Filter = exports.Dropdown = exports.Badge = exports.ButtonLink = exports.Button = void 0;
 // Button
 var Button_1 = require("./components/Button");
 Object.defineProperty(exports, "Button", { enumerable: true, get: function () { return Button_1.Button; } });
@@ -29,3 +29,12 @@ Object.defineProperty(exports, "Header", { enumerable: true, get: function () { 
 // Icon
 var Icon_1 = require("./components/Icon");
 Object.defineProperty(exports, "Icon", { enumerable: true, get: function () { return Icon_1.Icon; } });
+// Modal
+var Modal_1 = require("./components/Modal");
+Object.defineProperty(exports, "Modal", { enumerable: true, get: function () { return Modal_1.Modal; } });
+var useModal_1 = require("./components/Modal/hooks/useModal");
+Object.defineProperty(exports, "useModal", { enumerable: true, get: function () { return useModal_1.useModal; } });
+Object.defineProperty(exports, "ModalProvider", { enumerable: true, get: function () { return useModal_1.ModalProvider; } });
+// Confirmation Modal
+var ConfirmationModal_1 = require("./components/ConfirmationModal");
+Object.defineProperty(exports, "ConfirmationModal", { enumerable: true, get: function () { return ConfirmationModal_1.ConfirmationModal; } });

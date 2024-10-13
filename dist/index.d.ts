@@ -11,3 +11,8 @@ export { useFilterContext, useFilter, } from "./components/Filter/hooks/useFilte
 export { useFilterFields } from "./components/Filter/hooks/useFields";
 export { Table, Cell, Header } from "./components/Table";
 export { Icon, TIconSizes, TIcons } from "./components/Icon";
+export { Modal } from "./components/Modal";
+export { useModal, ModalProvider } from "./components/Modal/hooks/useModal";
+export type { ModalBodyProps, ModalWrapperProps, ModalOverlayProps, ModalFooterProps, } from "./components/Modal";
+export { ConfirmationModal } from "./components/ConfirmationModal";
+export type { ConfirmationModalProps } from "./components/ConfirmationModal";

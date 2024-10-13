@@ -1,0 +1,76 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import * as ModalStories from './Modal.stories';
+import Cancel from "../Icon/components/Cancel";
+
+<Meta of={ModalStories} title="Modal" />
+
+# ModalProvider e useModal
+
+O `ModalProvider` é um componente que gerencia e renderiza modais em um aplicativo React usando um contexto. Ele permite que modais sejam abertos e fechados dinamicamente e mantém uma fila de modais abertos.
+
+## ModalProvider
+
+`ModalProvider` é um provider de contexto que gerencia uma fila de modais. Cada modal na fila é representado por um objeto que inclui um componente React que será o conteúdo do modal e uma função opcional `onClose` que é chamada quando o modal é fechado.
+
+### Props
+
+- **children**: `ReactNode` - Os componentes filhos que serão envolvidos pelo provider.
+
+### Funcionalidades
+
+- **openModal**: Adiciona um novo modal à fila. Recebe o componente que será o conteúdo do modal e uma função opcional `onClose`.
+- **closeModal**: Remove o modal mais recente da fila e chama sua função `onClose`, se houver.
+
+### Exemplo de Uso
+
+```jsx
+import { ModalProvider, useModal } from 'design-system';
+
+function App() {
+  const { openModal, closeModal } = useModal();
+
+  const handleOpenModal = () => {
+    openModal(
+      <Modal.Wrapper title="Modal básica">
+        <Modal.Body>
+          <p>
+            Conteúdo da modal
+          </p>
+          <Modal.Divider />
+          <Modal.Footer>
+            <Button
+              onClick={() => {
+                closeModal()
+              }}
+            >
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal.Body>
+      </Modal.Wrapper>
+    );
+  };
+
+  return (
+    <ModalProvider>
+      <button onClick={handleOpenModal}>Abrir Modal</button>
+    </ModalProvider>
+  );
+}
+```
+
+## Exemplos de Uso
+
+### Modal básica
+
+<Canvas of={ModalStories.BasicModal} layout="padded" story="inline" />
+
+### Modal com ações
+
+<Canvas of={ModalStories.ModalWithFooterActions} layout="padded" />
+
+### Modal de confirmação
+<Canvas of={ModalStories.BasicConfirmationModal} layout="padded" />
+
+### Exemplo usando a modal
+<Canvas of={ModalStories.BasicOpenModal} layout="fullscreen" />
