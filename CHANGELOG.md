@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.7.0...v1.7.1) (2024-10-14)
+
+
+### Bug Fixes
+
+* **#:** Remove tailwind from project to prevent bug ([a0cf387](https://github.com/splitwave-br/design-system-splitwave/commit/a0cf387f5455f7e184fdaf3607c3b91f8938a973))
+
 ## [1.7.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.6.1...v1.7.0) (2024-10-13)
 
 
