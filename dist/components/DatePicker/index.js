@@ -36,6 +36,7 @@ const defaultClassNames = {
     day_today: styles_module_scss_1.default.today,
     day_outside: styles_module_scss_1.default.dayOutside,
     day_hidden: styles_module_scss_1.default.dayOutside,
+    button_reset: styles_module_scss_1.default.buttonReset,
 };
 const today = new Date();
 const oneMonthAgo = new Date(today.getFullYear(), today.getMonth() - 1);

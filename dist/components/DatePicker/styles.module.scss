@@ -1,6 +1,5 @@
 .container {
-  width: 100vw;
-  max-width: 658px;
+  width: 658px;
   top: calc(100% + var(--spaces-1));
   z-index: 1;
   position: absolute;
@@ -29,11 +28,9 @@
   }
 
   @media (max-width: 768px) {
-    min-width: 300px;
+    width: 300px;
   }
-  @media (max-width: 768px) {
-    max-width: 330px !important;
-  }
+
   .footer {
     width: 100%;
     padding: var(--spaces-2) var(--spaces-3);
@@ -41,6 +38,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    border-top: 1px solid var(--colors-gray-300);
   }
 }
 
@@ -80,7 +78,7 @@
 .day {
   color: var(--colors-gray-700);
   display: flex;
-  width: var(--spaces-5);
+  width: 100%;
   height: var(--spaces-5);
   padding: 10px 8px 8px 8px;
   justify-content: center;
@@ -88,15 +86,20 @@
 }
 
 .selectedDay {
-  color: white;
+  color: white !important;
 
   font-weight: 500;
-  background: var(--colors-brand-600);
+  background-color: var(--colors-brand-600) !important;
   &:hover {
     color: white !important;
-    background: var(--colors-brand-600) !important;
+    background-color: var(--colors-brand-600) !important;
   }
 }
+
+.buttonReset {
+  background: unset;
+}
+
 .weekDay {
   color: var(--colors-gray-700);
   text-transform: capitalize;
@@ -116,6 +119,10 @@
 
 .tableRow {
   td {
+    min-width: 40px;
+    @media (max-width: 768px) {
+      min-width: var(--spaces-4);
+    }
     &:hover {
       button {
         color: var(--colors-brand-700);
@@ -165,8 +172,8 @@
 
     .range {
       border-radius: 0;
-      color: var(--colors-brand-700);
-      background: var(--colors-brand-50);
+      color: var(--colors-brand-700) !important;
+      background: var(--colors-brand-50) !important;
       &:hover {
         color: var(--colors-brand-700) !important;
         background: var(--colors-brand-50) !important;
@@ -188,6 +195,10 @@
 .monthContainer {
   width: 100%;
   padding: 20px var(--spaces-3);
+  &:first-child {
+    border-top: 1px solid var();
+    border-right: 1px solid var(--colors-gray-300);
+  }
 }
 
 .caption {
