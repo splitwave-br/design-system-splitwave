@@ -20,12 +20,6 @@ export const DateFilter = ({
   );
   const fieldRef = useRef<HTMLDivElement>(null);
 
-  useClickOutside({
-    callback: handleToggle,
-    isActive: isOpen,
-    ref: fieldRef,
-  });
-
   return (
     <div ref={fieldRef} className={styles.container}>
       <Form.Field>

@@ -34,6 +34,7 @@ const defaultClassNames = {
   day_today: styles.today,
   day_outside: styles.dayOutside,
   day_hidden: styles.dayOutside,
+  button_reset: styles.buttonReset,
 };
 
 const today = new Date();
