@@ -11,6 +11,7 @@ import React, {
 import "../Trigger/variables.scss";
 
 import styles from "./styles.module.scss";
+import useClickOutside from "@/hooks/useClickOutside";
 
 type TBounding = {
   top: number;
@@ -41,7 +42,7 @@ function getElementPosition(element: any) {
   };
 }
 
-const DEFAULT_PADDING = 16;
+export const DEFAULT_PADDING = 16;
 
 export const Container = ({ children, className }: TDropdown) => {
   const triggerRef = useRef<HTMLDivElement>(null);
@@ -95,22 +96,11 @@ export const Container = ({ children, className }: TDropdown) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen]);
 
-  useEffect(() => {
-    const handleClick = (e: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
-        setIsOpen(false);
-      }
-    };
-    if (isOpen) {
-      document.addEventListener("mousedown", handleClick);
-    } else {
-      document.removeEventListener("mousedown", handleClick);
-    }
-
-    return () => {
-      document.removeEventListener("mousedown", handleClick);
-    };
-  }, [isOpen]);
+  useClickOutside({
+    ref: menuRef,
+    callback: () => setIsOpen(false),
+    isActive: isOpen,
+  });
 
   const containerStyles = [styles.container, className].join(" ");
 

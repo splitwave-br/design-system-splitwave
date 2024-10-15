@@ -34,7 +34,9 @@ const useFilter_1 = require("../../hooks/useFilter");
 const useFields_1 = require("../../hooks/useFields");
 const __1 = require("../..");
 const Dropdown_1 = require("../../../../components/Dropdown");
-const Icon_1 = require("../../../../components/Icon");
+const concatStyles_1 = require("../../../../utils/concatStyles");
+const Checked_1 = __importDefault(require("./components/Checked"));
+const Unchecked_1 = __importDefault(require("./components/Unchecked"));
 exports.CheckboxFilters = (0, react_1.forwardRef)(({ field, hasClear = false, getLabel, getValue: getOptionValue, options }, ref) => {
     const { setFilter, getValue } = (0, useFilter_1.useFilterContext)();
     const { registerField } = (0, useFields_1.useFilterFields)();
@@ -54,7 +56,11 @@ exports.CheckboxFilters = (0, react_1.forwardRef)(({ field, hasClear = false, ge
             const shouldShowDivider = hasClear ? true : isLastItem;
             const optionValue = getOptionValue(option);
             const optionLabel = getLabel(option);
-            return ((0, jsx_runtime_1.jsxs)(react_1.default.Fragment, { children: [(0, jsx_runtime_1.jsxs)("label", { htmlFor: optionValue, className: styles_module_scss_1.default.field, children: [(0, jsx_runtime_1.jsxs)("div", { className: styles_module_scss_1.default.inputWrapper, children: [(0, jsx_runtime_1.jsx)("input", { className: styles_module_scss_1.default.checkbox, type: "checkbox", id: optionValue, onChange: () => handleChange(optionValue), checked: selectedValues.includes(optionValue) }), !!selectedValues.includes(optionValue) && ((0, jsx_runtime_1.jsx)(Icon_1.Icon, { name: "checkIcon" }))] }), (0, jsx_runtime_1.jsx)("label", { className: styles_module_scss_1.default.label, htmlFor: optionValue, children: optionLabel })] }), shouldShowDivider && ((0, jsx_runtime_1.jsx)("div", { className: styles_module_scss_1.default.divider, children: (0, jsx_runtime_1.jsx)(Dropdown_1.Dropdown.Divider, {}) }))] }, optionValue));
+            const isChecked = selectedValues.includes(optionValue);
+            return ((0, jsx_runtime_1.jsxs)(react_1.default.Fragment, { children: [(0, jsx_runtime_1.jsxs)("label", { htmlFor: optionValue, className: styles_module_scss_1.default.field, children: [(0, jsx_runtime_1.jsxs)("div", { className: (0, concatStyles_1.concatStyles)([
+                                    styles_module_scss_1.default.inputWrapper,
+                                    isChecked ? styles_module_scss_1.default.isChecked : "",
+                                ]), children: [(0, jsx_runtime_1.jsx)("input", { className: styles_module_scss_1.default.checkbox, type: "checkbox", id: optionValue, onChange: () => handleChange(optionValue), checked: selectedValues.includes(optionValue) }), isChecked ? (0, jsx_runtime_1.jsx)(Checked_1.default, {}) : (0, jsx_runtime_1.jsx)(Unchecked_1.default, {})] }), (0, jsx_runtime_1.jsx)("label", { className: styles_module_scss_1.default.label, htmlFor: optionValue, children: optionLabel })] }), shouldShowDivider && ((0, jsx_runtime_1.jsx)("div", { className: styles_module_scss_1.default.divider, children: (0, jsx_runtime_1.jsx)(Dropdown_1.Dropdown.Divider, {}) }))] }, optionValue));
         }) }));
 });
 exports.CheckboxFilters.displayName = "Menu";
