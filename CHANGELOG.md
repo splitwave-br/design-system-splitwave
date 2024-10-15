@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.8.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.7.1...v1.8.0) (2024-10-15)
+
+
+### Features
+
+* **#43:** Fix datepicker mobile styles ([cdf883b](https://github.com/splitwave-br/design-system-splitwave/commit/cdf883b2fafd0ac18fca6589171f8a771ea1fd49))
+* **#43:** Refactoir check filter and fix package ([f0ce3d8](https://github.com/splitwave-br/design-system-splitwave/commit/f0ce3d8d8de4c5be6c7f19dfe1b51959f3414793))
+
 ## [1.7.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.7.0...v1.7.1) (2024-10-14)
 
 
