@@ -28,7 +28,7 @@
   }
 
   @media (max-width: 768px) {
-    width: 300px;
+    width: var(--datepicker-mobile-width);
   }
 
   .footer {
@@ -83,6 +83,9 @@
   padding: 10px 8px 8px 8px;
   justify-content: center;
   align-items: center;
+  @media (max-width: 768px) {
+    height: var(--spaces-4);
+  }
 }
 
 .selectedDay {
@@ -121,7 +124,8 @@
   td {
     min-width: 40px;
     @media (max-width: 768px) {
-      min-width: var(--spaces-4);
+      min-width: auto;
+      width: var(--spaces-4);
     }
     &:hover {
       button {
@@ -189,6 +193,11 @@
   th {
     width: 40px;
     height: 40px;
+
+    @media (max-width: 768px) {
+      width: var(--spaces-4);
+      height: var(--spaces-4);
+    }
   }
 }
 
@@ -196,8 +205,10 @@
   width: 100%;
   padding: 20px var(--spaces-3);
   &:first-child {
-    border-top: 1px solid var();
     border-right: 1px solid var(--colors-gray-300);
+    @media (max-width: 768px) {
+      border: none;
+    }
   }
 }
 
@@ -214,7 +225,7 @@
   color: var(--color-title);
   text-transform: capitalize;
   text-align: center;
-
+  white-space: nowrap;
   font-size: var(--font-size-4);
   font-weight: 600;
 
