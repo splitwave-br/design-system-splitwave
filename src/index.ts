@@ -41,3 +41,7 @@ export type {
 // Confirmation Modal
 export { ConfirmationModal } from "./components/ConfirmationModal";
 export type { ConfirmationModalProps } from "./components/ConfirmationModal";
+// DatePicker
+export { DatePicker } from "./components/DatePicker";
+
+export { default as useClickOutside } from "./hooks/useClickOutside";

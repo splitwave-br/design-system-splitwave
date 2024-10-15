@@ -16,3 +16,5 @@ export { useModal, ModalProvider } from "./components/Modal/hooks/useModal";
 export type { ModalBodyProps, ModalWrapperProps, ModalOverlayProps, ModalFooterProps, } from "./components/Modal";
 export { ConfirmationModal } from "./components/ConfirmationModal";
 export type { ConfirmationModalProps } from "./components/ConfirmationModal";
+export { DatePicker } from "./components/DatePicker";
+export { default as useClickOutside } from "./hooks/useClickOutside";

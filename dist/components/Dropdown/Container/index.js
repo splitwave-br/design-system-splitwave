@@ -3,12 +3,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Container = void 0;
+exports.Container = exports.DEFAULT_PADDING = void 0;
 const jsx_runtime_1 = require("react/jsx-runtime");
 const react_dom_1 = require("react-dom");
 const react_1 = require("react");
 require("../Trigger/variables.scss");
 const styles_module_scss_1 = __importDefault(require("./styles.module.scss"));
+const useClickOutside_1 = __importDefault(require("../../../hooks/useClickOutside"));
 function getElementPosition(element) {
     let rect = element.getBoundingClientRect(); // Get the position of the element in relation to the viewport
     let scrollLeft = document.documentElement.scrollLeft;
@@ -24,7 +25,7 @@ function getElementPosition(element) {
         bottom: absoluteBottom,
     };
 }
-const DEFAULT_PADDING = 16;
+exports.DEFAULT_PADDING = 16;
 const Container = ({ children, className }) => {
     const triggerRef = (0, react_1.useRef)(null);
     const menuRef = (0, react_1.useRef)(null);
@@ -47,10 +48,10 @@ const Container = ({ children, className }) => {
             let newTop = top + height;
             let newLeft = left + width / 2 - menuWidth / 2;
             if (menuRight > documentWidth) {
-                newLeft = documentWidth - menuWidth - DEFAULT_PADDING;
+                newLeft = documentWidth - menuWidth - exports.DEFAULT_PADDING;
             }
             if (menuLeft < 0) {
-                newLeft = DEFAULT_PADDING;
+                newLeft = exports.DEFAULT_PADDING;
             }
             if (menuBottom > documentHeight) {
                 newTop = top - menuHeight;
@@ -65,22 +66,11 @@ const Container = ({ children, className }) => {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isOpen]);
-    (0, react_1.useEffect)(() => {
-        const handleClick = (e) => {
-            if (menuRef.current && !menuRef.current.contains(e.target)) {
-                setIsOpen(false);
-            }
-        };
-        if (isOpen) {
-            document.addEventListener("mousedown", handleClick);
-        }
-        else {
-            document.removeEventListener("mousedown", handleClick);
-        }
-        return () => {
-            document.removeEventListener("mousedown", handleClick);
-        };
-    }, [isOpen]);
+    (0, useClickOutside_1.default)({
+        ref: menuRef,
+        callback: () => setIsOpen(false),
+        isActive: isOpen,
+    });
     const containerStyles = [styles_module_scss_1.default.container, className].join(" ");
     const menuChild = (0, react_1.useMemo)(() => {
         let _child = null;

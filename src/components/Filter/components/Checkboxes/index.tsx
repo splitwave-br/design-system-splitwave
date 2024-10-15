@@ -4,7 +4,9 @@ import { useFilterContext } from "../../hooks/useFilter";
 import { useFilterFields } from "../../hooks/useFields";
 import { Filter } from "../..";
 import { Dropdown } from "@/components/Dropdown";
-import { Icon } from "@/components/Icon";
+import { concatStyles } from "@/utils/concatStyles";
+import Checked from "./components/Checked";
+import Unchecked from "./components/Unchecked";
 
 type CheckboxFiltersProps = {
   field: string;
@@ -45,11 +47,17 @@ export const CheckboxFilters = forwardRef<
           const shouldShowDivider = hasClear ? true : isLastItem;
           const optionValue = getOptionValue(option);
           const optionLabel = getLabel(option);
+          const isChecked = selectedValues.includes(optionValue);
 
           return (
             <React.Fragment key={optionValue}>
               <label htmlFor={optionValue} className={styles.field}>
-                <div className={styles.inputWrapper}>
+                <div
+                  className={concatStyles([
+                    styles.inputWrapper,
+                    isChecked ? styles.isChecked : "",
+                  ])}
+                >
                   <input
                     className={styles.checkbox}
                     type="checkbox"
@@ -58,9 +66,7 @@ export const CheckboxFilters = forwardRef<
                     checked={selectedValues.includes(optionValue)}
                   />
 
-                  {!!selectedValues.includes(optionValue) && (
-                    <Icon name="checkIcon" />
-                  )}
+                  {isChecked ? <Checked /> : <Unchecked />}
                 </div>
                 <label className={styles.label} htmlFor={optionValue}>
                   {optionLabel}
