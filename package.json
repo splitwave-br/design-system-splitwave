@@ -58,7 +58,6 @@
     "typescript": "^5.5.4"
   },
   "dependencies": {
-    "classnames": "^2.5.1",
-    "design-system": "github:splitwave-br/design-system-splitwave#feat/#43"
+    "classnames": "^2.5.1"
   }
 }
