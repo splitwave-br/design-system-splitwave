@@ -37,6 +37,7 @@ const Config_1 = __importDefault(require("./components/Config"));
 const Copy_1 = require("./components/Copy");
 const CreditCard_1 = __importDefault(require("./components/CreditCard"));
 const Customer_1 = __importDefault(require("./components/Customer"));
+const Date_1 = __importDefault(require("./components/Date"));
 const Divide_1 = __importDefault(require("./components/Divide"));
 const DollarSign_1 = __importDefault(require("./components/DollarSign"));
 const Download_1 = require("./components/Download");
@@ -132,6 +133,7 @@ const icons = {
     copy: Copy_1.Copy,
     "credit-card": CreditCard_1.default,
     customer: Customer_1.default,
+    date: Date_1.default,
     divide: Divide_1.default,
     "dollar-sign": DollarSign_1.default,
     download: Download_1.Download,

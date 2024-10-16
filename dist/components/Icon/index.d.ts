@@ -64,6 +64,7 @@ declare const icons: {
     copy: typeof Copy;
     "credit-card": () => import("react/jsx-runtime").JSX.Element;
     customer: () => import("react/jsx-runtime").JSX.Element;
+    date: () => import("react/jsx-runtime").JSX.Element;
     divide: () => import("react/jsx-runtime").JSX.Element;
     "dollar-sign": () => import("react/jsx-runtime").JSX.Element;
     download: typeof Download;
