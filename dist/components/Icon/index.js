@@ -98,6 +98,8 @@ const X_1 = require("./components/X");
 const XCircle_1 = require("./components/XCircle");
 const CheckIcon_1 = __importDefault(require("./components/CheckIcon"));
 const MoneyDown_1 = __importDefault(require("./components/MoneyDown"));
+const ZoomIn_1 = __importDefault(require("./components/ZoomIn"));
+const ZoomOut_1 = __importDefault(require("./components/ZoomOut"));
 const icons = {
     access: Access_1.default,
     alert: Alert_1.default,
@@ -191,6 +193,8 @@ const icons = {
     x: X_1.X,
     "x-circle": XCircle_1.XCircle,
     checkIcon: CheckIcon_1.default,
+    "zoom-in": ZoomIn_1.default,
+    "zoom-out": ZoomOut_1.default,
 };
 const Icon = ({ name, size = 2, className }) => {
     const Icon = icons[name];
