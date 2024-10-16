@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.2](https://github.com/splitwave-br/design-system-splitwave/compare/v1.8.1...v1.8.2) (2024-10-16)
+
+
+### Bug Fixes
+
+* **dependencies:** Fix dependencies ([696fc73](https://github.com/splitwave-br/design-system-splitwave/commit/696fc7348cef49d21d89aae4a03092c244fb9b20))
+
 ## [1.8.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.8.0...v1.8.1) (2024-10-16)
 
 
