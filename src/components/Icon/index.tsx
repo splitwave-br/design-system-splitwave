@@ -91,6 +91,8 @@ import { X } from "./components/X";
 import { XCircle } from "./components/XCircle";
 import CheckIcon from "./components/CheckIcon";
 import MoneyDown from "./components/MoneyDown";
+import ZoomIn from "./components/ZoomIn";
+import ZoomOut from "./components/ZoomOut";
 
 const icons = {
   access: Access,
@@ -185,6 +187,8 @@ const icons = {
   x: X,
   "x-circle": XCircle,
   checkIcon: CheckIcon,
+  "zoom-in": ZoomIn,
+  "zoom-out": ZoomOut,
 };
 
 export type TIconSizes = "nano" | "micro" | 1 | 2 | 3 | 4;

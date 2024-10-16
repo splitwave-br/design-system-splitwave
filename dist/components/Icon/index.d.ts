@@ -125,6 +125,8 @@ declare const icons: {
     x: typeof X;
     "x-circle": typeof XCircle;
     checkIcon: () => import("react/jsx-runtime").JSX.Element;
+    "zoom-in": () => import("react/jsx-runtime").JSX.Element;
+    "zoom-out": () => import("react/jsx-runtime").JSX.Element;
 };
 export type TIconSizes = "nano" | "micro" | 1 | 2 | 3 | 4;
 export type TIcons = keyof typeof icons;
