@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.8.0...v1.8.1) (2024-10-16)
+
+
+### Bug Fixes
+
+* **#346:** Added important to background color of buttons to override possible styles of tailwind ([7fa7cb9](https://github.com/splitwave-br/design-system-splitwave/commit/7fa7cb93dc8732fbe12a0b892f8920a25a892975))
+
 ## [1.8.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.7.1...v1.8.0) (2024-10-15)
 
 
