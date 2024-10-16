@@ -30,6 +30,7 @@ import Config from "./components/Config";
 import { Copy } from "./components/Copy";
 import CreditCard from "./components/CreditCard";
 import Customer from "./components/Customer";
+import Date from "./components/Date"
 import Divide from "./components/Divide";
 import DollarSign from "./components/DollarSign";
 import { Download } from "./components/Download";
@@ -91,6 +92,8 @@ import { X } from "./components/X";
 import { XCircle } from "./components/XCircle";
 import CheckIcon from "./components/CheckIcon";
 import MoneyDown from "./components/MoneyDown";
+import ZoomIn from "./components/ZoomIn";
+import ZoomOut from "./components/ZoomOut";
 
 const icons = {
   access: Access,
@@ -124,6 +127,7 @@ const icons = {
   copy: Copy,
   "credit-card": CreditCard,
   customer: Customer,
+  date: Date,
   divide: Divide,
   "dollar-sign": DollarSign,
   download: Download,
@@ -185,6 +189,8 @@ const icons = {
   x: X,
   "x-circle": XCircle,
   checkIcon: CheckIcon,
+  "zoom-in": ZoomIn,
+  "zoom-out": ZoomOut,
 };
 
 export type TIconSizes = "nano" | "micro" | 1 | 2 | 3 | 4;

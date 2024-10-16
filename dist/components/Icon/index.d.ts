@@ -64,6 +64,7 @@ declare const icons: {
     copy: typeof Copy;
     "credit-card": () => import("react/jsx-runtime").JSX.Element;
     customer: () => import("react/jsx-runtime").JSX.Element;
+    date: () => import("react/jsx-runtime").JSX.Element;
     divide: () => import("react/jsx-runtime").JSX.Element;
     "dollar-sign": () => import("react/jsx-runtime").JSX.Element;
     download: typeof Download;
@@ -125,6 +126,8 @@ declare const icons: {
     x: typeof X;
     "x-circle": typeof XCircle;
     checkIcon: () => import("react/jsx-runtime").JSX.Element;
+    "zoom-in": () => import("react/jsx-runtime").JSX.Element;
+    "zoom-out": () => import("react/jsx-runtime").JSX.Element;
 };
 export type TIconSizes = "nano" | "micro" | 1 | 2 | 3 | 4;
 export type TIcons = keyof typeof icons;
