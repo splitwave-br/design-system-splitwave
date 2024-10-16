@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.9.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.8.2...v1.9.0) (2024-10-16)
+
+
+### Features
+
+* **#18:** Added date icon ([3352392](https://github.com/splitwave-br/design-system-splitwave/commit/3352392db55c68e94cdfa3da38a81587b82c8638))
+* **icons:** Adding icons of zoom-in and zoom-out ([cae73e7](https://github.com/splitwave-br/design-system-splitwave/commit/cae73e712c51b6d23fe190f6cc6f71728c181915))
+
 ## [1.8.2](https://github.com/splitwave-br/design-system-splitwave/compare/v1.8.1...v1.8.2) (2024-10-16)
 
 
