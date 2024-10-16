@@ -30,6 +30,7 @@ import Config from "./components/Config";
 import { Copy } from "./components/Copy";
 import CreditCard from "./components/CreditCard";
 import Customer from "./components/Customer";
+import Date from "./components/Date"
 import Divide from "./components/Divide";
 import DollarSign from "./components/DollarSign";
 import { Download } from "./components/Download";
@@ -126,6 +127,7 @@ const icons = {
   copy: Copy,
   "credit-card": CreditCard,
   customer: Customer,
+  date: Date,
   divide: Divide,
   "dollar-sign": DollarSign,
   download: Download,
