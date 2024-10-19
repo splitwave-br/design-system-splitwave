@@ -101,6 +101,7 @@ const CheckIcon_1 = __importDefault(require("./components/CheckIcon"));
 const MoneyDown_1 = __importDefault(require("./components/MoneyDown"));
 const ZoomIn_1 = __importDefault(require("./components/ZoomIn"));
 const ZoomOut_1 = __importDefault(require("./components/ZoomOut"));
+const Money04_1 = __importDefault(require("./components/Money04"));
 const icons = {
     access: Access_1.default,
     alert: Alert_1.default,
@@ -158,6 +159,7 @@ const icons = {
     "money-down": MoneyDown_1.default,
     "money-up": MoneyUp_1.default,
     "money-exchange": MoneyExchange_1.default,
+    "money-04": Money04_1.default,
     more: More_1.default,
     "money-send": MoneySend_1.MoneySend,
     "money-bag": MoneyBag_1.MoneyBag,

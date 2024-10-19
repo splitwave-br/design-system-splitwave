@@ -89,6 +89,7 @@ declare const icons: {
     "money-down": () => import("react/jsx-runtime").JSX.Element;
     "money-up": () => import("react/jsx-runtime").JSX.Element;
     "money-exchange": () => import("react/jsx-runtime").JSX.Element;
+    "money-04": () => import("react/jsx-runtime").JSX.Element;
     more: () => import("react/jsx-runtime").JSX.Element;
     "money-send": typeof MoneySend;
     "money-bag": typeof MoneyBag;

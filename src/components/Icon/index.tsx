@@ -30,7 +30,7 @@ import Config from "./components/Config";
 import { Copy } from "./components/Copy";
 import CreditCard from "./components/CreditCard";
 import Customer from "./components/Customer";
-import Date from "./components/Date"
+import Date from "./components/Date";
 import Divide from "./components/Divide";
 import DollarSign from "./components/DollarSign";
 import { Download } from "./components/Download";
@@ -94,6 +94,7 @@ import CheckIcon from "./components/CheckIcon";
 import MoneyDown from "./components/MoneyDown";
 import ZoomIn from "./components/ZoomIn";
 import ZoomOut from "./components/ZoomOut";
+import Money04 from "./components/Money04";
 
 const icons = {
   access: Access,
@@ -152,6 +153,7 @@ const icons = {
   "money-down": MoneyDown,
   "money-up": MoneyUp,
   "money-exchange": MoneyExchange,
+  "money-04": Money04,
   more: More,
   "money-send": MoneySend,
   "money-bag": MoneyBag,
