@@ -15,11 +15,15 @@ export declare const Cell: {
     } & {
         children: string;
     }) => import("react/jsx-runtime").JSX.Element;
-    Text: ({ children, isFixed, shouldTruncateText, canCopy, }: import("../../types").TCell & {
+    Text: ({ children, isFixed, shouldTruncateText, canCopy, onCopy, }: import("../../types").TCell & {
         children: React.ReactNode;
         isFixed?: boolean;
         shouldTruncateText?: boolean;
         canCopy?: boolean;
+        onCopy?: () => void;
+    }) => import("react/jsx-runtime").JSX.Element;
+    Image: ({ src }: import("../../types").TCell & {
+        src: string;
     }) => import("react/jsx-runtime").JSX.Element;
     Placeholder: ({ children }: import("../../types").TCell & {
         children: React.ReactNode;

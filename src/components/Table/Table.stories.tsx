@@ -25,7 +25,7 @@ export const Basic: StoryFn = () => {
       renderHeader={() => (
         <>
           <Header width="80px">#</Header>
-          <Header>Nome</Header>
+          <Header identifier>Nome</Header>
           <Header>E-mail</Header>
         </>
       )}
@@ -51,24 +51,28 @@ export const TableWithCustomFields: StoryFn = () => {
           orderId: "#9918202409280001",
           price: 349,
           product: "Camiseta",
+          img: "https://dummyimage.com/100x100/ddd/000&text=Camiseta",
         },
         {
           date: "2024-09-28T14:28:00",
           orderId: "#9918202409280002",
           price: 199,
           product: "Calça",
+          img: "https://dummyimage.com/100x100/ddd/000&text=Calça",
         },
         {
           date: "2024-09-28T13:12:00",
           orderId: "#9918202409280003",
           price: 29,
           product: "Boné",
+          img: "https://dummyimage.com/100x100/ddd/000&text=Boné",
         },
         {
           date: "2024-09-28T09:49:00",
           orderId: "#9918202409280004",
           price: 99,
           product: "Tênis",
+          img: "https://dummyimage.com/100x100/ddd/000&text=Tênis",
         },
       ]}
       keyExtractor={(item) => item.orderId}
@@ -77,8 +81,8 @@ export const TableWithCustomFields: StoryFn = () => {
         <>
           <Header.Date>Data</Header.Date>
           <Header.Uuid>Código</Header.Uuid>
+          <Header identifier>Produto</Header>
           <Header>Valor</Header>
-          <Header>Produto</Header>
         </>
       )}
       renderRow={(item) => {
@@ -88,8 +92,11 @@ export const TableWithCustomFields: StoryFn = () => {
             <Cell.Text shouldTruncateText canCopy>
               {item.orderId}
             </Cell.Text>
+            <Cell.Text>
+              <Cell.Image src={item.img} />
+              {item.product}
+            </Cell.Text>
             <Cell.Price>{item.price}</Cell.Price>
-            <Cell.Text>{item.product}</Cell.Text>
           </>
         );
       }}
@@ -234,6 +241,56 @@ export const TableWithPages: StoryFn = () => {
           id: "#010",
           product: "Bolsa",
           price: 199.99,
+        },
+        {
+          id: "#011",
+          product: "Mochila",
+          price: 149.99,
+        },
+        {
+          id: "#012",
+          product: "Carteira",
+          price: 49.99,
+        },
+        {
+          id: "#013",
+          product: "Sapato",
+          price: 299.99,
+        },
+        {
+          id: "#014",
+          product: "Sandália",
+          price: 79.99,
+        },
+        {
+          id: "#015",
+          product: "Sapatênis",
+          price: 199.99,
+        },
+        {
+          id: "#016",
+          product: "Chinelo",
+          price: 19.99,
+        },
+        {
+          id: "#017",
+          product: "Botina",
+          price: 249.99,
+        },
+        {
+          id: "#018",
+          product: "Bota",
+          price: 299.99,
+        },
+        {
+          id: "#019",
+          product: "Tênis de corrida",
+          price: 399.99,
+        },
+        {
+          id: "#020",
+          product: "Tênis de academia",
+          price: 299.99,
         },
       ]}
       renderHeader={() => (

@@ -3,6 +3,9 @@
 
   > span {
     position: relative;
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spaces-1) + var(--spaces-micro));
   }
 }
 
@@ -28,6 +31,7 @@
   }
 }
 
+
 .copyLabel {
   opacity: 0;
   transition:
@@ -41,4 +45,8 @@
   right: 0;
   background-color: var(--table-cell-background);
   color: var(--colors-brand);
+}
+
+.threeDots {
+  color: var(--table-text-color-primary);
 }

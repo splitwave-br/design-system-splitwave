@@ -1,0 +1,14 @@
+@import "src/styles/breakpoints";
+
+.img {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--border-radius-3);
+  object-fit: cover;
+  object-position: center;
+
+  @include temporary_mobile {
+    width: 32px;
+    height: 32px;
+  }
+}

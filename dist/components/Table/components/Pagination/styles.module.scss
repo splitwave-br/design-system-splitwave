@@ -1,3 +1,5 @@
+@import "src/styles/breakpoints";
+
 .wrapper {
   display: flex;
   flex-direction: row;
@@ -5,27 +7,6 @@
   flex: 1;
 
   justify-content: space-between;
-
-  // position: sticky;
-  // left: 0;
-  // bottom: 0;
-  // display: flex;
-  // justify-content: space-between;
-  // padding: var(--table-spacing);
-  // background-color: var(--table-footer-background);
-  // align-items: center;
-
-  // border-radius: var(--table-border-radius);
-  // border-top-left-radius: 0;
-  // border-top-right-radius: 0;
-
-  // @include temporary-mobile {
-  //   justify-content: center;
-
-  //   :global(.button) {
-  //     display: none;
-  //   }
-  // }
 }
 
 .button {
@@ -40,7 +21,6 @@
   transition: opacity 0.18s;
   will-change: opacity;
   font-size: var(--font-size-3);
-
 
   &:disabled {
     color: var(--table-text-color-secondary);
@@ -59,11 +39,13 @@
     justify-content: flex-end;
   }
 
-  // @include temporary-mobile {
-  //   & > span {
-  //     display: none;
-  //   }
-  // }
+  & figure {
+    color: var(--colors-gray-500);
+  }
+
+  @include temporary-mobile {
+    display: none;
+  }
 }
 
 .pages {

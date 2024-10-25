@@ -5,6 +5,7 @@ const Date_1 = require("./Date");
 const Price_1 = require("./Price");
 const Badge_1 = require("./Badge");
 const Text_1 = require("./Text");
+const Image_1 = require("./Image");
 const Placeholder_1 = require("./Placeholder");
 const Actions_1 = require("./Actions");
 const Dropdown_1 = require("../../../../components/Dropdown");
@@ -14,6 +15,7 @@ exports.Cell = {
     Price: Price_1.Price,
     Badge: Badge_1.Badge,
     Text: Text_1.Text,
+    Image: Image_1.Image,
     Placeholder: Placeholder_1.Placeholder,
     Actions: Actions_1.Actions,
     ActionItem: Dropdown_1.Dropdown.Item,
