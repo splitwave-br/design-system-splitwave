@@ -1,5 +1,42 @@
 # Changelog
 
+## [1.10.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.9.0...v1.10.0) (2024-10-19)
+
+
+### Features
+
+* **money-icon:** Add money04 icon ([dc92ba5](https://github.com/splitwave-br/design-system-splitwave/commit/dc92ba5d4fe7f2d00b2bd4bba2e5b5505443f8c9))
+
+## [1.9.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.8.2...v1.9.0) (2024-10-16)
+
+
+### Features
+
+* **#18:** Added date icon ([3352392](https://github.com/splitwave-br/design-system-splitwave/commit/3352392db55c68e94cdfa3da38a81587b82c8638))
+* **icons:** Adding icons of zoom-in and zoom-out ([cae73e7](https://github.com/splitwave-br/design-system-splitwave/commit/cae73e712c51b6d23fe190f6cc6f71728c181915))
+
+## [1.8.2](https://github.com/splitwave-br/design-system-splitwave/compare/v1.8.1...v1.8.2) (2024-10-16)
+
+
+### Bug Fixes
+
+* **dependencies:** Fix dependencies ([696fc73](https://github.com/splitwave-br/design-system-splitwave/commit/696fc7348cef49d21d89aae4a03092c244fb9b20))
+
+## [1.8.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.8.0...v1.8.1) (2024-10-16)
+
+
+### Bug Fixes
+
+* **#346:** Added important to background color of buttons to override possible styles of tailwind ([7fa7cb9](https://github.com/splitwave-br/design-system-splitwave/commit/7fa7cb93dc8732fbe12a0b892f8920a25a892975))
+
+## [1.8.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.7.1...v1.8.0) (2024-10-15)
+
+
+### Features
+
+* **#43:** Fix datepicker mobile styles ([cdf883b](https://github.com/splitwave-br/design-system-splitwave/commit/cdf883b2fafd0ac18fca6589171f8a771ea1fd49))
+* **#43:** Refactoir check filter and fix package ([f0ce3d8](https://github.com/splitwave-br/design-system-splitwave/commit/f0ce3d8d8de4c5be6c7f19dfe1b51959f3414793))
+
 ## [1.7.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.7.0...v1.7.1) (2024-10-14)
 
 
