@@ -3,6 +3,7 @@ import styles from "./styles.module.scss";
 // import { Icon } from '@/components/Icon';
 import { useMemo } from "react";
 import { Select } from "@/components/Form/controls/Select";
+import { Icon } from "@/components/Icon";
 
 type TPagination = {
   totalPages: number;
@@ -40,7 +41,7 @@ export const Pagination = ({
         className={styles.button}
         disabled={isPrevDisabled}
       >
-        {/* <Icon name='arrow-left' size={2} />  */}
+        <Icon name="arrow-left" size={2} />
         <span>Anterior</span>
       </button>
       <div className={styles.pages}>
@@ -65,7 +66,7 @@ export const Pagination = ({
         disabled={isNextDisabled}
       >
         <span>Próximo</span>
-        {/* <Icon name='arrow-right' size={2} /> */}
+        <Icon name="arrow-right" size={2} />
       </button>
     </div>
   );

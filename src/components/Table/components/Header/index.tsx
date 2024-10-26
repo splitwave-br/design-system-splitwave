@@ -8,9 +8,12 @@ export type HeaderProps = {
   children?: ReactNode;
   isFixed?: boolean;
 
-  // Use this prop to set the width of the grid column
+  // Use this prop to set the width of the grid column;
   minWidth?: string;
   width?: string;
+
+  // Use this prop to set the column as an identifier on mobile;
+  identifier?: boolean;
 };
 
 export const Header = ({ children, isFixed }: HeaderProps) => {

@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.usePagination = void 0;
 const react_1 = require("react");
-const LIMIT = 5;
+const LIMIT = 15;
 const FAKE_TIMEOUT = 300; // ms
 const usePagination = ({ rows }) => {
     const [currentPage, setCurrentPage] = (0, react_1.useState)(0);

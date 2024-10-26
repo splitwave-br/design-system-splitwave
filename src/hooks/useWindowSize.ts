@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from "react";
 type WindowSize = {
   width: number | undefined;
   height: number | undefined;
@@ -11,6 +11,7 @@ const useWindowSize = () => {
     width: undefined,
     height: undefined,
   });
+
   useEffect(() => {
     function handleResize(): void {
       setSize({
@@ -19,11 +20,12 @@ const useWindowSize = () => {
       });
     }
     handleResize();
-    window.addEventListener('resize', handleResize);
-    return (): void => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return (): void => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const isMobile = size.width! < 768;
+  const isMobile = useMemo(() => size.width! <= 768, [size.width]);
+
   return { size, isMobile };
 };
 
