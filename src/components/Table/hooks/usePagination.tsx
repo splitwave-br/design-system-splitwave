@@ -5,7 +5,7 @@ export interface IUsePagination<T> {
   rows?: T[];
 }
 
-const LIMIT = 5;
+const LIMIT = 15;
 const FAKE_TIMEOUT = 300; // ms
 
 export const usePagination = <T,>({ rows }: IUsePagination<T>) => {

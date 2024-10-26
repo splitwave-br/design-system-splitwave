@@ -6,6 +6,7 @@ type TProps = TCell & {
   isFixed?: boolean;
   shouldTruncateText?: boolean;
   canCopy?: boolean;
+  onCopy?: () => void;
 };
 
 // TODO - Move it to a utils file and implement a visual feedback
@@ -25,6 +26,7 @@ export const Text = ({
   isFixed,
   shouldTruncateText = false,
   canCopy = false,
+  onCopy,
 }: TProps) => {
   const className = [
     styles.wrapper,
@@ -35,7 +37,10 @@ export const Text = ({
   const handleCopyContent = (e: React.MouseEvent<HTMLSpanElement>) => {
     if (canCopy) {
       e.stopPropagation();
-      if (typeof children === "string") copyToClipboard(children);
+      if (typeof children === "string") {
+        copyToClipboard(children);
+        onCopy?.();
+      }
     }
   };
 
@@ -46,7 +51,7 @@ export const Text = ({
         onClick={handleCopyContent}
       >
         {children}
-        {canCopy && <span className={styles.copyLabel}>... Copiar</span>}
+        {canCopy && <span className={styles.copyLabel}><span className={styles.threeDots}>...</span> Copiar</span>}
       </span>
     </div>
   );

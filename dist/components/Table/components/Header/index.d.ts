@@ -4,6 +4,7 @@ export type HeaderProps = {
     isFixed?: boolean;
     minWidth?: string;
     width?: string;
+    identifier?: boolean;
 };
 export declare const Header: {
     ({ children, isFixed }: HeaderProps): import("react/jsx-runtime").JSX.Element;

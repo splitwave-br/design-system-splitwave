@@ -4,6 +4,7 @@ type TProps = TCell & {
     isFixed?: boolean;
     shouldTruncateText?: boolean;
     canCopy?: boolean;
+    onCopy?: () => void;
 };
-export declare const Text: ({ children, isFixed, shouldTruncateText, canCopy, }: TProps) => import("react/jsx-runtime").JSX.Element;
+export declare const Text: ({ children, isFixed, shouldTruncateText, canCopy, onCopy, }: TProps) => import("react/jsx-runtime").JSX.Element;
 export {};

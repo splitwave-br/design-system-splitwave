@@ -1,5 +1,5 @@
 "use strict";
-'use client';
+"use client";
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = require("react");
 const useWindowSize = () => {
@@ -15,10 +15,10 @@ const useWindowSize = () => {
             });
         }
         handleResize();
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
     }, []);
-    const isMobile = size.width < 768;
+    const isMobile = (0, react_1.useMemo)(() => size.width <= 768, [size.width]);
     return { size, isMobile };
 };
 exports.default = useWindowSize;

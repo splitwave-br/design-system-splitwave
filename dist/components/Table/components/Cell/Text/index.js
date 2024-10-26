@@ -17,7 +17,7 @@ function copyToClipboard(text) {
         console.error("Erro ao copiar o texto: ", err);
     });
 }
-const Text = ({ children, isFixed, shouldTruncateText = false, canCopy = false, }) => {
+const Text = ({ children, isFixed, shouldTruncateText = false, canCopy = false, onCopy, }) => {
     const className = [
         styles_module_scss_1.default.wrapper,
         isFixed ? styles_module_scss_1.default.isFixed : "",
@@ -26,10 +26,12 @@ const Text = ({ children, isFixed, shouldTruncateText = false, canCopy = false, 
     const handleCopyContent = (e) => {
         if (canCopy) {
             e.stopPropagation();
-            if (typeof children === "string")
+            if (typeof children === "string") {
                 copyToClipboard(children);
+                onCopy?.();
+            }
         }
     };
-    return ((0, jsx_runtime_1.jsx)("div", { className: className, children: (0, jsx_runtime_1.jsxs)("span", { className: canCopy ? styles_module_scss_1.default.canCopy : "", onClick: handleCopyContent, children: [children, canCopy && (0, jsx_runtime_1.jsx)("span", { className: styles_module_scss_1.default.copyLabel, children: "... Copiar" })] }) }));
+    return ((0, jsx_runtime_1.jsx)("div", { className: className, children: (0, jsx_runtime_1.jsxs)("span", { className: canCopy ? styles_module_scss_1.default.canCopy : "", onClick: handleCopyContent, children: [children, canCopy && (0, jsx_runtime_1.jsxs)("span", { className: styles_module_scss_1.default.copyLabel, children: [(0, jsx_runtime_1.jsx)("span", { className: styles_module_scss_1.default.threeDots, children: "..." }), " Copiar"] })] }) }));
 };
 exports.Text = Text;

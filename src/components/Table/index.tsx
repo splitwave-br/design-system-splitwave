@@ -4,12 +4,11 @@ import { Pagination } from "./components/Pagination";
 import { Cell } from "./components/Cell";
 import { Header } from "./components/Header";
 import { usePagination } from "./hooks/usePagination";
-import { useMemo, ReactElement, Children } from "react";
+import { useMemo } from "react";
 import "./variables.scss";
 import { COLUMNS_WIDTH } from "./components/Header/constants";
-import { concatStyles } from "@/utils/concatStyles";
-
-const LIMIT = 5;
+import useWindowSize from "@/hooks/useWindowSize";
+import { Rows } from "./components/Rows";
 
 export const Table = <T extends ITableData>({
   data,
@@ -21,6 +20,7 @@ export const Table = <T extends ITableData>({
   renderEmptyState,
   pagination,
 }: TTable<T>) => {
+  const { isMobile } = useWindowSize();
   const staticPagination = usePagination<T>({ rows: data });
 
   const {
@@ -39,10 +39,10 @@ export const Table = <T extends ITableData>({
   }, [pages, currentPage, data]);
 
   const header = useMemo(() => renderHeader(), [renderHeader]);
-
   const columns = useMemo(() => header.props.children, [header]);
 
   const gridTemplateColumns = useMemo(() => {
+    if (isMobile) return "auto 1fr";
     return columns
       .map((column: React.JSX.Element) => {
         const columnWidth =
@@ -59,41 +59,25 @@ export const Table = <T extends ITableData>({
         return "1fr";
       })
       .join(" ");
-  }, [columns]);
-
-  const hasClickBehavior = typeof onRowClick === "function";
-
-  const rowClassName = concatStyles([
-    styles.row,
-    hasClickBehavior ? styles.row_hover : "",
-  ]);
+  }, [columns, isMobile]);
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.table} style={{ gridTemplateColumns }}>
-        <div className={styles.header}>{header}</div>
+        {!isMobile && <div className={styles.header}>{header}</div>}
 
         {isEmpty && renderEmptyState && renderEmptyState()}
 
-        {isLoading &&
-          Array.from({ length: limit || LIMIT }).map((_, index) => (
-            <div key={index} className={rowClassName}>
-              {columns.map(() => (
-                <Cell.Skeleton />
-              ))}
-            </div>
-          ))}
-
-        {!isLoading &&
-          pageData?.map?.((row, index) => (
-            <div
-              key={keyExtractor(row, index)}
-              className={rowClassName}
-              onClick={() => onRowClick?.(row)}
-            >
-              {renderRow(row)}
-            </div>
-          ))}
+        <Rows
+          limit={limit}
+          keyExtractor={keyExtractor}
+          data={pageData}
+          renderRow={renderRow}
+          columns={columns}
+          onRowClick={onRowClick}
+          isLoading={isLoading}
+          isMobile={isMobile}
+        />
       </div>
 
       {!isEmpty && totalPages > 1 && (

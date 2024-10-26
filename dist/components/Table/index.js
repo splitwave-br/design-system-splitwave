@@ -15,9 +15,10 @@ const usePagination_1 = require("./hooks/usePagination");
 const react_1 = require("react");
 require("./variables.scss");
 const constants_1 = require("./components/Header/constants");
-const concatStyles_1 = require("../../utils/concatStyles");
-const LIMIT = 5;
+const useWindowSize_1 = __importDefault(require("../../hooks/useWindowSize"));
+const Rows_1 = require("./components/Rows");
 const Table = ({ data, onRowClick, isEmpty = false, keyExtractor = (item) => item.id, renderHeader, renderRow, renderEmptyState, pagination, }) => {
+    const { isMobile } = (0, useWindowSize_1.default)();
     const staticPagination = (0, usePagination_1.usePagination)({ rows: data });
     const { currentPage, pages, onClickNextPage, onClickOnPage, onClickPrevPage, totalPages, isLoading, limit, } = pagination || staticPagination;
     const pageData = (0, react_1.useMemo)(() => {
@@ -26,6 +27,8 @@ const Table = ({ data, onRowClick, isEmpty = false, keyExtractor = (item) => ite
     const header = (0, react_1.useMemo)(() => renderHeader(), [renderHeader]);
     const columns = (0, react_1.useMemo)(() => header.props.children, [header]);
     const gridTemplateColumns = (0, react_1.useMemo)(() => {
+        if (isMobile)
+            return "auto 1fr";
         return columns
             .map((column) => {
             const columnWidth = constants_1.COLUMNS_WIDTH?.[column.type?.displayName];
@@ -37,14 +40,7 @@ const Table = ({ data, onRowClick, isEmpty = false, keyExtractor = (item) => ite
             return "1fr";
         })
             .join(" ");
-    }, [columns]);
-    const hasClickBehavior = typeof onRowClick === "function";
-    const rowClassName = (0, concatStyles_1.concatStyles)([
-        styles_module_scss_1.default.row,
-        hasClickBehavior ? styles_module_scss_1.default.row_hover : "",
-    ]);
-    return ((0, jsx_runtime_1.jsxs)("div", { className: styles_module_scss_1.default.wrapper, children: [(0, jsx_runtime_1.jsxs)("div", { className: styles_module_scss_1.default.table, style: { gridTemplateColumns }, children: [(0, jsx_runtime_1.jsx)("div", { className: styles_module_scss_1.default.header, children: header }), isEmpty && renderEmptyState && renderEmptyState(), isLoading &&
-                        Array.from({ length: limit || LIMIT }).map((_, index) => ((0, jsx_runtime_1.jsx)("div", { className: rowClassName, children: columns.map(() => ((0, jsx_runtime_1.jsx)(Cell_1.Cell.Skeleton, {}))) }, index))), !isLoading &&
-                        pageData?.map?.((row, index) => ((0, jsx_runtime_1.jsx)("div", { className: rowClassName, onClick: () => onRowClick?.(row), children: renderRow(row) }, keyExtractor(row, index))))] }), !isEmpty && totalPages > 1 && ((0, jsx_runtime_1.jsx)("div", { className: styles_module_scss_1.default.footer, children: (0, jsx_runtime_1.jsx)(Pagination_1.Pagination, { currentPage: currentPage, totalPages: totalPages, handleClickNextPage: !isLoading ? onClickNextPage : () => { }, handleClickOnPage: !isLoading ? onClickOnPage : () => { }, handleClickPrevPage: !isLoading ? onClickPrevPage : () => { } }) }))] }));
+    }, [columns, isMobile]);
+    return ((0, jsx_runtime_1.jsxs)("div", { className: styles_module_scss_1.default.wrapper, children: [(0, jsx_runtime_1.jsxs)("div", { className: styles_module_scss_1.default.table, style: { gridTemplateColumns }, children: [!isMobile && (0, jsx_runtime_1.jsx)("div", { className: styles_module_scss_1.default.header, children: header }), isEmpty && renderEmptyState && renderEmptyState(), (0, jsx_runtime_1.jsx)(Rows_1.Rows, { limit: limit, keyExtractor: keyExtractor, data: pageData, renderRow: renderRow, columns: columns, onRowClick: onRowClick, isLoading: isLoading, isMobile: isMobile })] }), !isEmpty && totalPages > 1 && ((0, jsx_runtime_1.jsx)("div", { className: styles_module_scss_1.default.footer, children: (0, jsx_runtime_1.jsx)(Pagination_1.Pagination, { currentPage: currentPage, totalPages: totalPages, handleClickNextPage: !isLoading ? onClickNextPage : () => { }, handleClickOnPage: !isLoading ? onClickOnPage : () => { }, handleClickPrevPage: !isLoading ? onClickPrevPage : () => { } }) }))] }));
 };
 exports.Table = Table;
