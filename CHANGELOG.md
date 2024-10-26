@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.11.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.10.0...v1.11.0) (2024-10-26)
+
+
+### Features
+
+* **#103:** Added new table on mobile ([5a18168](https://github.com/splitwave-br/design-system-splitwave/commit/5a181688029ab7600be8c3fa74f4ee5edd2a7870))
+
 ## [1.10.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.9.0...v1.10.0) (2024-10-19)
 
 
