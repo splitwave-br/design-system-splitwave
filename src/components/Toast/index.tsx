@@ -1,4 +1,3 @@
-"use client";
 import styles from "./styles.module.scss";
 import { Icon, TIcons } from "@/components/Icon";
 import { useEffect, useMemo, useState } from "react";
