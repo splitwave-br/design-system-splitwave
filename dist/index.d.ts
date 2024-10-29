@@ -17,4 +17,7 @@ export type { ModalBodyProps, ModalWrapperProps, ModalOverlayProps, ModalFooterP
 export { ConfirmationModal } from "./components/ConfirmationModal";
 export type { ConfirmationModalProps } from "./components/ConfirmationModal";
 export { DatePicker } from "./components/DatePicker";
+export { Toast } from "./components/Toast";
+export { ToastProvider, useToast } from "./components/Toast/hooks/useToast";
+export type { ToastProps } from "./components/Toast";
 export { default as useClickOutside } from "./hooks/useClickOutside";
