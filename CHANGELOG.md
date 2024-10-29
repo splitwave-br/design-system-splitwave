@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.12.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.11.0...v1.12.0) (2024-10-29)
+
+
+### Features
+
+* **#30:** adicionado componente de toast ([171f433](https://github.com/splitwave-br/design-system-splitwave/commit/171f43320958735e176f6bf8b66f2a54622bdbdb))
+* **#30:** updating version ([92eb261](https://github.com/splitwave-br/design-system-splitwave/commit/92eb261c6c15896581970248c76172982e86e2b8))
+
 ## [1.11.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.10.0...v1.11.0) (2024-10-26)
 
 
