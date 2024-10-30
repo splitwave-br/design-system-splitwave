@@ -1,4 +1,5 @@
 "use strict";
+"use client";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RHFCheckbox = RHFCheckbox;
 const jsx_runtime_1 = require("react/jsx-runtime");
@@ -12,5 +13,5 @@ function RHFCheckbox({ label, name }) {
             shouldValidate: true,
         });
     };
-    return ((0, jsx_runtime_1.jsx)(Checkbox_1.Checkbox, { label: label, onChange: handleCheck, value: isChecked }));
+    return (0, jsx_runtime_1.jsx)(Checkbox_1.Checkbox, { label: label, onChange: handleCheck, value: isChecked });
 }
