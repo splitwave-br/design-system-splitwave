@@ -57,8 +57,10 @@
     "tsc-alias": "^1.8.10",
     "typescript": "^5.5.4"
   },
+  "peerDependencies": {
+    "react-hook-form": "^7.47.0"
+  },
   "dependencies": {
-    "react-hook-form": "^7.47.0",
     "classnames": "^2.5.1",
     "dayjs": "^1.11.13"
   }
