@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.useClickOutside = exports.useToast = exports.ToastProvider = exports.Toast = exports.DatePicker = exports.ConfirmationModal = exports.ModalProvider = exports.useModal = exports.Modal = exports.Icon = exports.Header = exports.Cell = exports.Table = exports.useFilterFields = exports.useFilter = exports.useFilterContext = exports.Filter = exports.Dropdown = exports.Badge = exports.ButtonLink = exports.Button = void 0;
+exports.Form = exports.useClickOutside = exports.useToast = exports.ToastProvider = exports.Toast = exports.DatePicker = exports.ConfirmationModal = exports.ModalProvider = exports.useModal = exports.Modal = exports.Icon = exports.Header = exports.Cell = exports.Table = exports.useFilterFields = exports.useFilter = exports.useFilterContext = exports.Filter = exports.Dropdown = exports.Badge = exports.ButtonLink = exports.Button = void 0;
 // Button
 var Button_1 = require("./components/Button");
 Object.defineProperty(exports, "Button", { enumerable: true, get: function () { return Button_1.Button; } });
@@ -53,3 +53,6 @@ Object.defineProperty(exports, "useToast", { enumerable: true, get: function () 
 // Hooks
 var useClickOutside_1 = require("./hooks/useClickOutside");
 Object.defineProperty(exports, "useClickOutside", { enumerable: true, get: function () { return __importDefault(useClickOutside_1).default; } });
+// FORM
+var Form_1 = require("./components/Form");
+Object.defineProperty(exports, "Form", { enumerable: true, get: function () { return Form_1.Form; } });
