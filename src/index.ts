@@ -56,3 +56,6 @@ export { default as useClickOutside } from "./hooks/useClickOutside";
 
 // FORM
 export { Form } from './components/Form'
+
+// Checkbox
+export { RHFCheckbox} from './components/Form/components/RHFCheckbox/index'

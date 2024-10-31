@@ -8,6 +8,7 @@ import Unchecked from "../../../Filter/components/Checkboxes/components/Unchecke
 
 type CheckboxProps = {
   label?: string;
+  name: string;
   onChange: () => void;
   value: boolean
 };
@@ -17,18 +18,18 @@ export const Checkbox = forwardRef<
   CheckboxProps
 >(
   (
-    { label, onChange, value },
+    { name, label, onChange, value },
     ref,
   ) => {
 const isChecked = value 
 
     return (
-      <React.Fragment key={label}>
+      <React.Fragment key={name}>
         <div onClick={(e) => {
           e.stopPropagation()
           onChange()
         } }>
-        <label htmlFor={label} className={styles.field}>
+        <label htmlFor={name} className={styles.field}>
           <div
             className={concatStyles([
               styles.inputWrapper,
@@ -38,7 +39,7 @@ const isChecked = value
             <input
               className={styles.checkbox}
               type="checkbox"
-              id={label}
+              id={name}
               ref={ref}
               onChange={onChange}
               checked={isChecked}
