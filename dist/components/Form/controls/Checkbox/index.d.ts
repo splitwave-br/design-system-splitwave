@@ -1,6 +1,7 @@
 import React from "react";
 type CheckboxProps = {
     label?: string;
+    name: string;
     onChange: () => void;
     value: boolean;
 };

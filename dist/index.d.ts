@@ -22,3 +22,4 @@ export { ToastProvider, useToast } from "./components/Toast/hooks/useToast";
 export type { ToastProps } from "./components/Toast";
 export { default as useClickOutside } from "./hooks/useClickOutside";
 export { Form } from './components/Form';
+export { RHFCheckbox } from './components/Form/components/RHFCheckbox/index';

@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Form = exports.useClickOutside = exports.useToast = exports.ToastProvider = exports.Toast = exports.DatePicker = exports.ConfirmationModal = exports.ModalProvider = exports.useModal = exports.Modal = exports.Icon = exports.Header = exports.Cell = exports.Table = exports.useFilterFields = exports.useFilter = exports.useFilterContext = exports.Filter = exports.Dropdown = exports.Badge = exports.ButtonLink = exports.Button = void 0;
+exports.RHFCheckbox = exports.Form = exports.useClickOutside = exports.useToast = exports.ToastProvider = exports.Toast = exports.DatePicker = exports.ConfirmationModal = exports.ModalProvider = exports.useModal = exports.Modal = exports.Icon = exports.Header = exports.Cell = exports.Table = exports.useFilterFields = exports.useFilter = exports.useFilterContext = exports.Filter = exports.Dropdown = exports.Badge = exports.ButtonLink = exports.Button = void 0;
 // Button
 var Button_1 = require("./components/Button");
 Object.defineProperty(exports, "Button", { enumerable: true, get: function () { return Button_1.Button; } });
@@ -56,3 +56,6 @@ Object.defineProperty(exports, "useClickOutside", { enumerable: true, get: funct
 // FORM
 var Form_1 = require("./components/Form");
 Object.defineProperty(exports, "Form", { enumerable: true, get: function () { return Form_1.Form; } });
+// Checkbox
+var index_1 = require("./components/Form/components/RHFCheckbox/index");
+Object.defineProperty(exports, "RHFCheckbox", { enumerable: true, get: function () { return index_1.RHFCheckbox; } });

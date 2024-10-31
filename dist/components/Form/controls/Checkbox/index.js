@@ -33,14 +33,14 @@ const styles_module_scss_1 = __importDefault(require("./styles.module.scss"));
 const concatStyles_1 = require("../../../../utils/concatStyles");
 const Checked_1 = __importDefault(require("../../../Filter/components/Checkboxes/components/Checked"));
 const Unchecked_1 = __importDefault(require("../../../Filter/components/Checkboxes/components/Unchecked"));
-exports.Checkbox = (0, react_1.forwardRef)(({ label, onChange, value }, ref) => {
+exports.Checkbox = (0, react_1.forwardRef)(({ name, label, onChange, value }, ref) => {
     const isChecked = value;
     return ((0, jsx_runtime_1.jsx)(react_1.default.Fragment, { children: (0, jsx_runtime_1.jsx)("div", { onClick: (e) => {
                 e.stopPropagation();
                 onChange();
-            }, children: (0, jsx_runtime_1.jsxs)("label", { htmlFor: label, className: styles_module_scss_1.default.field, children: [(0, jsx_runtime_1.jsxs)("div", { className: (0, concatStyles_1.concatStyles)([
+            }, children: (0, jsx_runtime_1.jsxs)("label", { htmlFor: name, className: styles_module_scss_1.default.field, children: [(0, jsx_runtime_1.jsxs)("div", { className: (0, concatStyles_1.concatStyles)([
                             styles_module_scss_1.default.inputWrapper,
                             isChecked ? styles_module_scss_1.default.isChecked : '',
-                        ]), children: [(0, jsx_runtime_1.jsx)("input", { className: styles_module_scss_1.default.checkbox, type: "checkbox", id: label, ref: ref, onChange: onChange, checked: isChecked }), isChecked ? (0, jsx_runtime_1.jsx)(Checked_1.default, {}) : (0, jsx_runtime_1.jsx)(Unchecked_1.default, {})] }), label && (0, jsx_runtime_1.jsx)("span", { className: styles_module_scss_1.default.label, children: label })] }) }) }, label));
+                        ]), children: [(0, jsx_runtime_1.jsx)("input", { className: styles_module_scss_1.default.checkbox, type: "checkbox", id: name, ref: ref, onChange: onChange, checked: isChecked }), isChecked ? (0, jsx_runtime_1.jsx)(Checked_1.default, {}) : (0, jsx_runtime_1.jsx)(Unchecked_1.default, {})] }), label && (0, jsx_runtime_1.jsx)("span", { className: styles_module_scss_1.default.label, children: label })] }) }) }, name));
 });
 exports.Checkbox.displayName = 'Checkbox';

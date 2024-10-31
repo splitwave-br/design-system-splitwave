@@ -32,9 +32,9 @@
   will-change: background-color;
   user-select: none;
 
-  &:hover {
-    background-color: var(--colors-light-gray-200);
-  }
+  // &:hover {
+  //   background-color: var(--colors-light-gray-200);
+  // }
 
   .label {
     color: var(--primary-text);

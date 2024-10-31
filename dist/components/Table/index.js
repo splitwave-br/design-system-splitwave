@@ -32,7 +32,6 @@ const Table = ({ data, onRowClick, isEmpty = false, keyExtractor = (item) => ite
         return columns
             .map((column) => {
             if (!column) {
-                console.log("cai aq");
                 return;
             }
             const columnWidth = constants_1.COLUMNS_WIDTH?.[column.type?.displayName];

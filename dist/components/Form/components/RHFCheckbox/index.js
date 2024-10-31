@@ -13,5 +13,5 @@ function RHFCheckbox({ label, name }) {
             shouldValidate: true,
         });
     };
-    return (0, jsx_runtime_1.jsx)(Checkbox_1.Checkbox, { label: label, onChange: handleCheck, value: isChecked });
+    return (0, jsx_runtime_1.jsx)(Checkbox_1.Checkbox, { name: name, label: label, onChange: handleCheck, value: isChecked });
 }
