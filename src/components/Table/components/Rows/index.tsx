@@ -45,7 +45,7 @@ export const Rows = <T extends ITableData>({
 
   const columnsHeader = useMemo(() => {
     const columnsText = columns.map(
-      (column: React.JSX.Element) => column.props.children,
+      (column: React.JSX.Element) => column?.props?.children || null,
     );
 
     if (isMobile) return reorderCells(columnsText, identifierIndex);

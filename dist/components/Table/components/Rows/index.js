@@ -15,7 +15,7 @@ const LIMIT = 15;
 const Rows = ({ keyExtractor, data, renderRow, columns, onRowClick, limit, isLoading, isMobile, }) => {
     const identifierIndex = (0, react_1.useMemo)(() => (0, utils_1.getIdentifierIndex)(columns), [columns]);
     const columnsHeader = (0, react_1.useMemo)(() => {
-        const columnsText = columns.map((column) => column.props.children);
+        const columnsText = columns.map((column) => column?.props?.children || null);
         if (isMobile)
             return (0, utils_1.reorderCells)(columnsText, identifierIndex);
         return columnsText;
