@@ -39,7 +39,7 @@ export const Row = ({
     <div className={className} onClick={onClick}>
       {cells.map((cell: React.JSX.Element, index: number) => (
         <Fragment key={`cell-${rowKey}-${index}`}>
-          {isMobile && (
+          {isMobile && columns[index] && (
             <div className={styles.columnHeader}>{columns[index]}</div>
           )}
           {cell}

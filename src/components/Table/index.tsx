@@ -39,12 +39,17 @@ export const Table = <T extends ITableData>({
   }, [pages, currentPage, data]);
 
   const header = useMemo(() => renderHeader(), [renderHeader]);
-  const columns = useMemo(() => header.props.children, [header]);
+
+  const columns = useMemo(() => header?.props?.children || undefined, [header]);
 
   const gridTemplateColumns = useMemo(() => {
     if (isMobile) return "auto 1fr";
     return columns
       .map((column: React.JSX.Element) => {
+        if (!column) {
+          console.log("cai aq");
+          return;
+        }
         const columnWidth =
           COLUMNS_WIDTH?.[
             column.type?.displayName as keyof typeof COLUMNS_WIDTH
@@ -64,7 +69,7 @@ export const Table = <T extends ITableData>({
   return (
     <div className={styles.wrapper}>
       <div className={styles.table} style={{ gridTemplateColumns }}>
-        {!isMobile && <div className={styles.header}>{header}</div>}
+        {!isMobile && header && <div className={styles.header}>{header}</div>}
 
         {isEmpty && renderEmptyState && renderEmptyState()}
 
