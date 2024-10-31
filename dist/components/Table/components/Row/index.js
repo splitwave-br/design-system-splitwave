@@ -15,6 +15,6 @@ const Row = ({ rowKey, row, columns, identifierIndex, className, onClick, isMobi
             return (0, utils_1.reorderCells)(cellsChildren, identifierIndex);
         return cellsChildren;
     }, [row]);
-    return ((0, jsx_runtime_1.jsx)("div", { className: className, onClick: onClick, children: cells.map((cell, index) => ((0, jsx_runtime_1.jsxs)(react_1.Fragment, { children: [isMobile && ((0, jsx_runtime_1.jsx)("div", { className: styles_module_scss_1.default.columnHeader, children: columns[index] })), cell] }, `cell-${rowKey}-${index}`))) }));
+    return ((0, jsx_runtime_1.jsx)("div", { className: className, onClick: onClick, children: cells.map((cell, index) => ((0, jsx_runtime_1.jsxs)(react_1.Fragment, { children: [isMobile && columns[index] && ((0, jsx_runtime_1.jsx)("div", { className: styles_module_scss_1.default.columnHeader, children: columns[index] })), cell] }, `cell-${rowKey}-${index}`))) }));
 };
 exports.Row = Row;

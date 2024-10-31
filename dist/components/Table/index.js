@@ -25,12 +25,16 @@ const Table = ({ data, onRowClick, isEmpty = false, keyExtractor = (item) => ite
         return pages?.[currentPage] || data;
     }, [pages, currentPage, data]);
     const header = (0, react_1.useMemo)(() => renderHeader(), [renderHeader]);
-    const columns = (0, react_1.useMemo)(() => header.props.children, [header]);
+    const columns = (0, react_1.useMemo)(() => header?.props?.children || undefined, [header]);
     const gridTemplateColumns = (0, react_1.useMemo)(() => {
         if (isMobile)
             return "auto 1fr";
         return columns
             .map((column) => {
+            if (!column) {
+                console.log("cai aq");
+                return;
+            }
             const columnWidth = constants_1.COLUMNS_WIDTH?.[column.type?.displayName];
             const { width, minWidth } = column.props;
             if (width || columnWidth?.width)
@@ -41,6 +45,6 @@ const Table = ({ data, onRowClick, isEmpty = false, keyExtractor = (item) => ite
         })
             .join(" ");
     }, [columns, isMobile]);
-    return ((0, jsx_runtime_1.jsxs)("div", { className: styles_module_scss_1.default.wrapper, children: [(0, jsx_runtime_1.jsxs)("div", { className: styles_module_scss_1.default.table, style: { gridTemplateColumns }, children: [!isMobile && (0, jsx_runtime_1.jsx)("div", { className: styles_module_scss_1.default.header, children: header }), isEmpty && renderEmptyState && renderEmptyState(), (0, jsx_runtime_1.jsx)(Rows_1.Rows, { limit: limit, keyExtractor: keyExtractor, data: pageData, renderRow: renderRow, columns: columns, onRowClick: onRowClick, isLoading: isLoading, isMobile: isMobile })] }), !isEmpty && totalPages > 1 && ((0, jsx_runtime_1.jsx)("div", { className: styles_module_scss_1.default.footer, children: (0, jsx_runtime_1.jsx)(Pagination_1.Pagination, { currentPage: currentPage, totalPages: totalPages, handleClickNextPage: !isLoading ? onClickNextPage : () => { }, handleClickOnPage: !isLoading ? onClickOnPage : () => { }, handleClickPrevPage: !isLoading ? onClickPrevPage : () => { } }) }))] }));
+    return ((0, jsx_runtime_1.jsxs)("div", { className: styles_module_scss_1.default.wrapper, children: [(0, jsx_runtime_1.jsxs)("div", { className: styles_module_scss_1.default.table, style: { gridTemplateColumns }, children: [!isMobile && header && (0, jsx_runtime_1.jsx)("div", { className: styles_module_scss_1.default.header, children: header }), isEmpty && renderEmptyState && renderEmptyState(), (0, jsx_runtime_1.jsx)(Rows_1.Rows, { limit: limit, keyExtractor: keyExtractor, data: pageData, renderRow: renderRow, columns: columns, onRowClick: onRowClick, isLoading: isLoading, isMobile: isMobile })] }), !isEmpty && totalPages > 1 && ((0, jsx_runtime_1.jsx)("div", { className: styles_module_scss_1.default.footer, children: (0, jsx_runtime_1.jsx)(Pagination_1.Pagination, { currentPage: currentPage, totalPages: totalPages, handleClickNextPage: !isLoading ? onClickNextPage : () => { }, handleClickOnPage: !isLoading ? onClickOnPage : () => { }, handleClickPrevPage: !isLoading ? onClickPrevPage : () => { } }) }))] }));
 };
 exports.Table = Table;
