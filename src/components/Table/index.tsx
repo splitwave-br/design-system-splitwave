@@ -47,7 +47,6 @@ export const Table = <T extends ITableData>({
     return columns
       .map((column: React.JSX.Element) => {
         if (!column) {
-          console.log("cai aq");
           return;
         }
         const columnWidth =
