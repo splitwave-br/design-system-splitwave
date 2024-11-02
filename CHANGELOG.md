@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.12.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.12.0...v1.12.1) (2024-11-02)
+
+
+### Bug Fixes
+
+* **log:** Remove log ([31241ed](https://github.com/splitwave-br/design-system-splitwave/commit/31241ed5f4fdde98bb72fbdc20987878135d13d0))
+
 ## [1.12.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.11.0...v1.12.0) (2024-10-29)
 
 
