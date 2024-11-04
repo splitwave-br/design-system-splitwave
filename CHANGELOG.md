@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.12.2](https://github.com/splitwave-br/design-system-splitwave/compare/v1.12.1...v1.12.2) (2024-11-04)
+
+
+### Bug Fixes
+
+* **checkbox:** Add missing build file ([1907da1](https://github.com/splitwave-br/design-system-splitwave/commit/1907da19f32e4a6cdeb497c702a5433fc1762d92))
+* **checkbox:** Fix checkbox divider logic ([06f9c5b](https://github.com/splitwave-br/design-system-splitwave/commit/06f9c5b4d14e294a3515974efc34f39b2268e01d))
+* **checkbox:** Remove log ([4d0a748](https://github.com/splitwave-br/design-system-splitwave/commit/4d0a74844bd306cd4331cf448fe48a7022f6f797))
+
 ## [1.12.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.12.0...v1.12.1) (2024-11-02)
 
 
