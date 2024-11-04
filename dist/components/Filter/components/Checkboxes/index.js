@@ -53,7 +53,6 @@ exports.CheckboxFilters = (0, react_1.forwardRef)(({ field, hasClear = false, ge
     }, []);
     return ((0, jsx_runtime_1.jsx)(__1.Filter.Content, { spacing: "sm", hasClear: hasClear, ref: ref, children: options.map((option, index) => {
             const isLastItem = index === options.length - 1;
-            console.log(isLastItem, index);
             const shouldShowDivider = hasClear && isLastItem;
             const optionValue = getOptionValue(option);
             const optionLabel = getLabel(option);
