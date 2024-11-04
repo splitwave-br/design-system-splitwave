@@ -94,7 +94,6 @@ export function Select({
   };
 
   const handleClickWindow = useCallback(() => {
-    console.log("Click Window!");
     setIsOpen(false);
     document.removeEventListener("click", handleClickWindow);
   }, []);

@@ -2,7 +2,6 @@ import { Meta, StoryFn } from "@storybook/react";
 import { Filter } from ".";
 import { useFilter } from "./hooks/useFilter";
 import { Icon } from "../Icon";
-import React from "react";
 export default {
   title: "Components/Filter",
   component: Filter.Wrapper,
@@ -18,9 +17,11 @@ export default {
       const filterRegister = useFilter({});
 
       return (
-        <Filter.Wrapper register={filterRegister}>
-          <Story />
-        </Filter.Wrapper>
+        <div style={{ height: 500 }}>
+          <Filter.Wrapper register={filterRegister}>
+            <Story />
+          </Filter.Wrapper>
+        </div>
       );
     },
   ],
@@ -45,18 +46,20 @@ export const FilterWithSelect: StoryFn = () => {
   ];
 
   return (
-    <Filter.Container>
-      <Filter.Button>Permissão</Filter.Button>
-      <Filter.Content>
-        <Filter.Select
-          label="Permissão"
-          getLabel={(item) => item.label}
-          getValue={(item) => item.value}
-          field="role"
-          options={ROLES}
-        />
-      </Filter.Content>
-    </Filter.Container>
+    <Filter.Responsive>
+      <Filter.Container>
+        <Filter.Button>Permissão</Filter.Button>
+        <Filter.Content>
+          <Filter.Select
+            label="Permissão"
+            getLabel={(item) => item.label}
+            getValue={(item) => item.value}
+            field="role"
+            options={ROLES}
+          />
+        </Filter.Content>
+      </Filter.Container>
+    </Filter.Responsive>
   );
 };
 
@@ -74,6 +77,7 @@ export const FilterWithCheckboxes: StoryFn = () => {
       <Filter.Button>Status</Filter.Button>
       <Filter.Check
         hasClear
+        label="Status"
         getLabel={(option) => option.label}
         getValue={(option) => option.id}
         field="paymentMethod"
@@ -152,17 +156,7 @@ export const MultipleFilters: StoryFn = () => {
     },
   ];
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        gap: "16px",
-        overflowX: "auto",
-        position: "relative",
-        padding: "16px 0",
-        margin: "calc(16px * -1) 0",
-      }}
-    >
+    <Filter.Responsive>
       <Filter.Container>
         <Filter.Button>Cliente</Filter.Button>
         <Filter.Content>
@@ -191,6 +185,7 @@ export const MultipleFilters: StoryFn = () => {
       <Filter.Container>
         <Filter.Button>Método de pagamento</Filter.Button>
         <Filter.Check
+          label="Método de pagamento"
           getLabel={(option) => option.label}
           getValue={(option) => option.id}
           field="paymentMethod"
@@ -198,6 +193,22 @@ export const MultipleFilters: StoryFn = () => {
         />
       </Filter.Container>
       <Filter.Container>
+        <Filter.Button>Data</Filter.Button>
+        <Filter.Content>
+          <Filter.Date label="Por período" isPeriod />
+          <Filter.Date
+            field="createdAt"
+            label="Data de criação"
+            isPeriod={false}
+          />
+          <Filter.Date
+            field="updatedAt"
+            label="Data da última atualização"
+            isPeriod={false}
+          />
+        </Filter.Content>
+      </Filter.Container>
+      <Filter.Container shouldEjectOnMobile={false}>
         <Filter.Button icon={() => <Icon name="sort" size={1} />}>
           Ordem
         </Filter.Button>
@@ -231,22 +242,6 @@ export const MultipleFilters: StoryFn = () => {
           ]}
         />
       </Filter.Container>
-      <Filter.Container>
-        <Filter.Button>Data</Filter.Button>
-        <Filter.Content>
-          <Filter.Date label="Por período" isPeriod />
-          <Filter.Date
-            field="createdAt"
-            label="Data de criação"
-            isPeriod={false}
-          />
-          <Filter.Date
-            field="updatedAt"
-            label="Data da última atualização"
-            isPeriod={false}
-          />
-        </Filter.Content>
-      </Filter.Container>
-    </div>
+    </Filter.Responsive>
   );
 };

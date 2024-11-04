@@ -32,6 +32,7 @@ import { UserMultiple } from "./components/UserMultiple";
 import { Webhook } from "./components/Webhook";
 import { X } from "./components/X";
 import { XCircle } from "./components/XCircle";
+import { Filter } from "./components/Filter";
 declare const icons: {
     access: () => import("react/jsx-runtime").JSX.Element;
     alert: () => import("react/jsx-runtime").JSX.Element;
@@ -129,6 +130,7 @@ declare const icons: {
     checkIcon: () => import("react/jsx-runtime").JSX.Element;
     "zoom-in": () => import("react/jsx-runtime").JSX.Element;
     "zoom-out": () => import("react/jsx-runtime").JSX.Element;
+    filter: typeof Filter;
 };
 export type TIconSizes = "nano" | "micro" | 1 | 2 | 3 | 4;
 export type TIcons = keyof typeof icons;

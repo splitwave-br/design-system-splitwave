@@ -1,3 +1,4 @@
+import { Responsive } from "./components/Responsive";
 import { Container } from "../../components/Filter/components/Container";
 import { Button } from "../../components/Filter/components/Button";
 import { Field } from "../../components/Filter/components/Field";
@@ -10,10 +11,12 @@ import { DateFilter } from "./components/Date";
 export var Filter = {
     Container: Container,
     Button: Button,
-    Field: Field,
-    Select: Select,
     Content: Content,
     Wrapper: Wrapper,
+    Responsive: Responsive,
+    // Fields
+    Field: Field,
+    Select: Select,
     Check: CheckboxFilters,
     Sort: Sort,
     Date: DateFilter,

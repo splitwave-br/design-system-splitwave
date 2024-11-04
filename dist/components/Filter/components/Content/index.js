@@ -27,12 +27,15 @@ import { useFilterContext } from "../../hooks/useFilter";
 import { concatStyles } from "../../../../utils/concatStyles";
 import { useFilterFields } from "../../hooks/useFields";
 export var Content = forwardRef(function (_a, ref) {
-    var _b = _a.hasClear, hasClear = _b === void 0 ? true : _b, _c = _a.spacing, spacing = _c === void 0 ? "default" : _c, children = _a.children, _d = _a.shouldCloseOnClick, shouldCloseOnClick = _d === void 0 ? false : _d, className = _a.className, onClose = _a.onClose, props = __rest(_a, ["hasClear", "spacing", "children", "shouldCloseOnClick", "className", "onClose"]);
+    var _b = _a.hasClear, hasClear = _b === void 0 ? true : _b, _c = _a.spacing, spacing = _c === void 0 ? "default" : _c, children = _a.children, _d = _a.shouldCloseOnClick, shouldCloseOnClick = _d === void 0 ? false : _d, className = _a.className, onClose = _a.onClose, 
+    // isEjected,
+    props = __rest(_a, ["hasClear", "spacing", "children", "shouldCloseOnClick", "className", "onClose"]);
     var clean = useFilterContext().clean;
     var fields = useFilterFields().fields;
     var contentStyles = concatStyles([
         styles.content,
         styles["spacing__".concat(spacing)],
+        // isEjected ? styles.contentEjected : "",
         className,
     ]);
     return (_jsxs("div", __assign({ ref: ref, onClick: function (e) {
@@ -44,6 +47,9 @@ export var Content = forwardRef(function (_a, ref) {
         }, className: contentStyles }, props, { children: [children, hasClear && (_jsx("span", { onClick: function () {
                     clean(fields);
                     onClose === null || onClose === void 0 ? void 0 : onClose();
-                }, className: styles.clean, children: "Limpar" }))] })));
+                }, className: concatStyles([
+                    styles.clean,
+                    // isEjected ? styles.cleanEjected : "",
+                ]), children: "Limpar" }))] })));
 });
 Content.displayName = "Menu";
