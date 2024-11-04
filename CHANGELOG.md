@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.12.3](https://github.com/splitwave-br/design-system-splitwave/compare/v1.12.2...v1.12.3) (2024-11-04)
+
+
+### Bug Fixes
+
+* **checkboxes:** Ajust style of checkbox input ([86054a0](https://github.com/splitwave-br/design-system-splitwave/commit/86054a049820e3c026b84b3e47e62f08bfb543f1))
+
 ## [1.12.2](https://github.com/splitwave-br/design-system-splitwave/compare/v1.12.1...v1.12.2) (2024-11-04)
 
 
