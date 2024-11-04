@@ -52,8 +52,8 @@ exports.CheckboxFilters = (0, react_1.forwardRef)(({ field, hasClear = false, ge
         registerField(field);
     }, []);
     return ((0, jsx_runtime_1.jsx)(__1.Filter.Content, { spacing: "sm", hasClear: hasClear, ref: ref, children: options.map((option, index) => {
-            const isLastItem = index !== options.length - 1;
-            const shouldShowDivider = hasClear ? true : isLastItem;
+            const isLastItem = index === options.length - 1;
+            const shouldShowDivider = hasClear && isLastItem;
             const optionValue = getOptionValue(option);
             const optionLabel = getLabel(option);
             const isChecked = selectedValues.includes(optionValue);

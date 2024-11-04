@@ -73,6 +73,7 @@ export const FilterWithCheckboxes: StoryFn = () => {
     <Filter.Container>
       <Filter.Button>Status</Filter.Button>
       <Filter.Check
+        hasClear
         getLabel={(option) => option.label}
         getValue={(option) => option.id}
         field="paymentMethod"
