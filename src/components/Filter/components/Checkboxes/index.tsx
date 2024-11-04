@@ -44,7 +44,6 @@ export const CheckboxFilters = forwardRef<
       <Filter.Content spacing="sm" hasClear={hasClear} ref={ref}>
         {options.map((option, index) => {
           const isLastItem = index === options.length - 1;
-          console.log(isLastItem, index);
           const shouldShowDivider = hasClear && isLastItem;
           const optionValue = getOptionValue(option);
           const optionLabel = getLabel(option);
