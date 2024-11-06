@@ -1,20 +1,14 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Row = void 0;
-const jsx_runtime_1 = require("react/jsx-runtime");
-const react_1 = require("react");
-const utils_1 = require("../../../../components/Table/utils");
-const styles_module_scss_1 = __importDefault(require("../../styles.module.scss"));
-const Row = ({ rowKey, row, columns, identifierIndex, className, onClick, isMobile, }) => {
-    const cells = (0, react_1.useMemo)(() => {
-        const cellsChildren = row.props.children;
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { useMemo, Fragment } from "react";
+import { reorderCells } from "../../../../components/Table/utils";
+import styles from "../../styles.module.scss";
+export var Row = function (_a) {
+    var rowKey = _a.rowKey, row = _a.row, columns = _a.columns, identifierIndex = _a.identifierIndex, className = _a.className, onClick = _a.onClick, isMobile = _a.isMobile;
+    var cells = useMemo(function () {
+        var cellsChildren = row.props.children;
         if (isMobile)
-            return (0, utils_1.reorderCells)(cellsChildren, identifierIndex);
+            return reorderCells(cellsChildren, identifierIndex);
         return cellsChildren;
     }, [row]);
-    return ((0, jsx_runtime_1.jsx)("div", { className: className, onClick: onClick, children: cells.map((cell, index) => ((0, jsx_runtime_1.jsxs)(react_1.Fragment, { children: [isMobile && columns[index] && ((0, jsx_runtime_1.jsx)("div", { className: styles_module_scss_1.default.columnHeader, children: columns[index] })), cell] }, `cell-${rowKey}-${index}`))) }));
+    return (_jsx("div", { className: className, onClick: onClick, children: cells.map(function (cell, index) { return (_jsxs(Fragment, { children: [isMobile && columns[index] && (_jsx("div", { className: styles.columnHeader, children: columns[index] })), cell] }, "cell-".concat(rowKey, "-").concat(index))); }) }));
 };
-exports.Row = Row;

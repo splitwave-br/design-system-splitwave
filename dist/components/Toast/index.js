@@ -1,31 +1,26 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Toast = Toast;
-const jsx_runtime_1 = require("react/jsx-runtime");
-const styles_module_scss_1 = __importDefault(require("./styles.module.scss"));
-const Icon_1 = require("../../components/Icon");
-const react_1 = require("react");
-function Toast({ title: _title, message, timeout = 0, onClose, icon, error, success, }) {
-    const [hide, setHide] = (0, react_1.useState)(false);
-    const [visible, setVisible] = (0, react_1.useState)(false);
-    (0, react_1.useEffect)(() => {
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import styles from "./styles.module.scss";
+import { Icon } from "../../components/Icon";
+import { useEffect, useMemo, useState } from "react";
+export function Toast(_a) {
+    var _title = _a.title, message = _a.message, _b = _a.timeout, timeout = _b === void 0 ? 0 : _b, onClose = _a.onClose, icon = _a.icon, error = _a.error, success = _a.success;
+    var _c = useState(false), hide = _c[0], setHide = _c[1];
+    var _d = useState(false), visible = _d[0], setVisible = _d[1];
+    useEffect(function () {
         setVisible(true);
-        const hideTimeout = setTimeout(() => {
+        var hideTimeout = setTimeout(function () {
             setHide(true);
         }, timeout);
-        const closeTimeout = setTimeout(() => {
-            onClose?.();
+        var closeTimeout = setTimeout(function () {
+            onClose === null || onClose === void 0 ? void 0 : onClose();
             setVisible(false);
         }, timeout + 300);
-        return () => {
+        return function () {
             clearTimeout(hideTimeout);
             clearTimeout(closeTimeout);
         };
     }, []);
-    const title = (0, react_1.useMemo)(() => {
+    var title = useMemo(function () {
         if (_title)
             return _title;
         if (error)
@@ -33,7 +28,7 @@ function Toast({ title: _title, message, timeout = 0, onClose, icon, error, succ
         if (success)
             return "Sucesso";
     }, [_title, success, error]);
-    const iconName = (0, react_1.useMemo)(() => {
+    var iconName = useMemo(function () {
         if (error)
             return "close";
         if (success)
@@ -42,12 +37,12 @@ function Toast({ title: _title, message, timeout = 0, onClose, icon, error, succ
     }, [icon, error, success]);
     if (!visible)
         return null;
-    const className = [
-        styles_module_scss_1.default.wrapper,
-        hide && styles_module_scss_1.default.hide,
-        error && styles_module_scss_1.default.error,
-        success && styles_module_scss_1.default.success,
+    var className = [
+        styles.wrapper,
+        hide && styles.hide,
+        error && styles.error,
+        success && styles.success,
     ].join(" ");
     //
-    return ((0, jsx_runtime_1.jsxs)("div", { className: className, children: [iconName && (0, jsx_runtime_1.jsx)(Icon_1.Icon, { name: iconName, size: 2 }), (0, jsx_runtime_1.jsxs)("div", { className: styles_module_scss_1.default.content, children: [(0, jsx_runtime_1.jsx)("span", { className: styles_module_scss_1.default.title, children: title }), (0, jsx_runtime_1.jsx)("span", { className: styles_module_scss_1.default.message, children: message })] }), (0, jsx_runtime_1.jsx)("div", { className: styles_module_scss_1.default.progressWrapper, children: (0, jsx_runtime_1.jsx)("div", { className: styles_module_scss_1.default.progress, style: { "--toast-duration": `${timeout}ms` } }) })] }));
+    return (_jsxs("div", { className: className, children: [iconName && _jsx(Icon, { name: iconName, size: 2 }), _jsxs("div", { className: styles.content, children: [_jsx("span", { className: styles.title, children: title }), _jsx("span", { className: styles.message, children: message })] }), _jsx("div", { className: styles.progressWrapper, children: _jsx("div", { className: styles.progress, style: { "--toast-duration": "".concat(timeout, "ms") } }) })] }));
 }

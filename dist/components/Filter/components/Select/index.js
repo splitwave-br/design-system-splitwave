@@ -1,22 +1,19 @@
-"use strict";
 "use client";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Select = void 0;
-const jsx_runtime_1 = require("react/jsx-runtime");
-const Select_1 = require("../../../../components/Form/controls/Select");
-const useFilter_1 = require("../../hooks/useFilter");
-const Form_1 = require("../../../../components/Form");
-const useFields_1 = require("../../hooks/useFields");
-const react_1 = require("react");
-const Select = ({ getLabel, getValue: getValueOption, getId, field, label, options, className, }) => {
-    const { setFilter, getValue } = (0, useFilter_1.useFilterContext)();
-    const { registerField } = (0, useFields_1.useFilterFields)();
-    (0, react_1.useEffect)(() => {
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { Select as SelectControl } from "../../../../components/Form/controls/Select";
+import { useFilterContext } from "../../hooks/useFilter";
+import { Form } from "../../../../components/Form";
+import { useFilterFields } from "../../hooks/useFields";
+import { useEffect } from "react";
+export var Select = function (_a) {
+    var getLabel = _a.getLabel, getValueOption = _a.getValue, getId = _a.getId, field = _a.field, label = _a.label, options = _a.options, className = _a.className;
+    var _b = useFilterContext(), setFilter = _b.setFilter, getValue = _b.getValue;
+    var registerField = useFilterFields().registerField;
+    useEffect(function () {
         registerField(field);
     }, [field, registerField]);
-    const handleChange = (option) => {
+    var handleChange = function (option) {
         return setFilter(field, getValueOption(option));
     };
-    return ((0, jsx_runtime_1.jsxs)(Form_1.Form.Field, { className: className, children: [label && (0, jsx_runtime_1.jsx)(Form_1.Form.Label, { children: label }), (0, jsx_runtime_1.jsx)(Select_1.Select, { autoFocus: true, onChange: handleChange, options: options, getLabel: getLabel, getValue: getValueOption, getId: getId, value: getValue(field) || "" })] }));
+    return (_jsxs(Form.Field, { className: className, children: [label && _jsx(Form.Label, { children: label }), _jsx(SelectControl, { autoFocus: true, onChange: handleChange, options: options, getLabel: getLabel, getValue: getValueOption, getId: getId, value: getValue(field) || "" })] }));
 };
-exports.Select = Select;

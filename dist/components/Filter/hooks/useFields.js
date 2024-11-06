@@ -1,27 +1,32 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.FilterFieldsProvider = exports.useFilterFields = void 0;
-const jsx_runtime_1 = require("react/jsx-runtime");
-const react_1 = require("react");
-const FilterFieldsContext = (0, react_1.createContext)(null);
-const useFilterFields = () => {
-    const context = (0, react_1.useContext)(FilterFieldsContext);
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
+import { jsx as _jsx } from "react/jsx-runtime";
+import { createContext, useContext, useState, useCallback } from "react";
+var FilterFieldsContext = createContext(null);
+export var useFilterFields = function () {
+    var context = useContext(FilterFieldsContext);
     if (!context) {
         throw new Error("useFilterFields deve ser usado dentro de um FilterFieldsProvider");
     }
     return context;
 };
-exports.useFilterFields = useFilterFields;
-const FilterFieldsProvider = ({ children, }) => {
-    const [fields, setFields] = (0, react_1.useState)([]);
-    const registerField = (0, react_1.useCallback)((field) => {
-        setFields((prevFields) => {
+export var FilterFieldsProvider = function (_a) {
+    var children = _a.children;
+    var _b = useState([]), fields = _b[0], setFields = _b[1];
+    var registerField = useCallback(function (field) {
+        setFields(function (prevFields) {
             if (!prevFields.includes(field)) {
-                return [...prevFields, field];
+                return __spreadArray(__spreadArray([], prevFields, true), [field], false);
             }
             return prevFields;
         });
     }, []);
-    return ((0, jsx_runtime_1.jsx)(FilterFieldsContext.Provider, { value: { registerField, fields }, children: children }));
+    return (_jsx(FilterFieldsContext.Provider, { value: { registerField: registerField, fields: fields }, children: children }));
 };
-exports.FilterFieldsProvider = FilterFieldsProvider;

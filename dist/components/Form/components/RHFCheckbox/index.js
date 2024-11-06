@@ -1,17 +1,15 @@
-"use strict";
 "use client";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.RHFCheckbox = RHFCheckbox;
-const jsx_runtime_1 = require("react/jsx-runtime");
-const Checkbox_1 = require("../../controls/Checkbox");
-const react_hook_form_1 = require("react-hook-form");
-function RHFCheckbox({ label, name }) {
-    const { watch, getValues, setValue } = (0, react_hook_form_1.useFormContext)();
-    const isChecked = watch(name);
-    const handleCheck = () => {
+import { jsx as _jsx } from "react/jsx-runtime";
+import { Checkbox } from "../../controls/Checkbox";
+import { useFormContext } from "react-hook-form";
+export function RHFCheckbox(_a) {
+    var label = _a.label, name = _a.name;
+    var _b = useFormContext(), watch = _b.watch, getValues = _b.getValues, setValue = _b.setValue;
+    var isChecked = watch(name);
+    var handleCheck = function () {
         return setValue(name, !getValues(name), {
             shouldValidate: true,
         });
     };
-    return (0, jsx_runtime_1.jsx)(Checkbox_1.Checkbox, { label: label, onChange: handleCheck, value: isChecked });
+    return _jsx(Checkbox, { label: label, onChange: handleCheck, value: isChecked });
 }

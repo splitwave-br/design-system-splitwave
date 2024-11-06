@@ -1,18 +1,12 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Price = void 0;
-const jsx_runtime_1 = require("react/jsx-runtime");
-const formatCurrency_1 = require("../../../../../utils/format/formatCurrency");
-const styles_module_scss_1 = __importDefault(require("./styles.module.scss"));
-const Price = ({ children, hasHighlight = false }) => {
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { formatCurrency } from '../../../../../utils/format/formatCurrency';
+import styles from './styles.module.scss';
+export var Price = function (_a) {
+    var children = _a.children, _b = _a.hasHighlight, hasHighlight = _b === void 0 ? false : _b;
     if (!hasHighlight) {
-        return (0, jsx_runtime_1.jsx)("div", { className: styles_module_scss_1.default.default, children: (0, formatCurrency_1.formatCurrency)(children) });
+        return _jsx("div", { className: styles.default, children: formatCurrency(children) });
     }
-    const isPositive = hasHighlight && children >= 0;
-    const className = isPositive ? styles_module_scss_1.default.positive : styles_module_scss_1.default.negative;
-    return ((0, jsx_runtime_1.jsxs)("div", { className: className, children: [!isPositive ? '- ' : null, (0, formatCurrency_1.formatCurrency)(Math.abs(children))] }));
+    var isPositive = hasHighlight && children >= 0;
+    var className = isPositive ? styles.positive : styles.negative;
+    return (_jsxs("div", { className: className, children: [!isPositive ? '- ' : null, formatCurrency(Math.abs(children))] }));
 };
-exports.Price = Price;

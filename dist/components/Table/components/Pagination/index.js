@@ -1,22 +1,18 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Pagination = void 0;
-const jsx_runtime_1 = require("react/jsx-runtime");
-const styles_module_scss_1 = __importDefault(require("./styles.module.scss"));
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import styles from "./styles.module.scss";
 // import classnames from 'classnames';
 // import { Icon } from '../../../../components/Icon';
-const react_1 = require("react");
-const Select_1 = require("../../../../components/Form/controls/Select");
-const Icon_1 = require("../../../../components/Icon");
-const Pagination = ({ totalPages, handleClickOnPage, handleClickPrevPage, handleClickNextPage, currentPage, }) => {
-    const pages = (0, react_1.useMemo)(() => {
-        return Array.from({ length: totalPages }, (_, index) => index);
+import { useMemo } from "react";
+import { Select } from "../../../../components/Form/controls/Select";
+import { Icon } from "../../../../components/Icon";
+export var Pagination = function (_a) {
+    var totalPages = _a.totalPages, handleClickOnPage = _a.handleClickOnPage, handleClickPrevPage = _a.handleClickPrevPage, handleClickNextPage = _a.handleClickNextPage, currentPage = _a.currentPage;
+    var pages = useMemo(function () {
+        return Array.from({ length: totalPages }, function (_, index) { return index; });
     }, [totalPages]);
-    const isPrevDisabled = (0, react_1.useMemo)(() => currentPage === 0 || pages.length === 0, [pages, currentPage]);
-    const isNextDisabled = (0, react_1.useMemo)(() => currentPage === pages.length - 1 || pages.length === 0, [pages, currentPage]);
-    return ((0, jsx_runtime_1.jsxs)("div", { className: styles_module_scss_1.default.wrapper, children: [(0, jsx_runtime_1.jsxs)("button", { onClick: handleClickPrevPage, className: styles_module_scss_1.default.button, disabled: isPrevDisabled, children: [(0, jsx_runtime_1.jsx)(Icon_1.Icon, { name: "arrow-left", size: 2 }), (0, jsx_runtime_1.jsx)("span", { children: "Anterior" })] }), (0, jsx_runtime_1.jsxs)("div", { className: styles_module_scss_1.default.pages, children: [(0, jsx_runtime_1.jsx)("span", { children: "P\u00E1gina" }), (0, jsx_runtime_1.jsx)(Select_1.Select, { size: 1, direction: "top", options: Array.from({ length: totalPages }, (_, index) => String(index + 1)), getLabel: (o) => o, getValue: (o) => o, placeholder: "0", onChange: (value) => handleClickOnPage(Number(value)), value: String(currentPage + 1) }), (0, jsx_runtime_1.jsxs)("span", { children: ["de ", pages.length] })] }), (0, jsx_runtime_1.jsxs)("button", { className: styles_module_scss_1.default.button, onClick: handleClickNextPage, disabled: isNextDisabled, children: [(0, jsx_runtime_1.jsx)("span", { children: "Pr\u00F3ximo" }), (0, jsx_runtime_1.jsx)(Icon_1.Icon, { name: "arrow-right", size: 2 })] })] }));
+    var isPrevDisabled = useMemo(function () { return currentPage === 0 || pages.length === 0; }, [pages, currentPage]);
+    var isNextDisabled = useMemo(function () { return currentPage === pages.length - 1 || pages.length === 0; }, [pages, currentPage]);
+    return (_jsxs("div", { className: styles.wrapper, children: [_jsxs("button", { onClick: handleClickPrevPage, className: styles.button, disabled: isPrevDisabled, children: [_jsx(Icon, { name: "arrow-left", size: 2 }), _jsx("span", { children: "Anterior" })] }), _jsxs("div", { className: styles.pages, children: [_jsx("span", { children: "P\u00E1gina" }), _jsx(Select, { size: 1, direction: "top", options: Array.from({ length: totalPages }, function (_, index) {
+                            return String(index + 1);
+                        }), getLabel: function (o) { return o; }, getValue: function (o) { return o; }, placeholder: "0", onChange: function (value) { return handleClickOnPage(Number(value)); }, value: String(currentPage + 1) }), _jsxs("span", { children: ["de ", pages.length] })] }), _jsxs("button", { className: styles.button, onClick: handleClickNextPage, disabled: isNextDisabled, children: [_jsx("span", { children: "Pr\u00F3ximo" }), _jsx(Icon, { name: "arrow-right", size: 2 })] })] }));
 };
-exports.Pagination = Pagination;
