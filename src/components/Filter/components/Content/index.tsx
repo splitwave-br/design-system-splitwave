@@ -11,6 +11,7 @@ type TContentProps = {
   shouldCloseOnClick?: boolean;
   hasClear?: boolean;
   spacing?: "default" | "sm";
+  isEjected?: boolean;
 };
 
 export const Content = forwardRef<HTMLDivElement, TContentProps>(
@@ -22,6 +23,7 @@ export const Content = forwardRef<HTMLDivElement, TContentProps>(
       shouldCloseOnClick = false,
       className,
       onClose,
+      // isEjected,
       ...props
     },
     ref,
@@ -32,6 +34,7 @@ export const Content = forwardRef<HTMLDivElement, TContentProps>(
     const contentStyles = concatStyles([
       styles.content,
       styles[`spacing__${spacing}`],
+      // isEjected ? styles.contentEjected : "",
       className,
     ]);
     return (
@@ -55,7 +58,10 @@ export const Content = forwardRef<HTMLDivElement, TContentProps>(
               clean(fields);
               onClose?.();
             }}
-            className={styles.clean}
+            className={concatStyles([
+              styles.clean,
+              // isEjected ? styles.cleanEjected : "",
+            ])}
           >
             Limpar
           </span>

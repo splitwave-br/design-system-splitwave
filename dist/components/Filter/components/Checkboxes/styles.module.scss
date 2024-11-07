@@ -1,3 +1,9 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spaces-micro);
+}
+
 .inputWrapper {
   position: relative;
   width: var(--checkbox-size);
@@ -43,10 +49,6 @@
     font-weight: 500;
     line-height: 1.57em;
   }
-}
-
-.divider {
-  padding: 0 12px;
 }
 
 .checkbox {

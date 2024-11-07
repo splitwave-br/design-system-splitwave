@@ -3,7 +3,6 @@ import { forwardRef, useEffect } from "react";
 import { useFilterContext } from "../../hooks/useFilter";
 import { Dropdown } from "../../../../components/Dropdown";
 import styles from "./styles.module.scss";
-import { Filter } from "../..";
 import { concatStyles } from "../../../../utils/concatStyles";
 import { useFilterFields } from "../../hooks/useFields";
 export var Sort = forwardRef(function (_a, ref) {
@@ -17,17 +16,17 @@ export var Sort = forwardRef(function (_a, ref) {
     useEffect(function () {
         registerField(field);
     }, [field, registerField]);
-    return (_jsx(Filter.Content, { spacing: "sm", hasClear: false, ref: ref, children: options.map(function (option, index) {
+    return (_jsx(Dropdown.Menu, { ref: ref, children: options.map(function (option, index) {
             var value = getValueOption(option);
             if (option === "divider") {
-                return _jsx(Dropdown.Divider, {}, value + index);
+                return _jsx(Dropdown.Divider, {}, "divider-".concat(index));
             }
             return (_jsx(Dropdown.Item, { className: concatStyles([
-                    getValueOption(option) === currentValue ? styles.active : "",
+                    value === currentValue ? styles.active : "",
                     className,
                 ]), onClick: function () {
                     handleChange(option);
-                }, children: getLabel(option) }, getValueOption(option)));
+                }, children: getLabel(option) }, "".concat(value, "-").concat(index)));
         }) }));
 });
 Sort.displayName = "Menu";

@@ -17,9 +17,13 @@ import { Dropdown } from "../../../../components/Dropdown";
 import { concatStyles } from "../../../../utils/concatStyles";
 import Checked from "./components/Checked";
 import Unchecked from "./components/Unchecked";
+import useWindowSize from "../../../../hooks/useWindowSize";
+import { Form } from "../../../../components/Form";
+import { MultiSelect as MultiSelectControl } from "../../../../components/Form/controls/MultiSelect";
 export var CheckboxFilters = forwardRef(function (_a, ref) {
     var _b;
-    var field = _a.field, _c = _a.hasClear, hasClear = _c === void 0 ? false : _c, getLabel = _a.getLabel, getOptionValue = _a.getValue, options = _a.options;
+    var field = _a.field, label = _a.label, _c = _a.hasClear, hasClear = _c === void 0 ? false : _c, getLabel = _a.getLabel, getOptionValue = _a.getValue, options = _a.options, isEjected = _a.isEjected;
+    var isMobile = useWindowSize().isMobile;
     var _d = useFilterContext(), setFilter = _d.setFilter, getValue = _d.getValue;
     var registerField = useFilterFields().registerField;
     var selectedValues = ((_b = getValue(field)) === null || _b === void 0 ? void 0 : _b.split(",").filter(Boolean)) || [];
@@ -30,10 +34,20 @@ export var CheckboxFilters = forwardRef(function (_a, ref) {
             : __spreadArray(__spreadArray([], selectedValues, true), [value], false);
         setFilter(field, newValues.filter(Boolean).join(","));
     };
+    var handleChangeMobile = function (value) {
+        var newValues = value.map(getOptionValue);
+        setFilter(field, newValues.filter(Boolean).join(","));
+    };
     useEffect(function () {
         registerField(field);
     }, []);
-    return (_jsx(Filter.Content, { spacing: "sm", hasClear: hasClear, ref: ref, children: options.map(function (option, index) {
+    console.log("shouldEjectOnMobile > ", isEjected);
+    if (isMobile && isEjected) {
+        return (_jsx(Filter.Content, { isEjected: true, children: _jsxs(Form.Field, { children: [label && _jsx(Form.Label, { children: label }), _jsx(MultiSelectControl, { autoFocus: true, onChange: handleChangeMobile, options: options, getLabel: getLabel, getValue: getOptionValue, getId: getOptionValue, value: options.filter(function (opt) {
+                            return selectedValues.includes(getOptionValue(opt));
+                        }) || [] })] }) }));
+    }
+    return (_jsx(Dropdown.Menu, { ref: ref, children: options.map(function (option, index) {
             var isLastItem = index === options.length - 1;
             var shouldShowDivider = hasClear && isLastItem;
             var optionValue = getOptionValue(option);

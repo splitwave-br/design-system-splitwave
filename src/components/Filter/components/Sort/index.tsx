@@ -45,21 +45,21 @@ export const Sort = forwardRef<HTMLDivElement, TSelect>(
     }, [field, registerField]);
 
     return (
-      <Filter.Content spacing={"sm"} hasClear={false} ref={ref}>
+      <Dropdown.Menu ref={ref}>
         {options.map((option: any, index: number) => {
           const value = getValueOption(option);
 
           if (option === "divider") {
-            return <Dropdown.Divider key={value + index} />;
+            return <Dropdown.Divider key={`divider-${index}`} />;
           }
 
           return (
             <Dropdown.Item
               className={concatStyles([
-                getValueOption(option) === currentValue ? styles.active : "",
+                value === currentValue ? styles.active : "",
                 className,
               ])}
-              key={getValueOption(option)}
+              key={`${value}-${index}`}
               onClick={() => {
                 handleChange(option);
               }}
@@ -68,7 +68,7 @@ export const Sort = forwardRef<HTMLDivElement, TSelect>(
             </Dropdown.Item>
           );
         })}
-      </Filter.Content>
+      </Dropdown.Menu>
     );
   },
 );
