@@ -1,5 +1,36 @@
 # Changelog
 
+## [1.12.3](https://github.com/splitwave-br/design-system-splitwave/compare/v1.12.2...v1.12.3) (2024-11-04)
+
+
+### Bug Fixes
+
+* **checkboxes:** Ajust style of checkbox input ([86054a0](https://github.com/splitwave-br/design-system-splitwave/commit/86054a049820e3c026b84b3e47e62f08bfb543f1))
+
+## [1.12.2](https://github.com/splitwave-br/design-system-splitwave/compare/v1.12.1...v1.12.2) (2024-11-04)
+
+
+### Bug Fixes
+
+* **checkbox:** Add missing build file ([1907da1](https://github.com/splitwave-br/design-system-splitwave/commit/1907da19f32e4a6cdeb497c702a5433fc1762d92))
+* **checkbox:** Fix checkbox divider logic ([06f9c5b](https://github.com/splitwave-br/design-system-splitwave/commit/06f9c5b4d14e294a3515974efc34f39b2268e01d))
+* **checkbox:** Remove log ([4d0a748](https://github.com/splitwave-br/design-system-splitwave/commit/4d0a74844bd306cd4331cf448fe48a7022f6f797))
+
+## [1.12.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.12.0...v1.12.1) (2024-11-02)
+
+
+### Bug Fixes
+
+* **log:** Remove log ([31241ed](https://github.com/splitwave-br/design-system-splitwave/commit/31241ed5f4fdde98bb72fbdc20987878135d13d0))
+
+## [1.12.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.11.0...v1.12.0) (2024-10-29)
+
+
+### Features
+
+* **#30:** adicionado componente de toast ([171f433](https://github.com/splitwave-br/design-system-splitwave/commit/171f43320958735e176f6bf8b66f2a54622bdbdb))
+* **#30:** updating version ([92eb261](https://github.com/splitwave-br/design-system-splitwave/commit/92eb261c6c15896581970248c76172982e86e2b8))
+
 ## [1.11.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.10.0...v1.11.0) (2024-10-26)
 
 
