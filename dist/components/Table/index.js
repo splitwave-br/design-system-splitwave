@@ -1,49 +1,43 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Header = exports.Cell = exports.Table = void 0;
-const jsx_runtime_1 = require("react/jsx-runtime");
-const styles_module_scss_1 = __importDefault(require("./styles.module.scss"));
-const Pagination_1 = require("./components/Pagination");
-const Cell_1 = require("./components/Cell");
-Object.defineProperty(exports, "Cell", { enumerable: true, get: function () { return Cell_1.Cell; } });
-const Header_1 = require("./components/Header");
-Object.defineProperty(exports, "Header", { enumerable: true, get: function () { return Header_1.Header; } });
-const usePagination_1 = require("./hooks/usePagination");
-const react_1 = require("react");
-require("./variables.scss");
-const constants_1 = require("./components/Header/constants");
-const useWindowSize_1 = __importDefault(require("../../hooks/useWindowSize"));
-const Rows_1 = require("./components/Rows");
-const Table = ({ data, onRowClick, isEmpty = false, keyExtractor = (item) => item.id, renderHeader, renderRow, renderEmptyState, pagination, }) => {
-    const { isMobile } = (0, useWindowSize_1.default)();
-    const staticPagination = (0, usePagination_1.usePagination)({ rows: data });
-    const { currentPage, pages, onClickNextPage, onClickOnPage, onClickPrevPage, totalPages, isLoading, limit, } = pagination || staticPagination;
-    const pageData = (0, react_1.useMemo)(() => {
-        return pages?.[currentPage] || data;
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import styles from "./styles.module.scss";
+import { Pagination } from "./components/Pagination";
+import { Cell } from "./components/Cell";
+import { Header } from "./components/Header";
+import { usePagination } from "./hooks/usePagination";
+import { useMemo } from "react";
+import "./variables.scss";
+import { COLUMNS_WIDTH } from "./components/Header/constants";
+import useWindowSize from "../../hooks/useWindowSize";
+import { Rows } from "./components/Rows";
+export var Table = function (_a) {
+    var data = _a.data, onRowClick = _a.onRowClick, _b = _a.isEmpty, isEmpty = _b === void 0 ? false : _b, _c = _a.keyExtractor, keyExtractor = _c === void 0 ? function (item) { return item.id; } : _c, renderHeader = _a.renderHeader, renderRow = _a.renderRow, renderEmptyState = _a.renderEmptyState, pagination = _a.pagination;
+    var isMobile = useWindowSize().isMobile;
+    var staticPagination = usePagination({ rows: data });
+    var _d = pagination || staticPagination, currentPage = _d.currentPage, pages = _d.pages, onClickNextPage = _d.onClickNextPage, onClickOnPage = _d.onClickOnPage, onClickPrevPage = _d.onClickPrevPage, totalPages = _d.totalPages, isLoading = _d.isLoading, limit = _d.limit;
+    var pageData = useMemo(function () {
+        return (pages === null || pages === void 0 ? void 0 : pages[currentPage]) || data;
     }, [pages, currentPage, data]);
-    const header = (0, react_1.useMemo)(() => renderHeader(), [renderHeader]);
-    const columns = (0, react_1.useMemo)(() => header?.props?.children || undefined, [header]);
-    const gridTemplateColumns = (0, react_1.useMemo)(() => {
+    var header = useMemo(function () { return renderHeader(); }, [renderHeader]);
+    var columns = useMemo(function () { var _a; return ((_a = header === null || header === void 0 ? void 0 : header.props) === null || _a === void 0 ? void 0 : _a.children) || undefined; }, [header]);
+    var gridTemplateColumns = useMemo(function () {
         if (isMobile)
             return "auto 1fr";
         return columns
-            .map((column) => {
+            .map(function (column) {
+            var _a;
             if (!column) {
                 return;
             }
-            const columnWidth = constants_1.COLUMNS_WIDTH?.[column.type?.displayName];
-            const { width, minWidth } = column.props;
-            if (width || columnWidth?.width)
-                return width || columnWidth?.width;
-            if (minWidth || columnWidth?.minWidth)
-                return `minmax(${minWidth || columnWidth?.minWidth}, 1fr)`;
+            var columnWidth = COLUMNS_WIDTH === null || COLUMNS_WIDTH === void 0 ? void 0 : COLUMNS_WIDTH[(_a = column.type) === null || _a === void 0 ? void 0 : _a.displayName];
+            var _b = column.props, width = _b.width, minWidth = _b.minWidth;
+            if (width || (columnWidth === null || columnWidth === void 0 ? void 0 : columnWidth.width))
+                return width || (columnWidth === null || columnWidth === void 0 ? void 0 : columnWidth.width);
+            if (minWidth || (columnWidth === null || columnWidth === void 0 ? void 0 : columnWidth.minWidth))
+                return "minmax(".concat(minWidth || (columnWidth === null || columnWidth === void 0 ? void 0 : columnWidth.minWidth), ", 1fr)");
             return "1fr";
         })
             .join(" ");
     }, [columns, isMobile]);
-    return ((0, jsx_runtime_1.jsxs)("div", { className: styles_module_scss_1.default.wrapper, children: [(0, jsx_runtime_1.jsxs)("div", { className: styles_module_scss_1.default.table, style: { gridTemplateColumns }, children: [!isMobile && header && (0, jsx_runtime_1.jsx)("div", { className: styles_module_scss_1.default.header, children: header }), isEmpty && renderEmptyState && renderEmptyState(), (0, jsx_runtime_1.jsx)(Rows_1.Rows, { limit: limit, keyExtractor: keyExtractor, data: pageData, renderRow: renderRow, columns: columns, onRowClick: onRowClick, isLoading: isLoading, isMobile: isMobile })] }), !isEmpty && totalPages > 1 && ((0, jsx_runtime_1.jsx)("div", { className: styles_module_scss_1.default.footer, children: (0, jsx_runtime_1.jsx)(Pagination_1.Pagination, { currentPage: currentPage, totalPages: totalPages, handleClickNextPage: !isLoading ? onClickNextPage : () => { }, handleClickOnPage: !isLoading ? onClickOnPage : () => { }, handleClickPrevPage: !isLoading ? onClickPrevPage : () => { } }) }))] }));
+    return (_jsxs("div", { className: styles.wrapper, children: [_jsxs("div", { className: styles.table, style: { gridTemplateColumns: gridTemplateColumns }, children: [!isMobile && header && _jsx("div", { className: styles.header, children: header }), isEmpty && renderEmptyState && renderEmptyState(), _jsx(Rows, { limit: limit, keyExtractor: keyExtractor, data: pageData, renderRow: renderRow, columns: columns, onRowClick: onRowClick, isLoading: isLoading, isMobile: isMobile })] }), !isEmpty && totalPages > 1 && (_jsx("div", { className: styles.footer, children: _jsx(Pagination, { currentPage: currentPage, totalPages: totalPages, handleClickNextPage: !isLoading ? onClickNextPage : function () { }, handleClickOnPage: !isLoading ? onClickOnPage : function () { }, handleClickPrevPage: !isLoading ? onClickPrevPage : function () { } }) }))] }));
 };
-exports.Table = Table;
+export { Cell, Header };

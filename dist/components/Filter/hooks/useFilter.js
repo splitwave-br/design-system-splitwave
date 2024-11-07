@@ -1,25 +1,33 @@
-"use strict";
 "use client";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.FilterProvider = FilterProvider;
-exports.useFilter = useFilter;
-exports.useFilterContext = useFilterContext;
-const jsx_runtime_1 = require("react/jsx-runtime");
-const react_1 = require("react");
-const get_1 = require("../../../utils/get");
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+import { jsx as _jsx } from "react/jsx-runtime";
+import { createContext, useCallback, useContext, useMemo, useState, } from "react";
+import { get } from "../../../utils/get";
 function useFilter(config) {
-    const [filter, setFilter] = (0, react_1.useState)({});
+    var _a = useState({}), filter = _a[0], setFilter = _a[1];
     // TODO: We can remove it after implement the filter on the backend
-    const applyFilter = (0, react_1.useCallback)((data) => {
+    var applyFilter = useCallback(function (data) {
         if (Object.keys(filter).length === 0)
             return data;
-        return data.filter((item) => {
-            return Object.entries(filter).every(([key, value]) => {
-                const normalize = config?.normalize && config?.normalize?.[key];
-                const itemValue = normalize
-                    ? normalize((0, get_1.get)(item, key))
-                    : (0, get_1.get)(item, key);
-                const filterValue = normalize ? normalize(value) : value;
+        return data.filter(function (item) {
+            return Object.entries(filter).every(function (_a) {
+                var _b;
+                var key = _a[0], value = _a[1];
+                var normalize = (config === null || config === void 0 ? void 0 : config.normalize) && ((_b = config === null || config === void 0 ? void 0 : config.normalize) === null || _b === void 0 ? void 0 : _b[key]);
+                var itemValue = normalize
+                    ? normalize(get(item, key))
+                    : get(item, key);
+                var filterValue = normalize ? normalize(value) : value;
                 if (!!itemValue) {
                     return itemValue.toLowerCase().includes(filterValue.toLowerCase());
                 }
@@ -27,50 +35,57 @@ function useFilter(config) {
             });
         });
     }, [filter]);
-    const handlesetFilter = (0, react_1.useCallback)((field, value) => {
-        setFilter((prev) => ({ ...prev, [field]: value }));
+    var handlesetFilter = useCallback(function (field, value) {
+        setFilter(function (prev) {
+            var _a;
+            return (__assign(__assign({}, prev), (_a = {}, _a[field] = value, _a)));
+        });
     }, [setFilter]);
-    const getIsActive = (0, react_1.useCallback)((fields) => {
-        return fields.some((field) => !!filter[field]);
+    var getIsActive = useCallback(function (fields) {
+        return fields.some(function (field) { return !!filter[field]; });
     }, [filter]);
-    const getValue = (0, react_1.useCallback)((field) => filter[field], [filter]);
-    const clean = (0, react_1.useCallback)((fields) => {
-        setFilter((prev) => {
-            const newFilter = { ...prev };
-            fields.forEach((field) => {
+    var getValue = useCallback(function (field) { return filter[field]; }, [filter]);
+    var clean = useCallback(function (fields) {
+        setFilter(function (prev) {
+            var newFilter = __assign({}, prev);
+            fields.forEach(function (field) {
                 delete newFilter[field];
             });
             return newFilter;
         });
     }, [setFilter]);
-    const cleanAll = (0, react_1.useCallback)(() => {
+    var cleanAll = useCallback(function () {
         setFilter({});
     }, [setFilter]);
-    const normalizedFilter = (0, react_1.useMemo)(() => {
-        const normalized = {};
-        Object.entries(filter).forEach(([key, value]) => {
+    var normalizedFilter = useMemo(function () {
+        var normalized = {};
+        Object.entries(filter).forEach(function (_a) {
+            var _b;
+            var key = _a[0], value = _a[1];
             if (!value)
                 return;
-            const normalize = config?.normalize && config?.normalize?.[key];
+            var normalize = (config === null || config === void 0 ? void 0 : config.normalize) && ((_b = config === null || config === void 0 ? void 0 : config.normalize) === null || _b === void 0 ? void 0 : _b[key]);
             normalized[key] = normalize ? normalize(value) : value;
         });
         return normalized;
     }, [filter]);
     return {
-        filter,
-        normalizedFilter,
+        filter: filter,
+        normalizedFilter: normalizedFilter,
         setFilter: handlesetFilter,
-        applyFilter,
-        getIsActive,
-        getValue,
-        clean,
-        cleanAll,
+        applyFilter: applyFilter,
+        getIsActive: getIsActive,
+        getValue: getValue,
+        clean: clean,
+        cleanAll: cleanAll,
     };
 }
-const FilterContext = (0, react_1.createContext)({});
-function FilterProvider({ children, register }) {
-    return ((0, jsx_runtime_1.jsx)(FilterContext.Provider, { value: { ...register }, children: children }));
+var FilterContext = createContext({});
+function FilterProvider(_a) {
+    var children = _a.children, register = _a.register;
+    return (_jsx(FilterContext.Provider, { value: __assign({}, register), children: children }));
 }
 function useFilterContext() {
-    return (0, react_1.useContext)(FilterContext);
+    return useContext(FilterContext);
 }
+export { FilterProvider, useFilter, useFilterContext };

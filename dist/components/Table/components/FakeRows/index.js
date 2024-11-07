@@ -1,11 +1,8 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.FakeRows = void 0;
-const jsx_runtime_1 = require("react/jsx-runtime");
-const Row_1 = require("../../../../components/Table/components/Row");
-const Cell_1 = require("../Cell");
-const LIMIT = 15;
-const FakeRows = ({ limit, isMobile, identifierIndex, columnsHeader, className, }) => {
-    return Array.from({ length: limit || LIMIT }).map((_, index) => ((0, jsx_runtime_1.jsx)(Row_1.Row, { rowKey: `skeleton-${index}`, row: (0, jsx_runtime_1.jsx)(jsx_runtime_1.Fragment, { children: columnsHeader.map(() => ((0, jsx_runtime_1.jsx)(Cell_1.Cell.Skeleton, {}))) }), columns: columnsHeader, identifierIndex: identifierIndex, className: className, isMobile: isMobile }, `row-skeleton-${index}`)));
+import { jsx as _jsx, Fragment as _Fragment } from "react/jsx-runtime";
+import { Row } from "../../../../components/Table/components/Row";
+import { Cell } from "../Cell";
+var LIMIT = 15;
+export var FakeRows = function (_a) {
+    var limit = _a.limit, isMobile = _a.isMobile, identifierIndex = _a.identifierIndex, columnsHeader = _a.columnsHeader, className = _a.className;
+    return Array.from({ length: limit || LIMIT }).map(function (_, index) { return (_jsx(Row, { rowKey: "skeleton-".concat(index), row: _jsx(_Fragment, { children: columnsHeader.map(function () { return (_jsx(Cell.Skeleton, {})); }) }), columns: columnsHeader, identifierIndex: identifierIndex, className: className, isMobile: isMobile }, "row-skeleton-".concat(index))); });
 };
-exports.FakeRows = FakeRows;

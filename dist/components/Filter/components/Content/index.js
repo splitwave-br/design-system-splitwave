@@ -1,32 +1,55 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Content = void 0;
-const jsx_runtime_1 = require("react/jsx-runtime");
-const react_1 = require("react");
-const styles_module_scss_1 = __importDefault(require("./styles.module.scss"));
-const useFilter_1 = require("../../hooks/useFilter");
-const concatStyles_1 = require("../../../../utils/concatStyles");
-const useFields_1 = require("../../hooks/useFields");
-exports.Content = (0, react_1.forwardRef)(({ hasClear = true, spacing = "default", children, shouldCloseOnClick = false, className, onClose, ...props }, ref) => {
-    const { clean } = (0, useFilter_1.useFilterContext)();
-    const { fields } = (0, useFields_1.useFilterFields)();
-    const contentStyles = (0, concatStyles_1.concatStyles)([
-        styles_module_scss_1.default.content,
-        styles_module_scss_1.default[`spacing__${spacing}`],
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { forwardRef } from "react";
+import styles from "./styles.module.scss";
+import { useFilterContext } from "../../hooks/useFilter";
+import { concatStyles } from "../../../../utils/concatStyles";
+import { useFilterFields } from "../../hooks/useFields";
+export var Content = forwardRef(function (_a, ref) {
+    var _b = _a.hasClear, hasClear = _b === void 0 ? true : _b, _c = _a.spacing, spacing = _c === void 0 ? "default" : _c, children = _a.children, _d = _a.shouldCloseOnClick, shouldCloseOnClick = _d === void 0 ? false : _d, className = _a.className, onClose = _a.onClose, 
+    // isEjected,
+    props = __rest(_a, ["hasClear", "spacing", "children", "shouldCloseOnClick", "className", "onClose"]);
+    var clean = useFilterContext().clean;
+    var fields = useFilterFields().fields;
+    var contentStyles = concatStyles([
+        styles.content,
+        styles["spacing__".concat(spacing)],
+        // isEjected ? styles.contentEjected : "",
         className,
     ]);
-    return ((0, jsx_runtime_1.jsxs)("div", { ref: ref, onClick: (e) => {
-            shouldCloseOnClick ? onClose?.() : e.stopPropagation();
-        }, onKeyDown: (e) => {
+    return (_jsxs("div", __assign({ ref: ref, onClick: function (e) {
+            shouldCloseOnClick ? onClose === null || onClose === void 0 ? void 0 : onClose() : e.stopPropagation();
+        }, onKeyDown: function (e) {
             if (e.key === "Escape" || e.key === "Enter") {
-                onClose?.();
+                onClose === null || onClose === void 0 ? void 0 : onClose();
             }
-        }, className: contentStyles, ...props, children: [children, hasClear && ((0, jsx_runtime_1.jsx)("span", { onClick: () => {
+        }, className: contentStyles }, props, { children: [children, hasClear && (_jsx("span", { onClick: function () {
                     clean(fields);
-                    onClose?.();
-                }, className: styles_module_scss_1.default.clean, children: "Limpar" }))] }));
+                    onClose === null || onClose === void 0 ? void 0 : onClose();
+                }, className: concatStyles([
+                    styles.clean,
+                    // isEjected ? styles.cleanEjected : "",
+                ]), children: "Limpar" }))] })));
 });
-exports.Content.displayName = "Menu";
+Content.displayName = "Menu";

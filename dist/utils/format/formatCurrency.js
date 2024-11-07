@@ -1,9 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.formatCurrency = void 0;
-const formatCurrency = (value) => {
-    const numericValue = typeof value === 'string' ? parseFloat(value) : value;
-    const formattedValue = numericValue?.toLocaleString('pt-BR', {
+export var formatCurrency = function (value) {
+    var numericValue = typeof value === 'string' ? parseFloat(value) : value;
+    var formattedValue = numericValue === null || numericValue === void 0 ? void 0 : numericValue.toLocaleString('pt-BR', {
         style: 'currency',
         currency: 'BRL',
     });
@@ -15,4 +12,3 @@ const formatCurrency = (value) => {
     }
     return formattedValue;
 };
-exports.formatCurrency = formatCurrency;

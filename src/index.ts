@@ -52,3 +52,7 @@ export type { ToastProps } from "./components/Toast";
 
 // Hooks
 export { default as useClickOutside } from "./hooks/useClickOutside";
+
+
+// FORM
+export { Form } from './components/Form'

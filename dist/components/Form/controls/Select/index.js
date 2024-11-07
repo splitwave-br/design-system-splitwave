@@ -1,66 +1,72 @@
-"use strict";
 "use client";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Select = Select;
-const jsx_runtime_1 = require("react/jsx-runtime");
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 // import { Icon, TIcons } from '../../../../components/Icon';
-const react_1 = require("react");
-const styles_module_scss_1 = __importDefault(require("./styles.module.scss"));
-const concatStyles_1 = require("../../../../utils/concatStyles");
-const OPTION_WRAPPER_CLASSES = {
-    top: styles_module_scss_1.default.optionsWrapperTop,
-    bottom: styles_module_scss_1.default.optionsWrapperBottom,
+import { useCallback, useEffect, useState } from "react";
+import styles from "./styles.module.scss";
+import { concatStyles } from "../../../../utils/concatStyles";
+var OPTION_WRAPPER_CLASSES = {
+    top: styles.optionsWrapperTop,
+    bottom: styles.optionsWrapperBottom,
 };
-function Select({ size = 2, direction = "bottom", className, 
-// suffix,
-options, getLabel, getValue, getId, placeholder = "Selecione", onChange, renderItem, value: _value, ...props }) {
-    const [isOpen, setIsOpen] = (0, react_1.useState)(false);
-    const [selectedOption, setSelectedOption] = (0, react_1.useState)(null);
-    const [value, setValue] = (0, react_1.useState)(_value);
+export function Select(_a) {
+    var _b = _a.size, size = _b === void 0 ? 2 : _b, _c = _a.direction, direction = _c === void 0 ? "bottom" : _c, className = _a.className, 
+    // suffix,
+    options = _a.options, getLabel = _a.getLabel, getValue = _a.getValue, getId = _a.getId, _d = _a.placeholder, placeholder = _d === void 0 ? "Selecione" : _d, onChange = _a.onChange, renderItem = _a.renderItem, _value = _a.value, props = __rest(_a, ["size", "direction", "className", "options", "getLabel", "getValue", "getId", "placeholder", "onChange", "renderItem", "value"]);
+    var _e = useState(false), isOpen = _e[0], setIsOpen = _e[1];
+    var _f = useState(null), selectedOption = _f[0], setSelectedOption = _f[1];
+    var _g = useState(_value), value = _g[0], setValue = _g[1];
     // Need to set the value when the prop changes to control the value by the parent
-    (0, react_1.useEffect)(() => {
+    useEffect(function () {
         if (_value) {
             setValue(_value);
         }
     }, [_value]);
-    const handleGetValue = (0, react_1.useCallback)((option) => {
+    var handleGetValue = useCallback(function (option) {
         if (!option)
             return "";
-        const value = getValue?.(option);
+        var value = getValue === null || getValue === void 0 ? void 0 : getValue(option);
         if (typeof value === "undefined")
             return option;
         return value;
     }, [getValue]);
-    const handleSelect = (option) => {
+    var handleSelect = function (option) {
         if (handleGetValue(option) === handleGetValue(selectedOption)) {
-            onChange?.("");
+            onChange === null || onChange === void 0 ? void 0 : onChange("");
             setValue("");
         }
         else {
-            onChange?.(option);
+            onChange === null || onChange === void 0 ? void 0 : onChange(option);
             setValue(handleGetValue(option));
         }
     };
-    (0, react_1.useEffect)(() => {
+    useEffect(function () {
         if (handleGetValue(selectedOption) !== value) {
-            const currentOption = options.find((option) => handleGetValue(option) === value);
+            var currentOption = options.find(function (option) { return handleGetValue(option) === value; });
             setSelectedOption(currentOption);
         }
     }, [value, options, handleGetValue, selectedOption]);
-    const handleOpenOptions = (e) => {
+    var handleOpenOptions = function (e) {
         e.stopPropagation();
         if (!props.disabled)
-            setIsOpen((prev) => !prev);
+            setIsOpen(function (prev) { return !prev; });
     };
-    const handleClickWindow = (0, react_1.useCallback)(() => {
+    var handleClickWindow = useCallback(function () {
         console.log("Click Window!");
         setIsOpen(false);
         document.removeEventListener("click", handleClickWindow);
     }, []);
-    (0, react_1.useEffect)(() => {
+    useEffect(function () {
         if (isOpen) {
             document.addEventListener("click", handleClickWindow);
         }
@@ -68,33 +74,33 @@ options, getLabel, getValue, getId, placeholder = "Selecione", onChange, renderI
             document.removeEventListener("click", handleClickWindow);
         }
     }, [isOpen, handleClickWindow]);
-    const isDisabled = props.disabled;
-    const wrapperClass = [
-        styles_module_scss_1.default.wrapper,
+    var isDisabled = props.disabled;
+    var wrapperClass = [
+        styles.wrapper,
         className ? className : "",
-        isOpen ? styles_module_scss_1.default["wrapper-opened"] : "",
-        isDisabled && styles_module_scss_1.default.disabled,
+        isOpen ? styles["wrapper-opened"] : "",
+        isDisabled && styles.disabled,
     ].join(" ");
-    const selectClass = [
-        styles_module_scss_1.default.select,
-        isDisabled && styles_module_scss_1.default.disabled,
-        styles_module_scss_1.default[`select-size-${size}`],
+    var selectClass = [
+        styles.select,
+        isDisabled && styles.disabled,
+        styles["select-size-".concat(size)],
     ].join(" ");
-    const selectedValueClass = [
-        styles_module_scss_1.default.selected_value,
-        isDisabled && styles_module_scss_1.default.disabled,
+    var selectedValueClass = [
+        styles.selected_value,
+        isDisabled && styles.disabled,
     ].join(" ");
-    const optionWrapperClass = OPTION_WRAPPER_CLASSES[direction];
-    return ((0, jsx_runtime_1.jsxs)("div", { className: wrapperClass, onClick: handleOpenOptions, children: [(0, jsx_runtime_1.jsx)("div", { className: selectClass, children: selectedOption ? ((0, jsx_runtime_1.jsx)("span", { className: selectedValueClass, children: getLabel(selectedOption) })) : ((0, jsx_runtime_1.jsx)("span", { children: placeholder })) }), isOpen && ((0, jsx_runtime_1.jsx)("div", { className: optionWrapperClass, children: !!options.length ? (options.map((option) => {
-                    const isSelected = handleGetValue(option) === handleGetValue(selectedOption);
-                    const className = (0, concatStyles_1.concatStyles)([
-                        styles_module_scss_1.default.option,
-                        isSelected && styles_module_scss_1.default.optionSelected,
+    var optionWrapperClass = OPTION_WRAPPER_CLASSES[direction];
+    return (_jsxs("div", { className: wrapperClass, onClick: handleOpenOptions, children: [_jsx("div", { className: selectClass, children: selectedOption ? (_jsx("span", { className: selectedValueClass, children: getLabel(selectedOption) })) : (_jsx("span", { children: placeholder })) }), isOpen && (_jsx("div", { className: optionWrapperClass, children: !!options.length ? (options.map(function (option) {
+                    var isSelected = handleGetValue(option) === handleGetValue(selectedOption);
+                    var className = concatStyles([
+                        styles.option,
+                        isSelected && styles.optionSelected,
                     ]);
-                    const onClick = () => handleSelect(option);
-                    const id = getId?.(option);
-                    const value = getValue?.(option);
-                    const key = id ? id : value;
-                    return renderItem ? (renderItem({ option, className, onClick })) : ((0, jsx_runtime_1.jsx)("span", { className: className, onClick: onClick, children: getLabel(option) }, key));
-                })) : ((0, jsx_runtime_1.jsx)("span", { className: styles_module_scss_1.default["empty-options"], children: "Nenhum item encontrado" })) }))] }));
+                    var onClick = function () { return handleSelect(option); };
+                    var id = getId === null || getId === void 0 ? void 0 : getId(option);
+                    var value = getValue === null || getValue === void 0 ? void 0 : getValue(option);
+                    var key = id ? id : value;
+                    return renderItem ? (renderItem({ option: option, className: className, onClick: onClick })) : (_jsx("span", { className: className, onClick: onClick, children: getLabel(option) }, key));
+                })) : (_jsx("span", { className: styles["empty-options"], children: "Nenhum item encontrado" })) }))] }));
 }

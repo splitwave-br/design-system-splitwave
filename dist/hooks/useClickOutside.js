@@ -1,9 +1,8 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const react_1 = require("react");
-const useClickOutside = ({ ref, callback, isActive }) => {
-    (0, react_1.useEffect)(() => {
-        const handleClickOutside = (event) => {
+import { useEffect } from "react";
+var useClickOutside = function (_a) {
+    var ref = _a.ref, callback = _a.callback, isActive = _a.isActive;
+    useEffect(function () {
+        var handleClickOutside = function (event) {
             if (ref.current && !ref.current.contains(event.target)) {
                 callback();
             }
@@ -11,9 +10,9 @@ const useClickOutside = ({ ref, callback, isActive }) => {
         if (isActive) {
             document.addEventListener("mousedown", handleClickOutside);
         }
-        return () => {
+        return function () {
             document.removeEventListener("mousedown", handleClickOutside);
         };
     }, [isActive, ref, callback]);
 };
-exports.default = useClickOutside;
+export default useClickOutside;

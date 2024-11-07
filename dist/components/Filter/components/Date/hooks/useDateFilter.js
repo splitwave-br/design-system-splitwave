@@ -1,32 +1,29 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.useDateFilter = void 0;
-const useFields_1 = require("../../../../../components/Filter/hooks/useFields");
-const useFilter_1 = require("../../../../../components/Filter/hooks/useFilter");
-const date_fns_1 = require("date-fns");
-const locale_1 = require("date-fns/locale");
-const react_1 = require("react");
-const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
-const translateDate = (dateString) => {
-    const date = (0, date_fns_1.parseISO)(dateString);
-    const formatted = (0, date_fns_1.format)(date, "MMM d, yyyy", { locale: locale_1.ptBR });
+import { useFilterFields } from "../../../../../components/Filter/hooks/useFields";
+import { useFilterContext } from "../../../../../components/Filter/hooks/useFilter";
+import { format, parseISO } from "date-fns";
+import { ptBR } from "date-fns/locale";
+import { useEffect, useState } from "react";
+var capitalize = function (str) { return str.charAt(0).toUpperCase() + str.slice(1); };
+var translateDate = function (dateString) {
+    var date = parseISO(dateString);
+    var formatted = format(date, "MMM d, yyyy", { locale: ptBR });
     return capitalize(formatted);
 };
-const START_DATE_FIELD = "startDate";
-const END_DATE_FIELD = "endDate";
-const useDateFilter = (props, isPeriod) => {
-    const [isOpen, setIsOpen] = (0, react_1.useState)(false);
-    const { setFilter, getValue } = (0, useFilter_1.useFilterContext)();
-    const { registerField } = (0, useFields_1.useFilterFields)();
-    const hasField = !isPeriod && "field" in props;
-    const handleToggle = () => {
-        setIsOpen((prev) => !prev);
+var START_DATE_FIELD = "startDate";
+var END_DATE_FIELD = "endDate";
+export var useDateFilter = function (props, isPeriod) {
+    var _a = useState(false), isOpen = _a[0], setIsOpen = _a[1];
+    var _b = useFilterContext(), setFilter = _b.setFilter, getValue = _b.getValue;
+    var registerField = useFilterFields().registerField;
+    var hasField = !isPeriod && "field" in props;
+    var handleToggle = function () {
+        setIsOpen(function (prev) { return !prev; });
     };
-    const handleCleanPeriod = () => {
+    var handleCleanPeriod = function () {
         setFilter(START_DATE_FIELD, "");
         setFilter(END_DATE_FIELD, "");
     };
-    const handlePickDate = (date) => {
+    var handlePickDate = function (date) {
         if (!date) {
             if (hasField) {
                 setFilter(props.field, "");
@@ -43,7 +40,7 @@ const useDateFilter = (props, isPeriod) => {
         if (hasField)
             setFilter(props.field, date);
     };
-    (0, react_1.useEffect)(() => {
+    useEffect(function () {
         if (hasField) {
             registerField(props.field);
         }
@@ -52,8 +49,8 @@ const useDateFilter = (props, isPeriod) => {
             registerField(END_DATE_FIELD);
         }
     }, [isPeriod, props]);
-    const getSelectedDate = () => {
-        const fieldValue = hasField
+    var getSelectedDate = function () {
+        var fieldValue = hasField
             ? { startDate: getValue(props.field), endDate: getValue(props.field) }
             : {
                 startDate: getValue(START_DATE_FIELD),
@@ -67,15 +64,14 @@ const useDateFilter = (props, isPeriod) => {
             endDate: translateDate(fieldValue.endDate),
         };
     };
-    const selectedDate = getSelectedDate();
-    const buttonLabel = !!selectedDate
-        ? `${selectedDate.startDate} - ${selectedDate.endDate}`
+    var selectedDate = getSelectedDate();
+    var buttonLabel = !!selectedDate
+        ? "".concat(selectedDate.startDate, " - ").concat(selectedDate.endDate)
         : "Selecione";
     return {
-        isOpen,
-        handleToggle,
-        handlePickDate,
-        buttonLabel,
+        isOpen: isOpen,
+        handleToggle: handleToggle,
+        handlePickDate: handlePickDate,
+        buttonLabel: buttonLabel,
     };
 };
-exports.useDateFilter = useDateFilter;

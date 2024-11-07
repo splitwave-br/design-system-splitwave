@@ -1,8 +1,15 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Uuid = void 0;
-const jsx_runtime_1 = require("react/jsx-runtime");
-const __1 = require("..");
-const Uuid = (props) => (0, jsx_runtime_1.jsx)(__1.Header, { ...props });
-exports.Uuid = Uuid;
-exports.Uuid.displayName = "Uuid";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+import { jsx as _jsx } from "react/jsx-runtime";
+import { Header } from "..";
+export var Uuid = function (props) { return _jsx(Header, __assign({}, props)); };
+Uuid.displayName = "Uuid";

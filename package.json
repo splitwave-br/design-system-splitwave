@@ -55,7 +55,13 @@
     "styled-components": "^6.1.1",
     "ts-loader": "^9.5.1",
     "tsc-alias": "^1.8.10",
-    "typescript": "^5.5.4"
+    "typescript": "^5.5.4",
+    "react-hook-form": "^7.47.0"
+  },
+  "peerDependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-hook-form": "^7.47.0"
   },
   "dependencies": {
     "classnames": "^2.5.1",
