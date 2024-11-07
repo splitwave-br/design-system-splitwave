@@ -30,7 +30,6 @@ export var usePositionElement = function (_a) {
             return;
         if (!relativeElement.current || !element.current)
             return;
-        console.log(getElementPosition(relativeElement.current));
         var _c = getElementPosition(relativeElement.current), relativeTop = _c.top, relativeLeft = _c.left;
         var _d = (_a = relativeElement.current) === null || _a === void 0 ? void 0 : _a.getBoundingClientRect(), relativeHeight = _d.height, relativeWidth = _d.width;
         var _e = (_b = element.current) === null || _b === void 0 ? void 0 : _b.getBoundingClientRect(), elementHeight = _e.height, elementWidth = _e.width;

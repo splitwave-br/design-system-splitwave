@@ -17,8 +17,10 @@ export type { ModalBodyProps, ModalWrapperProps, ModalOverlayProps, ModalFooterP
 export { ConfirmationModal } from "./components/ConfirmationModal";
 export type { ConfirmationModalProps } from "./components/ConfirmationModal";
 export { DatePicker } from "./components/DatePicker";
+export { Banner } from "./components/Banner";
+export type { TBannerVariants, TBannerProps } from "./components/Banner";
 export { Toast } from "./components/Toast";
 export { ToastProvider, useToast } from "./components/Toast/hooks/useToast";
 export type { ToastProps } from "./components/Toast";
 export { default as useClickOutside } from "./hooks/useClickOutside";
-export { Form } from './components/Form';
+export { Form } from "./components/Form";
