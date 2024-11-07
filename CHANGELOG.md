@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.13.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.12.3...v1.13.0) (2024-11-07)
+
+
+### Features
+
+* **form-checkbox:** Add checkbox component ([98b740b](https://github.com/splitwave-br/design-system-splitwave/commit/98b740b3ee7192d403241c5b7cff632c891b23d0))
+* **responsive-filter:** Created responsive filter ([5e8a984](https://github.com/splitwave-br/design-system-splitwave/commit/5e8a98411f774258b1bd3996cdcb875d16f1eeda))
+
+
+### Bug Fixes
+
+* **checkbox:** Add use client to the component ([96e5300](https://github.com/splitwave-br/design-system-splitwave/commit/96e5300598e687f08bf1e706013746e11898c727))
+* **checkbox:** Exclude react hook form at tsconfig file ([a25b4bf](https://github.com/splitwave-br/design-system-splitwave/commit/a25b4bfa8d3162c40f041689ffd1d3c896d272ca))
+* **dependencies:** Add react hook form as peerDependency ([9944ee7](https://github.com/splitwave-br/design-system-splitwave/commit/9944ee78c79ae9a8f80f7d8d23b6866aeae7b3f4))
+* **dependency:** Add react as peerDependency ([fd5c78e](https://github.com/splitwave-br/design-system-splitwave/commit/fd5c78e3b95b42c2906309d4e45e1d3f5d801e4f))
+
 ## [1.12.3](https://github.com/splitwave-br/design-system-splitwave/compare/v1.12.2...v1.12.3) (2024-11-04)
 
 
