@@ -5,11 +5,11 @@
       "@/*": ["./src/*"],
       "design-system/theme": ["src/styles/global.scss"]
     },
-    "target": "ESNext",
-    "module": "CommonJS",
+    "target": "ES5",
+    "module": "ESNext",
     "lib": ["dom", "esnext"],
     "jsx": "react-jsx",
-    "moduleResolution": "node",
+    "moduleResolution": "Bundler",
     "strict": true,
     "outDir": "dist",
     "esModuleInterop": true,
@@ -19,9 +19,11 @@
     "noEmit": false
   },
   "include": ["src/**/*"],
+  "buildOptions": {},
   "exclude": [
     "src/**/*.stories.ts",
     "src/**/*.stories.tsx",
-    "src/**/*.stories.js"
+    "src/**/*.stories.js",
+    "react-hook-form"
   ]
 }

@@ -1,12 +1,5 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
+import { jsx as _jsx } from "react/jsx-runtime";
+import styles from "./styles.module.scss";
+export var Skeleton = function () {
+    return (_jsx("div", { className: styles.wrapper, children: _jsx("span", {}) }));
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Skeleton = void 0;
-const jsx_runtime_1 = require("react/jsx-runtime");
-const styles_module_scss_1 = __importDefault(require("./styles.module.scss"));
-const Skeleton = () => {
-    return ((0, jsx_runtime_1.jsx)("div", { className: styles_module_scss_1.default.wrapper, children: (0, jsx_runtime_1.jsx)("span", {}) }));
-};
-exports.Skeleton = Skeleton;

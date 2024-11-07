@@ -1,6 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.concatStyles = concatStyles;
-function concatStyles(styles) {
+export function concatStyles(styles) {
     return styles.join(" ").replace(/\s+/, " ").trim();
 }

@@ -1,18 +1,12 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Modal = void 0;
-const Overlay_1 = __importDefault(require("./components/Overlay"));
-const Footer_1 = __importDefault(require("./components/Footer"));
-const Wrappper_1 = __importDefault(require("./components/Wrappper"));
-const Body_1 = __importDefault(require("./components/Body"));
-const Divider_1 = __importDefault(require("./components/Divider"));
-exports.Modal = {
-    Overlay: Overlay_1.default,
-    Footer: Footer_1.default,
-    Wrapper: Wrappper_1.default,
-    Body: Body_1.default,
-    Divider: Divider_1.default,
+import Overlay from "./components/Overlay";
+import Footer from "./components/Footer";
+import Wrapper from "./components/Wrappper";
+import ModalBody from "./components/Body";
+import ModalDivider from "./components/Divider";
+export var Modal = {
+    Overlay: Overlay,
+    Footer: Footer,
+    Wrapper: Wrapper,
+    Body: ModalBody,
+    Divider: ModalDivider,
 };

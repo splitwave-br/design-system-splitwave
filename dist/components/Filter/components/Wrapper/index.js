@@ -1,9 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Wrapper = void 0;
-const jsx_runtime_1 = require("react/jsx-runtime");
-const useFilter_1 = require("../../hooks/useFilter");
-const Wrapper = ({ children, register }) => {
-    return (0, jsx_runtime_1.jsx)(useFilter_1.FilterProvider, { register: register, children: children });
+import { jsx as _jsx } from "react/jsx-runtime";
+import { FilterProvider } from "../../hooks/useFilter";
+export var Wrapper = function (_a) {
+    var children = _a.children, register = _a.register;
+    return _jsx(FilterProvider, { register: register, children: children });
 };
-exports.Wrapper = Wrapper;

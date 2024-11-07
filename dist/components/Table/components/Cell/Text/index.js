@@ -1,11 +1,5 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Text = void 0;
-const jsx_runtime_1 = require("react/jsx-runtime");
-const styles_module_scss_1 = __importDefault(require("./styles.module.scss"));
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import styles from "./styles.module.scss";
 // TODO - Move it to a utils file and implement a visual feedback
 function copyToClipboard(text) {
     navigator.clipboard
@@ -17,21 +11,21 @@ function copyToClipboard(text) {
         console.error("Erro ao copiar o texto: ", err);
     });
 }
-const Text = ({ children, isFixed, shouldTruncateText = false, canCopy = false, onCopy, }) => {
-    const className = [
-        styles_module_scss_1.default.wrapper,
-        isFixed ? styles_module_scss_1.default.isFixed : "",
-        shouldTruncateText ? styles_module_scss_1.default.truncated : "",
+export var Text = function (_a) {
+    var children = _a.children, isFixed = _a.isFixed, _b = _a.shouldTruncateText, shouldTruncateText = _b === void 0 ? false : _b, _c = _a.canCopy, canCopy = _c === void 0 ? false : _c, onCopy = _a.onCopy;
+    var className = [
+        styles.wrapper,
+        isFixed ? styles.isFixed : "",
+        shouldTruncateText ? styles.truncated : "",
     ].join(" ");
-    const handleCopyContent = (e) => {
+    var handleCopyContent = function (e) {
         if (canCopy) {
             e.stopPropagation();
             if (typeof children === "string") {
                 copyToClipboard(children);
-                onCopy?.();
+                onCopy === null || onCopy === void 0 ? void 0 : onCopy();
             }
         }
     };
-    return ((0, jsx_runtime_1.jsx)("div", { className: className, children: (0, jsx_runtime_1.jsxs)("span", { className: canCopy ? styles_module_scss_1.default.canCopy : "", onClick: handleCopyContent, children: [children, canCopy && (0, jsx_runtime_1.jsxs)("span", { className: styles_module_scss_1.default.copyLabel, children: [(0, jsx_runtime_1.jsx)("span", { className: styles_module_scss_1.default.threeDots, children: "..." }), " Copiar"] })] }) }));
+    return (_jsx("div", { className: className, children: _jsxs("span", { className: canCopy ? styles.canCopy : "", onClick: handleCopyContent, children: [children, canCopy && _jsxs("span", { className: styles.copyLabel, children: [_jsx("span", { className: styles.threeDots, children: "..." }), " Copiar"] })] }) }));
 };
-exports.Text = Text;
