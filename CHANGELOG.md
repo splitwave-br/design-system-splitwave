@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.14.2](https://github.com/splitwave-br/design-system-splitwave/compare/v1.14.1...v1.14.2) (2024-11-08)
+
+
+### Bug Fixes
+
+* **checkboxes:** ajust in checkboxes component ([2582440](https://github.com/splitwave-br/design-system-splitwave/commit/2582440838d20241af0a5cc8465f546223c5b17f))
+
 ## [1.14.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.14.0...v1.14.1) (2024-11-08)
 
 
