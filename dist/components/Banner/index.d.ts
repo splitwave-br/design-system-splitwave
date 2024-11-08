@@ -6,4 +6,4 @@ export type TBannerProps = {
     variant?: TBannerVariants;
     className?: string;
 };
-export declare const Banner: ({ children, variant, ...props }: TBannerProps) => import("react/jsx-runtime").JSX.Element;
+export declare const Banner: ({ children, variant, className, ...props }: TBannerProps) => import("react/jsx-runtime").JSX.Element;
