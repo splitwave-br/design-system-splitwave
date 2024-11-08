@@ -45,6 +45,10 @@ export type { ConfirmationModalProps } from "./components/ConfirmationModal";
 // DatePicker
 export { DatePicker } from "./components/DatePicker";
 
+// Banner
+export { Banner } from "./components/Banner";
+export type { TBannerVariants, TBannerProps } from "./components/Banner";
+
 // Toast
 export { Toast } from "./components/Toast";
 export { ToastProvider, useToast } from "./components/Toast/hooks/useToast";
@@ -53,6 +57,5 @@ export type { ToastProps } from "./components/Toast";
 // Hooks
 export { default as useClickOutside } from "./hooks/useClickOutside";
 
-
 // FORM
-export { Form } from './components/Form'
+export { Form } from "./components/Form";
