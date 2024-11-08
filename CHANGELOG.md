@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.14.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.13.0...v1.14.0) (2024-11-08)
+
+
+### Features
+
+* **#31:** added banner component in design-system ([2d1bf0d](https://github.com/splitwave-br/design-system-splitwave/commit/2d1bf0dc66204159e0a8b9c7c85dda28f39d29f7))
+
 ## [1.13.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.12.3...v1.13.0) (2024-11-07)
 
 
