@@ -62,7 +62,6 @@ export function Select(_a) {
             setIsOpen(function (prev) { return !prev; });
     };
     var handleClickWindow = useCallback(function () {
-        console.log("Click Window!");
         setIsOpen(false);
         document.removeEventListener("click", handleClickWindow);
     }, []);

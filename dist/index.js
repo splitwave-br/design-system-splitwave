@@ -21,10 +21,12 @@ export { useModal, ModalProvider } from "./components/Modal/hooks/useModal";
 export { ConfirmationModal } from "./components/ConfirmationModal";
 // DatePicker
 export { DatePicker } from "./components/DatePicker";
+// Banner
+export { Banner } from "./components/Banner";
 // Toast
 export { Toast } from "./components/Toast";
 export { ToastProvider, useToast } from "./components/Toast/hooks/useToast";
 // Hooks
 export { default as useClickOutside } from "./hooks/useClickOutside";
 // FORM
-export { Form } from './components/Form';
+export { Form } from "./components/Form";
