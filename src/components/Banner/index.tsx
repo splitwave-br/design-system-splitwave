@@ -15,12 +15,13 @@ export type TBannerProps = {
 export const Banner = ({
   children,
   variant = "informative",
+  className,
   ...props
 }: TBannerProps) => {
   return (
     <div
       {...props}
-      className={classnames(styles.wrapper, {
+      className={classnames(styles.wrapper, className, {
         [variants[variant]]: variant,
       })}
     >

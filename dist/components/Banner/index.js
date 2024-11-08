@@ -27,8 +27,8 @@ import variants from "./variants.module.scss";
 import "./variables.scss";
 export var Banner = function (_a) {
     var _b;
-    var children = _a.children, _c = _a.variant, variant = _c === void 0 ? "informative" : _c, props = __rest(_a, ["children", "variant"]);
-    return (_jsx("div", __assign({}, props, { className: classnames(styles.wrapper, (_b = {},
+    var children = _a.children, _c = _a.variant, variant = _c === void 0 ? "informative" : _c, className = _a.className, props = __rest(_a, ["children", "variant", "className"]);
+    return (_jsx("div", __assign({}, props, { className: classnames(styles.wrapper, className, (_b = {},
             _b[variants[variant]] = variant,
             _b)), children: children })));
 };
