@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.14.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.14.0...v1.14.1) (2024-11-08)
+
+
+### Bug Fixes
+
+* **#31:** Added prop classname in banner component ([9a7d27b](https://github.com/splitwave-br/design-system-splitwave/commit/9a7d27bcb52c7c2a9de1e2eb105d0427097f1329))
+
 ## [1.14.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.13.0...v1.14.0) (2024-11-08)
 
 
