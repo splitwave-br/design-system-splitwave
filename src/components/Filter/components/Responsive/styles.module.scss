@@ -55,6 +55,7 @@
 .wrapperFiltersContent {
   display: flex;
   flex-direction: row;
+  position: relative;
 
   gap: var(--spaces-2);
   width: 100%;

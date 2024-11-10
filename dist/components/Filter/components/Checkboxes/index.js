@@ -41,7 +41,6 @@ export var CheckboxFilters = forwardRef(function (_a, ref) {
     useEffect(function () {
         registerField(field);
     }, []);
-    console.log("shouldEjectOnMobile > ", isEjected);
     if (isMobile && isEjected) {
         return (_jsx(Filter.Content, { isEjected: true, children: _jsxs(Form.Field, { children: [label && _jsx(Form.Label, { children: label }), _jsx(MultiSelectControl, { autoFocus: true, onChange: handleChangeMobile, options: options, getLabel: getLabel, getValue: getOptionValue, getId: getOptionValue, value: options.filter(function (opt) {
                             return selectedValues.includes(getOptionValue(opt));

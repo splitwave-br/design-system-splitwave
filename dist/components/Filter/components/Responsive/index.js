@@ -1,5 +1,5 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import styles from "./styles.module.scss";
 import { Icon } from "../../../../components/Icon";
 import { concatStyles } from "../../../../utils/concatStyles";
@@ -18,6 +18,7 @@ export var Responsive = function (_a) {
                 return null;
             return React.cloneElement(child, {
                 shouldEjectOnMobile: true,
+                shouldPortal: isMobile ? false : true,
             });
         });
     }, [children, isMobile]);
@@ -59,12 +60,6 @@ export var Responsive = function (_a) {
         });
         return activeFields.length > 0;
     }, [filter, notEjectedFields]);
-    useEffect(function () {
-        console.log(filter);
-    }, [filter]);
-    useEffect(function () {
-        console.log("notEjectedFields > ", notEjectedFields);
-    }, [notEjectedFields]);
     return (_jsxs("div", { className: styles.wrapper, children: [isMobile && (_jsx("div", { children: _jsxs("button", { className: concatStyles([
                         styles.button,
                         handleGetIsActive ? styles.active : "",
