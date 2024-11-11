@@ -17,7 +17,7 @@ import useWindowSize from "@/hooks/useWindowSize";
 type TContainer = {
   children: React.ReactNode;
   shouldEjectOnMobile?: boolean; // It is used to don't use dropdown on mobile
-  shouldPortal: boolean;
+  shouldPortal?: boolean;
 };
 
 function getElementPosition(element: any) {
@@ -92,7 +92,7 @@ export const usePositionElement = ({
     }
 
     let elementRight = elementLeft + elementWidth;
-    
+
     // TODO: [1]
     // let elementBottom = elementTop + elementHeight;
 
