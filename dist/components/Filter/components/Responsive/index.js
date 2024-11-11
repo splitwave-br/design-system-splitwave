@@ -18,6 +18,7 @@ export var Responsive = function (_a) {
                 return null;
             return React.cloneElement(child, {
                 shouldEjectOnMobile: true,
+                shouldPortal: isMobile ? false : true,
             });
         });
     }, [children, isMobile]);

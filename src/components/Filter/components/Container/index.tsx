@@ -17,6 +17,7 @@ import useWindowSize from "@/hooks/useWindowSize";
 type TContainer = {
   children: React.ReactNode;
   shouldEjectOnMobile?: boolean; // It is used to don't use dropdown on mobile
+  shouldPortal: boolean;
 };
 
 function getElementPosition(element: any) {
@@ -43,37 +44,57 @@ export const DEFAULT_GAP = 8;
 type UsePositionElementProps = {
   relativeElement: React.RefObject<HTMLElement>;
   element: React.RefObject<HTMLElement>;
+  containerElement: HTMLElement;
   isRendered: boolean;
+  shouldPortal?: boolean;
 };
 
 export const usePositionElement = ({
   relativeElement,
   element,
+  containerElement,
   isRendered,
+  shouldPortal = true,
 }: UsePositionElementProps) => {
   useEffect(() => {
     if (!isRendered) return;
-    if (!relativeElement.current || !element.current) return;
+    if (!relativeElement.current || !element.current || !containerElement)
+      return;
 
     const { top: relativeTop, left: relativeLeft } = getElementPosition(
       relativeElement.current,
     );
     const { height: relativeHeight, width: relativeWidth } =
       relativeElement.current?.getBoundingClientRect();
-    const { height: elementHeight, width: elementWidth } =
-      element.current?.getBoundingClientRect();
+    const { width: elementWidth } = element.current?.getBoundingClientRect();
+
+    const { offsetTop: relativeOffsetTop, offsetLeft: relativeOffsetLeft } =
+      relativeElement.current;
 
     const documentWidth = document.documentElement.scrollWidth;
-    const documentHeight = document.documentElement.scrollHeight;
+    // TODO: [1] Think in a way to solve this problem;
+    // We were getting documentHeight to see if we could open the dropdown
+    //  from the bottom, but it was causing a bug when the element has
+    //  a height higher than documentHeight;
+    // const documentHeight = containerElement.scrollHeight; //document.documentElement.scrollHeight;
 
+    // TODO: [2] Think in a way to solve this problem;
     // It was created to try avoid the bug about min width, but the bug still hapens if the element has a min width with !important;
     // const higherWidth =
     //   elementWidth > relativeWidth ? elementWidth : relativeWidth;
 
-    const elementTop = relativeTop + relativeHeight;
-    const elementLeft = relativeLeft; // - (elementWidth / 2); // - width / 2;
-    const elementRight = elementLeft + elementWidth;
-    const elementBottom = elementTop + elementHeight;
+    let elementTop = relativeTop + relativeHeight;
+    let elementLeft = relativeLeft;
+
+    if (!shouldPortal) {
+      elementTop = relativeOffsetTop + relativeHeight;
+      elementLeft = relativeOffsetLeft;
+    }
+
+    let elementRight = elementLeft + elementWidth;
+    
+    // TODO: [1]
+    // let elementBottom = elementTop + elementHeight;
 
     const relativeHalfWidth = relativeWidth / 2;
     const elementHalfWidth = elementWidth / 2;
@@ -91,17 +112,19 @@ export const usePositionElement = ({
       positionLeft = DEFAULT_PADDING;
     }
 
-    // If the bottom part goes out of the screen
-    if (elementBottom > documentHeight) {
-      positionTop = elementTop - elementHeight;
-      element.current.classList.add(styles.fromBottom);
-    } else {
-      element.current.classList.add(styles.fromTop);
-    }
+    // TODO: [1]
+    // // If the bottom part goes out of the screen
+    // if (elementBottom > documentHeight) {
+    //   positionTop = elementTop - elementHeight;
+    //   element.current.classList.add(styles.fromBottom);
+    // } else {
+    //   element.current.classList.add(styles.fromTop);
+    // }
 
     element.current.style.top = `${positionTop}px`;
     element.current.style.left = `${positionLeft}px`;
 
+    // TODO: [2]
     // The problem is here, because the calculation was based on elementWidth, but it will make the element bigger than the beggining of the calculation
     // element.current.style.minWidth = `${relativeWidth}px`;
 
@@ -109,7 +132,11 @@ export const usePositionElement = ({
   }, [isRendered]);
 };
 
-export const Container = ({ children, shouldEjectOnMobile }: TContainer) => {
+export const Container = ({
+  children,
+  shouldEjectOnMobile,
+  shouldPortal = true,
+}: TContainer) => {
   const { isMobile } = useWindowSize();
   const triggerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -125,10 +152,16 @@ export const Container = ({ children, shouldEjectOnMobile }: TContainer) => {
     setIsOpen((v) => !v);
   }, []);
 
+  const containerPortal = shouldPortal
+    ? document.body
+    : triggerRef.current?.parentElement || document.body;
+
   usePositionElement({
     relativeElement: triggerRef,
     element: contentRef,
+    containerElement: containerPortal,
     isRendered: isOpen,
+    shouldPortal,
   });
 
   useClickOutside({
@@ -203,7 +236,7 @@ export const Container = ({ children, shouldEjectOnMobile }: TContainer) => {
           setIsOpen(false);
         },
       }),
-      document.body,
+      containerPortal,
     );
   }, [
     contentChild,

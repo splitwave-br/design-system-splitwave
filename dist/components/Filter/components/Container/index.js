@@ -23,25 +23,36 @@ function getElementPosition(element) {
 export var DEFAULT_PADDING = 16;
 export var DEFAULT_GAP = 8;
 export var usePositionElement = function (_a) {
-    var relativeElement = _a.relativeElement, element = _a.element, isRendered = _a.isRendered;
+    var relativeElement = _a.relativeElement, element = _a.element, containerElement = _a.containerElement, isRendered = _a.isRendered, _b = _a.shouldPortal, shouldPortal = _b === void 0 ? true : _b;
     useEffect(function () {
         var _a, _b;
         if (!isRendered)
             return;
-        if (!relativeElement.current || !element.current)
+        if (!relativeElement.current || !element.current || !containerElement)
             return;
         var _c = getElementPosition(relativeElement.current), relativeTop = _c.top, relativeLeft = _c.left;
         var _d = (_a = relativeElement.current) === null || _a === void 0 ? void 0 : _a.getBoundingClientRect(), relativeHeight = _d.height, relativeWidth = _d.width;
-        var _e = (_b = element.current) === null || _b === void 0 ? void 0 : _b.getBoundingClientRect(), elementHeight = _e.height, elementWidth = _e.width;
+        var elementWidth = ((_b = element.current) === null || _b === void 0 ? void 0 : _b.getBoundingClientRect()).width;
+        var _e = relativeElement.current, relativeOffsetTop = _e.offsetTop, relativeOffsetLeft = _e.offsetLeft;
         var documentWidth = document.documentElement.scrollWidth;
-        var documentHeight = document.documentElement.scrollHeight;
+        // TODO: [1] Think in a way to solve this problem;
+        // We were getting documentHeight to see if we could open the dropdown
+        //  from the bottom, but it was causing a bug when the element has
+        //  a height higher than documentHeight;
+        // const documentHeight = containerElement.scrollHeight; //document.documentElement.scrollHeight;
+        // TODO: [2] Think in a way to solve this problem;
         // It was created to try avoid the bug about min width, but the bug still hapens if the element has a min width with !important;
         // const higherWidth =
         //   elementWidth > relativeWidth ? elementWidth : relativeWidth;
         var elementTop = relativeTop + relativeHeight;
-        var elementLeft = relativeLeft; // - (elementWidth / 2); // - width / 2;
+        var elementLeft = relativeLeft;
+        if (!shouldPortal) {
+            elementTop = relativeOffsetTop + relativeHeight;
+            elementLeft = relativeOffsetLeft;
+        }
         var elementRight = elementLeft + elementWidth;
-        var elementBottom = elementTop + elementHeight;
+        // TODO: [1]
+        // let elementBottom = elementTop + elementHeight;
         var relativeHalfWidth = relativeWidth / 2;
         var elementHalfWidth = elementWidth / 2;
         var positionTop = elementTop + DEFAULT_GAP;
@@ -54,35 +65,42 @@ export var usePositionElement = function (_a) {
         if (elementLeft < 0) {
             positionLeft = DEFAULT_PADDING;
         }
-        // If the bottom part goes out of the screen
-        if (elementBottom > documentHeight) {
-            positionTop = elementTop - elementHeight;
-            element.current.classList.add(styles.fromBottom);
-        }
-        else {
-            element.current.classList.add(styles.fromTop);
-        }
+        // TODO: [1]
+        // // If the bottom part goes out of the screen
+        // if (elementBottom > documentHeight) {
+        //   positionTop = elementTop - elementHeight;
+        //   element.current.classList.add(styles.fromBottom);
+        // } else {
+        //   element.current.classList.add(styles.fromTop);
+        // }
         element.current.style.top = "".concat(positionTop, "px");
         element.current.style.left = "".concat(positionLeft, "px");
+        // TODO: [2]
         // The problem is here, because the calculation was based on elementWidth, but it will make the element bigger than the beggining of the calculation
         // element.current.style.minWidth = `${relativeWidth}px`;
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isRendered]);
 };
 export var Container = function (_a) {
-    var children = _a.children, shouldEjectOnMobile = _a.shouldEjectOnMobile;
+    var _b;
+    var children = _a.children, shouldEjectOnMobile = _a.shouldEjectOnMobile, _c = _a.shouldPortal, shouldPortal = _c === void 0 ? true : _c;
     var isMobile = useWindowSize().isMobile;
     var triggerRef = useRef(null);
     var contentRef = useRef(null);
-    var _b = useState(false), isOpen = _b[0], setIsOpen = _b[1];
+    var _d = useState(false), isOpen = _d[0], setIsOpen = _d[1];
     var isMobileAndShouldEject = useMemo(function () { return isMobile && shouldEjectOnMobile; }, [isMobile, shouldEjectOnMobile]);
     var handleToggle = useCallback(function () {
         setIsOpen(function (v) { return !v; });
     }, []);
+    var containerPortal = shouldPortal
+        ? document.body
+        : ((_b = triggerRef.current) === null || _b === void 0 ? void 0 : _b.parentElement) || document.body;
     usePositionElement({
         relativeElement: triggerRef,
         element: contentRef,
+        containerElement: containerPortal,
         isRendered: isOpen,
+        shouldPortal: shouldPortal,
     });
     useClickOutside({
         ref: contentRef,
@@ -142,7 +160,7 @@ export var Container = function (_a) {
             onClose: function () {
                 setIsOpen(false);
             },
-        }), document.body);
+        }), containerPortal);
     }, [
         contentChild,
         contentRef,
