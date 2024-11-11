@@ -3,7 +3,7 @@ export declare const Filter: {
         ({ children, shouldEjectOnMobile, shouldPortal, }: {
             children: React.ReactNode;
             shouldEjectOnMobile?: boolean;
-            shouldPortal: boolean;
+            shouldPortal?: boolean;
         }): import("react/jsx-runtime").JSX.Element | null;
         displayName: string;
     };
