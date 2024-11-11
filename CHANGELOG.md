@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.14.3](https://github.com/splitwave-br/design-system-splitwave/compare/v1.14.2...v1.14.3) (2024-11-11)
+
+
+### Bug Fixes
+
+* **responsive-filter:** Fixed dropdown position on scroll ([83c498f](https://github.com/splitwave-br/design-system-splitwave/commit/83c498ffafba74f5079379474028b6e293183201))
+
 ## [1.14.2](https://github.com/splitwave-br/design-system-splitwave/compare/v1.14.1...v1.14.2) (2024-11-08)
 
 
