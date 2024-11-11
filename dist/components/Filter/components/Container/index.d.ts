@@ -1,7 +1,7 @@
 type TContainer = {
     children: React.ReactNode;
     shouldEjectOnMobile?: boolean;
-    shouldPortal: boolean;
+    shouldPortal?: boolean;
 };
 export declare const DEFAULT_PADDING = 16;
 export declare const DEFAULT_GAP = 8;
