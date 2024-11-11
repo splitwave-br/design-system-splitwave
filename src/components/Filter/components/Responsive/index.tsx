@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import styles from "./styles.module.scss";
 import { Icon } from "@/components/Icon";
 import { concatStyles } from "@/utils/concatStyles";
@@ -28,6 +28,7 @@ export const Responsive = ({
 
       return React.cloneElement(child, {
         shouldEjectOnMobile: true,
+        shouldPortal: isMobile ?  false : true,
       });
     });
   }, [children, isMobile]);
