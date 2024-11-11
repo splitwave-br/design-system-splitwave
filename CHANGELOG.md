@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.14.4](https://github.com/splitwave-br/design-system-splitwave/compare/v1.14.3...v1.14.4) (2024-11-11)
+
+
+### Bug Fixes
+
+* **shouldPortal:** Make the shouldPortal property optional ([040bb7c](https://github.com/splitwave-br/design-system-splitwave/commit/040bb7c4d6122ed7758cf554c72381086b6aaa9c))
+
 ## [1.14.3](https://github.com/splitwave-br/design-system-splitwave/compare/v1.14.2...v1.14.3) (2024-11-11)
 
 
