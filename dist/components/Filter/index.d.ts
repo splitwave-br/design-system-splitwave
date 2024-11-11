@@ -1,9 +1,8 @@
 export declare const Filter: {
     Container: {
-        ({ children, shouldEjectOnMobile, shouldPortal, }: {
+        ({ children, shouldEjectOnMobile }: {
             children: React.ReactNode;
             shouldEjectOnMobile?: boolean;
-            shouldPortal: boolean;
         }): import("react/jsx-runtime").JSX.Element | null;
         displayName: string;
     };
