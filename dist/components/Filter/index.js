@@ -1,3 +1,4 @@
+"use client";
 import { Responsive } from "./components/Responsive";
 import { Container } from "../../components/Filter/components/Container";
 import { Button } from "../../components/Filter/components/Button";

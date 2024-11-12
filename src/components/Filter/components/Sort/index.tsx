@@ -1,3 +1,5 @@
+"use client";
+
 import React, { forwardRef, useEffect } from "react";
 import { Form } from "@/components/Form";
 import { Select as SelectControl } from "@/components/Form/controls/Select";

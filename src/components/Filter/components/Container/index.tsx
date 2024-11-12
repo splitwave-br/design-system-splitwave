@@ -1,3 +1,5 @@
+"use client";
+
 import { FilterFieldsProvider } from "../../hooks/useFields";
 import {
   Children,
@@ -92,7 +94,7 @@ export const usePositionElement = ({
     }
 
     let elementRight = elementLeft + elementWidth;
-    
+
     // TODO: [1]
     // let elementBottom = elementTop + elementHeight;
 

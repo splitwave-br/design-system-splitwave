@@ -1,3 +1,4 @@
+"use client";
 import { jsx as _jsx } from "react/jsx-runtime";
 import { FilterProvider } from "../../hooks/useFilter";
 export var Wrapper = function (_a) {

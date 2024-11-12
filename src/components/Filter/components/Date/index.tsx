@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "./styles.module.scss";
 import { Icon } from "@/components/Icon";
 import { DatePicker } from "@/components/DatePicker";

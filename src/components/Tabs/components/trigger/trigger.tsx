@@ -1,0 +1,35 @@
+"use client";
+
+import { usePathname } from "next/navigation";
+import styles from "./styles.module.scss";
+import Link from "next/link";
+
+interface TriggerProps {
+  path: string;
+  children: React.ReactNode;
+  isDisabled?: boolean;
+  currentPath?: string;
+}
+
+const Trigger = ({
+  path,
+  children,
+  isDisabled = false,
+  currentPath,
+}: TriggerProps) => {
+  const pathName = currentPath || usePathname(); // Usa currentPath se fornecido
+  const isActive = pathName === path;
+  const tabStyles = [
+    styles.trigger,
+    isActive && styles.active,
+    isDisabled && styles.disabled,
+  ].join(" ");
+
+  return (
+    <Link aria-disabled={isDisabled} href={path} className={tabStyles}>
+      {children}
+    </Link>
+  );
+};
+
+export default Trigger;
