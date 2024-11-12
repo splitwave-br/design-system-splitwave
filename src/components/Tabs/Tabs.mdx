@@ -1,0 +1,68 @@
+
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import * as TabsStories from './Tabs.stories';
+
+<Meta of={TabsStories} title="Tabs" />
+
+# Tabs e ITabTrigger
+
+O `Tabs` é um componente de navegação que exibe uma lista de abas, permitindo aos usuários navegar entre diferentes seções de uma aplicação. Cada aba é representada por um objeto `ITabTrigger`, que define seu rótulo, caminho e estado de habilitação.
+
+## Tabs
+
+`Tabs` é o componente principal que renderiza uma série de abas usando os dados fornecidos na forma de um array de objetos `ITabTrigger`.
+
+### Props
+
+- **tabs**: `ITabTrigger[]` - Um array de objetos representando cada aba, incluindo o rótulo da aba (`label`), o caminho da rota (`path`) e uma opção `isDisabled` para desativar a aba, caso necessário.
+- **currentPath**: `string` _(opcional)_ - Permite definir a aba ativa com base no caminho atual. Caso `currentPath` não seja fornecido, o componente tentará usar o hook `usePathname` para determinar a rota ativa automaticamente.
+
+### Estrutura do Objeto `ITabTrigger`
+
+Cada objeto `ITabTrigger` possui as seguintes propriedades:
+
+- **label**: `string` - O texto que será exibido na aba.
+- **path**: `string` - O caminho ou URL que a aba representa.
+- **isDisabled**: `boolean` _(opcional)_ - Define se a aba está desabilitada e não clicável.
+
+### Funcionalidades
+
+- **Renderização Condicional**: O componente `Tabs` usa a prop `currentPath` ou o hook `usePathname` para definir a aba ativa, aplicando estilos específicos.
+- **Desativação de Abas**: Qualquer aba com `isDisabled` definido como `true` não será clicável e pode ter um estilo visual diferenciado.
+
+### Exemplo de Uso
+
+```jsx
+import React from "react";
+import { Tabs, ITabTrigger } from "design-system";
+
+const tabs: ITabTrigger[] = [
+  { label: "Home", path: "/home" },
+  { label: "Profile", path: "/profile", isDisabled: false },
+  { label: "Settings", path: "/settings", isDisabled: true },
+];
+
+function App() {
+  return (
+    <Tabs tabs={tabs} currentPath="/profile" />
+  );
+}
+```
+
+Neste exemplo, a aba `Profile` será exibida como ativa, e a aba `Settings` estará desabilitada e não será clicável.
+
+## Exemplos de Uso
+
+### Tabs Básicas
+
+<Canvas of={TabsStories.Default} layout="padded" story="inline" />
+
+### Tabs com Aba Desativada
+
+<Canvas of={TabsStories.WithDisabledTab} layout="padded" />
+
+### Tabs com Múltiplas Abas
+
+<Canvas of={TabsStories.MultipleTabs} layout="padded" />
+
+Esses exemplos mostram como configurar e utilizar o componente `Tabs` em diferentes cenários, incluindo abas desativadas, múltiplas abas e configuração de abas ativas com `currentPath`.

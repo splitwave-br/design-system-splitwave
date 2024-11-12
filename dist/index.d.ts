@@ -22,5 +22,7 @@ export type { TBannerVariants, TBannerProps } from "./components/Banner";
 export { Toast } from "./components/Toast";
 export { ToastProvider, useToast } from "./components/Toast/hooks/useToast";
 export type { ToastProps } from "./components/Toast";
+export { Tabs } from "./components/Tabs";
+export type { ITabTrigger, ITabsProps } from "./components/Tabs";
 export { default as useClickOutside } from "./hooks/useClickOutside";
 export { Form } from "./components/Form";

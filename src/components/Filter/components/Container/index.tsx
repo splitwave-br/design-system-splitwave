@@ -1,3 +1,5 @@
+"use client";
+
 import { FilterFieldsProvider } from "../../hooks/useFields";
 import {
   Children,
