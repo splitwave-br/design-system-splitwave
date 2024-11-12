@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.15.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.14.4...v1.15.0) (2024-11-12)
+
+
+### Features
+
+* **#44:** added tab components ([e6edd75](https://github.com/splitwave-br/design-system-splitwave/commit/e6edd75d9b36fcb54cb215085e5eac4f3efeec45))
+
 ## [1.14.4](https://github.com/splitwave-br/design-system-splitwave/compare/v1.14.3...v1.14.4) (2024-11-11)
 
 
