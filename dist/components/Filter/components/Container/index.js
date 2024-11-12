@@ -1,3 +1,4 @@
+"use client";
 import { jsxs as _jsxs, jsx as _jsx } from "react/jsx-runtime";
 import { FilterFieldsProvider } from "../../hooks/useFields";
 import { Children, cloneElement, useCallback, useEffect, useMemo, useRef, useState, } from "react";

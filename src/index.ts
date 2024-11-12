@@ -54,6 +54,10 @@ export { Toast } from "./components/Toast";
 export { ToastProvider, useToast } from "./components/Toast/hooks/useToast";
 export type { ToastProps } from "./components/Toast";
 
+// Tabs
+export { Tabs } from "./components/Tabs";
+export type { ITabTrigger, ITabsProps } from "./components/Tabs";
+
 // Hooks
 export { default as useClickOutside } from "./hooks/useClickOutside";
 

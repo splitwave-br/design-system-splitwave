@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useMemo, useState } from "react";
 import styles from "./styles.module.scss";
 import { Icon } from "@/components/Icon";
@@ -28,7 +30,7 @@ export const Responsive = ({
 
       return React.cloneElement(child, {
         shouldEjectOnMobile: true,
-        shouldPortal: isMobile ?  false : true,
+        shouldPortal: isMobile ? false : true,
       });
     });
   }, [children, isMobile]);

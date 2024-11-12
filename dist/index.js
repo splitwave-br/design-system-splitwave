@@ -26,6 +26,8 @@ export { Banner } from "./components/Banner";
 // Toast
 export { Toast } from "./components/Toast";
 export { ToastProvider, useToast } from "./components/Toast/hooks/useToast";
+// Tabs
+export { Tabs } from "./components/Tabs";
 // Hooks
 export { default as useClickOutside } from "./hooks/useClickOutside";
 // FORM

@@ -1,0 +1,10 @@
+export interface ITabTrigger {
+    label: string;
+    path: string;
+    isDisabled?: boolean;
+}
+export interface ITabsProps {
+    tabs: ITabTrigger[];
+    currentPath?: string;
+}
+export declare const Tabs: ({ tabs, currentPath }: ITabsProps) => import("react/jsx-runtime").JSX.Element;
