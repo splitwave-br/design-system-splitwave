@@ -1,3 +1,5 @@
+"use client";
+
 import { FilterProvider, IFilterProviderProps } from "../../hooks/useFilter";
 
 export const Wrapper = ({ children, register }: IFilterProviderProps) => {

@@ -1,3 +1,5 @@
+"use client";
+
 import { ElementType, ForwardedRef, forwardRef } from "react";
 // import { Icon } from '@/components/Icon';
 import styles from "./styles.module.scss";

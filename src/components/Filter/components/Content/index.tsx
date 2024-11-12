@@ -1,3 +1,5 @@
+"use client";
+
 import { forwardRef } from "react";
 import styles from "./styles.module.scss";
 import { useFilterContext } from "../../hooks/useFilter";
