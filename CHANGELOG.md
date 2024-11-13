@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.15.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.15.0...v1.15.1) (2024-11-13)
+
+
+### Bug Fixes
+
+* **#44:** Added dark-mode in tabs component ([dc76f8b](https://github.com/splitwave-br/design-system-splitwave/commit/dc76f8b059d5275231ce14c39079abf9bbfd79df))
+
 ## [1.15.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.14.4...v1.15.0) (2024-11-12)
 
 
