@@ -1,5 +1,6 @@
 .trigger {
-  color: var(--color-title);
+  border-radius: var(--border-radius-3) var(--border-radius-3) 0 0;
+  color: var(--trigger--color);
   font-size: var(--font-size-3);
   font-weight: 500;
   line-height: 1.57em;
@@ -7,6 +8,7 @@
   min-width: 112px;
   padding: var(--spaces-1) var(--spaces-2);
   padding-top: calc(var(--spaces-2) - var(--spaces-1));
+  background: var(--trigger--background);
 
   display: flex;
   justify-content: center;
@@ -16,6 +18,8 @@
   white-space: nowrap;
   position: relative;
   text-decoration: none;
+  margin-bottom: -1px;
+  z-index: 5;
 
   &::after {
     content: "";
@@ -31,10 +35,9 @@
   }
 
   &.active {
-    border-radius: var(--border-radius-3) var(--border-radius-3) 0 0;
-    border: 1px solid var(--colors-border-highlight);
-    border-bottom: none;
-    background: var(--colors-background-overlay-gray);
+    border: 1px solid var(--tabs--border-color);
+    border-bottom: none !important;
+    background: var(--trigger--active--background);
 
     &::after {
       opacity: 1;
@@ -42,8 +45,8 @@
   }
 
   &.disabled {
+    color: var(--trigger--disabled--color);
     pointer-events: none;
     cursor: not-allowed !important;
-    opacity: 0.4;
   }
 }

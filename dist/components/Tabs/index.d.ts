@@ -1,3 +1,4 @@
+import "./variables.scss";
 export interface ITabTrigger {
     label: string;
     path: string;
