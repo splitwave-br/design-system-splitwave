@@ -3,6 +3,7 @@
 import React from "react";
 import Nav from "./components/nav/nav";
 import Trigger from "./components/trigger/trigger";
+import "./variables.scss";
 
 export interface ITabTrigger {
   label: string;

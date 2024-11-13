@@ -17,7 +17,7 @@ const Trigger = ({
   isDisabled = false,
   currentPath,
 }: TriggerProps) => {
-  const pathName = currentPath || usePathname(); // Usa currentPath se fornecido
+  const pathName = currentPath || usePathname();
   const isActive = pathName === path;
   const tabStyles = [
     styles.trigger,

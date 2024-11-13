@@ -1,0 +1,33 @@
+:root {
+  --trigger--border-radius: var(--border-radius-3);
+}
+
+.light-theme {
+  // Tabs
+  --tabs--border-color: var(--colors-gray-300);
+
+  // Trigger
+  --trigger--color: var(--colors-gray-900);
+  --trigger--background: #fff;
+
+  // Trigger: Disabled
+  --trigger--disabled--color: var(--colors-gray-400);
+
+  // Trigger: Active
+  --trigger--active--background: var(--colors-gray-100);
+}
+
+.dark-theme {
+  // Tabs
+  --tabs--border-color: var(--colors-dark-gray-600);
+
+  // Trigger
+  --trigger--color: #fff;
+  --trigger--background: var(--colors-dark-gray-900);
+
+  // Trigger: Disabled
+  --trigger--disabled--color: var(--colors-dark-gray-500);
+
+  // Trigger: Active
+  --trigger--active--background: var(--colors-dark-gray-700);
+}
