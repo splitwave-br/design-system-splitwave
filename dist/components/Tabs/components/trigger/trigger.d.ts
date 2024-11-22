@@ -3,6 +3,7 @@ interface TriggerProps {
     children: React.ReactNode;
     isDisabled?: boolean;
     currentPath?: string;
+    relatedPath?: string;
 }
-declare const Trigger: ({ path, children, isDisabled, currentPath, }: TriggerProps) => import("react/jsx-runtime").JSX.Element;
+declare const Trigger: ({ path, children, isDisabled, currentPath, relatedPath, }: TriggerProps) => import("react/jsx-runtime").JSX.Element;
 export default Trigger;

@@ -3,6 +3,7 @@ export interface ITabTrigger {
     label: string;
     path: string;
     isDisabled?: boolean;
+    relatedPath?: string;
 }
 export interface ITabsProps {
     tabs: ITabTrigger[];
