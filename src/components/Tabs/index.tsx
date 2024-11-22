@@ -9,6 +9,7 @@ export interface ITabTrigger {
   label: string;
   path: string;
   isDisabled?: boolean;
+  relatedPath?: string;
 }
 
 export interface ITabsProps {
@@ -22,6 +23,7 @@ export const Tabs = ({ tabs, currentPath }: ITabsProps) => {
       {tabs.map((tab) => (
         <Trigger
           key={tab.path}
+          relatedPath={tab.relatedPath}
           isDisabled={tab.isDisabled}
           path={tab.path}
           currentPath={currentPath}

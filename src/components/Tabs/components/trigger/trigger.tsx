@@ -9,6 +9,7 @@ interface TriggerProps {
   children: React.ReactNode;
   isDisabled?: boolean;
   currentPath?: string;
+  relatedPath?: string;
 }
 
 const Trigger = ({
@@ -16,9 +17,11 @@ const Trigger = ({
   children,
   isDisabled = false,
   currentPath,
+  relatedPath,
 }: TriggerProps) => {
   const pathName = currentPath || usePathname();
-  const isActive = pathName === path;
+  const isActive =
+    pathName === path || (relatedPath && pathName.includes(relatedPath));
   const tabStyles = [
     styles.trigger,
     isActive && styles.active,
