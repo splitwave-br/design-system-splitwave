@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.16.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.15.1...v1.16.0) (2024-11-22)
+
+
+### Features
+
+* **tabs:** Add related path prop to trigger ([8dc2d91](https://github.com/splitwave-br/design-system-splitwave/commit/8dc2d91094e17e38a6eb9a60c042a3a2f5a0a8ae))
+
 ## [1.15.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.15.0...v1.15.1) (2024-11-13)
 
 
