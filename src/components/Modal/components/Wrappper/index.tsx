@@ -30,13 +30,21 @@ const Wrapper = ({
     >
       {title && (
         <div className={styles.header}>
-          <button onClick={handleClose} className={styles.backBtn}>
-            <Icon name="back" />
-          </button>
+          {
+            onClose && (
+            <button onClick={handleClose} className={styles.backBtn}>
+              <Icon name="back" />
+            </button>
+            )
+          }
           <span className={styles.title}>{title}</span>
-          <button onClick={handleClose} className={styles.closeBtn}>
-            <Icon size={"nano"} name="cancel" />
-          </button>
+          {
+            onClose && (
+              <button onClick={handleClose} className={styles.closeBtn}>
+                <Icon size={"nano"} name="cancel" />
+              </button>
+            )
+          }
         </div>
       )}
       {children}
