@@ -1,81 +1,89 @@
 "use client";
 
 import React, { createContext, useContext, useState } from "react";
-import { Toast, ToastProps } from "@/components/Toast";
+import { PresetEnum, Toast, ToastProps } from "@/components/Toast";
+import styles from "../styles.module.scss";
+import { generateUUID } from "@/utils/generateUUID";
+
+interface ToastPropsWithId extends ToastProps {
+  id: string;
+}
+
+interface ToastPropsWithArrayMessages extends Omit<ToastProps, "message"> {
+  message: string | string[];
+}
 
 interface ToastProviderProps {
   children: React.ReactNode;
 }
 
-interface IToast {}
-
 interface IToastContextData {
-  openToast: (params: ToastProps) => void;
-  openToastSuccess: (message: string, params?: ToastProps) => void;
-  openToastError: (message: string, params?: ToastProps) => void;
-}
-
-interface ToastPropsWithId extends ToastProps {
-  id?: string;
+  openToast: (params: ToastPropsWithArrayMessages) => void;
+  openToastSuccess: (
+    message: string | string[],
+    params?: ToastPropsWithArrayMessages,
+  ) => void;
+  openToastError: (
+    message: string | string[],
+    params?: ToastPropsWithArrayMessages,
+  ) => void;
 }
 
 const ToastContext = createContext({} as IToastContextData);
 
 const defaultTimeout = 5000;
-let id = 0;
 
 function ToastProvider({ children }: ToastProviderProps) {
   const [toastMessagesQueue, setToastMessagesQueue] = useState<
     ToastPropsWithId[]
   >([]);
 
-  const openToast = (toastProps: ToastProps) => {
-    id++;
+  const getNewToastMessagesQueue = (
+    prev: ToastPropsWithId[],
+    toastProps: ToastProps,
+  ) => {
+    const newToast: ToastPropsWithId = {
+      timeout: defaultTimeout,
+      ...toastProps,
+      id: `${generateUUID()}`,
+    };
 
-    setToastMessagesQueue((prev) => {
-      if (toastProps.priority) {
-        return [
-          {
-            id: `toast-message-${id}`,
-            timeout: defaultTimeout,
-            ...toastProps,
-          },
-        ];
+    return [...prev, newToast];
+  };
+
+  const openToast = (toastProps: ToastPropsWithArrayMessages) => {
+    const message = toastProps.message;
+
+    if (typeof message === "string")
+      setToastMessagesQueue((prev) =>
+        getNewToastMessagesQueue(prev, toastProps as ToastProps),
+      );
+
+    if (Array.isArray(message)) {
+      for (const msg of message) {
+        setToastMessagesQueue((prev) =>
+          getNewToastMessagesQueue(prev, { ...toastProps, message: msg }),
+        );
       }
-
-      return [
-        ...prev,
-        {
-          id: `toast-message-${id}`,
-          timeout: defaultTimeout,
-          ...toastProps,
-        },
-      ];
-    });
+    }
   };
 
-  const openToastSuccess = (message: string, toastProps?: ToastProps) => {
-    openToast({
-      success: true,
-      priority: true,
-      ...toastProps,
-      message,
-    });
+  const openToastSuccess = (
+    message: string | string[],
+    toastProps?: ToastPropsWithArrayMessages,
+  ) => {
+    openToast({ preset: PresetEnum.Success, ...toastProps, message });
   };
 
-  const openToastError = (message: string, toastProps?: ToastProps) => {
-    openToast({
-      error: true,
-      priority: true,
-      ...toastProps,
-      message,
-    });
+  const openToastError = (
+    message: string | string[],
+    toastProps?: ToastPropsWithArrayMessages,
+  ) => {
+    openToast({ preset: PresetEnum.Error, ...toastProps, message });
   };
 
-  const handleShift = () => {
-    setToastMessagesQueue((prev) => {
-      return [...prev.slice(1)];
-    });
+  const closeToast = (id: string) => {
+    setToastMessagesQueue((prev) => prev.filter((toast) => toast.id !== id));
   };
 
   return (
@@ -87,13 +95,15 @@ function ToastProvider({ children }: ToastProviderProps) {
       }}
     >
       {children}
-      {toastMessagesQueue?.[0] && (
-        <Toast
-          key={toastMessagesQueue?.[0].id}
-          {...(toastMessagesQueue?.[0] || {})}
-          onClose={handleShift}
-        />
-      )}
+      <div className={styles.wrapperContainer}>
+        {toastMessagesQueue.map((toastMessage) => (
+          <Toast
+            key={`toast-message-${toastMessage.id}`}
+            {...toastMessage}
+            onClose={() => closeToast(toastMessage.id)}
+          />
+        ))}
+      </div>
     </ToastContext.Provider>
   );
 }
