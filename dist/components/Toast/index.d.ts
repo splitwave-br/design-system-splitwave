@@ -1,12 +1,14 @@
 import { TIcons } from "../../components/Icon";
+export declare enum PresetEnum {
+    Error = "error",
+    Success = "success"
+}
 export interface ToastProps {
     message: string;
     timeout?: number;
     onClose?: () => void;
     icon?: TIcons;
-    error?: boolean;
-    success?: boolean;
-    priority?: boolean;
     title?: string;
+    preset?: PresetEnum;
 }
-export declare function Toast({ title: _title, message, timeout, onClose, icon, error, success, }: ToastProps): import("react/jsx-runtime").JSX.Element | null;
+export declare function Toast({ title: _title, message, timeout, onClose, icon, preset, }: ToastProps): import("react/jsx-runtime").JSX.Element | null;
