@@ -1,7 +1,8 @@
 // Toast.stories.tsx
+import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import { ToastProvider, useToast } from "./hooks/useToast";
-import { Button } from "@/components/Button";
+import { Button } from "../Button";
 
 export default {
   title: "Components/Toast",
