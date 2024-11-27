@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.17.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.16.1...v1.17.0) (2024-11-27)
+
+
+### Features
+
+* **#151:** Add new version ([75bdabe](https://github.com/splitwave-br/design-system-splitwave/commit/75bdabe980b0c6f18161d66f2a093a8f593b6f8d))
+
 ## [1.16.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.16.0...v1.16.1) (2024-11-27)
 
 
