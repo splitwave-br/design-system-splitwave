@@ -14,6 +14,8 @@ export var Responsive = function (_a) {
     var _c = useFilterContext(), filter = _c.filter, getIsActive = _c.getIsActive, cleanAll = _c.cleanAll;
     var renderChildren = useMemo(function () {
         return React.Children.map(children, function (c) {
+            if (!React.isValidElement(c))
+                return;
             var child = c;
             if (isMobile && typeof child.props.shouldEjectOnMobile !== "undefined")
                 return null;
@@ -27,6 +29,8 @@ export var Responsive = function (_a) {
         if (!isMobile)
             return null;
         return React.Children.map(children, function (c) {
+            if (!React.isValidElement(c))
+                return;
             var child = c;
             if (child.props.shouldEjectOnMobile !== false)
                 return null;

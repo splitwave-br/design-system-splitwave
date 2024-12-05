@@ -66,10 +66,20 @@ export const FilterWithSelect: StoryFn = () => {
 export const FilterWithCheckboxes: StoryFn = () => {
   const PAYMENT_METHODS = [
     { label: "Pago", id: "PAGO" },
-    {
-      id: "PENDENTE",
-      label: "Pendente",
-    },
+    { label: "Pendente", id: "PENDENTE" },
+    { label: "Em Processamento", id: "EM_PROCESSAMENTO" },
+    { label: "Aguardando Pagamento", id: "AGUARDANDO_PAGAMENTO" },
+    { label: "Cancelado", id: "CANCELADO" },
+    { label: "Estornado", id: "ESTORNADO" },
+    { label: "Chargeback", id: "CHARGEBACK" },
+    { label: "Aprovado", id: "APROVADO" },
+    { label: "Rejeitado", id: "REJEITADO" },
+    { label: "Expirado", id: "EXPIRADO" },
+    { label: "Parcialmente Pago", id: "PARCIALMENTE_PAGO" },
+    { label: "Pagamento Em Análise", id: "PAGAMENTO_EM_ANALISE" },
+    { label: "Pagamento Não Autorizado", id: "PAGAMENTO_NAO_AUTORIZADO" },
+    { label: "Agendado", id: "AGENDADO" },
+    { label: "Concluído", id: "CONCLUIDO" },
   ];
 
   return (
@@ -155,6 +165,7 @@ export const MultipleFilters: StoryFn = () => {
       label: "Pendente",
     },
   ];
+  const shouldShow = false;
   return (
     <Filter.Responsive>
       <Filter.Container>
@@ -167,13 +178,14 @@ export const MultipleFilters: StoryFn = () => {
         </Filter.Content>
       </Filter.Container>
 
-      <Filter.Container>
-        <Filter.Button>Id do pedido</Filter.Button>
-        <Filter.Content>
-          <Filter.Field field={"orderId"} label={"Id do pedido"} />
-        </Filter.Content>
-      </Filter.Container>
-
+      {shouldShow && (
+        <Filter.Container>
+          <Filter.Button>Id do pedido</Filter.Button>
+          <Filter.Content>
+            <Filter.Field field={"orderId"} label={"Id do pedido"} />
+          </Filter.Content>
+        </Filter.Container>
+      )}
       <Filter.Container>
         <Filter.Button>Preço</Filter.Button>
         <Filter.Content>
