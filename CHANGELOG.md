@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.17.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.17.0...v1.17.1) (2024-12-05)
+
+
+### Bug Fixes
+
+* **filter-scroll:** Add scroll to checkbox filter ([503e958](https://github.com/splitwave-br/design-system-splitwave/commit/503e958499c8bd9a40ce0bb8f87bbb54dbd84989))
+* **filter:** Fix conditional filters render within filter responsive ([b5bfc25](https://github.com/splitwave-br/design-system-splitwave/commit/b5bfc2524fa981029e5bf311f0cd3a5649fb1074))
+
 ## [1.17.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.16.1...v1.17.0) (2024-11-27)
 
 
