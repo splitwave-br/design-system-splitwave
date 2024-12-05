@@ -23,7 +23,7 @@ import { Form } from "../../../../components/Form";
 import { MultiSelect as MultiSelectControl } from "../../../../components/Form/controls/MultiSelect";
 export var CheckboxFilters = forwardRef(function (_a, ref) {
     var _b;
-    var field = _a.field, label = _a.label, _c = _a.hasClear, hasClear = _c === void 0 ? false : _c, getLabel = _a.getLabel, getOptionValue = _a.getValue, options = _a.options, isEjected = _a.isEjected;
+    var field = _a.field, label = _a.label, _c = _a.hasClear, hasClear = _c === void 0 ? false : _c, getLabel = _a.getLabel, getOptionValue = _a.getValue, options = _a.options, isEjected = _a.isEjected, className = _a.className;
     var isMobile = useWindowSize().isMobile;
     var _d = useFilterContext(), setFilter = _d.setFilter, getValue = _d.getValue;
     var registerField = useFilterFields().registerField;
@@ -43,11 +43,11 @@ export var CheckboxFilters = forwardRef(function (_a, ref) {
         registerField(field);
     }, []);
     if (isMobile && isEjected) {
-        return (_jsx(Filter.Content, { isEjected: true, children: _jsxs(Form.Field, { children: [label && _jsx(Form.Label, { children: label }), _jsx(MultiSelectControl, { autoFocus: true, onChange: handleChangeMobile, options: options, getLabel: getLabel, getValue: getOptionValue, getId: getOptionValue, value: options.filter(function (opt) {
+        return (_jsx(Filter.Content, { className: concatStyles([styles.wrapper, className]), isEjected: true, children: _jsxs(Form.Field, { children: [label && _jsx(Form.Label, { children: label }), _jsx(MultiSelectControl, { autoFocus: true, onChange: handleChangeMobile, options: options, getLabel: getLabel, getValue: getOptionValue, getId: getOptionValue, value: options.filter(function (opt) {
                             return selectedValues.includes(getOptionValue(opt));
                         }) || [] })] }) }));
     }
-    return (_jsx(Dropdown.Menu, { ref: ref, children: options.map(function (option, index) {
+    return (_jsx(Dropdown.Menu, { className: styles.wrapper, ref: ref, children: options.map(function (option, index) {
             var isLastItem = index === options.length - 1;
             var shouldShowDivider = hasClear && isLastItem;
             var optionValue = getOptionValue(option);

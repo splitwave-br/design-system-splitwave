@@ -45,6 +45,7 @@ export declare const Filter: {
         getValue: (option: any) => string;
         hasClear?: boolean;
         isEjected?: boolean;
+        className?: string;
     } & import("react").RefAttributes<HTMLInputElement>>;
     Sort: import("react").ForwardRefExoticComponent<{
         getLabel: (option: any) => string;

@@ -66,10 +66,20 @@ export const FilterWithSelect: StoryFn = () => {
 export const FilterWithCheckboxes: StoryFn = () => {
   const PAYMENT_METHODS = [
     { label: "Pago", id: "PAGO" },
-    {
-      id: "PENDENTE",
-      label: "Pendente",
-    },
+    { label: "Pendente", id: "PENDENTE" },
+    { label: "Em Processamento", id: "EM_PROCESSAMENTO" },
+    { label: "Aguardando Pagamento", id: "AGUARDANDO_PAGAMENTO" },
+    { label: "Cancelado", id: "CANCELADO" },
+    { label: "Estornado", id: "ESTORNADO" },
+    { label: "Chargeback", id: "CHARGEBACK" },
+    { label: "Aprovado", id: "APROVADO" },
+    { label: "Rejeitado", id: "REJEITADO" },
+    { label: "Expirado", id: "EXPIRADO" },
+    { label: "Parcialmente Pago", id: "PARCIALMENTE_PAGO" },
+    { label: "Pagamento Em Análise", id: "PAGAMENTO_EM_ANALISE" },
+    { label: "Pagamento Não Autorizado", id: "PAGAMENTO_NAO_AUTORIZADO" },
+    { label: "Agendado", id: "AGENDADO" },
+    { label: "Concluído", id: "CONCLUIDO" },
   ];
 
   return (
