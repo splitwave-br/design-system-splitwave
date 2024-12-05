@@ -21,6 +21,7 @@ type CheckboxFiltersProps = {
   getValue: (option: any) => string;
   hasClear?: boolean;
   isEjected?: boolean; // It is used to don't use dropdown on mobile
+  className?: string;
 };
 export const CheckboxFilters = forwardRef<
   HTMLInputElement,
@@ -35,6 +36,7 @@ export const CheckboxFilters = forwardRef<
       getValue: getOptionValue,
       options,
       isEjected,
+      className,
     },
     ref,
   ) => {
@@ -65,7 +67,10 @@ export const CheckboxFilters = forwardRef<
 
     if (isMobile && isEjected) {
       return (
-        <Filter.Content isEjected>
+        <Filter.Content
+          className={concatStyles([styles.wrapper, className])}
+          isEjected
+        >
           <Form.Field>
             {label && <Form.Label>{label}</Form.Label>}
             <MultiSelectControl
@@ -87,7 +92,7 @@ export const CheckboxFilters = forwardRef<
     }
 
     return (
-      <Dropdown.Menu ref={ref}>
+      <Dropdown.Menu className={styles.wrapper} ref={ref}>
         {options.map((option, index) => {
           const isLastItem = index === options.length - 1;
           const shouldShowDivider = hasClear && isLastItem;

@@ -7,6 +7,7 @@ type CheckboxFiltersProps = {
     getValue: (option: any) => string;
     hasClear?: boolean;
     isEjected?: boolean;
+    className?: string;
 };
 export declare const CheckboxFilters: React.ForwardRefExoticComponent<CheckboxFiltersProps & React.RefAttributes<HTMLInputElement>>;
 export {};
