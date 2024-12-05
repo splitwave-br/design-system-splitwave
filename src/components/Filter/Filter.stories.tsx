@@ -165,6 +165,7 @@ export const MultipleFilters: StoryFn = () => {
       label: "Pendente",
     },
   ];
+  const shouldShow = false;
   return (
     <Filter.Responsive>
       <Filter.Container>
@@ -177,13 +178,14 @@ export const MultipleFilters: StoryFn = () => {
         </Filter.Content>
       </Filter.Container>
 
-      <Filter.Container>
-        <Filter.Button>Id do pedido</Filter.Button>
-        <Filter.Content>
-          <Filter.Field field={"orderId"} label={"Id do pedido"} />
-        </Filter.Content>
-      </Filter.Container>
-
+      {shouldShow && (
+        <Filter.Container>
+          <Filter.Button>Id do pedido</Filter.Button>
+          <Filter.Content>
+            <Filter.Field field={"orderId"} label={"Id do pedido"} />
+          </Filter.Content>
+        </Filter.Container>
+      )}
       <Filter.Container>
         <Filter.Button>Preço</Filter.Button>
         <Filter.Content>

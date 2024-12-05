@@ -23,6 +23,8 @@ export const Responsive = ({
 
   const renderChildren = useMemo(() => {
     return React.Children.map(children, (c) => {
+      if (!React.isValidElement(c)) return;
+
       const child = c as JSX.Element;
 
       if (isMobile && typeof child.props.shouldEjectOnMobile !== "undefined")
@@ -39,6 +41,8 @@ export const Responsive = ({
     if (!isMobile) return null;
 
     return React.Children.map(children, (c) => {
+      if (!React.isValidElement(c)) return;
+
       const child = c as JSX.Element;
 
       if (child.props.shouldEjectOnMobile !== false) return null;
