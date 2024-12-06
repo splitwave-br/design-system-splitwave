@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.17.3](https://github.com/splitwave-br/design-system-splitwave/compare/v1.17.2...v1.17.3) (2024-12-06)
+
+
+### Bug Fixes
+
+* **toast:** Fix responsive toast view on mobile ([90dc0ab](https://github.com/splitwave-br/design-system-splitwave/commit/90dc0ab6e47ec46eba1967508c951ba9c900985d))
+
 ## [1.17.2](https://github.com/splitwave-br/design-system-splitwave/compare/v1.17.1...v1.17.2) (2024-12-06)
 
 
