@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.17.4](https://github.com/splitwave-br/design-system-splitwave/compare/v1.17.3...v1.17.4) (2024-12-09)
+
+
+### Bug Fixes
+
+* **#502:** Toast with 100% width ([2c02958](https://github.com/splitwave-br/design-system-splitwave/commit/2c029582ff520cde7d028c757fd683396cf359f8))
+
 ## [1.17.3](https://github.com/splitwave-br/design-system-splitwave/compare/v1.17.2...v1.17.3) (2024-12-06)
 
 
