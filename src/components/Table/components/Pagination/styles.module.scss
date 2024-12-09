@@ -43,8 +43,10 @@
     color: var(--colors-gray-500);
   }
 
-  @include temporary-mobile {
-    display: none;
+  span {
+    @include temporary-mobile {
+      display: none;
+    }
   }
 }
 
