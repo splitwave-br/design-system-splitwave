@@ -38,6 +38,10 @@
   display: flex;
   flex-direction: column-reverse;
   gap: var(--spaces-2);
+
+  @include temporary-mobile {
+    right: var(--spaces-2);
+  }
 }
 
 .wrapper {
@@ -79,8 +83,7 @@
   }
 
   @include mobile {
-    left: 50%;
-    width: calc(100% - var(--spaces-2) * 2);
+    width: 100%;
   }
 }
 
