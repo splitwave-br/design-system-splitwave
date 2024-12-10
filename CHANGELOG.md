@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.17.5](https://github.com/splitwave-br/design-system-splitwave/compare/v1.17.4...v1.17.5) (2024-12-10)
+
+
+### Bug Fixes
+
+* **checkbox:** Add display none to input type checkbox ([865c402](https://github.com/splitwave-br/design-system-splitwave/commit/865c40274284a4b0e5a453e00d8cfa50f97b43a6))
+
 ## [1.17.4](https://github.com/splitwave-br/design-system-splitwave/compare/v1.17.3...v1.17.4) (2024-12-09)
 
 
