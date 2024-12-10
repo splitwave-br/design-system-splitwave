@@ -40,6 +40,7 @@
   gap: var(--spaces-2);
   background-color: transparent !important;
 
+
   @include temporary-mobile {
     right: var(--spaces-2);
   }
