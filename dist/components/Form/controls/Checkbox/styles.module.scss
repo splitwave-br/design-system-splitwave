@@ -5,6 +5,10 @@
 
   color: var(--colors-dark-gray-500);
 
+  input[type="checkbox"] {
+    display: none;
+  }
+
   cursor: pointer;
 
   & > figure,
