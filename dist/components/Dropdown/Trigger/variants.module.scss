@@ -1,0 +1,21 @@
+.variant__primary {
+  background-color: var(--trigger-background);
+  transition: background-color 0.3s ease-in-out;
+  padding: 0 var(--spaces-2);
+
+  &:hover {
+    background: var(--colors-gray-50);
+  }
+}
+
+.variant__secondary {
+  color: var(--colors-neutral-50);
+  border-radius: var(--border-radius-3);
+
+  border: 2px solid var(--color-background) !important;
+  background: var(--colors-black) !important;
+  box-shadow: 0px 0px 0px 2px #000;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  will-change: background-color box-shadow;
+  padding: 0 var(--spaces-2)
+}

@@ -26,12 +26,17 @@ import { forwardRef } from "react";
 import styles from "./styles.module.scss";
 import "./variables.scss";
 import { concatStyles } from "../../../utils/concatStyles";
+import variants from './variants.module.scss';
 var Trigger = forwardRef(function (_a, ref) {
-    var children = _a.children, className = _a.className, isOpen = _a.isOpen, props = __rest(_a, ["children", "className", "isOpen"]);
+    var children = _a.children, className = _a.className, isOpen = _a.isOpen, _b = _a.variant, variant = _b === void 0 ? 'secondary' : _b, props = __rest(_a, ["children", "className", "isOpen", "variant"]);
     if (typeof children === "function") {
         return children(props, ref);
     }
-    var triggerStyles = concatStyles([styles.wrapper, className]);
+    var triggerStyles = concatStyles([
+        styles.wrapper,
+        variants["variant__".concat(variant)],
+        className
+    ]);
     return (_jsx("button", __assign({ ref: ref, className: triggerStyles }, props, { children: children })));
 });
 Trigger.displayName = "Trigger";
