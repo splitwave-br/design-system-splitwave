@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.18.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.17.5...v1.18.0) (2024-12-12)
+
+
+### Features
+
+* **version:** Add new version ([eb792db](https://github.com/splitwave-br/design-system-splitwave/commit/eb792db1a5d1524e3de49410fbcacd9d9c71bd26))
+
 ## [1.17.5](https://github.com/splitwave-br/design-system-splitwave/compare/v1.17.4...v1.17.5) (2024-12-10)
 
 
