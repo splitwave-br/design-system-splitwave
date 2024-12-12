@@ -12,7 +12,7 @@ export var Checkbox = forwardRef(function (_a, ref) {
                 onChange();
             }, children: _jsxs("label", { htmlFor: label, className: styles.field, children: [_jsxs("div", { className: concatStyles([
                             styles.inputWrapper,
-                            isChecked ? styles.isChecked : '',
+                            isChecked ? styles.isChecked : "",
                         ]), children: [_jsx("input", { className: styles.checkbox, type: "checkbox", id: label, ref: ref, onChange: onChange, checked: isChecked }), isChecked ? _jsx(Checked, {}) : _jsx(Unchecked, {})] }), label && _jsx("span", { className: styles.label, children: label })] }) }) }, label));
 });
-Checkbox.displayName = 'Checkbox';
+Checkbox.displayName = "Checkbox";
