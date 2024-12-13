@@ -1,5 +1,55 @@
 # Changelog
 
+## [1.17.5](https://github.com/splitwave-br/design-system-splitwave/compare/v1.17.4...v1.17.5) (2024-12-10)
+
+
+### Bug Fixes
+
+* **checkbox:** Add display none to input type checkbox ([865c402](https://github.com/splitwave-br/design-system-splitwave/commit/865c40274284a4b0e5a453e00d8cfa50f97b43a6))
+
+## [1.17.4](https://github.com/splitwave-br/design-system-splitwave/compare/v1.17.3...v1.17.4) (2024-12-09)
+
+
+### Bug Fixes
+
+* **#502:** Toast with 100% width ([2c02958](https://github.com/splitwave-br/design-system-splitwave/commit/2c029582ff520cde7d028c757fd683396cf359f8))
+
+## [1.17.3](https://github.com/splitwave-br/design-system-splitwave/compare/v1.17.2...v1.17.3) (2024-12-06)
+
+
+### Bug Fixes
+
+* **toast:** Fix responsive toast view on mobile ([90dc0ab](https://github.com/splitwave-br/design-system-splitwave/commit/90dc0ab6e47ec46eba1967508c951ba9c900985d))
+
+## [1.17.2](https://github.com/splitwave-br/design-system-splitwave/compare/v1.17.1...v1.17.2) (2024-12-06)
+
+
+### Bug Fixes
+
+* **toast:** Fix responsive toast view on mobile ([ea096a2](https://github.com/splitwave-br/design-system-splitwave/commit/ea096a26789b3e30fe5cd4a69935e11edbbcbd85))
+
+## [1.17.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.17.0...v1.17.1) (2024-12-05)
+
+
+### Bug Fixes
+
+* **filter-scroll:** Add scroll to checkbox filter ([503e958](https://github.com/splitwave-br/design-system-splitwave/commit/503e958499c8bd9a40ce0bb8f87bbb54dbd84989))
+* **filter:** Fix conditional filters render within filter responsive ([b5bfc25](https://github.com/splitwave-br/design-system-splitwave/commit/b5bfc2524fa981029e5bf311f0cd3a5649fb1074))
+
+## [1.17.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.16.1...v1.17.0) (2024-11-27)
+
+
+### Features
+
+* **#151:** Add new version ([75bdabe](https://github.com/splitwave-br/design-system-splitwave/commit/75bdabe980b0c6f18161d66f2a093a8f593b6f8d))
+
+## [1.16.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.16.0...v1.16.1) (2024-11-27)
+
+
+### Bug Fixes
+
+* **version:** Fix version genereation adding new changes ([09cbb4f](https://github.com/splitwave-br/design-system-splitwave/commit/09cbb4fe0d424047dc8b713ed7ee681c8316523e))
+
 ## [1.16.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.15.1...v1.16.0) (2024-11-22)
 
 
