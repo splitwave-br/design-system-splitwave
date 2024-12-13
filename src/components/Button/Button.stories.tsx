@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "./index";
+import React from "react";
 
 const meta = {
   component: Button,
@@ -9,6 +10,24 @@ const meta = {
 export default meta;
 
 type Story = StoryObj<typeof meta>;
+
+
+const Template: Story = {
+  render: ({ children, ...args }) => (
+    <div>
+      <div className="light-theme" style={{ marginBottom: "1rem" }}>
+        <h2>Light Theme</h2>
+        <Button {...args}>{children}</Button>
+      </div>
+      <div className="dark-theme">
+        <h2>Dark Theme</h2>
+        <div style={{ background: "black", width: "max-content", padding: 5 }}>
+          <Button {...args}>{children}</Button>
+        </div>
+      </div>
+    </div>
+  ),
+};
 
 export const Default: Story = {
   args: {
@@ -33,6 +52,7 @@ export const Tertiary: Story = {
 };
 
 export const Outline: Story = {
+  ...Template,
   args: {
     name: "Button Ouline",
     variant: "outline",
@@ -61,3 +81,4 @@ export const Text: Story = {
     children: "Text",
   },
 };
+

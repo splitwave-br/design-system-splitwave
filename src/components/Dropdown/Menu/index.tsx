@@ -9,13 +9,30 @@ export interface MenuProps extends React.HTMLAttributes<HTMLDivElement> {
 const Menu = forwardRef<HTMLDivElement, MenuProps>(
   ({ children, className, ...props }, ref) => {
     return (
-      <div
-        ref={ref}
-        className={concatStyles([styles.menu, className])}
-        {...props}
-      >
-        {children}
-      </div>
+      <div>
+        <div className="light-theme" style={{ marginBottom: "1rem" }}>
+          <h2>Light Theme</h2>
+            <div
+              ref={ref}
+              className={concatStyles([styles.menu, className])}
+              {...props}
+            >
+              {children}
+          </div>
+        </div>
+        <div className="dark-theme" style={{ marginTop: 250 }}>
+          <h2>Dark Theme</h2>
+          <div style={{ background: "black", width: "max-content" }}>
+            <div
+              ref={ref}
+              className={concatStyles([styles.menu, className])}
+              {...props}
+            >
+              {children}
+            </div>
+          </div>
+        </div>
+    </div>
     );
   },
 );

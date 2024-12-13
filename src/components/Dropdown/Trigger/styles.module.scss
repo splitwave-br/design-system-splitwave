@@ -12,8 +12,15 @@
   background-color: var(--trigger-background);
   transition: background-color 0.3s ease-in-out;
   padding: 0 var(--spaces-2);
-
+  :global(.dark-theme) & {
+    background-color: var(--colors-dark-gray-900) !important;
+    color: var(--colors-dark-gray-500) !important;
+    border-color: var(--colors-dark-gray-500) !important;
+  }
   &:hover {
     background: var(--colors-gray-50);
+    :global(.dark-theme) & {
+      background-color: var(--colors-dark-gray-600) !important;
+    }
   }
 }
