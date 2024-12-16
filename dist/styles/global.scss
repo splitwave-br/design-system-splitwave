@@ -216,8 +216,13 @@ body.light-theme {
   --color-background-sunken: var(--colors-neutral-50);
   --colors-background-overlay: var(--colors-neutral-50);
   --colors-background-overlay-gray: var(--colors-gray-100);
-
   --colors-icon-static: var(--colors-light-gray-500);
+  
+  --generic-background-color: var(--colors-dark-gray-500);
+  --generic-border-color: var(--colors-gray-200);
+  --generic-paragraph-color: var(--colors-dark-gray-500);
+  --generic-title-color: var(--colors-font-primary);
+  --generic-secondary-border-color: var(--colors-gray-300);
 }
 
 body.dark-theme {
@@ -233,12 +238,16 @@ body.dark-theme {
   --color-border: var(--colors-dark-gray-700);
   --color-border-default: var(--colors-dark-gray-700);
   --colors-border-highlight: var(--colors-dark-gray-600);
-
   --colors-background-sunken: --colors-dark-gray-900;
   --colors-background-overlay: --colors-dark-gray-900;
   --colors-background-overlay-gray: var(--colors-dark-gray-700);
-
   --colors-icon-static: var(--colors-dark-gray-500);
+
+  --generic-secondary-border-color: var(--colors-dark-gray-600);
+  --generic-background-color: var(--colors-dark-gray-900);
+  --generic-border-color: var(--colors-dark-gray-700);
+  --generic-paragraph-color: var(--colors-dark-gray-500);
+  --generic-title-color: #fff;
 }
 
 * {

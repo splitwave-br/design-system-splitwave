@@ -24,9 +24,10 @@ import { jsx as _jsx } from "react/jsx-runtime";
 import { forwardRef } from "react";
 import styles from "./styles.module.scss";
 import { concatStyles } from "../../../utils/concatStyles";
+import { ThemePreview } from "../../../components/ThemePreview";
 var Menu = forwardRef(function (_a, ref) {
     var children = _a.children, className = _a.className, props = __rest(_a, ["children", "className"]);
-    return (_jsx("div", __assign({ ref: ref, className: concatStyles([styles.menu, className]) }, props, { children: children })));
+    return (_jsx(ThemePreview, { showMenu: true, children: _jsx("div", __assign({ ref: ref, className: concatStyles([styles.menu, className]) }, props, { children: children })) }));
 });
 Menu.displayName = "Menu";
 export default Menu;
