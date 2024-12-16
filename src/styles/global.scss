@@ -218,7 +218,7 @@ body.light-theme {
   --colors-background-overlay-gray: var(--colors-gray-100);
   --colors-icon-static: var(--colors-light-gray-500);
   
-  --generic-background-color: #fff;
+  --generic-background-color: var(--colors-dark-gray-500);
   --generic-border-color: var(--colors-gray-200);
   --generic-paragraph-color: var(--colors-dark-gray-500);
   --generic-title-color: var(--colors-font-primary);
