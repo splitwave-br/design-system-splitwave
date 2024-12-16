@@ -2,6 +2,7 @@ import React from "react";
 
 import { Dropdown } from ".";
 import { Meta, StoryFn, StoryObj } from "@storybook/react";
+import { ThemePreview } from "@/components/ThemePreview";
 import { TriggerProps } from "./Trigger";
 import "./Trigger/variables.scss";
 export default {
@@ -11,30 +12,16 @@ export default {
 } as Meta<TriggerProps>;
 
 const Template: StoryFn = () => (
-  <div>
-      <div className="dark-theme">
-        <h2>Dark Theme</h2>
-        <Dropdown.Container>
-          <Dropdown.Trigger>Open Dropdown</Dropdown.Trigger>
-          <Dropdown.Menu>
-            <Dropdown.Item>Item 1</Dropdown.Item>
-            <Dropdown.Item>Item 2</Dropdown.Item>
-            <Dropdown.Item>Item 3</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown.Container>
-      </div>
-      <div className="light-theme">
-        <h2>Light Theme</h2>
-        <Dropdown.Container>
-          <Dropdown.Trigger>Open Dropdown</Dropdown.Trigger>
-          <Dropdown.Menu>
-            <Dropdown.Item>Item 1</Dropdown.Item>
-            <Dropdown.Item>Item 2</Dropdown.Item>
-            <Dropdown.Item>Item 3</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown.Container>
-      </div>
-  </div>
+  <ThemePreview>
+    <Dropdown.Container>
+      <Dropdown.Trigger>Open Dropdown</Dropdown.Trigger>
+      <Dropdown.Menu>
+        <Dropdown.Item>Item 1</Dropdown.Item>
+        <Dropdown.Item>Item 2</Dropdown.Item>
+        <Dropdown.Item>Item 3</Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown.Container>
+  </ThemePreview>
 );
 
 export const Default = Template.bind({});
