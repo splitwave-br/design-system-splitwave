@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.19.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.18.0...v1.19.0) (2024-12-17)
+
+
+### Features
+
+* **filter-responsive:** Fix filter responsive render ([8d66a1d](https://github.com/splitwave-br/design-system-splitwave/commit/8d66a1ddba5b5df219808af02f7874b16decae4c))
+
+
+### Bug Fixes
+
+* **filter-responsive:** Change version ([5b3385d](https://github.com/splitwave-br/design-system-splitwave/commit/5b3385d9003ae2d9300624d79fd98c6898cc5212))
+* **filter-responsive:** Fix filter responsive mobile children render ([2e16489](https://github.com/splitwave-br/design-system-splitwave/commit/2e16489657e97021c860c3f726afd3300094a685))
+* **version:** Fix version ([7f8f855](https://github.com/splitwave-br/design-system-splitwave/commit/7f8f855b01a612ef51e3effcb2ac323edc796af4))
+
 ## [1.18.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.17.5...v1.18.0) (2024-12-12)
 
 
