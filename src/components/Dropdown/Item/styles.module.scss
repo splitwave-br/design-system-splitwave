@@ -22,6 +22,10 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
+  :global(.dark-theme) & {
+    background-color: var(--colors-dark-gray-700) !important;
+    color: var(--colors-gray-300) !important;
+  }
 
   & * {
     figure,
@@ -31,5 +35,8 @@
   }
   &:hover {
     background-color: var(--highlight-dropdown-selected-item);
+    :global(.dark-theme) & {
+      background-color: var(--colors-dark-gray-600) !important;
+    }
   }
 }

@@ -1,6 +1,7 @@
 import React, { forwardRef } from "react";
 import styles from "./styles.module.scss";
 import { concatStyles } from "../../../utils/concatStyles";
+import { ThemePreview } from "@/components/ThemePreview";
 
 export interface MenuProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
@@ -9,13 +10,15 @@ export interface MenuProps extends React.HTMLAttributes<HTMLDivElement> {
 const Menu = forwardRef<HTMLDivElement, MenuProps>(
   ({ children, className, ...props }, ref) => {
     return (
-      <div
-        ref={ref}
-        className={concatStyles([styles.menu, className])}
-        {...props}
-      >
-        {children}
-      </div>
+      <ThemePreview showMenu>
+        <div
+          ref={ref}
+          className={concatStyles([styles.menu, className])}
+          {...props}
+        >
+          {children}
+        </div>
+      </ThemePreview>
     );
   },
 );

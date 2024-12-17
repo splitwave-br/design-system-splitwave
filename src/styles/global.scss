@@ -213,16 +213,27 @@ body.light-theme {
   --color-border-default: var(--colors-gray-200);
   --colors-border-highlight: var(--colors-gray-300);
 
-  --color-background-sunken: var(--colors-neutral-50);
+  --colors-background-sunken: var(--colors-neutral-50);
   --colors-background-overlay: var(--colors-neutral-50);
   --colors-background-overlay-gray: var(--colors-gray-100);
 
   --colors-icon-static: var(--colors-light-gray-500);
+
+  --generic-background-color: var(--colors-dark-gray-500);
+  --generic-border-color: var(--colors-gray-200);
+  --generic-paragraph-color: var(--colors-dark-gray-500);
+  --generic-title-color: var(--colors-font-primary);
+  --generic-secondary-border-color: var(--colors-gray-300);
 }
 
 body.dark-theme {
+  --generic-border-color: var(--colors-dark-gray-700);
+  --generic-paragraph-color: var(--colors-dark-gray-500);
+  --generic-title-color: #fff;
+  --generic-secondary-border-color: var(--colors-dark-gray-600);
+
   // Main background-color
-  --background: #000;
+  --background: var(--colors-dark-gray-900);
   --color-aside: var(--colors-dark-gray-900);
 
   --colors-font-primary: #fff;
