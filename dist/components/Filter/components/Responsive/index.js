@@ -46,6 +46,8 @@ export var Responsive = function (_a) {
             return [];
         React.Children.forEach(children, function (c) {
             var child = c;
+            if (!React.isValidElement(c))
+                return;
             if (child.props.shouldEjectOnMobile !== false)
                 return null;
             // If child is not ejected on mobile, then let's map each the childrens of this not ejected children to get the fields;

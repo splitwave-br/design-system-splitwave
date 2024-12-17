@@ -61,6 +61,7 @@ export const Responsive = ({
 
     React.Children.forEach(children, (c) => {
       const child = c as JSX.Element;
+      if (!React.isValidElement(c)) return;
 
       if (child.props.shouldEjectOnMobile !== false) return null;
 
