@@ -14,7 +14,7 @@ export var Responsive = function (_a) {
     var _c = useFilterContext(), filter = _c.filter, getIsActive = _c.getIsActive, cleanAll = _c.cleanAll;
     var renderChildren = useMemo(function () {
         return React.Children.map(children, function (c) {
-            if (!React.isValidElement(c))
+            if (!React.isValidElement(c) || !c)
                 return;
             var child = c;
             if (isMobile && typeof child.props.shouldEjectOnMobile !== "undefined")
@@ -29,10 +29,11 @@ export var Responsive = function (_a) {
         if (!isMobile)
             return null;
         return React.Children.map(children, function (c) {
-            if (!React.isValidElement(c))
+            var _a;
+            if (!React.isValidElement(c) || !c)
                 return;
             var child = c;
-            if (child.props.shouldEjectOnMobile !== false)
+            if (((_a = child === null || child === void 0 ? void 0 : child.props) === null || _a === void 0 ? void 0 : _a.shouldEjectOnMobile) !== false)
                 return null;
             return React.cloneElement(child, {
                 shouldEjectOnMobile: false,
@@ -45,10 +46,11 @@ export var Responsive = function (_a) {
         if (!isMobile)
             return [];
         React.Children.forEach(children, function (c) {
+            var _a;
             var child = c;
-            if (!React.isValidElement(c))
+            if (!React.isValidElement(c) || !c)
                 return;
-            if (child.props.shouldEjectOnMobile !== false)
+            if (((_a = child === null || child === void 0 ? void 0 : child.props) === null || _a === void 0 ? void 0 : _a.shouldEjectOnMobile) !== false)
                 return null;
             // If child is not ejected on mobile, then let's map each the childrens of this not ejected children to get the fields;
             React.Children.forEach(child.props.children, function (c) {

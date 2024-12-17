@@ -23,7 +23,7 @@ export const Responsive = ({
 
   const renderChildren = useMemo(() => {
     return React.Children.map(children, (c) => {
-      if (!React.isValidElement(c)) return;
+      if (!React.isValidElement(c) || !c) return;
 
       const child = c as JSX.Element;
 
@@ -41,11 +41,11 @@ export const Responsive = ({
     if (!isMobile) return null;
 
     return React.Children.map(children, (c) => {
-      if (!React.isValidElement(c)) return;
+      if (!React.isValidElement(c) || !c) return;
 
       const child = c as JSX.Element;
 
-      if (child.props.shouldEjectOnMobile !== false) return null;
+      if (child?.props?.shouldEjectOnMobile !== false) return null;
 
       return React.cloneElement(child, {
         shouldEjectOnMobile: false,
@@ -61,9 +61,9 @@ export const Responsive = ({
 
     React.Children.forEach(children, (c) => {
       const child = c as JSX.Element;
-      if (!React.isValidElement(c)) return;
+      if (!React.isValidElement(c) || !c) return;
 
-      if (child.props.shouldEjectOnMobile !== false) return null;
+      if (child?.props?.shouldEjectOnMobile !== false) return null;
 
       // If child is not ejected on mobile, then let's map each the childrens of this not ejected children to get the fields;
       React.Children.forEach(child.props.children, (c) => {
