@@ -154,6 +154,10 @@ export const Container = ({
     setIsOpen((v) => !v);
   }, []);
 
+  useEffect(() => {
+    console.log("isOpen", isOpen);
+  }, [isOpen]);
+
   const containerPortal = shouldPortal
     ? document.body
     : triggerRef.current?.parentElement || document.body;
@@ -170,6 +174,7 @@ export const Container = ({
     ref: contentRef,
     callback: () => setIsOpen(false),
     isActive: isOpen,
+    exceptionRef: triggerRef,
   });
 
   const containerStyles = [
