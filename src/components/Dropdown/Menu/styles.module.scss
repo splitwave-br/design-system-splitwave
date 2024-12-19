@@ -25,4 +25,7 @@
   align-items: flex-start;
   gap: var(--spaces-micro);
   max-width: fit-content;
+  :global(.dark-theme) & {
+    background-color: var(--colors-dark-gray-700) !important;
+  }
 }

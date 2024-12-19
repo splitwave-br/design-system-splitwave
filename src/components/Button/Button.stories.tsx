@@ -1,5 +1,7 @@
+import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "./index";
+import { ThemePreview } from "../ThemePreview";
 
 const meta = {
   component: Button,
@@ -9,6 +11,14 @@ const meta = {
 export default meta;
 
 type Story = StoryObj<typeof meta>;
+
+const Template: Story = {
+  render: ({ children, ...args }) => (
+    <ThemePreview>
+      <Button {...args}>{children}</Button>
+    </ThemePreview>
+  ),
+};
 
 export const Default: Story = {
   args: {
@@ -33,6 +43,7 @@ export const Tertiary: Story = {
 };
 
 export const Outline: Story = {
+  ...Template,
   args: {
     name: "Button Ouline",
     variant: "outline",
