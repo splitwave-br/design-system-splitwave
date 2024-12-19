@@ -93,9 +93,6 @@ export var Container = function (_a) {
     var handleToggle = useCallback(function () {
         setIsOpen(function (v) { return !v; });
     }, []);
-    useEffect(function () {
-        console.log("isOpen", isOpen);
-    }, [isOpen]);
     var containerPortal = shouldPortal
         ? document.body
         : ((_b = triggerRef.current) === null || _b === void 0 ? void 0 : _b.parentElement) || document.body;
