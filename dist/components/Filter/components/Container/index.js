@@ -107,6 +107,7 @@ export var Container = function (_a) {
         ref: contentRef,
         callback: function () { return setIsOpen(false); },
         isActive: isOpen,
+        exceptionRef: triggerRef,
     });
     var containerStyles = [
         styles.container,
