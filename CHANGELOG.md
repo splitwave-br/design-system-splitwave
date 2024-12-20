@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.19.2](https://github.com/splitwave-br/design-system-splitwave/compare/v1.19.1...v1.19.2) (2024-12-20)
+
+
+### Bug Fixes
+
+* **#165:** Fix click outside logic ([34379c1](https://github.com/splitwave-br/design-system-splitwave/commit/34379c1d777217fa8b13c08a37e31e76863a0835))
+
 ## [1.19.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.19.0...v1.19.1) (2024-12-20)
 
 
