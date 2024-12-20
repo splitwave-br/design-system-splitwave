@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
 import styles from "./styles.module.scss";
 import { concatStyles } from "../../../utils/concatStyles";
-import { ThemePreview } from "@/components/ThemePreview";
+import "./variables.scss";
 
 export interface MenuProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;

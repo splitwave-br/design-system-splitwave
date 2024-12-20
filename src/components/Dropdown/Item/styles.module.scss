@@ -5,8 +5,8 @@
   padding: 5px 12px;
   align-items: center;
   width: 100%;
-
-  color: var(--color-title);
+  background-color: var(--dropdown-item--background) !important;
+  color: var(--dropdown-item--color) !important;
 
   font-size: var(--font-size-3);
   font-weight: 500;
@@ -22,21 +22,14 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
-  :global(.dark-theme) & {
-    background-color: var(--colors-dark-gray-700) !important;
-    color: var(--colors-gray-300) !important;
+  &:hover:not(:disabled):not(:active) {
+    background: var(--button-outline--background-hover) !important;
   }
 
   & * {
     figure,
     svg {
       color: var(--colors-icon-static);
-    }
-  }
-  &:hover {
-    background-color: var(--highlight-dropdown-selected-item);
-    :global(.dark-theme) & {
-      background-color: var(--colors-dark-gray-600) !important;
     }
   }
 }
