@@ -2,6 +2,7 @@ import React from "react";
 import { Meta, StoryObj } from "@storybook/react/";
 import { Dropdown } from "..";
 import { MenuProps } from ".";
+import { ThemePreview } from "../../ThemePreview";
 
 export default {
   title: "Components/Dropdown/Menu",
@@ -15,7 +16,16 @@ export default {
   },
 } as Meta;
 
+const Template = {
+  render: ({ children, ...args }) => (
+    <ThemePreview showMenu>
+      <Dropdown.Menu {...args}>{children}</Dropdown.Menu>
+    </ThemePreview>
+  ),
+};
+
 export const Default: StoryObj<MenuProps> = {
+  ...Template,
   args: {
     children: (
       <>

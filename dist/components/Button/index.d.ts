@@ -1,4 +1,5 @@
 import { ButtonHTMLAttributes, ReactNode } from 'react';
+import "./variables.scss";
 export type TButtonVariants = 'primary' | 'text' | 'secondary' | 'tertiary' | 'outline' | 'success' | 'danger';
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
     children: ReactNode;

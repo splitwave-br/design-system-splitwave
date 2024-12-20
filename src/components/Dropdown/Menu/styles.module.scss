@@ -1,9 +1,10 @@
 .menu {
   z-index: 10;
   border-radius: var(--border-radius-3);
-  border: 1px solid var(--colors-gray-200);
-  background: var(--color-background);
-
+  border: 1px solid;
+  border-color: var(--dropdown-menu--border-color) !important;
+  background: var(--dropdown-menu--background) !important;
+  
   border-radius: 8px;
   border: 1px solid var(--colors-border-highlight, #d0d5dd);
   background: var(--background-overlay, #fff);
