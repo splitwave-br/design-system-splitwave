@@ -1,0 +1,13 @@
+.light-theme {
+--button-outline--background: #fff;
+--button-outline--color: #000;
+--button-outline--background-hover: var(--colors-gray-100);
+--button-outline--border-color: var(--colors-gray-300);
+}
+
+.dark-theme {
+--button-outline--color: var(--colors-dark-gray-500);
+--button-outline--background: var(--colors-dark-gray-900);
+--button-outline--background-hover: var(--colors-dark-gray-700);
+--button-outline--border-color: var(--colors-dark-gray-500);
+}

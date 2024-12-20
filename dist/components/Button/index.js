@@ -23,6 +23,7 @@ var __rest = (this && this.__rest) || function (s, e) {
 import { jsx as _jsx, Fragment as _Fragment, jsxs as _jsxs } from "react/jsx-runtime";
 import styles from './styles.module.scss';
 import variants from './variants.module.scss';
+import "./variables.scss";
 export var Button = function (_a) {
     var children = _a.children, _b = _a.variant, variant = _b === void 0 ? 'primary' : _b, _c = _a.size, size = _c === void 0 ? 'large' : _c, _d = _a.type, type = _d === void 0 ? 'button' : _d, disabled = _a.disabled, loading = _a.loading, className = _a.className, props = __rest(_a, ["children", "variant", "size", "type", "disabled", "loading", "className"]);
     return (_jsxs(_Fragment, { children: [loading && _jsx("div", { className: styles.loading_overlay, children: " " }), _jsx("button", __assign({ type: type, disabled: loading || disabled, className: [

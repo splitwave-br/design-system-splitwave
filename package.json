@@ -10,7 +10,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "clean": "rimraf dist/",
-    "copy-files": "copyfiles -u 1 \"src/**/*.scss\" dist",
+    "copy-files": "copyfiles -u 1 'src/**/*.scss' dist",
     "declaration": "npx tsc --declaration",
     "build": "yarn clean && yarn declaration && tsc && tsc-alias && yarn copy-files",
     "storybook": "storybook dev -p 6006",

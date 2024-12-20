@@ -1,0 +1,9 @@
+.light-theme {
+--dropdown-menu--background: #fff;
+--dropdown-menu--border-color: var(--colors-gray-200);
+}
+
+.dark-theme {
+--dropdown-menu--background: var(--colors-dark-gray-900);
+--dropdown-menu--border-color: var(--colors-dark-gray-500);
+}
