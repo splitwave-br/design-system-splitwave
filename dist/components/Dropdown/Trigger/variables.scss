@@ -5,13 +5,16 @@
 }
 
 .light-theme {
-  --trigger-border-color: #d0d5dd;
+  --trigger-border-color: var(--colors-gray-300);
   --trigger-background: #fff;
-  --trigger-background--hover: var(--colors-gray-300);
+  --trigger-color: #000;
+  --trigger-background--hover: var(--colors-gray-100);
 }
 
 .dark-theme {
-  --trigger-border-color: var(--colors-dark-gray-600);
-  --trigger-background: var(--colors-dark-gray-800);
-  --trigger-background--hover: var(--colors-dark-gray-600);
+  --trigger-border-color: var(--colors-dark-gray-500);
+  --trigger-color: var(--colors-dark-gray-500);
+  --trigger-background: var(--colors-dark-gray-900);
+  --trigger-background--hover: var(--colors-dark-gray-700);
+  
 }

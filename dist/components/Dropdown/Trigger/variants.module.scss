@@ -9,13 +9,16 @@
 }
 
 .variant__secondary {
-  color: var(--colors-neutral-50);
+  color: var(--trigger-color) !important;
+  background-color: var(--trigger-background) !important;
+  border-color: var(--trigger-border-color) !important;
+  border: 1px solid;
   border-radius: var(--border-radius-3);
-
-  border: 2px solid var(--color-background) !important;
-  background: var(--colors-black) !important;
-  box-shadow: 0px 0px 0px 2px #000;
   transition: background-color 0.3s, box-shadow 0.3s;
   will-change: background-color box-shadow;
+  &:hover:not(:disabled):not(:active) {
+    background: var(--trigger-background--hover) !important;
+  }
   padding: 0 var(--spaces-2)
+  
 }
