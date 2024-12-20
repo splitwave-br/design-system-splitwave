@@ -4,12 +4,24 @@ interface UseClickOutsideProps {
   ref: React.RefObject<HTMLElement>;
   callback: () => void;
   isActive: boolean;
+  exceptionRef?: React.RefObject<HTMLElement>;
 }
 
-const useClickOutside = ({ ref, callback, isActive }: UseClickOutsideProps) => {
+const useClickOutside = ({
+  ref,
+  callback,
+  isActive,
+  exceptionRef,
+}: UseClickOutsideProps) => {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (ref.current && !ref.current.contains(event.target as Node)) {
+      const target = event.target as Node;
+
+      const exceptionHasTarget =
+        exceptionRef?.current && exceptionRef?.current?.contains(target);
+      const refHasTarget = ref.current && !ref.current.contains(target);
+
+      if (!exceptionHasTarget || !refHasTarget) {
         callback();
       }
     };

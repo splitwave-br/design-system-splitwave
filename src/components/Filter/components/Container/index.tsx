@@ -170,6 +170,7 @@ export const Container = ({
     ref: contentRef,
     callback: () => setIsOpen(false),
     isActive: isOpen,
+    exceptionRef: triggerRef,
   });
 
   const containerStyles = [
