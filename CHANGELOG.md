@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.19.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.19.0...v1.19.1) (2024-12-20)
+
+
+### Bug Fixes
+
+* **#165:** Remove log ([1757f9b](https://github.com/splitwave-br/design-system-splitwave/commit/1757f9bae29bc7bddbf64a12529e78da7fd45ebc))
+* **click-outside:** Fix trigger not closing on trigger click ([b07c6e6](https://github.com/splitwave-br/design-system-splitwave/commit/b07c6e6047f53a1930af474e7b3dc8eaca7f7335))
+
 ## [1.19.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.18.0...v1.19.0) (2024-12-17)
 
 
