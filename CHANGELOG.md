@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.19.3](https://github.com/splitwave-br/design-system-splitwave/compare/v1.19.2...v1.19.3) (2025-01-06)
+
+
+### Bug Fixes
+
+* **#203:** Fix badge status width ([49878d9](https://github.com/splitwave-br/design-system-splitwave/commit/49878d9f3ebb2335e70b99caaa6bf560752c383f))
+
 ## [1.19.2](https://github.com/splitwave-br/design-system-splitwave/compare/v1.19.1...v1.19.2) (2024-12-20)
 
 
