@@ -6,8 +6,8 @@
   align-items: center;
   width: 100%;
 
-  background-color: var(--dropdown-item--background) !important;
-  color: var(--dropdown-item--color) !important;
+  background-color: --color-background-sunken !important;
+  color: var(--input-default-text) !important;
 
   font-size: var(--font-size-3);
   font-weight: 500;
@@ -24,7 +24,7 @@
   background-color: transparent;
   cursor: pointer;
   &:hover:not(:disabled):not(:active) {
-    background: var(--button-outline--background-hover) !important;
+    background: var(--highlight-dropdown-selected-item) !important;
   }
 
   & * {

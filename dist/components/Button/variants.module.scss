@@ -122,10 +122,9 @@
 }
 
 .variant__outline {
-  border-color: var(--button-outline--border-color) !important;
-  background-color: var(--button-outline--background) !important;
-  color: var(--button-outline--color) !important;
-
+  border-color: var(--button-secondary-border) !important;
+  color: var(--button-secondary-text) !important;
+  background-color: var(--button-secondary-background) !important;
   border: 1px solid;
   border-radius: var(--border-radius-3);
 
@@ -137,7 +136,7 @@
   will-change: box-shadow, background-color;
 
   &:hover:not(:disabled):not(:active) {
-    background: var(--button-outline--background-hover) !important;
+    background: var(--button-secondary-hover) !important;
   }
 
   &:active:not(:disabled) {
