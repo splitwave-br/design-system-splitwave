@@ -2,11 +2,10 @@
   z-index: 10;
   border-radius: var(--border-radius-3);
   border: 1px solid;
-  border-color: var(--highlight-dropdown--border) !important;
-  background-color: var(--highlight-dropdown--background) !important;
+  border-color: var(--input-default-border) !important;
+  background-color: var(--colors-background-sunken) !important;
   
   border-radius: 8px;
-  border: 1px solid var(--colors-border-highlight, #d0d5dd);
 
   /* Dark shadow */
   box-shadow: 0px 8px 16px 4px

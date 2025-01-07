@@ -1,5 +1,5 @@
 .variant__primary {
-  background-color: var(--trigger-background);
+  background-color: var(--colors-background-sunken);
   transition: background-color 0.3s ease-in-out;
   padding: 0 var(--spaces-2);
 
@@ -9,15 +9,15 @@
 }
 
 .variant__secondary {
-  color: var(--trigger-color) !important;
-  background-color: var(--trigger-background) !important;
-  border-color: var(--trigger-border-color) !important;
+  color: var(--input-default-text) !important;
+  background-color: var(--colors-background-sunken) !important;
+  border-color: var(--input-default-border) !important;
   border: 1px solid;
   border-radius: var(--border-radius-3);
   transition: background-color 0.3s, box-shadow 0.3s;
   will-change: background-color box-shadow;
   &:hover:not(:disabled):not(:active) {
-    background: var(--trigger-background--hover) !important;
+    background: var(--colors-background-overlay-gray) !important;
   }
   padding: 0 var(--spaces-2)
   

@@ -24,7 +24,6 @@ import { jsx as _jsx } from "react/jsx-runtime";
 import { forwardRef } from "react";
 import styles from "./styles.module.scss";
 import { concatStyles } from "../../../utils/concatStyles";
-import "./variables.scss";
 var Menu = forwardRef(function (_a, ref) {
     var children = _a.children, className = _a.className, props = __rest(_a, ["children", "className"]);
     return (_jsx("div", __assign({ ref: ref, className: concatStyles([styles.menu, className]) }, props, { children: children })));

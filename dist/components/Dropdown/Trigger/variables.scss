@@ -5,16 +5,11 @@
 }
 
 .light-theme {
-  --trigger-border-color: var(--colors-gray-300);
-  --trigger-background: #fff;
-  --trigger-color: #000;
-  --trigger-background--hover: var(--colors-gray-100);
+  --input-default-border: var(--colors-light-gray-300);
+  --input-default-text: #000;
 }
 
 .dark-theme {
-  --trigger-border-color: var(--colors-dark-gray-500);
-  --trigger-color: var(--colors-dark-gray-500);
-  --trigger-background: var(--colors-dark-gray-900);
-  --trigger-background--hover: var(--colors-dark-gray-700);
-  
+  --input-default-border: var(--colors-dark-gray-500);
+  --input-default-text: var(--colors-dark-gray-500);
 }
