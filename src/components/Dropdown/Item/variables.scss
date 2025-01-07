@@ -1,11 +1,9 @@
 .light-theme {
   --highlight-dropdown-selected-item: var(--colors-light-gray-200);
-  --dropdown-item--background: #fff;
-  --dropdown-item--color : #000;
+  --input-default-text: #000;
 }
 
 .dark-theme {
-  --highlight-dropdown-selected-item: var(--dark-gray-700);
-  --dropdown-item--background: var(--colors-dark-gray-200);
-  --dropdown-item--color: var(--colors-dark-gray-500);
+  --highlight-dropdown-selected-item: var(--colors-dark-gray-700);
+  --input-default-text: var(--colors-dark-gray-500);
 }
