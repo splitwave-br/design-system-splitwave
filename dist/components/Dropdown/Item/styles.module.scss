@@ -6,7 +6,7 @@
   align-items: center;
   width: 100%;
 
-  background-color: --color-background-sunken !important;
+  background-color: var(--color-background-sunken) !important;
   color: var(--input-default-text) !important;
 
   font-size: var(--font-size-3);

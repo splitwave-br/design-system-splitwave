@@ -19,9 +19,9 @@ const useClickOutside = ({
 
       const exceptionHasTarget =
         exceptionRef?.current && exceptionRef?.current?.contains(target);
-      const refHasTarget = ref.current && !ref.current.contains(target);
+      const refHasTarget = ref.current && ref.current.contains(target);
 
-      if (!exceptionHasTarget || !refHasTarget) {
+      if (!exceptionHasTarget && !refHasTarget) {
         callback();
       }
     };
