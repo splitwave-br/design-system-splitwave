@@ -30,5 +30,6 @@ export { ToastProvider, useToast } from "./components/Toast/hooks/useToast";
 export { Tabs } from "./components/Tabs";
 // Hooks
 export { default as useClickOutside } from "./hooks/useClickOutside";
+export { useToggle } from "./hooks/useToggle";
 // FORM
 export { Form } from "./components/Form";
