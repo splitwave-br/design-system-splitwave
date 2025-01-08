@@ -198,7 +198,7 @@
   --modal-divider: var(--colors-gray-200);
 }
 
-.light-theme {
+body.light-theme {
   // Main background-color
   --background: #fff;
   --color-aside: #fff;
@@ -218,7 +218,7 @@
   --colors-icon-static: var(--colors-light-gray-500);
 }
 
-.dark-theme {
+body.dark-theme {
   // Main background-color
   --background: #000;
   --color-aside: var(--colors-dark-gray-900);
