@@ -1,5 +1,5 @@
 .variant__primary {
-  background-color: var(--colors-background-sunken);
+  background-color: var(--color-background-sunken);
   transition: background-color 0.3s ease-in-out;
   padding: 0 var(--spaces-2);
 
@@ -10,7 +10,7 @@
 
 .variant__secondary {
   color: var(--input-default-text) !important;
-  background-color: var(--colors-background-sunken) !important;
+  background-color: var(--color-background-sunken) !important;
   border-color: var(--input-default-border) !important;
   border: 1px solid;
   border-radius: var(--border-radius-3);
