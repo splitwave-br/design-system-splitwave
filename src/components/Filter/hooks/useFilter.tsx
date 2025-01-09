@@ -8,8 +8,9 @@ import React, {
   useState,
 } from "react";
 import { get } from "@/utils/get";
+import { useURLSync } from "./useUrlSync";
 
-interface IUseFilterReturn {
+export interface IUseFilterReturn {
   filter: IFilter;
   setFilter: (field: string, value: string) => void;
   applyFilter: (data: any[]) => any[];
@@ -108,6 +109,12 @@ function useFilter(config?: TUseFilterConfig) {
 
     return normalized;
   }, [filter]);
+
+  // useURLSync({
+  //   cleanAll,
+  //   filter,
+  //   setFilter: handlesetFilter,
+  // });
 
   return {
     filter,
