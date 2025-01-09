@@ -5,13 +5,11 @@
 }
 
 .light-theme {
-  --trigger-border-color: #d0d5dd;
-  --trigger-background: #fff;
-  --trigger-background--hover: var(--colors-gray-300);
+  --input-default-border: var(--colors-light-gray-300);
+  --input-default-text: #000;
 }
 
 .dark-theme {
-  --trigger-border-color: var(--colors-dark-gray-600);
-  --trigger-background: var(--colors-dark-gray-800);
-  --trigger-background--hover: var(--colors-dark-gray-600);
+  --input-default-border: var(--colors-dark-gray-500);
+  --input-default-text: var(--colors-dark-gray-500);
 }

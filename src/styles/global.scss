@@ -196,10 +196,9 @@
   --surface-background: var(--colors-neutral-50);
   --modal-overlay: rgba(52, 64, 84, 0.4);
   --modal-divider: var(--colors-gray-200);
-  --input-default-border: var(--colors-gray-300);
 }
 
-body.light-theme {
+.light-theme {
   // Main background-color
   --background: #fff;
   --color-aside: #fff;
@@ -216,11 +215,10 @@ body.light-theme {
   --color-background-sunken: var(--colors-neutral-50);
   --colors-background-overlay: var(--colors-neutral-50);
   --colors-background-overlay-gray: var(--colors-gray-100);
-
   --colors-icon-static: var(--colors-light-gray-500);
 }
 
-body.dark-theme {
+.dark-theme {
   // Main background-color
   --background: #000;
   --color-aside: var(--colors-dark-gray-900);
@@ -234,7 +232,7 @@ body.dark-theme {
   --color-border-default: var(--colors-dark-gray-700);
   --colors-border-highlight: var(--colors-dark-gray-600);
 
-  --colors-background-sunken: --colors-dark-gray-900;
+  --color-background-sunken: var(--colors-dark-gray-900);
   --colors-background-overlay: --colors-dark-gray-900;
   --colors-background-overlay-gray: var(--colors-dark-gray-700);
 
