@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.19.4](https://github.com/splitwave-br/design-system-splitwave/compare/v1.19.3...v1.19.4) (2025-01-09)
+
+
+### Bug Fixes
+
+* **#188:** adjust color sunken ([83cf243](https://github.com/splitwave-br/design-system-splitwave/commit/83cf24396070e1f6d86d628f898d547e59360012))
+
 ## [1.19.3](https://github.com/splitwave-br/design-system-splitwave/compare/v1.19.2...v1.19.3) (2025-01-06)
 
 
