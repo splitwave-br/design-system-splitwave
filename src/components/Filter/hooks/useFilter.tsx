@@ -8,7 +8,8 @@ import React, {
   useState,
 } from "react";
 import { get } from "@/utils/get";
-import { useURLSync } from "./useUrlSync";
+import { QueryUpdater } from "../utils/types";
+import { useSyncUrlFilters } from "./useSyncUrlFilters";
 
 export interface IUseFilterReturn {
   filter: IFilter;
@@ -31,6 +32,7 @@ interface IFilter extends Record<string, string> {}
 
 type TUseFilterConfig = {
   normalize?: Record<string, (value: any) => string>;
+  queryUpdater?: QueryUpdater;
 };
 
 function useFilter(config?: TUseFilterConfig) {
@@ -110,11 +112,12 @@ function useFilter(config?: TUseFilterConfig) {
     return normalized;
   }, [filter]);
 
-  // useURLSync({
-  //   cleanAll,
-  //   filter,
-  //   setFilter: handlesetFilter,
-  // });
+  useSyncUrlFilters({
+    cleanAll,
+    filter,
+    setFilter: handlesetFilter,
+    queryUpdater: config?.queryUpdater,
+  });
 
   return {
     filter,

@@ -13,6 +13,7 @@ var __assign = (this && this.__assign) || function () {
 import { jsx as _jsx } from "react/jsx-runtime";
 import { createContext, useCallback, useContext, useMemo, useState, } from "react";
 import { get } from "../../../utils/get";
+import { useSyncUrlFilters } from "./useSyncUrlFilters";
 function useFilter(config) {
     var _a = useState({}), filter = _a[0], setFilter = _a[1];
     // TODO: We can remove it after implement the filter on the backend
@@ -69,11 +70,12 @@ function useFilter(config) {
         });
         return normalized;
     }, [filter]);
-    // useURLSync({
-    //   cleanAll,
-    //   filter,
-    //   setFilter: handlesetFilter,
-    // });
+    useSyncUrlFilters({
+        cleanAll: cleanAll,
+        filter: filter,
+        setFilter: handlesetFilter,
+        queryUpdater: config === null || config === void 0 ? void 0 : config.queryUpdater,
+    });
     return {
         filter: filter,
         normalizedFilter: normalizedFilter,

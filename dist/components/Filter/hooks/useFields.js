@@ -9,7 +9,8 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     return to.concat(ar || Array.prototype.slice.call(from));
 };
 import { jsx as _jsx } from "react/jsx-runtime";
-import { createContext, useContext, useState, useCallback } from "react";
+import { createContext, useContext, useState, useCallback, useEffect, } from "react";
+import { useQueryParams } from "../../../hooks/useQueryParams";
 var FilterFieldsContext = createContext(null);
 export var useFilterFields = function () {
     var context = useContext(FilterFieldsContext);
@@ -21,6 +22,16 @@ export var useFilterFields = function () {
 export var FilterFieldsProvider = function (_a) {
     var children = _a.children;
     var _b = useState([]), fields = _b[0], setFields = _b[1];
+    var getAllParams = useQueryParams().getAllParams;
+    useEffect(function () {
+        var filterParams = getAllParams();
+        var uniqueFields = new Set();
+        Object.entries(filterParams).forEach(function (_a) {
+            var field = _a[0];
+            uniqueFields.add(field);
+        });
+        setFields(Array.from(uniqueFields));
+    }, [getAllParams]);
     var registerField = useCallback(function (field) {
         setFields(function (prevFields) {
             if (!prevFields.includes(field)) {

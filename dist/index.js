@@ -10,6 +10,7 @@ export { Dropdown } from "./components/Dropdown";
 export { Filter } from "./components/Filter";
 export { useFilterContext, useFilter, } from "./components/Filter/hooks/useFilter";
 export { useFilterFields } from "./components/Filter/hooks/useFields";
+export { useSyncUrlFilters } from "./components/Filter/hooks/useSyncUrlFilters";
 // Table
 export { Table, Cell, Header } from "./components/Table";
 // Icon

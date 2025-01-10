@@ -1,6 +1,15 @@
 "use client";
 
-import React, { createContext, useContext, useState, useCallback } from "react";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useCallback,
+  useEffect,
+} from "react";
+import { useFilter } from "./useFilter";
+import { useSyncUrlFilters } from "./useSyncUrlFilters";
+import { useQueryParams } from "@/hooks/useQueryParams";
 
 const FilterFieldsContext = createContext<{
   registerField: (field: string) => void;
@@ -23,6 +32,18 @@ export const FilterFieldsProvider = ({
   children: React.ReactNode;
 }) => {
   const [fields, setFields] = useState<string[]>([]);
+  const { getAllParams } = useQueryParams();
+
+  useEffect(() => {
+    const filterParams = getAllParams();
+    const uniqueFields = new Set<string>();
+
+    Object.entries(filterParams).forEach(([field]) => {
+      uniqueFields.add(field);
+    });
+
+    setFields(Array.from(uniqueFields));
+  }, [getAllParams]);
 
   const registerField = useCallback((field: string) => {
     setFields((prevFields) => {
