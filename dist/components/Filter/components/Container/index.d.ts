@@ -1,3 +1,4 @@
+import React from "react";
 type TContainer = {
     children: React.ReactNode;
     shouldEjectOnMobile?: boolean;

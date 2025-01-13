@@ -14,8 +14,10 @@ import { jsx as _jsx } from "react/jsx-runtime";
 import { createContext, useCallback, useContext, useMemo, useState, } from "react";
 import { get } from "../../../utils/get";
 import { useSyncUrlFilters } from "./useSyncUrlFilters";
+import { useQueryParams } from "../../../hooks/useQueryParams";
 function useFilter(config) {
     var _a = useState({}), filter = _a[0], setFilter = _a[1];
+    var _b = useQueryParams(config === null || config === void 0 ? void 0 : config.queryUpdater), replaceAllParams = _b.replaceAllParams, queryParams = _b.queryParams;
     // TODO: We can remove it after implement the filter on the backend
     var applyFilter = useCallback(function (data) {
         if (Object.keys(filter).length === 0)
@@ -39,11 +41,15 @@ function useFilter(config) {
     var handlesetFilter = useCallback(function (field, value) {
         setFilter(function (prev) {
             var _a;
-            return (__assign(__assign({}, prev), (_a = {}, _a[field] = value, _a)));
+            var newFilter = __assign(__assign({}, prev), (_a = {}, _a[field] = value, _a));
+            if (!value) {
+                delete newFilter[field];
+            }
+            return newFilter;
         });
     }, [setFilter]);
     var getIsActive = useCallback(function (fields) {
-        return fields.some(function (field) { return !!filter[field]; });
+        return fields.some(function (field) { return !!filter[field] || !!queryParams[field]; });
     }, [filter]);
     var getValue = useCallback(function (field) { return filter[field]; }, [filter]);
     var clean = useCallback(function (fields) {

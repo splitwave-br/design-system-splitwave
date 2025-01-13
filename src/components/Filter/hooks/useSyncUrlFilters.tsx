@@ -1,7 +1,7 @@
 import { useCallback, useEffect } from "react";
+
+import { QueryUpdater, useQueryParams } from "@/hooks/useQueryParams";
 import { IUseFilterReturn } from "./useFilter";
-import { QueryUpdater } from "../utils/types";
-import { useQueryParams } from "@/hooks/useQueryParams";
 
 type TURLSyncProps = Pick<
   IUseFilterReturn,
@@ -16,18 +16,17 @@ export function useSyncUrlFilters({
   setFilter,
   queryUpdater,
 }: TURLSyncProps) {
-  const { getAllParams, setParam, replaceAllParams } =
-    useQueryParams(queryUpdater);
+  const { queryParams, replaceAllParams } = useQueryParams(queryUpdater);
 
   // Atualiza os filtros a partir da URL
   const updateFilters = useCallback(() => {
-    const urlFilters = getAllParams();
     cleanAll();
-
-    Object.entries(urlFilters).forEach(([field, value]) =>
-      setFilter(field, value),
-    );
-  }, [setFilter, cleanAll, getAllParams]);
+    Object.entries(queryParams).forEach(([field, value]) => {
+      if (typeof value === "string") {
+        setFilter(field, value);
+      }
+    });
+  }, [setFilter, cleanAll, queryParams]);
 
   useEffect(() => {
     updateFilters();
@@ -35,7 +34,11 @@ export function useSyncUrlFilters({
 
   // Atualiza a URL com os filtros atuais
   useEffect(() => {
-    replaceAllParams(filter);
+    const validFilters = Object.fromEntries(
+      Object.entries(filter).filter(([_, value]) => value),
+    );
+
+    replaceAllParams(validFilters);
   }, [filter, replaceAllParams]);
 
   // Atualiza os filtros após mudanças na url via botão de voltar e avançar

@@ -1,3 +1,4 @@
+import { END_DATE_FIELD, START_DATE_FIELD, } from "../../../../../components/Filter/constants/dateFilter";
 import { useFilterFields } from "../../../../../components/Filter/hooks/useFields";
 import { useFilterContext } from "../../../../../components/Filter/hooks/useFilter";
 import { format, parseISO } from "date-fns";
@@ -9,8 +10,6 @@ var translateDate = function (dateString) {
     var formatted = format(date, "MMM d, yyyy", { locale: ptBR });
     return capitalize(formatted);
 };
-var START_DATE_FIELD = "startDate";
-var END_DATE_FIELD = "endDate";
 export var useDateFilter = function (props, isPeriod) {
     var _a = useState(false), isOpen = _a[0], setIsOpen = _a[1];
     var _b = useFilterContext(), setFilter = _b.setFilter, getValue = _b.getValue;

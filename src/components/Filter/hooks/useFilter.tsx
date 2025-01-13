@@ -8,8 +8,8 @@ import React, {
   useState,
 } from "react";
 import { get } from "@/utils/get";
-import { QueryUpdater } from "../utils/types";
 import { useSyncUrlFilters } from "./useSyncUrlFilters";
+import { QueryUpdater, useQueryParams } from "@/hooks/useQueryParams";
 
 export interface IUseFilterReturn {
   filter: IFilter;
@@ -37,6 +37,9 @@ type TUseFilterConfig = {
 
 function useFilter(config?: TUseFilterConfig) {
   const [filter, setFilter] = useState<IFilter>({});
+  const { replaceAllParams, queryParams } = useQueryParams(
+    config?.queryUpdater,
+  );
 
   // TODO: We can remove it after implement the filter on the backend
   const applyFilter = useCallback(
@@ -66,14 +69,20 @@ function useFilter(config?: TUseFilterConfig) {
 
   const handlesetFilter = useCallback(
     (field: string, value: string) => {
-      setFilter((prev) => ({ ...prev, [field]: value }));
+      setFilter((prev) => {
+        const newFilter = { ...prev, [field]: value };
+        if (!value) {
+          delete newFilter[field];
+        }
+        return newFilter;
+      });
     },
     [setFilter],
   );
 
   const getIsActive = useCallback(
     (fields: string[]) => {
-      return fields.some((field) => !!filter[field]);
+      return fields.some((field) => !!filter[field] || !!queryParams[field]);
     },
     [filter],
   );

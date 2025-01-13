@@ -1,5 +1,5 @@
 import React from "react";
-import { QueryUpdater } from "../utils/types";
+import { QueryUpdater } from "../../../hooks/useQueryParams";
 export interface IUseFilterReturn {
     filter: IFilter;
     setFilter: (field: string, value: string) => void;

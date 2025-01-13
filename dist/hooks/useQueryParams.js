@@ -1,47 +1,58 @@
-import { useMemo, useCallback } from "react";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+import { useCallback, useMemo } from "react";
+import qs from "qs";
 export function useQueryParams(queryUpdater) {
-    var searchParams = useMemo(function () { return new URLSearchParams(window.location.search); }, [window.location.search]);
-    // Get all params as a object
-    var getAllParams = useCallback(function () {
-        var params = {};
-        searchParams.forEach(function (value, key) {
-            params[key] = value;
-        });
-        return params;
-    }, [searchParams]);
+    var queryParams = useMemo(function () { return qs.parse(window.location.search, { ignoreQueryPrefix: true }); }, [window.location.search]);
     var getParam = useCallback(function (key) {
-        return searchParams.get(key) || null;
-    }, [searchParams]);
+        return queryParams[key] || null;
+    }, [queryParams]);
     var setParam = useCallback(function (key, value) {
-        searchParams.set(key, value);
-        var newQuery = searchParams.toString();
+        var _a;
+        var newQueryParams = __assign(__assign({}, queryParams), (_a = {}, _a[key] = value, _a));
+        var newQuery = qs.stringify(newQueryParams, { addQueryPrefix: true });
         queryUpdater
             ? queryUpdater(newQuery)
-            : window.history.replaceState(null, "", "?".concat(newQuery));
-    }, [searchParams, queryUpdater]);
+            : window.history.replaceState(null, "", newQuery);
+    }, [queryParams, queryUpdater]);
     var removeParam = useCallback(function (key) {
-        searchParams.delete(key);
-        var newQuery = searchParams.toString();
+        var newQueryParams = __assign({}, queryParams);
+        delete newQueryParams[key];
+        var newQuery = qs.stringify(newQueryParams, { addQueryPrefix: true });
         queryUpdater
             ? queryUpdater(newQuery)
-            : window.history.replaceState(null, "", "?".concat(newQuery));
-    }, [searchParams, queryUpdater]);
-    var replaceAllParams = useCallback(function (params) {
-        var newSearchParams = new URLSearchParams();
-        Object.entries(params).forEach(function (_a) {
-            var key = _a[0], value = _a[1];
-            newSearchParams.set(key, value);
-        });
-        var newQuery = newSearchParams.toString();
+            : window.history.replaceState(null, "", newQuery);
+    }, [queryParams, queryUpdater]);
+    var removeAllParams = useCallback(function () {
         queryUpdater
-            ? queryUpdater(newQuery)
-            : window.history.replaceState(null, "", "?".concat(newQuery));
+            ? queryUpdater(window.location.pathname)
+            : window.history.replaceState(null, "", window.location.pathname);
     }, [queryUpdater]);
+    var replaceAllParams = useCallback(function (params) {
+        if (Object.keys(params).length === 0) {
+            removeAllParams();
+            return;
+        }
+        var newQuery = qs.stringify(params, { addQueryPrefix: true });
+        queryUpdater
+            ? queryUpdater(newQuery)
+            : window.history.replaceState(null, "", newQuery);
+    }, [queryUpdater, removeAllParams]);
     return {
+        queryParams: queryParams,
         getParam: getParam,
-        getAllParams: getAllParams,
         setParam: setParam,
         removeParam: removeParam,
         replaceAllParams: replaceAllParams,
+        removeAllParams: removeAllParams,
     };
 }
