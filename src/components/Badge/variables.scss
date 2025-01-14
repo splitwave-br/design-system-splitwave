@@ -1,0 +1,9 @@
+.light-theme {
+    --component-badge-gray-text: var(--colors-dark-gray-700);
+    --component-badge-gray-background: var(--colors-gray-100);
+}
+
+.dark-theme {
+    --component-badge-gray-text: var(--colors-dark-gray-400);
+    --component-badge-gray-background: var(--colors-dark-gray-700);
+}

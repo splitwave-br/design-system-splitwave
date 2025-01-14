@@ -96,7 +96,6 @@
 }
 
 .isFocused {
-  border-color: var(--colors-gray-500);
   box-shadow: 0 0 0 4px var(--component-input-default-default-shadow);
 
   .text__prefix,
