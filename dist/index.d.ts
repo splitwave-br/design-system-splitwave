@@ -25,4 +25,5 @@ export type { ToastProps } from "./components/Toast";
 export { Tabs } from "./components/Tabs";
 export type { ITabTrigger, ITabsProps } from "./components/Tabs";
 export { default as useClickOutside } from "./hooks/useClickOutside";
+export { useToggle } from "./hooks/useToggle";
 export { Form } from "./components/Form";

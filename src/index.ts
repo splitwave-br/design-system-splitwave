@@ -60,6 +60,7 @@ export type { ITabTrigger, ITabsProps } from "./components/Tabs";
 
 // Hooks
 export { default as useClickOutside } from "./hooks/useClickOutside";
+export { useToggle } from "./hooks/useToggle";
 
 // FORM
 export { Form } from "./components/Form";
