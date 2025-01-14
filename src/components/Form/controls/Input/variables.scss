@@ -1,0 +1,17 @@
+.light-theme {
+    --component-input-default-default-text: #000;
+    --component-input-default-default-border: var(--color-border);
+    --component-input-default-default-shadow: var(--colors-gray-200);
+    --component-input-default-prefix-suffix-background: #fff;
+    --component-input-default-prefix-suffix-text: var(--colors-gray-900);;
+    --component-input-active-active-text: #000;
+}
+
+.dark-theme {
+    --component-input-default-default-text: var(--colors-dark-gray-500);
+    --component-input-default-default-border: var(--colors-dark-gray-600);
+    --component-input-default-default-shadow: var(--colors-dark-gray-600);
+    --component-input-default-prefix-suffix-background: var(--colors-dark-gray-900);
+    --component-input-default-prefix-suffix-text: #fff;
+    --component-input-active-active-text: #fff;
+}

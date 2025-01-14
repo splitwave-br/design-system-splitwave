@@ -57,17 +57,20 @@
   height: var(--spaces-5);
   padding: 0 var(--spaces-2);
   width: 100%;
-  border: 1px solid var(--color-border);
+  color: var(--component-input-default-default-text);
+  border: 1px solid var(--component-input-default-default-border);
   border-radius: var(--border-radius-3);
   box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  background-color: var(--color-background-sunken);
   font-size: var(--font-size-3);
 
   outline: none;
 
   &:focus,
   &:focus-visible {
-    border-color: var(--colors-gray-500);
-    box-shadow: 0 0 0 4px var(--colors-gray-200);
+    border-color: var(--component-input-default-default-border);
+    color: var(--component-input-active-active-text);
+    box-shadow: 0 0 0 4px var(--component-input-default-default-shadow);
   }
 
   &.prefix {
@@ -94,11 +97,11 @@
 
 .isFocused {
   border-color: var(--colors-gray-500);
-  box-shadow: 0 0 0 4px var(--colors-gray-200);
+  box-shadow: 0 0 0 4px var(--component-input-default-default-shadow);
 
   .text__prefix,
   .text__sufix {
-    border-color: var(--colors-gray-500);
+    border-color: var(--component-input-default-default-border);
   }
 
   input {
@@ -126,9 +129,10 @@
 .text__prefix {
   padding: 0 calc(var(--spaces-1) + var(--spaces-micro));
   display: grid;
+  background-color: var(--component-input-default-prefix-suffix-background);
   place-items: center;
-  color: var(--colors-gray-600);
-  border: 1px solid var(--color-border);
+  color: var(--component-input-default-prefix-suffix-text);
+  border: 1px solid var(--component-input-default-default-border);
   font-size: var(--font-size-3);
   height: var(--spaces-5);
 }
