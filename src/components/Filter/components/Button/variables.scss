@@ -1,0 +1,13 @@
+.light-theme {
+    --component-cta-button-secondary-secondary-border: var(--colors-border);
+    --component-cta-button-secondary-secondary-text: var(--colors-gray-900);
+    --component-cta-filter-active-border: var(--colors-success-300);
+    --component-cta-filter-active-background: var(--colors-success-100);
+}
+
+.dark-theme {
+    --component-cta-button-secondary-secondary-border: var(--colors-purple-500);
+    --component-cta-button-secondary-secondary-text: var(--colors-purple-500);
+    --component-cta-filter-active-border: var(--colors-success-400);
+    --component-cta-filter-active-background: var(--colors-success-900);
+}

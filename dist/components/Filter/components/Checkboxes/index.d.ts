@@ -1,4 +1,5 @@
 import React from "react";
+import "./variables.scss";
 type CheckboxFiltersProps = {
     field: string;
     options: any[];

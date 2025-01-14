@@ -1,6 +1,7 @@
 "use client";
 import { Icon, TIcons } from "@/components/Icon";
 import styles from "./styles.module.scss";
+import "./variables.scss";
 import { ForwardedRef, forwardRef, useState } from "react";
 
 export interface IInput extends React.InputHTMLAttributes<HTMLInputElement> {

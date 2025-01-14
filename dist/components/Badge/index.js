@@ -24,6 +24,7 @@ import { jsx as _jsx } from "react/jsx-runtime";
 import styles from "./styles.module.scss";
 import variants from "./variants.module.scss";
 import sizes from "./sizes.module.scss";
+import "./variables.scss";
 export function Badge(_a) {
     var children = _a.children, _b = _a.variant, variant = _b === void 0 ? "gray" : _b, _c = _a.size, size = _c === void 0 ? "sm" : _c, disabled = _a.disabled, className = _a.className, props = __rest(_a, ["children", "variant", "size", "disabled", "className"]);
     return (_jsx("button", __assign({ disabled: disabled, className: [

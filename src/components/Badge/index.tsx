@@ -2,6 +2,7 @@ import { ButtonHTMLAttributes, ReactNode } from "react";
 import styles from "./styles.module.scss";
 import variants from "./variants.module.scss";
 import sizes from "./sizes.module.scss";
+import "./variables.scss";
 
 export type TVariant =
   | "purple"

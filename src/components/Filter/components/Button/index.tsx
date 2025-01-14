@@ -3,6 +3,7 @@
 import { ElementType, ForwardedRef, forwardRef } from "react";
 // import { Icon } from '@/components/Icon';
 import styles from "./styles.module.scss";
+import "./variables.scss";
 import { useFilterContext } from "../../hooks/useFilter";
 import { concatStyles } from "@/utils/concatStyles";
 import { useFilterFields } from "../../hooks/useFields";

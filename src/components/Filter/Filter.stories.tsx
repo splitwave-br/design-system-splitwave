@@ -1,7 +1,9 @@
 import { Meta, StoryFn } from "@storybook/react";
+import { ThemePreview } from "../ThemePreview";
 import { Filter } from ".";
 import { useFilter } from "./hooks/useFilter";
 import { Icon } from "../Icon";
+
 export default {
   title: "Components/Filter",
   component: Filter.Wrapper,
@@ -256,4 +258,23 @@ export const MultipleFilters: StoryFn = () => {
       </Filter.Container>
     </Filter.Responsive>
   );
+};
+
+
+export const DarkOrLightTheme: StoryFn = {
+  render: () => (
+    <ThemePreview>
+      <Filter.Container>
+        <Filter.Button>Data</Filter.Button>
+        <Filter.Content>
+          <Filter.Date label="Por período" isPeriod />
+          <Filter.Date
+            field="createdAt"
+            label="Data de criação"
+            isPeriod={false}
+          />
+        </Filter.Content>
+      </Filter.Container>
+    </ThemePreview>
+  ),
 };

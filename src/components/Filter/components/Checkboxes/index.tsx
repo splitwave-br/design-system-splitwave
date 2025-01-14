@@ -2,6 +2,7 @@
 
 import React, { forwardRef, useEffect } from "react";
 import styles from "./styles.module.scss";
+import "./variables.scss";
 import { useFilterContext } from "../../hooks/useFilter";
 import { useFilterFields } from "../../hooks/useFields";
 import { Filter } from "../..";
