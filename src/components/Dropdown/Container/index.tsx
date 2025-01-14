@@ -12,7 +12,7 @@ import "../Trigger/variables.scss";
 
 import styles from "./styles.module.scss";
 import useClickOutside from "@/hooks/useClickOutside";
-import { DropdownProvider, useDropdown } from "../hooks/useDropdown";
+import { DropdownProvider } from "../hooks/useDropdown";
 import { useToggle } from "@/hooks/useToggle";
 
 type TBounding = {

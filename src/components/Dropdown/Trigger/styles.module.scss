@@ -13,3 +13,18 @@
     background: var(--colors-gray-50);
   }
 }
+
+.size__small {
+  padding: 0 var(--spaces-2);
+  height: var(--spaces-4);
+}
+
+.size__medium {
+  padding: 0 var(--spaces-2);
+  height: var(--spaces-4);
+}
+
+.size__large {
+  padding: 0 var(--spaces-2);
+  height: var(--spaces-5);
+}
