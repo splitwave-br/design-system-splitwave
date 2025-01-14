@@ -11,6 +11,7 @@ export declare const Filter: {
         icon?: import("react").ElementType;
         children: React.ReactNode;
         isOpen?: boolean;
+        fields?: string[];
     } & import("react").RefAttributes<HTMLButtonElement>>;
     Content: import("react").ForwardRefExoticComponent<{
         children: React.ReactNode;

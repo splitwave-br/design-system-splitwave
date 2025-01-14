@@ -15,6 +15,7 @@ import useClickOutside from "@/hooks/useClickOutside";
 
 import styles from "./styles.module.scss";
 import useWindowSize from "@/hooks/useWindowSize";
+import React from "react";
 
 type TContainer = {
   children: React.ReactNode;
@@ -39,6 +40,23 @@ function getElementPosition(element: any) {
     bottom: absoluteBottom,
   };
 }
+
+const extractFieldNames = (elements: React.ReactNode): string[] => {
+  let fieldNames: string[] = [];
+
+  Children.toArray(elements).forEach((element) => {
+    if (!React.isValidElement(element)) return;
+    const childElements = element.props?.children;
+    if (childElements) {
+      fieldNames = fieldNames.concat(extractFieldNames(childElements));
+    }
+
+    const fieldName = element.props?.field;
+    if (fieldName) fieldNames.push(fieldName);
+  });
+
+  return fieldNames;
+};
 
 export const DEFAULT_PADDING = 16;
 export const DEFAULT_GAP = 8;
@@ -204,6 +222,8 @@ export const Container = ({
     return _child;
   }, [children]);
 
+  const childrenFields = useMemo(() => extractFieldNames(children), [children]);
+
   const isEmpty = useMemo(() => {
     return (
       (contentChild as unknown as JSX.Element)?.props?.children?.filter?.(
@@ -220,6 +240,7 @@ export const Container = ({
       onClick: handleToggle,
       ref: triggerRef,
       isOpen,
+      fields: childrenFields,
     });
   }, [isMobileAndShouldEject, triggerChild, handleToggle, isOpen]);
 

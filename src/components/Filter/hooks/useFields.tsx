@@ -1,6 +1,13 @@
 "use client";
 
-import React, { createContext, useContext, useState, useCallback } from "react";
+import { useQueryParams } from "@/hooks/useQueryParams";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useCallback,
+  useEffect,
+} from "react";
 
 const FilterFieldsContext = createContext<{
   registerField: (field: string) => void;
