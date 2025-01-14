@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.19.6](https://github.com/splitwave-br/design-system-splitwave/compare/v1.19.5...v1.19.6) (2025-01-14)
+
+
+### Bug Fixes
+
+* **#207:** Add missing useDropdown export and fix dropdown components colors ([965d193](https://github.com/splitwave-br/design-system-splitwave/commit/965d1933b21ebf90b08dc79811b95bdd2f741d91))
+
 ## [1.19.5](https://github.com/splitwave-br/design-system-splitwave/compare/v1.19.4...v1.19.5) (2025-01-10)
 
 
