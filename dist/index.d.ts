@@ -6,6 +6,7 @@ export type { ButtonLinkProps } from "./components/ButtonLink";
 export { Badge } from "./components/Badge";
 export type { TVariant, TBadge } from "./components/Badge";
 export { Dropdown } from "./components/Dropdown";
+export { useDropdown } from "./components/Dropdown/hooks/useDropdown";
 export { Filter } from "./components/Filter";
 export { useFilterContext, useFilter, } from "./components/Filter/hooks/useFilter";
 export { useFilterFields } from "./components/Filter/hooks/useFields";

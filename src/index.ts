@@ -13,6 +13,7 @@ export type { TVariant, TBadge } from "./components/Badge";
 
 // Dropdown
 export { Dropdown } from "./components/Dropdown";
+export { useDropdown } from "./components/Dropdown/hooks/useDropdown";
 
 // Filter
 export { Filter } from "./components/Filter";
