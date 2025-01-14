@@ -1,3 +1,4 @@
+"use client";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -21,18 +22,17 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 import { jsx as _jsx } from "react/jsx-runtime";
-import styles from "./styles.module.scss";
-import "./variables.scss";
-import { useDropdown } from "../hooks/useDropdown";
-var Item = function (_a) {
-    var className = _a.className, _b = _a.shouldCloseOnClick, shouldCloseOnClick = _b === void 0 ? false : _b, onClick = _a.onClick, props = __rest(_a, ["className", "shouldCloseOnClick", "onClick"]);
-    var setIsOpen = useDropdown().setIsOpen;
-    var handleClick = function (event) {
-        if (shouldCloseOnClick)
-            setIsOpen(false);
-        onClick === null || onClick === void 0 ? void 0 : onClick(event);
-    };
-    var itemStyles = [styles.item, className].join(" ");
-    return _jsx("button", __assign({ onClick: handleClick, className: itemStyles }, props));
-};
-export default Item;
+import { createContext, useContext } from "react";
+var DropdownContext = createContext({});
+function DropdownProvider(_a) {
+    var children = _a.children, props = __rest(_a, ["children"]);
+    return (_jsx(DropdownContext.Provider, { value: __assign({}, props), children: children }));
+}
+function useDropdown() {
+    var context = useContext(DropdownContext);
+    if (context === undefined) {
+        throw new Error("useDropdown must be used within a DropdownContextProvider");
+    }
+    return context;
+}
+export { DropdownProvider, useDropdown };

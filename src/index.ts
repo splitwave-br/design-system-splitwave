@@ -13,6 +13,7 @@ export type { TVariant, TBadge } from "./components/Badge";
 
 // Dropdown
 export { Dropdown } from "./components/Dropdown";
+export { useDropdown } from "./components/Dropdown/hooks/useDropdown";
 
 // Filter
 export { Filter } from "./components/Filter";
@@ -60,6 +61,7 @@ export type { ITabTrigger, ITabsProps } from "./components/Tabs";
 
 // Hooks
 export { default as useClickOutside } from "./hooks/useClickOutside";
+export { useToggle } from "./hooks/useToggle";
 
 // FORM
 export { Form } from "./components/Form";
