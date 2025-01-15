@@ -1,5 +1,5 @@
-import { useCallback, useEffect } from "react";
 import { useQueryParams } from "../../../hooks/useQueryParams";
+import { useCallback, useEffect } from "react";
 export function useSyncUrlFilters(_a) {
     var cleanAll = _a.cleanAll, filter = _a.filter, setFilter = _a.setFilter, queryUpdater = _a.queryUpdater;
     var _b = useQueryParams(queryUpdater), queryParams = _b.queryParams, replaceAllParams = _b.replaceAllParams;
@@ -12,7 +12,8 @@ export function useSyncUrlFilters(_a) {
                 setFilter(field, value);
             }
         });
-    }, [setFilter, cleanAll, queryParams]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [setFilter, cleanAll]);
     useEffect(function () {
         updateFilters();
     }, [updateFilters]);
@@ -24,12 +25,4 @@ export function useSyncUrlFilters(_a) {
         }));
         replaceAllParams(validFilters);
     }, [filter, replaceAllParams]);
-    // Atualiza os filtros após mudanças na url via botão de voltar e avançar
-    useEffect(function () {
-        var handlePopState = function () {
-            updateFilters();
-        };
-        window.addEventListener("popstate", handlePopState);
-        return function () { return window.removeEventListener("popstate", handlePopState); };
-    }, [updateFilters]);
 }

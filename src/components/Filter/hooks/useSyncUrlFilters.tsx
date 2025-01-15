@@ -1,6 +1,5 @@
-import { useCallback, useEffect } from "react";
-
 import { QueryUpdater, useQueryParams } from "@/hooks/useQueryParams";
+import { useCallback, useEffect } from "react";
 import { IUseFilterReturn } from "./useFilter";
 
 type TURLSyncProps = Pick<
@@ -26,7 +25,8 @@ export function useSyncUrlFilters({
         setFilter(field, value);
       }
     });
-  }, [setFilter, cleanAll, queryParams]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [setFilter, cleanAll]);
 
   useEffect(() => {
     updateFilters();
@@ -37,17 +37,6 @@ export function useSyncUrlFilters({
     const validFilters = Object.fromEntries(
       Object.entries(filter).filter(([_, value]) => value),
     );
-
     replaceAllParams(validFilters);
   }, [filter, replaceAllParams]);
-
-  // Atualiza os filtros após mudanças na url via botão de voltar e avançar
-  useEffect(() => {
-    const handlePopState = () => {
-      updateFilters();
-    };
-
-    window.addEventListener("popstate", handlePopState);
-    return () => window.removeEventListener("popstate", handlePopState);
-  }, [updateFilters]);
 }
