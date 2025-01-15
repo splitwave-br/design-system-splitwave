@@ -61,6 +61,8 @@ export type { ITabTrigger, ITabsProps } from "./components/Tabs";
 
 // Hooks
 export { default as useClickOutside } from "./hooks/useClickOutside";
+export type { QueryUpdater } from "./hooks/useQueryParams";
+export { useQueryParams } from "./hooks/useQueryParams";
 
 // FORM
 export { Form } from "./components/Form";

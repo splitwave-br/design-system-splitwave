@@ -32,14 +32,12 @@ interface IFilter extends Record<string, string> {}
 
 type TUseFilterConfig = {
   normalize?: Record<string, (value: any) => string>;
-  queryUpdater?: QueryUpdater;
+  queryUpdater: QueryUpdater;
 };
 
-function useFilter(config?: TUseFilterConfig) {
+function useFilter({ queryUpdater, normalize: _normalize }: TUseFilterConfig) {
   const [filter, setFilter] = useState<IFilter>({});
-  const { replaceAllParams, queryParams } = useQueryParams(
-    config?.queryUpdater,
-  );
+  const { queryParams } = useQueryParams(queryUpdater);
 
   // TODO: We can remove it after implement the filter on the backend
   const applyFilter = useCallback(
@@ -48,7 +46,7 @@ function useFilter(config?: TUseFilterConfig) {
 
       return data.filter((item) => {
         return Object.entries(filter).every(([key, value]) => {
-          const normalize = config?.normalize && config?.normalize?.[key];
+          const normalize = _normalize && _normalize?.[key];
 
           const itemValue = normalize
             ? normalize(get(item, key))
@@ -113,7 +111,7 @@ function useFilter(config?: TUseFilterConfig) {
     Object.entries(filter).forEach(([key, value]) => {
       if (!value) return;
 
-      const normalize = config?.normalize && config?.normalize?.[key];
+      const normalize = _normalize && _normalize?.[key];
 
       normalized[key] = normalize ? normalize(value) : value;
     });
@@ -125,7 +123,7 @@ function useFilter(config?: TUseFilterConfig) {
     cleanAll,
     filter,
     setFilter: handlesetFilter,
-    queryUpdater: config?.queryUpdater,
+    queryUpdater,
   });
 
   return {

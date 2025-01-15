@@ -3,7 +3,7 @@ import qs from "qs";
 
 export type QueryUpdater = (newPath: string) => void;
 
-export function useQueryParams(queryUpdater?: QueryUpdater) {
+export function useQueryParams(queryUpdater: QueryUpdater) {
   const queryParams = useMemo(
     () => qs.parse(window.location.search, { ignoreQueryPrefix: true }),
     [window.location.search],
@@ -20,9 +20,7 @@ export function useQueryParams(queryUpdater?: QueryUpdater) {
     (key: string, value: string) => {
       const newQueryParams = { ...queryParams, [key]: value };
       const newQuery = qs.stringify(newQueryParams, { addQueryPrefix: true });
-      queryUpdater
-        ? queryUpdater(newQuery)
-        : window.history.replaceState(null, "", newQuery);
+      queryUpdater(newQuery);
     },
     [queryParams, queryUpdater],
   );
@@ -32,17 +30,13 @@ export function useQueryParams(queryUpdater?: QueryUpdater) {
       const newQueryParams = { ...queryParams };
       delete newQueryParams[key];
       const newQuery = qs.stringify(newQueryParams, { addQueryPrefix: true });
-      queryUpdater
-        ? queryUpdater(newQuery)
-        : window.history.replaceState(null, "", newQuery);
+      queryUpdater(newQuery);
     },
     [queryParams, queryUpdater],
   );
 
   const removeAllParams = useCallback(() => {
-    queryUpdater
-      ? queryUpdater(window.location.pathname)
-      : window.history.replaceState(null, "", window.location.pathname);
+    queryUpdater(window.location.pathname);
   }, [queryUpdater]);
 
   const replaceAllParams = useCallback(
@@ -53,9 +47,7 @@ export function useQueryParams(queryUpdater?: QueryUpdater) {
       }
 
       const newQuery = qs.stringify(params, { addQueryPrefix: true });
-      queryUpdater
-        ? queryUpdater(newQuery)
-        : window.history.replaceState(null, "", newQuery);
+      queryUpdater(newQuery);
     },
     [queryUpdater, removeAllParams],
   );

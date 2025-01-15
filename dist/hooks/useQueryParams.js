@@ -20,22 +20,16 @@ export function useQueryParams(queryUpdater) {
         var _a;
         var newQueryParams = __assign(__assign({}, queryParams), (_a = {}, _a[key] = value, _a));
         var newQuery = qs.stringify(newQueryParams, { addQueryPrefix: true });
-        queryUpdater
-            ? queryUpdater(newQuery)
-            : window.history.replaceState(null, "", newQuery);
+        queryUpdater(newQuery);
     }, [queryParams, queryUpdater]);
     var removeParam = useCallback(function (key) {
         var newQueryParams = __assign({}, queryParams);
         delete newQueryParams[key];
         var newQuery = qs.stringify(newQueryParams, { addQueryPrefix: true });
-        queryUpdater
-            ? queryUpdater(newQuery)
-            : window.history.replaceState(null, "", newQuery);
+        queryUpdater(newQuery);
     }, [queryParams, queryUpdater]);
     var removeAllParams = useCallback(function () {
-        queryUpdater
-            ? queryUpdater(window.location.pathname)
-            : window.history.replaceState(null, "", window.location.pathname);
+        queryUpdater(window.location.pathname);
     }, [queryUpdater]);
     var replaceAllParams = useCallback(function (params) {
         if (Object.keys(params).length === 0) {
@@ -43,9 +37,7 @@ export function useQueryParams(queryUpdater) {
             return;
         }
         var newQuery = qs.stringify(params, { addQueryPrefix: true });
-        queryUpdater
-            ? queryUpdater(newQuery)
-            : window.history.replaceState(null, "", newQuery);
+        queryUpdater(newQuery);
     }, [queryUpdater, removeAllParams]);
     return {
         queryParams: queryParams,
