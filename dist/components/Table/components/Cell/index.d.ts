@@ -34,6 +34,6 @@ export declare const Cell: {
         isFixed?: boolean;
         renderTrigger?: (props: any, ref: import("react").ForwardedRef<any>) => React.ReactNode;
     }) => import("react/jsx-runtime").JSX.Element;
-    ActionItem: ({ className, ...props }: import("../../../Dropdown/Item").default) => import("react/jsx-runtime").JSX.Element;
+    ActionItem: ({ className, shouldCloseOnClick, onClick, ...props }: import("../../../Dropdown/Item").default) => import("react/jsx-runtime").JSX.Element;
     Skeleton: () => import("react/jsx-runtime").JSX.Element;
 };

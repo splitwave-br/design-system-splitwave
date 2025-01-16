@@ -6,14 +6,14 @@ import React, {
   cloneElement,
   useEffect,
   useRef,
-  useState,
-  useCallback,
   useMemo,
 } from "react";
 import "../Trigger/variables.scss";
 
 import styles from "./styles.module.scss";
 import useClickOutside from "@/hooks/useClickOutside";
+import { DropdownProvider } from "../hooks/useDropdown";
+import { useToggle } from "@/hooks/useToggle";
 
 type TBounding = {
   top: number;
@@ -50,11 +50,7 @@ export const Container = ({ children, className }: TDropdown) => {
   const triggerRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
 
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-
-  const handleToggle = useCallback(() => {
-    setIsOpen((v) => !v);
-  }, []);
+  const [isOpen, toggleDropdown, setIsOpen] = useToggle();
 
   useEffect(() => {
     if (isOpen && triggerRef.current && menuRef.current) {
@@ -102,6 +98,7 @@ export const Container = ({ children, className }: TDropdown) => {
     ref: menuRef,
     callback: () => setIsOpen(false),
     isActive: isOpen,
+    exceptionRef: triggerRef,
   });
 
   const containerStyles = [styles.container, className].join(" ");
@@ -143,26 +140,32 @@ export const Container = ({ children, className }: TDropdown) => {
   if (isEmpty) return null;
 
   return (
-    <div className={containerStyles}>
-      {triggerChild &&
-        cloneElement(triggerChild, {
-          onClick: handleToggle,
-          ref: triggerRef,
-          isOpen,
-        })}
+    <DropdownProvider
+      isOpen={isOpen}
+      setIsOpen={setIsOpen}
+      toggleDropdown={toggleDropdown}
+    >
+      <div className={containerStyles}>
+        {triggerChild &&
+          cloneElement(triggerChild, {
+            onClick: toggleDropdown,
+            ref: triggerRef,
+            isOpen,
+          })}
 
-      {isOpen &&
-        menuChild &&
-        createPortal(
-          cloneElement(menuChild, {
-            ref: menuRef,
-            onClose: () => {
-              setIsOpen(false);
-            },
-          }),
-          document.body,
-        )}
-    </div>
+        {isOpen &&
+          menuChild &&
+          createPortal(
+            cloneElement(menuChild, {
+              ref: menuRef,
+              onClose: () => {
+                setIsOpen(false);
+              },
+            }),
+            document.body,
+          )}
+      </div>
+    </DropdownProvider>
   );
 };
 

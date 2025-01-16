@@ -4,19 +4,28 @@ import { forwardRef } from "react";
 import styles from "./styles.module.scss";
 import "./variables.scss";
 import { concatStyles } from "../../../utils/concatStyles";
-import variants from './variants.module.scss'
+import variants from "./variants.module.scss";
 
-export type TTriggerVariants = 'primary' | 'secondary';
-
+export type TTriggerVariants = "primary" | "secondary";
 
 export interface TriggerProps extends ButtonProps {
   children: any;
   isOpen?: boolean;
-  variant?: TTriggerVariants
+  variant?: TTriggerVariants;
 }
 
 const Trigger = forwardRef<HTMLButtonElement, TriggerProps>(
-  ({ children, className, isOpen, variant = 'secondary', ...props }, ref) => {
+  (
+    {
+      children,
+      className,
+      isOpen,
+      variant = "secondary",
+      size = "medium",
+      ...props
+    },
+    ref,
+  ) => {
     if (typeof children === "function") {
       return children(props, ref);
     }
@@ -24,7 +33,9 @@ const Trigger = forwardRef<HTMLButtonElement, TriggerProps>(
     const triggerStyles = concatStyles([
       styles.wrapper,
       variants[`variant__${variant}`],
-      className
+      styles[`size__${size}`],
+
+      className,
     ]);
 
     return (
