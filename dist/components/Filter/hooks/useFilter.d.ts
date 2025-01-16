@@ -1,5 +1,5 @@
 import React from "react";
-interface IUseFilterReturn {
+export interface IUseFilterReturn {
     filter: IFilter;
     setFilter: (field: string, value: string) => void;
     applyFilter: (data: any[]) => any[];

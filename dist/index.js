@@ -6,7 +6,6 @@ export { ButtonLink } from "./components/ButtonLink";
 export { Badge } from "./components/Badge";
 // Dropdown
 export { Dropdown } from "./components/Dropdown";
-export { useDropdown } from "./components/Dropdown/hooks/useDropdown";
 // Filter
 export { Filter } from "./components/Filter";
 export { useFilterContext, useFilter, } from "./components/Filter/hooks/useFilter";
@@ -31,6 +30,6 @@ export { ToastProvider, useToast } from "./components/Toast/hooks/useToast";
 export { Tabs } from "./components/Tabs";
 // Hooks
 export { default as useClickOutside } from "./hooks/useClickOutside";
-export { useToggle } from "./hooks/useToggle";
+export { useQueryParams } from "./hooks/useQueryParams";
 // FORM
 export { Form } from "./components/Form";
