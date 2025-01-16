@@ -14,8 +14,19 @@ export function updateURLWithFilters(filters, queryUpdater) {
     var url = new URL(window.location.href);
     // Usa qs para gerar a string de parâmetros de consulta
     var currentParams = qs.parse(url.search, { ignoreQueryPrefix: true });
-    // Atualiza os parâmetros com base nos filtros
-    var updatedParams = __assign(__assign({}, currentParams), filters);
+    // Remove qualquer campo com valor vazio ou undefined dos filtros
+    var cleanedFilters = Object.fromEntries(Object.entries(filters).filter(function (_a) {
+        var key = _a[0], value = _a[1];
+        return value != null && value !== "";
+    }));
+    // Cria um novo objeto de parâmetros, mantendo os existentes da URL, mas removendo os que não estão mais nos filtros
+    var updatedParams = __assign(__assign({}, currentParams), cleanedFilters);
+    // Remove da URL qualquer parâmetro que esteja em `currentParams`, mas não esteja mais em `cleanedFilters`
+    Object.keys(currentParams).forEach(function (key) {
+        if (!(key in cleanedFilters)) {
+            delete updatedParams[key]; // Remove o parâmetro da URL
+        }
+    });
     // Converte o objeto atualizado de volta para uma query string
     var queryString = qs.stringify(updatedParams, { addQueryPrefix: true });
     if (queryUpdater) {

@@ -13,17 +13,18 @@ var __assign = (this && this.__assign) || function () {
 import { jsx as _jsx } from "react/jsx-runtime";
 import { createContext, useCallback, useContext, useMemo, useState, } from "react";
 import { get } from "../../../utils/get";
-function useFilter(config) {
-    var _a = useState({}), filter = _a[0], setFilter = _a[1];
+import { useFilterURLSync } from "./useFilterUrlSync";
+function useFilter(_a) {
+    var queryUpdater = _a.queryUpdater, _normalize = _a.normalize;
+    var _b = useState({}), filter = _b[0], setFilter = _b[1];
     // TODO: We can remove it after implement the filter on the backend
     var applyFilter = useCallback(function (data) {
         if (Object.keys(filter).length === 0)
             return data;
         return data.filter(function (item) {
             return Object.entries(filter).every(function (_a) {
-                var _b;
                 var key = _a[0], value = _a[1];
-                var normalize = (config === null || config === void 0 ? void 0 : config.normalize) && ((_b = config === null || config === void 0 ? void 0 : config.normalize) === null || _b === void 0 ? void 0 : _b[key]);
+                var normalize = _normalize && (_normalize === null || _normalize === void 0 ? void 0 : _normalize[key]);
                 var itemValue = normalize
                     ? normalize(get(item, key))
                     : get(item, key);
@@ -60,20 +61,20 @@ function useFilter(config) {
     var normalizedFilter = useMemo(function () {
         var normalized = {};
         Object.entries(filter).forEach(function (_a) {
-            var _b;
             var key = _a[0], value = _a[1];
             if (!value)
                 return;
-            var normalize = (config === null || config === void 0 ? void 0 : config.normalize) && ((_b = config === null || config === void 0 ? void 0 : config.normalize) === null || _b === void 0 ? void 0 : _b[key]);
+            var normalize = _normalize && (_normalize === null || _normalize === void 0 ? void 0 : _normalize[key]);
             normalized[key] = normalize ? normalize(value) : value;
         });
         return normalized;
     }, [filter]);
-    // useURLSync({
-    //   cleanAll,
-    //   filter,
-    //   setFilter: handlesetFilter,
-    // });
+    useFilterURLSync({
+        cleanAll: cleanAll,
+        filter: filter,
+        setFilter: handlesetFilter,
+        queryUpdater: queryUpdater,
+    });
     return {
         filter: filter,
         normalizedFilter: normalizedFilter,
