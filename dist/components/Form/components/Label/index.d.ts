@@ -1,4 +1,5 @@
 import { ComponentProps, ReactNode } from "react";
+import "./variables.scss";
 type Props = ComponentProps<"label"> & {
     children: ReactNode;
 };
