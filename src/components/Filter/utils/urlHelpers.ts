@@ -1,5 +1,6 @@
 import qs from "qs";
-import { QueryUpdater } from "./types";
+
+export type QueryUpdater = (newPath: string) => void;
 
 export function updateURLWithFilters(
   filters: Record<string, string | undefined>,

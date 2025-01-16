@@ -1,4 +1,8 @@
 import { IFilterPeriod } from "@/components/DatePicker/types";
+import {
+  END_DATE_FIELD,
+  START_DATE_FIELD,
+} from "@/components/Filter/constants/dateFilter";
 import { useFilterFields } from "@/components/Filter/hooks/useFields";
 import { useFilterContext } from "@/components/Filter/hooks/useFilter";
 import { format, parseISO } from "date-fns";
@@ -12,9 +16,6 @@ const translateDate = (dateString: string) => {
   const formatted = format(date, "MMM d, yyyy", { locale: ptBR });
   return capitalize(formatted);
 };
-
-const START_DATE_FIELD = "startDate";
-const END_DATE_FIELD = "endDate";
 
 export const useDateFilter = (props: any, isPeriod: boolean) => {
   const [isOpen, setIsOpen] = useState(false);

@@ -6,6 +6,7 @@ import { createPortal } from "react-dom";
 import useClickOutside from "../../../../hooks/useClickOutside";
 import styles from "./styles.module.scss";
 import useWindowSize from "../../../../hooks/useWindowSize";
+import React from "react";
 function getElementPosition(element) {
     var rect = element.getBoundingClientRect(); // Get the position of the element in relation to the viewport
     var scrollLeft = document.documentElement.scrollLeft;
@@ -21,6 +22,22 @@ function getElementPosition(element) {
         bottom: absoluteBottom,
     };
 }
+var extractFieldNames = function (elements) {
+    var fieldNames = [];
+    Children.toArray(elements).forEach(function (element) {
+        var _a, _b;
+        if (!React.isValidElement(element))
+            return;
+        var childElements = (_a = element.props) === null || _a === void 0 ? void 0 : _a.children;
+        if (childElements) {
+            fieldNames = fieldNames.concat(extractFieldNames(childElements));
+        }
+        var fieldName = (_b = element.props) === null || _b === void 0 ? void 0 : _b.field;
+        if (fieldName)
+            fieldNames.push(fieldName);
+    });
+    return fieldNames;
+};
 export var DEFAULT_PADDING = 16;
 export var DEFAULT_GAP = 8;
 export var usePositionElement = function (_a) {
@@ -135,6 +152,7 @@ export var Container = function (_a) {
         });
         return _child;
     }, [children]);
+    var childrenFields = useMemo(function () { return extractFieldNames(children); }, [children]);
     var isEmpty = useMemo(function () {
         var _a, _b, _c;
         return (((_c = (_b = (_a = contentChild === null || contentChild === void 0 ? void 0 : contentChild.props) === null || _a === void 0 ? void 0 : _a.children) === null || _b === void 0 ? void 0 : _b.filter) === null || _c === void 0 ? void 0 : _c.call(_b, function (c) { return !!c; }).length) === 0);
@@ -147,6 +165,7 @@ export var Container = function (_a) {
             onClick: handleToggle,
             ref: triggerRef,
             isOpen: isOpen,
+            fields: childrenFields,
         });
     }, [isMobileAndShouldEject, triggerChild, handleToggle, isOpen]);
     var renderContent = useCallback(function () {

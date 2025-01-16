@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { IUseFilterReturn } from "./useFilter";
+import { QueryUpdater } from "@/hooks/useQueryParams";
 import { getFiltersFromURL, updateURLWithFilters } from "../utils/urlHelpers";
-import { QueryUpdater } from "../utils/types";
 
 type TURLSyncProps = Pick<
   IUseFilterReturn,
@@ -10,7 +10,7 @@ type TURLSyncProps = Pick<
   queryUpdater?: QueryUpdater;
 };
 
-export function useURLSync({
+export function useFilterURLSync({
   cleanAll,
   filter,
   setFilter,

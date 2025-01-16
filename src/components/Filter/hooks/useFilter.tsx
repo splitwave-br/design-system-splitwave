@@ -4,12 +4,11 @@ import React, {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
   useState,
 } from "react";
 import { get } from "@/utils/get";
-import { useURLSync } from "./useUrlSync";
-
 export interface IUseFilterReturn {
   filter: IFilter;
   setFilter: (field: string, value: string) => void;
@@ -19,12 +18,10 @@ export interface IUseFilterReturn {
   getValue: (field: string) => string;
   cleanAll: () => void;
 }
-
 export interface IFilterProviderProps {
   children: React.ReactNode;
   register: IUseFilterReturn;
 }
-
 interface IFilterContextData extends IUseFilterReturn {}
 
 interface IFilter extends Record<string, string> {}
@@ -32,29 +29,24 @@ interface IFilter extends Record<string, string> {}
 type TUseFilterConfig = {
   normalize?: Record<string, (value: any) => string>;
 };
-
 function useFilter(config?: TUseFilterConfig) {
   const [filter, setFilter] = useState<IFilter>({});
 
   // TODO: We can remove it after implement the filter on the backend
+
   const applyFilter = useCallback(
     (data: any[]) => {
       if (Object.keys(filter).length === 0) return data;
-
       return data.filter((item) => {
         return Object.entries(filter).every(([key, value]) => {
           const normalize = config?.normalize && config?.normalize?.[key];
-
           const itemValue = normalize
             ? normalize(get(item, key))
             : get(item, key);
-
           const filterValue = normalize ? normalize(value) : value;
-
           if (!!itemValue) {
             return itemValue.toLowerCase().includes(filterValue.toLowerCase());
           }
-
           return true;
         });
       });
@@ -82,7 +74,6 @@ function useFilter(config?: TUseFilterConfig) {
     (fields: string[]) => {
       setFilter((prev) => {
         const newFilter = { ...prev };
-
         fields.forEach((field) => {
           delete newFilter[field];
         });
@@ -98,15 +89,11 @@ function useFilter(config?: TUseFilterConfig) {
 
   const normalizedFilter = useMemo(() => {
     const normalized = {} as IFilter;
-
     Object.entries(filter).forEach(([key, value]) => {
       if (!value) return;
-
       const normalize = config?.normalize && config?.normalize?.[key];
-
       normalized[key] = normalize ? normalize(value) : value;
     });
-
     return normalized;
   }, [filter]);
 
