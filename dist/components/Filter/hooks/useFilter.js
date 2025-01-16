@@ -69,6 +69,11 @@ function useFilter(config) {
         });
         return normalized;
     }, [filter]);
+    // useURLSync({
+    //   cleanAll,
+    //   filter,
+    //   setFilter: handlesetFilter,
+    // });
     return {
         filter: filter,
         normalizedFilter: normalizedFilter,
