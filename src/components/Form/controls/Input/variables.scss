@@ -5,13 +5,17 @@
     --component-input-default-prefix-suffix-background: #fff;
     --component-input-default-prefix-suffix-text: var(--colors-gray-900);;
     --component-input-active-active-text: #000;
+    --component-input-disabled-disabled-text: var(--colors-gray-400);
+    --component-input-disabled-disabled: var(--colors-gray-50);
 }
 
 .dark-theme {
+    --component-input-disabled-disabled-text: var(--colors-dark-gray-600);
+    --component-input-disabled-disabled: var(--colors-dark-gray-700);
     --component-input-default-default-text: var(--colors-dark-gray-500);
     --component-input-default-default-border: var(--colors-dark-gray-600);
     --component-input-default-default-shadow: var(--colors-dark-gray-600);
-    --component-input-default-prefix-suffix-background: var(--colors-dark-gray-900);
+    --component-input-default-prefix-suffix-background: var(--colors-dark-gray-700);
     --component-input-default-prefix-suffix-text: #fff;
     --component-input-active-active-text: #fff;
 }

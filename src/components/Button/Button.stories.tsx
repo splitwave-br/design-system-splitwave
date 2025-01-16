@@ -35,6 +35,7 @@ export const Secondary: Story = {
 };
 
 export const Tertiary: Story = {
+  ...Template,
   args: {
     name: "Button Tertiary",
     variant: "tertiary",

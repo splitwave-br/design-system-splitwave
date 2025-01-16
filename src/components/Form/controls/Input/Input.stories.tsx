@@ -43,4 +43,11 @@ export const TextSuffix: Story = {
   },
 };
 
+export const Disabled: Story = {
+  ...Template,
+  args: {
+    disabled: true,
+  },
+};
+
 type Story = StoryObj<typeof meta>;

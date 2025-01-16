@@ -83,13 +83,13 @@
 
   &.disabled {
     cursor: not-allowed;
-    color: var(--colors-gray-400);
+    color: var(--component-input-disabled-disabled-tex);
 
     font-size: var(--font-size-3);
     font-weight: 500;
     line-height: 1.42em;
 
-    background: var(--colors-gray-50);
+    background: var(--component-input-disabled-disabled);
 
     box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
   }
