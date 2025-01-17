@@ -7,7 +7,7 @@ type TURLSyncProps = Pick<
   IUseFilterReturn,
   "filter" | "setFilter" | "cleanAll"
 > & {
-  queryUpdater?: QueryUpdater;
+  queryUpdater: QueryUpdater;
 };
 
 export function useFilterURLSync({
