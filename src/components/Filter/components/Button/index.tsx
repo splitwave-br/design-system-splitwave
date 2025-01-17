@@ -2,6 +2,7 @@
 
 import { Children, ElementType, forwardRef, useMemo, useState } from "react";
 import styles from "./styles.module.scss";
+import "./variables.scss";
 import { useFilterContext } from "../../hooks/useFilter";
 import { concatStyles } from "@/utils/concatStyles";
 import { useFilterFields } from "../../hooks/useFields";

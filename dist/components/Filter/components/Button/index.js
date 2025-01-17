@@ -33,6 +33,7 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { forwardRef } from "react";
 import styles from "./styles.module.scss";
+import "./variables.scss";
 import { useFilterContext } from "../../hooks/useFilter";
 import { concatStyles } from "../../../../utils/concatStyles";
 import { useFilterFields } from "../../hooks/useFields";
