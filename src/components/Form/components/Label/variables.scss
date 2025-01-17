@@ -1,7 +1,7 @@
 .light-theme {
-    --component-input-default-default-label: var(--colors-gray-900);
+    --component-input-default-label: var(--colors-gray-900);
 }
 
 .dark-theme {
-    --component-input-default-default-label: #fff;
+    --component-input-default-label: var(--colors-neutral-50);
 }

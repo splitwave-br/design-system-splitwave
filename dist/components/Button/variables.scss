@@ -5,8 +5,8 @@
     --button-tertiary-text: var(--colors-neutral-50);
     --button-tertiary-border: var(--colors-neutral-50);
     --button-tertiary-background: #000;
-    --button-tertiary-button-tertiary-border-2: #000;
-    --button-tertiary-button-tertiary-hover: #1d2939;
+    --button-tertiary-border-2: #000;
+    --button-tertiary-hover: #1d2939;
 }
     
 .dark-theme {
@@ -16,6 +16,6 @@
     --button-tertiary-text: #000;
     --button-tertiary-border: #000;
     --button-tertiary-background: #fff;
-    --button-tertiary-button-tertiary-border-2: #fff;
-    --button-tertiary-button-tertiary-hover: var(--colors-gray-300);
+    --button-tertiary-border-2: #fff;
+    --button-tertiary-hover: var(--colors-gray-300);
 }
