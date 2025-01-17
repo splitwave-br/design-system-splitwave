@@ -1,21 +1,21 @@
 .light-theme {
-    --button-secondary-text: #000;
+    --button-secondary-text: var(--colors-black);
     --button-secondary-hover: var(--colors-gray-100);
     --button-secondary-border: var(--colors-gray-300);
     --button-tertiary-text: var(--colors-neutral-50);
     --button-tertiary-border: var(--colors-neutral-50);
-    --button-tertiary-background: #000;
-    --button-tertiary-border-2: #000;
-    --button-tertiary-hover: #1d2939;
+    --button-tertiary-background: var(--colors-black);
+    --button-tertiary-border-2: var(--colors-black);
+    --button-tertiary-hover: var(--colors-gray-800);
 }
     
 .dark-theme {
     --button-secondary-text: var(--colors-dark-gray-500);
     --button-secondary-hover: var(--colors-dark-gray-700);
     --button-secondary-border: var(--colors-dark-gray-500);
-    --button-tertiary-text: #000;
-    --button-tertiary-border: #000;
-    --button-tertiary-background: #fff;
-    --button-tertiary-border-2: #fff;
+    --button-tertiary-text: var(--colors-black);
+    --button-tertiary-border: var(--colors-black);
+    --button-tertiary-background: var(--colors-neutral-50);
+    --button-tertiary-border-2: var(--colors-neutral-50);
     --button-tertiary-hover: var(--colors-gray-300);
 }

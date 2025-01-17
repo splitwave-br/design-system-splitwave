@@ -1,6 +1,6 @@
 import { ButtonProps } from "../../../components/Button";
 import "./variables.scss";
-export type TTriggerVariants = 'primary' | 'secondary';
+export type TTriggerVariants = "primary" | "secondary";
 export interface TriggerProps extends ButtonProps {
     children: any;
     isOpen?: boolean;

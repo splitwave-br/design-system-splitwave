@@ -1,23 +1,25 @@
 "use client";
 
-import { ElementType, ForwardedRef, forwardRef } from "react";
-// import { Icon } from '@/components/Icon';
+import { Children, ElementType, forwardRef, useMemo, useState } from "react";
 import styles from "./styles.module.scss";
 import "./variables.scss";
 import { useFilterContext } from "../../hooks/useFilter";
 import { concatStyles } from "@/utils/concatStyles";
 import { useFilterFields } from "../../hooks/useFields";
 import { Icon } from "@/components/Icon";
+import React from "react";
+import { DATE_FIELDS } from "../../constants/dateFilter";
 
 type TButton = {
   icon?: ElementType;
   children: React.ReactNode;
   isOpen?: boolean;
+  fields?: string[];
 };
 export const Button = forwardRef<HTMLButtonElement, TButton>(
-  ({ icon: IconCustom, children, isOpen, ...props }, ref) => {
+  ({ icon: IconCustom, children, isOpen, fields, ...props }, ref) => {
     const { getIsActive } = useFilterContext();
-    const { fields } = useFilterFields();
+    const { fields: registeredFields } = useFilterFields();
 
     return (
       <button
@@ -25,7 +27,9 @@ export const Button = forwardRef<HTMLButtonElement, TButton>(
         ref={ref}
         className={concatStyles([
           styles.button,
-          getIsActive(fields) ? styles.active : "",
+          getIsActive([...(fields || []), ...registeredFields, ...DATE_FIELDS])
+            ? styles.active
+            : "",
         ])}
       >
         {children}

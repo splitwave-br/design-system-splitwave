@@ -1,9 +1,11 @@
 import { ElementType } from "react";
 import "./variables.scss";
+import React from "react";
 type TButton = {
     icon?: ElementType;
     children: React.ReactNode;
     isOpen?: boolean;
+    fields?: string[];
 };
-export declare const Button: import("react").ForwardRefExoticComponent<TButton & import("react").RefAttributes<HTMLButtonElement>>;
+export declare const Button: React.ForwardRefExoticComponent<TButton & React.RefAttributes<HTMLButtonElement>>;
 export {};

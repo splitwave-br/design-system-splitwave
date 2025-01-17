@@ -23,9 +23,16 @@ var __rest = (this && this.__rest) || function (s, e) {
 import { jsx as _jsx } from "react/jsx-runtime";
 import styles from "./styles.module.scss";
 import "./variables.scss";
+import { useDropdown } from "../hooks/useDropdown";
 var Item = function (_a) {
-    var className = _a.className, props = __rest(_a, ["className"]);
+    var className = _a.className, _b = _a.shouldCloseOnClick, shouldCloseOnClick = _b === void 0 ? false : _b, onClick = _a.onClick, props = __rest(_a, ["className", "shouldCloseOnClick", "onClick"]);
+    var setIsOpen = useDropdown().setIsOpen;
+    var handleClick = function (event) {
+        if (shouldCloseOnClick)
+            setIsOpen(false);
+        onClick === null || onClick === void 0 ? void 0 : onClick(event);
+    };
     var itemStyles = [styles.item, className].join(" ");
-    return _jsx("button", __assign({ className: itemStyles }, props));
+    return _jsx("button", __assign({ onClick: handleClick, className: itemStyles }, props));
 };
 export default Item;

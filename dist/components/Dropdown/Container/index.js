@@ -1,10 +1,12 @@
 "use client";
-import { jsxs as _jsxs } from "react/jsx-runtime";
+import { jsxs as _jsxs, jsx as _jsx } from "react/jsx-runtime";
 import { createPortal } from "react-dom";
-import { Children, cloneElement, useEffect, useRef, useState, useCallback, useMemo, } from "react";
+import { Children, cloneElement, useEffect, useRef, useMemo, } from "react";
 import "../Trigger/variables.scss";
 import styles from "./styles.module.scss";
 import useClickOutside from "../../../hooks/useClickOutside";
+import { DropdownProvider } from "../hooks/useDropdown";
+import { useToggle } from "../../../hooks/useToggle";
 function getElementPosition(element) {
     var rect = element.getBoundingClientRect(); // Get the position of the element in relation to the viewport
     var scrollLeft = document.documentElement.scrollLeft;
@@ -25,10 +27,7 @@ export var Container = function (_a) {
     var children = _a.children, className = _a.className;
     var triggerRef = useRef(null);
     var menuRef = useRef(null);
-    var _b = useState(false), isOpen = _b[0], setIsOpen = _b[1];
-    var handleToggle = useCallback(function () {
-        setIsOpen(function (v) { return !v; });
-    }, []);
+    var _b = useToggle(), isOpen = _b[0], toggleDropdown = _b[1], setIsOpen = _b[2];
     useEffect(function () {
         var _a, _b;
         if (isOpen && triggerRef.current && menuRef.current) {
@@ -67,6 +66,7 @@ export var Container = function (_a) {
         ref: menuRef,
         callback: function () { return setIsOpen(false); },
         isActive: isOpen,
+        exceptionRef: triggerRef,
     });
     var containerStyles = [styles.container, className].join(" ");
     var menuChild = useMemo(function () {
@@ -97,18 +97,18 @@ export var Container = function (_a) {
     }, [menuChild]);
     if (isEmpty)
         return null;
-    return (_jsxs("div", { className: containerStyles, children: [triggerChild &&
-                cloneElement(triggerChild, {
-                    onClick: handleToggle,
-                    ref: triggerRef,
-                    isOpen: isOpen,
-                }), isOpen &&
-                menuChild &&
-                createPortal(cloneElement(menuChild, {
-                    ref: menuRef,
-                    onClose: function () {
-                        setIsOpen(false);
-                    },
-                }), document.body)] }));
+    return (_jsx(DropdownProvider, { isOpen: isOpen, setIsOpen: setIsOpen, toggleDropdown: toggleDropdown, children: _jsxs("div", { className: containerStyles, children: [triggerChild &&
+                    cloneElement(triggerChild, {
+                        onClick: toggleDropdown,
+                        ref: triggerRef,
+                        isOpen: isOpen,
+                    }), isOpen &&
+                    menuChild &&
+                    createPortal(cloneElement(menuChild, {
+                        ref: menuRef,
+                        onClose: function () {
+                            setIsOpen(false);
+                        },
+                    }), document.body)] }) }));
 };
 export default Container;

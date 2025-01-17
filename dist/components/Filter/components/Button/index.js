@@ -21,22 +21,33 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { forwardRef } from "react";
-// import { Icon } from '../../../../components/Icon';
 import styles from "./styles.module.scss";
 import "./variables.scss";
 import { useFilterContext } from "../../hooks/useFilter";
 import { concatStyles } from "../../../../utils/concatStyles";
 import { useFilterFields } from "../../hooks/useFields";
 import { Icon } from "../../../../components/Icon";
+import { DATE_FIELDS } from "../../constants/dateFilter";
 export var Button = forwardRef(function (_a, ref) {
-    var IconCustom = _a.icon, children = _a.children, isOpen = _a.isOpen, props = __rest(_a, ["icon", "children", "isOpen"]);
+    var IconCustom = _a.icon, children = _a.children, isOpen = _a.isOpen, fields = _a.fields, props = __rest(_a, ["icon", "children", "isOpen", "fields"]);
     var getIsActive = useFilterContext().getIsActive;
-    var fields = useFilterFields().fields;
+    var registeredFields = useFilterFields().fields;
     return (_jsxs("button", __assign({}, props, { ref: ref, className: concatStyles([
             styles.button,
-            getIsActive(fields) ? styles.active : "",
+            getIsActive(__spreadArray(__spreadArray(__spreadArray([], (fields || []), true), registeredFields, true), DATE_FIELDS, true))
+                ? styles.active
+                : "",
         ]), children: [children, IconCustom ? _jsx(IconCustom, {}) : _jsx(Icon, { name: "chevron-down", size: 1 })] })));
 });
 Button.displayName = "Trigger";
