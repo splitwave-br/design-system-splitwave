@@ -1,4 +1,5 @@
 import { TIcons } from "../../../../components/Icon";
+import "./variables.scss";
 import { ForwardedRef } from "react";
 export interface IInput extends React.InputHTMLAttributes<HTMLInputElement> {
     prefix?: TIcons;

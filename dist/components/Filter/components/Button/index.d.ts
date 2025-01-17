@@ -1,4 +1,5 @@
 import { ElementType } from "react";
+import "./variables.scss";
 import React from "react";
 type TButton = {
     icon?: ElementType;

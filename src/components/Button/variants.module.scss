@@ -105,18 +105,18 @@
 }
 
 .variant__tertiary {
-  color: var(--colors-neutral-50);
+  color: var(--button-tertiary-text);
   border-radius: var(--border-radius-3);
 
-  border: 2px solid var(--color-background) !important;
-  background: var(--colors-black) !important;
-  box-shadow: 0px 0px 0px 2px #000;
+  border: 2px solid var(--button-tertiary-border) !important;
+  background: var(--button-tertiary-background) !important;
+  box-shadow: 0px 0px 0px 2px var(--button-tertiary-border-2);
   transition: background-color 0.3s, box-shadow 0.3s;
   will-change: background-color box-shadow;
 
   &:hover {
     border: 2px solid #000;
-    background: #1d2939 !important;
+    background: var(--button-tertiary-hover) !important;
     box-shadow: 0px 0px 0px 2px #fff;
   }
 }
