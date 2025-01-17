@@ -58,7 +58,7 @@
   padding: 0 var(--spaces-2);
   width: 100%;
   color: var(--component-input-default-default-text);
-  border: 1px solid var(--component-input-default-default-border);
+  border: 1px solid var(--component-input-default-border);
   border-radius: var(--border-radius-3);
   box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
   background-color: var(--color-background-sunken);
@@ -68,9 +68,9 @@
 
   &:focus,
   &:focus-visible {
-    border-color: var(--component-input-default-default-border);
-    color: var(--component-input-active-active-text);
-    box-shadow: 0 0 0 4px var(--component-input-default-default-shadow);
+    border-color: var(--component-input-default-border);
+    color: var(--component-input-active-text);
+    box-shadow: 0 0 0 4px var(--component-input-default-shadow);
   }
 
   &.prefix {
@@ -83,24 +83,24 @@
 
   &.disabled {
     cursor: not-allowed;
-    color: var(--component-input-disabled-disabled-text);
+    color: var(--component-input-disabled-text);
 
     font-size: var(--font-size-3);
     font-weight: 500;
     line-height: 1.42em;
 
-    background: var(--component-input-disabled-disabled);
+    background: var(--component-input-disabled);
 
     box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
   }
 }
 
 .isFocused {
-  box-shadow: 0 0 0 4px var(--component-input-default-default-shadow);
+  box-shadow: 0 0 0 4px var(--component-input-default-shadow);
 
   .text__prefix,
   .text__sufix {
-    border-color: var(--component-input-default-default-border);
+    border-color: var(--component-input-default-border);
   }
 
   input {
@@ -131,7 +131,7 @@
   background-color: var(--component-input-default-prefix-suffix-background);
   place-items: center;
   color: var(--component-input-default-prefix-suffix-text);
-  border: 1px solid var(--component-input-default-default-border);
+  border: 1px solid var(--component-input-default-border);
   font-size: var(--font-size-3);
   height: var(--spaces-5);
 }

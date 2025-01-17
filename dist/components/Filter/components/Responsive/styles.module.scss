@@ -92,7 +92,7 @@
 }
 
 .button {
-  --component-cta-button-secondary-secondary-text: var(--colors-gray-900);
+  --component-cta-button-secondary-text: var(--colors-gray-900);
   --component-cta-filter-active-border: var(--colors-success-300);
   --component-cta-filter-active-background: var(--colors-success-100);
 
@@ -110,7 +110,7 @@
   border: 1px solid var(--colors-border);
   font-size: var(--font-size-3);
   background: transparent;
-  color: var(--component-cta-button-secondary-secondary-text);
+  color: var(--component-cta-button-secondary-text);
 
   & figure {
     color: var(--colors-gray-500);
