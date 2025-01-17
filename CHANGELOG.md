@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.20.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.19.7...v1.20.0) (2025-01-17)
+
+
+### Features
+
+* **#215:** Fix clean filters and fix props ([8b04dd7](https://github.com/splitwave-br/design-system-splitwave/commit/8b04dd7c98c26d2b4ec31250c13561f9ddabeaba))
+
 ## [1.19.7](https://github.com/splitwave-br/design-system-splitwave/compare/v1.19.6...v1.19.7) (2025-01-16)
 
 
