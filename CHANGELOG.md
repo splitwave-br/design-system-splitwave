@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.20.2](https://github.com/splitwave-br/design-system-splitwave/compare/v1.20.1...v1.20.2) (2025-01-20)
+
+
+### Bug Fixes
+
+* **#215:** Fix date filter active state and add page as protected param ([8088e26](https://github.com/splitwave-br/design-system-splitwave/commit/8088e2660f668b0db30005566d65c200b9f452e9))
+
 ## [1.20.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.20.0...v1.20.1) (2025-01-20)
 
 
