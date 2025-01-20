@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.20.3](https://github.com/splitwave-br/design-system-splitwave/compare/v1.20.2...v1.20.3) (2025-01-20)
+
+
+### Bug Fixes
+
+* **#215:** Remove coment ([ebe398a](https://github.com/splitwave-br/design-system-splitwave/commit/ebe398a14c49f5b98b894f7b21ccea69ca85c907))
+
 ## [1.20.2](https://github.com/splitwave-br/design-system-splitwave/compare/v1.20.1...v1.20.2) (2025-01-20)
 
 
