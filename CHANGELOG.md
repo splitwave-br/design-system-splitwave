@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.20.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.20.0...v1.20.1) (2025-01-20)
+
+
+### Bug Fixes
+
+* **#215:** Fix active filters ([1a9c343](https://github.com/splitwave-br/design-system-splitwave/commit/1a9c3436e7bb2fd1ba1b714749b2b74372b0a503))
+* **useDropdown:** Fix missing useDropdown exports ([33fe40f](https://github.com/splitwave-br/design-system-splitwave/commit/33fe40fd31533c2c6fe13c3bf1688c8a87c0833c))
+
 ## [1.20.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.19.7...v1.20.0) (2025-01-17)
 
 
