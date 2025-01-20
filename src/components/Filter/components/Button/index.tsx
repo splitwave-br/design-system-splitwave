@@ -27,7 +27,7 @@ export const Button = forwardRef<HTMLButtonElement, TButton>(
         ref={ref}
         className={concatStyles([
           styles.button,
-          getIsActive([...(fields || []), ...registeredFields, ...DATE_FIELDS])
+          getIsActive([...(fields || []), ...registeredFields])
             ? styles.active
             : "",
         ])}
