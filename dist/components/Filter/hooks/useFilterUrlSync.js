@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { getFiltersFromURL, updateURLWithFilters } from "../utils/urlHelpers";
 export function useFilterURLSync(_a) {
     var cleanAll = _a.cleanAll, filter = _a.filter, setFilter = _a.setFilter, queryUpdater = _a.queryUpdater;
-    // Inicializa os filtros a partir da URL
     useEffect(function () {
         var urlFilters = getFiltersFromURL();
         cleanAll(); // Limpa o estado antes de aplicar os novos filtros

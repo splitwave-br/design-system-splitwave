@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { IUseFilterReturn } from "./useFilter";
 import { QueryUpdater } from "@/hooks/useQueryParams";
 import { getFiltersFromURL, updateURLWithFilters } from "../utils/urlHelpers";
@@ -16,7 +16,6 @@ export function useFilterURLSync({
   setFilter,
   queryUpdater,
 }: TURLSyncProps) {
-  // Inicializa os filtros a partir da URL
   useEffect(() => {
     const urlFilters = getFiltersFromURL();
 

@@ -16,6 +16,7 @@ import useClickOutside from "@/hooks/useClickOutside";
 import styles from "./styles.module.scss";
 import useWindowSize from "@/hooks/useWindowSize";
 import React from "react";
+import { DATE_FIELDS } from "../../constants/dateFilter";
 
 type TContainer = {
   children: React.ReactNode;
@@ -41,23 +42,41 @@ function getElementPosition(element: any) {
   };
 }
 
+const isDateFilter = (type: any): boolean => {
+  return (
+    typeof type === "function" &&
+    "displayName" in type &&
+    type.displayName === "DateFilter"
+  );
+};
+
 const extractFieldNames = (elements: React.ReactNode): string[] => {
   let fieldNames: string[] = [];
 
   Children.toArray(elements).forEach((element) => {
     if (!React.isValidElement(element)) return;
-    const childElements = element.props?.children;
-    if (childElements) {
-      fieldNames = fieldNames.concat(extractFieldNames(childElements));
+
+    const { children, field, isPeriod } = element.props || {};
+
+    // Extrai campos dos filhos recursivamente
+    if (children) {
+      fieldNames = fieldNames.concat(extractFieldNames(children));
     }
 
-    const fieldName = element.props?.field;
-    if (fieldName) fieldNames.push(fieldName);
+    // Verifica se é um DateFilter e processa
+    if (isDateFilter(element.type) && isPeriod) {
+      fieldNames.push(...DATE_FIELDS);
+    }
+
+    // Adiciona o campo se presente
+    if (field) {
+      fieldNames.push(field);
+    }
   });
 
-  return fieldNames;
+  // Remove duplicatas
+  return Array.from(new Set(fieldNames));
 };
-
 export const DEFAULT_PADDING = 16;
 export const DEFAULT_GAP = 8;
 

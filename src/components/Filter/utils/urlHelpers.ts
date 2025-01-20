@@ -1,10 +1,9 @@
 import qs from "qs";
 
 export type QueryUpdater = (newPath: string) => void;
-
 export function updateURLWithFilters(
   filters: Record<string, string | undefined>,
-  queryUpdater?: QueryUpdater,
+  queryUpdater: QueryUpdater,
 ) {
   const url = new URL(window.location.href);
 
@@ -21,21 +20,20 @@ export function updateURLWithFilters(
   // Cria um novo objeto de parâmetros, mantendo os existentes da URL, mas removendo os que não estão mais nos filtros
   const updatedParams = { ...currentParams, ...cleanedFilters };
 
-  // Remove da URL qualquer parâmetro que esteja em `currentParams`, mas não esteja mais em `cleanedFilters`
+  // Não remove o parâmetro `page`, que é um parâmetro de navegação
+  const preservedParams = ["page"];
+
+  // Mantém os parâmetros existentes que não pertencem a filters, como `page`
   Object.keys(currentParams).forEach((key) => {
-    if (!(key in cleanedFilters)) {
-      delete updatedParams[key]; // Remove o parâmetro da URL
+    if (!(key in cleanedFilters) && !preservedParams.includes(key)) {
+      delete updatedParams[key];
     }
   });
 
   // Converte o objeto atualizado de volta para uma query string
   const queryString = qs.stringify(updatedParams, { addQueryPrefix: true });
 
-  if (queryUpdater) {
-    queryUpdater(`${url.pathname}${queryString}`);
-    return;
-  }
-  window.history.replaceState(null, "", `${url.pathname}${queryString}`);
+  queryUpdater(`${url.pathname}${queryString}`);
 }
 
 export function getFiltersFromURL(): Record<string, string> {

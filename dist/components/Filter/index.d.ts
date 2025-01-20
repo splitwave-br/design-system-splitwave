@@ -57,5 +57,8 @@ export declare const Filter: {
         options: any;
         className?: string;
     } & import("react").RefAttributes<HTMLDivElement>>;
-    Date: ({ isPeriod, formatter, label, ...props }: import("./components/Date/types").DateFilterProps) => import("react/jsx-runtime").JSX.Element;
+    Date: {
+        ({ isPeriod, formatter, label, ...props }: import("./components/Date/types").DateFilterProps): import("react/jsx-runtime").JSX.Element;
+        displayName: string;
+    };
 };
