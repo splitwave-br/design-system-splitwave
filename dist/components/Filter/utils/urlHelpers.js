@@ -21,19 +21,17 @@ export function updateURLWithFilters(filters, queryUpdater) {
     }));
     // Cria um novo objeto de parâmetros, mantendo os existentes da URL, mas removendo os que não estão mais nos filtros
     var updatedParams = __assign(__assign({}, currentParams), cleanedFilters);
-    // Remove da URL qualquer parâmetro que esteja em `currentParams`, mas não esteja mais em `cleanedFilters`
+    // Não remove o parâmetro `page`, que é um parâmetro de navegação
+    var preservedParams = ["page"];
+    // Mantém os parâmetros existentes que não pertencem a filters, como `page`
     Object.keys(currentParams).forEach(function (key) {
-        if (!(key in cleanedFilters)) {
-            delete updatedParams[key]; // Remove o parâmetro da URL
+        if (!(key in cleanedFilters) && !preservedParams.includes(key)) {
+            delete updatedParams[key];
         }
     });
     // Converte o objeto atualizado de volta para uma query string
     var queryString = qs.stringify(updatedParams, { addQueryPrefix: true });
-    if (queryUpdater) {
-        queryUpdater("".concat(url.pathname).concat(queryString));
-        return;
-    }
-    window.history.replaceState(null, "", "".concat(url.pathname).concat(queryString));
+    queryUpdater("".concat(url.pathname).concat(queryString));
 }
 export function getFiltersFromURL() {
     var params = qs.parse(window.location.search, { ignoreQueryPrefix: true });

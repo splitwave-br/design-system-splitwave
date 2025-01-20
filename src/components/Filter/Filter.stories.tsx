@@ -144,7 +144,7 @@ export const DateFilter: StoryFn = () => {
       <Filter.Button>Data</Filter.Button>
       <Filter.Content>
         <Filter.Date label="Por período" isPeriod />
-        <Filter.Date
+        {/* <Filter.Date
           field="createdAt"
           label="Data de criação"
           isPeriod={false}
@@ -153,7 +153,7 @@ export const DateFilter: StoryFn = () => {
           field="updatedAt"
           label="Data da última atualização"
           isPeriod={false}
-        />
+        /> */}
       </Filter.Content>
     </Filter.Container>
   );
@@ -259,7 +259,6 @@ export const MultipleFilters: StoryFn = () => {
     </Filter.Responsive>
   );
 };
-
 
 export const DarkOrLightTheme: StoryFn = {
   render: () => (
