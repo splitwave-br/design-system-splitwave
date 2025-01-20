@@ -46,3 +46,4 @@ export const DateFilter = ({
     </div>
   );
 };
+DateFilter.displayName = "DateFilter";

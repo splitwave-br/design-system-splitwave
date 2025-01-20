@@ -7,6 +7,7 @@ import useClickOutside from "../../../../hooks/useClickOutside";
 import styles from "./styles.module.scss";
 import useWindowSize from "../../../../hooks/useWindowSize";
 import React from "react";
+import { DATE_FIELDS } from "../../constants/dateFilter";
 function getElementPosition(element) {
     var rect = element.getBoundingClientRect(); // Get the position of the element in relation to the viewport
     var scrollLeft = document.documentElement.scrollLeft;
@@ -22,21 +23,32 @@ function getElementPosition(element) {
         bottom: absoluteBottom,
     };
 }
+var isDateFilter = function (type) {
+    return (typeof type === "function" &&
+        "displayName" in type &&
+        type.displayName === "DateFilter");
+};
 var extractFieldNames = function (elements) {
     var fieldNames = [];
     Children.toArray(elements).forEach(function (element) {
-        var _a, _b;
         if (!React.isValidElement(element))
             return;
-        var childElements = (_a = element.props) === null || _a === void 0 ? void 0 : _a.children;
-        if (childElements) {
-            fieldNames = fieldNames.concat(extractFieldNames(childElements));
+        var _a = element.props || {}, children = _a.children, field = _a.field, isPeriod = _a.isPeriod;
+        // Extrai campos dos filhos recursivamente
+        if (children) {
+            fieldNames = fieldNames.concat(extractFieldNames(children));
         }
-        var fieldName = (_b = element.props) === null || _b === void 0 ? void 0 : _b.field;
-        if (fieldName)
-            fieldNames.push(fieldName);
+        // Verifica se é um DateFilter e processa
+        if (isDateFilter(element.type) && isPeriod) {
+            fieldNames.push.apply(fieldNames, DATE_FIELDS);
+        }
+        // Adiciona o campo se presente
+        if (field) {
+            fieldNames.push(field);
+        }
     });
-    return fieldNames;
+    // Remove duplicatas
+    return Array.from(new Set(fieldNames));
 };
 export var DEFAULT_PADDING = 16;
 export var DEFAULT_GAP = 8;

@@ -99,12 +99,12 @@ function useFilter({ queryUpdater, normalize: _normalize }: TUseFilterConfig) {
     return normalized;
   }, [filter]);
 
-  useFilterURLSync({
-    cleanAll,
-    filter,
-    setFilter: handlesetFilter,
-    queryUpdater,
-  });
+  // useFilterURLSync({
+  //   cleanAll,
+  //   filter,
+  //   setFilter: handlesetFilter,
+  //   queryUpdater,
+  // });
 
   return {
     filter,

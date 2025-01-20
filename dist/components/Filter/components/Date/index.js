@@ -24,3 +24,4 @@ export var DateFilter = function (_a) {
     var fieldRef = useRef(null);
     return (_jsx("div", { ref: fieldRef, className: styles.container, children: _jsxs(Form.Field, { children: [label && _jsx(Form.Label, { children: label }), _jsxs(Button, { className: styles.datePickerTrigger, variant: "outline", onClick: handleToggle, children: [_jsx(Icon, { name: "calendar", size: 1 }), buttonLabel] }), _jsx(DatePicker, { formatter: formatter, parentRef: fieldRef, mode: isPeriod ? "range" : "single", isOpen: isOpen, handlePickDate: handlePickDate, handleToggle: handleToggle })] }) }));
 };
+DateFilter.displayName = "DateFilter";
