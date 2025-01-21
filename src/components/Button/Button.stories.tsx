@@ -52,6 +52,7 @@ export const Outline: Story = {
   },
 };
 export const Danger: Story = {
+  ...Template,
   args: {
     name: "Button Danger",
     variant: "danger",
