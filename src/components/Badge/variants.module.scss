@@ -14,18 +14,18 @@
 }
 
 .error {
-  color: var(--colors-error-700);
-  background-color: var(--colors-error-50);
+  color: var(--component-badge-error-text);
+  background-color: var(--component-badge-error-background);
 }
 
 .blue {
-  color: var(--colors-blue-700);
-  background-color: var(--colors-blue-50);
+  color: var(--component-badge-blue-text);
+  background-color: var(--component-badge-blue-background);
 }
-
+ 
 .orange {
-  color: var(--colors-orange-700);
-  background-color: var(--colors-orange-50);
+  color: var(--component-badge-orange-text);
+  background-color: var(--component-badge-orange-background);
 }
 
 .success {
