@@ -96,6 +96,7 @@ import ZoomIn from "./components/ZoomIn";
 import ZoomOut from "./components/ZoomOut";
 import Money04 from "./components/Money04";
 import { Filter } from "./components/Filter";
+import { Affiliated } from "./components/Affiliated";
 
 const icons = {
   access: Access,
@@ -195,6 +196,7 @@ const icons = {
   "zoom-in": ZoomIn,
   "zoom-out": ZoomOut,
   filter: Filter,
+  affiliated: Affiliated,
 };
 
 export type TIconSizes = "nano" | "micro" | 1 | 2 | 3 | 4;
