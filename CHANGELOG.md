@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.20.4](https://github.com/splitwave-br/design-system-splitwave/compare/v1.20.3...v1.20.4) (2025-01-21)
+
+
+### Bug Fixes
+
+* **#216:** Added dist files ([e352c4f](https://github.com/splitwave-br/design-system-splitwave/commit/e352c4f3e767fd1294e5db116e9b8915f8c23597))
+* **#216:** Added support dark mode on button danger and fix border input ([41d8e0c](https://github.com/splitwave-br/design-system-splitwave/commit/41d8e0ce12186fa952f7735ca5647aaceb19f12f))
+
 ## [1.20.3](https://github.com/splitwave-br/design-system-splitwave/compare/v1.20.2...v1.20.3) (2025-01-20)
 
 
