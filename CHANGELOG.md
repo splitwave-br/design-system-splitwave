@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.20.5](https://github.com/splitwave-br/design-system-splitwave/compare/v1.20.4...v1.20.5) (2025-01-22)
+
+
+### Bug Fixes
+
+* **#216:** added darkmode support on suffix and prefix and show in the storie ([b96393f](https://github.com/splitwave-br/design-system-splitwave/commit/b96393f4223419d4c5733a7cec0cbc000ffeca1b))
+* **#216:** adjust input and button font color and fixed problem on filters ([91b80d3](https://github.com/splitwave-br/design-system-splitwave/commit/91b80d393dfe08ddc39bd87dbae4a606e412fac6))
+* **#216:** adjusted some colors on input and button secondary ([614b251](https://github.com/splitwave-br/design-system-splitwave/commit/614b2512e8ebe2639bc30f0754ed4b2ffed90d46))
+
 ## [1.20.4](https://github.com/splitwave-br/design-system-splitwave/compare/v1.20.3...v1.20.4) (2025-01-21)
 
 
