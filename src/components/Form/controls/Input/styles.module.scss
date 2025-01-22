@@ -108,6 +108,13 @@
   }
 }
 
+.isDisabled {
+  .text__sufix,
+  .text__prefix {
+    color: var(--component-input-disabled-text);
+  }
+}
+
 .hasTextSufix {
   input {
     border-right: 0;

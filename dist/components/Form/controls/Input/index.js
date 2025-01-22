@@ -53,6 +53,7 @@ export var InputWithRef = function (_a, ref) {
         textSuffix ? styles.hasTextSufix : "",
         textPrefix ? styles.hasTextPrefix : "",
         isFocused && (textPrefix || textSuffix) ? styles.isFocused : "",
+        props.disabled && (textPrefix || textSuffix) ? styles.isDisabled : "",
         hasError ? styles.error : "",
         wrapperStyles,
     ].join(" ");
