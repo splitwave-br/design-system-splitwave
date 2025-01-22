@@ -131,6 +131,7 @@ declare const icons: {
     "zoom-in": () => import("react/jsx-runtime").JSX.Element;
     "zoom-out": () => import("react/jsx-runtime").JSX.Element;
     filter: typeof Filter;
+    affiliated: () => import("react/jsx-runtime").JSX.Element;
 };
 export type TIconSizes = "nano" | "micro" | 1 | 2 | 3 | 4;
 export type TIcons = keyof typeof icons;
