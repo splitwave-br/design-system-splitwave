@@ -43,6 +43,14 @@ export const TextSuffix: Story = {
   },
 };
 
+export const TextSuffixDisabled: Story = {
+  ...Template,
+  args: {
+    textSuffix: "%",
+    disabled: true,
+  },
+};
+
 export const Disabled: Story = {
   ...Template,
   args: {

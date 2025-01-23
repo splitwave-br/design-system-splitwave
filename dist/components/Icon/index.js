@@ -97,6 +97,7 @@ import ZoomIn from "./components/ZoomIn";
 import ZoomOut from "./components/ZoomOut";
 import Money04 from "./components/Money04";
 import { Filter } from "./components/Filter";
+import { Affiliated } from "./components/Affiliated";
 var icons = {
     access: Access,
     alert: Alert,
@@ -195,6 +196,7 @@ var icons = {
     "zoom-in": ZoomIn,
     "zoom-out": ZoomOut,
     filter: Filter,
+    affiliated: Affiliated,
 };
 export var Icon = function (_a) {
     var name = _a.name, _b = _a.size, size = _b === void 0 ? 2 : _b, className = _a.className;
