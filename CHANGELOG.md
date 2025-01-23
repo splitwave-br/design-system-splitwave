@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.20.6](https://github.com/splitwave-br/design-system-splitwave/compare/v1.20.5...v1.20.6) (2025-01-23)
+
+
+### Bug Fixes
+
+* **icon:** Change in current color of icon Affiliated ([1e0f776](https://github.com/splitwave-br/design-system-splitwave/commit/1e0f7761821f5c83695c6f50099575a1af27b72b))
+
 ## [1.20.5](https://github.com/splitwave-br/design-system-splitwave/compare/v1.20.4...v1.20.5) (2025-01-22)
 
 
