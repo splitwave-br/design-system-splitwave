@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Icon, TIcons } from "@/components/Icon";
 import styles from "./styles.module.scss";
+import "./variables.scss";
 
 export enum PresetEnum {
   Error = "error",

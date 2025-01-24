@@ -1,7 +1,7 @@
 .light-theme {
     //Gray
     --component-badge-gray-text: var(--colors-dark-gray-700);
-    --component-badge-gray-background: var(--colors-gray-100);
+    --component-badge-gray-background: var(--colors-dark-gray-400);
 
     // Orange
     --component-badge-orange-background: var(--colors-orange-300);
@@ -14,6 +14,18 @@
     // Error
     --component-badge-error-text: var(--colors-error-700);
     --component-badge-error-background: var(--colors-error-300);
+
+    // Success
+    --component-badge-green-text: var(--colors-success-800);
+    --component-badge-green-background: var(--colors-success-200);
+
+    // Purple
+    --component-badge-purple-text: var(--colors-purple-800);
+    --component-badge-purple-background: var(--colors-purple-200);
+
+    // Brand
+    --component-badge-purple-text: var(--colors-brand-900);
+    --component-badge-purple-background: var(--colors-brand-300);
 }
 
 .dark-theme {
@@ -32,4 +44,16 @@
     // Error
     --component-badge-error-text: var(--colors-error-300);
     --component-badge-error-background: var(--colors-error-700);
+
+    // Success
+    --component-badge-green-text: var(--colors-success-200);
+    --component-badge-green-background: var(--colors-success-800);
+
+    // Purple
+    --component-badge-purple-text: var(--colors-purple-200);
+    --component-badge-purple-background: var(--colors-purple-800);
+
+    // Brand
+    --component-badge-purple-text: var(--colors-brand-300);
+    --component-badge-purple-background: var(--colors-brand-900);
 }

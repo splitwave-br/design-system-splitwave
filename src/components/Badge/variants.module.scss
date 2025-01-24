@@ -1,6 +1,6 @@
 .purple {
-  color: var(--colors-purple-700);
-  background-color: var(--colors-purple-50);
+  color: var(--component-badge-purple-text);
+  background-color: var(--component-badge-purple-background);
 }
 
 .gray {
@@ -29,8 +29,8 @@
 }
 
 .success {
-  color: var(--colors-success-700);
-  background-color: var(--colors-success-200);
+  color: var(--component-badge-green-text);
+  background-color: var(--component-badge-green-background);
 }
 
 .warning {
@@ -46,4 +46,9 @@
 .dark-gray {
   color: #fff;
   background-color: var(--colors-dark-gray-700);
+}
+
+.brand {
+  color: var(--component-badge-purple-text);
+  background-color: var(--component-badge-purple-background);
 }

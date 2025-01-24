@@ -66,9 +66,28 @@ export const Indigo: Story = {
 };
 
 export const Success: Story = {
+  ...ThemeSupport,
   args: {
     size: "sm",
     variant: "success",
+    children: "Badge",
+  }
+};
+
+export const Purple: Story = {
+  ...ThemeSupport,
+  args: {
+    size: "sm",
+    variant: "purple",
+    children: "Badge",
+  }
+};
+
+export const Brand: Story = {
+  ...ThemeSupport,
+  args: {
+    size: "sm",
+    variant: "brand",
     children: "Badge",
   }
 };

@@ -71,16 +71,24 @@
   }
 
   &.error {
-    border-color: var(--colors-error-500) !important;
-
+    background-color: var(--component-toast-error-background);
+    border-color: var(--component-toast-error-border);
     figure {
-      color: var(--colors-error-500) !important;
+      color: var(--component-toast-error-icon) !important;
+    }
+    .content {
+      color: var(--component-toast-error-text);
     }
   }
 
   &.success {
+    background-color: var(--component-toast-success-background);
+    border-color: var(--component-toast-success-border);
     figure {
       color: var(--colors-success-400) !important;
+    }
+    .content {
+      color: var(--component-toast-success-text);
     }
   }
 
