@@ -1,4 +1,5 @@
 import { TIcons } from "../../components/Icon";
+import "./variables.scss";
 export declare enum PresetEnum {
     Error = "error",
     Success = "success"

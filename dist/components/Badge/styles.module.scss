@@ -1,0 +1,28 @@
+.button {
+  border-radius: 35px;
+  font-weight: 500;
+  line-height: 18px;
+  user-select: none;
+  position: relative;
+  border: none;
+  outline: none;
+  white-space: nowrap;
+
+  // To align icons inside the component
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // Spacing between icon and text
+  gap: 3px;
+
+  figure {
+    width: 16px;
+    height: 16px;
+
+    svg {
+      width: inherit;
+      height: inherit;
+    }
+  }
+}

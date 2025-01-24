@@ -1,0 +1,162 @@
+@import "src/styles/breakpoints";
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--spaces-2);
+  flex-direction: row;
+
+  @include temporary_mobile {
+    & > div:not(:last-child) {
+      width: 100%;
+
+      > button {
+        width: 100%;
+        justify-content: center;
+        height: var(--spaces-5);
+      }
+    }
+
+    & > button {
+      width: 100%;
+      height: var(--spaces-5);
+    }
+  }
+}
+
+.wrapperFilters {
+  display: flex;
+  align-items: center;
+  gap: var(--spaces-3);
+  position: relative;
+
+  @include temporary_mobile {
+    background-color: var(--background);
+    flex-direction: column;
+
+    padding: var(--spaces-2) 0;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    visibility: hidden;
+    pointer-events: none;
+    margin: 0;
+
+    &.wrapperFiltersOpened {
+      visibility: visible;
+      pointer-events: auto;
+    }
+  }
+}
+
+.wrapperFiltersContent {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+
+  gap: var(--spaces-2);
+  width: 100%;
+  overflow-x: auto;
+
+  @include temporary_mobile {
+    gap: var(--spaces-3);
+    padding: 0 var(--spaces-2);
+    flex-direction: column;
+
+    &.wrapperFiltersContentOpened {
+      flex: 1;
+    }
+  }
+}
+
+.actionsWrapper {
+  width: 100%;
+  background-color: var(--background);
+  z-index: 1000;
+  padding: 0 var(--spaces-2);
+
+  button {
+    width: 100%;
+  }
+
+  display: none;
+
+  @include temporary_mobile {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spaces-1);
+  }
+}
+
+.button {
+  --component-cta-button-secondary-text: var(--colors-gray-900);
+  --component-cta-filter-active-border: var(--colors-success-300);
+  --component-cta-filter-active-background: var(--colors-success-100);
+
+  display: none;
+
+  position: relative;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  padding: 0 var(--spaces-2);
+  gap: var(--spaces-1);
+  height: var(--spaces-4);
+  border-radius: var(--spaces-1);
+  border: 1px solid var(--colors-border);
+  font-size: var(--font-size-3);
+  background: transparent;
+  color: var(--component-cta-button-secondary-text);
+
+  & figure {
+    color: var(--colors-gray-500);
+  }
+
+  &.active {
+    border: 1px solid var(--component-cta-filter-active-border);
+    background: var(--component-cta-filter-active-background);
+  }
+
+  @include temporary_mobile {
+    display: flex;
+  }
+}
+
+.header {
+  display: none;
+
+  @include temporary_mobile {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spaces-2);
+    padding: 0 var(--spaces-2);
+
+    h3 {
+      padding: 0;
+      margin: 0;
+
+      font-family: "Inter Tight";
+      font-size: var(--font-size-4);
+      font-weight: 600;
+      line-height: 1.5em
+    }
+  }
+}
+
+.cleanButton {
+  cursor: pointer;
+  outline: none;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  font-size: var(--font-size-3);
+  font-weight: 500;
+  line-height: 1.5em;
+  color: var(--colors-brand-400);
+}

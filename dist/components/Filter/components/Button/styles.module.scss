@@ -1,0 +1,32 @@
+@import "src/styles/breakpoints";
+
+.button {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  cursor: pointer;
+  padding: 0 var(--spaces-2);
+  gap: var(--spaces-1);
+  height: var(--spaces-4);
+  border-radius: var(--spaces-1);
+  border: 1px solid var(--component-cta-button-tertiary-border);
+  font-size: var(--font-size-3);
+  background: transparent;
+  color: var(--component-cta-button-tertiary-text);
+
+  & figure {
+    color: var(--colors-gray-500);
+  }
+
+  &.active {
+    border: 1px solid var(--component-cta-filter-active-border);
+    background: var(--component-cta-filter-active-background);
+  }
+
+  @include temporary_mobile {
+    width: 100%;
+    height: var(--spaces-5);
+    justify-content: center;
+  }
+}
