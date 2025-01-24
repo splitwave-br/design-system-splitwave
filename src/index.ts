@@ -23,7 +23,8 @@ export {
 export { useFilterFields } from "./components/Filter/hooks/useFields";
 
 // Table
-export { Table, Cell, Header } from "./components/Table";
+export { Table, Cell, Header, Pagination } from "./components/Table";
+export { usePagination } from "./components/Table/hooks/usePagination";
 
 // Icon
 export { Icon, TIconSizes, TIcons } from "./components/Icon";

@@ -2,13 +2,13 @@ import { on } from 'events';
 import { useMemo, useState } from 'react';
 
 export interface IUsePagination<T> {
+  limit: number;
   rows?: T[];
 }
 
-const LIMIT = 15;
 const FAKE_TIMEOUT = 300; // ms
 
-export const usePagination = <T,>({ rows }: IUsePagination<T>) => {
+export const usePagination = <T,>({ rows, limit }: IUsePagination<T>) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -16,8 +16,8 @@ export const usePagination = <T,>({ rows }: IUsePagination<T>) => {
     if (!rows) return [];
 
     const result = Array.from(
-      { length: Math.ceil(rows.length / LIMIT) },
-      (v, i) => rows.slice(i * LIMIT, i * LIMIT + LIMIT)
+      { length: Math.ceil(rows.length / limit) },
+      (v, i) => rows.slice(i * limit, i * limit + limit)
     );
 
     return result as T[][];
@@ -56,6 +56,5 @@ export const usePagination = <T,>({ rows }: IUsePagination<T>) => {
     onClickNextPage: handleClickNextPage,
     onClickPrevPage: handleClickPrevPage,
     onClickOnPage: handleClickOnPage,
-    limit: LIMIT
   };
 };
