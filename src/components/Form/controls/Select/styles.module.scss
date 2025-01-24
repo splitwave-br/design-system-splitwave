@@ -25,7 +25,7 @@
   padding-right: calc(3 * var(--spaces-2));
 
   width: 100%;
-  border: 1px solid var(--input-default-border);
+  border: 1px solid var(--component-cta-button-tertiary-border);
   border-radius: var(--border-radius-3);
   font-size: var(--font-size-3);
 
@@ -57,7 +57,7 @@
 
   border: 1px solid var(--input-default-border);
 
-  background-color: var(--colors-neutral-50);
+  background-color: var(--color-background-sunken);
 
   max-height: calc(5 * var(--spaces-5));
   overflow-y: auto;
