@@ -1,5 +1,6 @@
 import { Meta, StoryFn } from "@storybook/react";
 import { Cell, Header, Table } from ".";
+import { ThemePreview } from "../ThemePreview";
 
 export default {
   component: Table,
@@ -190,125 +191,128 @@ export const TableWithActions: StoryFn = () => {
 
 export const TableWithPages: StoryFn = () => {
   return (
-    <Table
-      data={[
-        {
-          id: "#001",
-          product: "Camiseta",
-          price: 49.99,
-        },
-        {
-          id: "#002",
-          product: "Calça",
-          price: 99.99,
-        },
-        {
-          id: "#003",
-          product: "Boné",
-          price: 19.99,
-        },
-        {
-          id: "#004",
-          product: "Tênis",
-          price: 199.99,
-        },
-        {
-          id: "#005",
-          product: "Meia",
-          price: 9.99,
-        },
-        {
-          id: "#006",
-          product: "Cinto",
-          price: 29.99,
-        },
-        {
-          id: "#007",
-          product: "Relógio",
-          price: 149.99,
-        },
-        {
-          id: "#008",
-          product: "Chapéu",
-          price: 39.99,
-        },
-        {
-          id: "#009",
-          product: "Óculos",
-          price: 79.99,
-        },
-        {
-          id: "#010",
-          product: "Bolsa",
-          price: 199.99,
-        },
-        {
-          id: "#011",
-          product: "Mochila",
-          price: 149.99,
-        },
-        {
-          id: "#012",
-          product: "Carteira",
-          price: 49.99,
-        },
-        {
-          id: "#013",
-          product: "Sapato",
-          price: 299.99,
-        },
-        {
-          id: "#014",
-          product: "Sandália",
-          price: 79.99,
-        },
-        {
-          id: "#015",
-          product: "Sapatênis",
-          price: 199.99,
-        },
-        {
-          id: "#016",
-          product: "Chinelo",
-          price: 19.99,
-        },
-        {
-          id: "#017",
-          product: "Botina",
-          price: 249.99,
-        },
-        {
-          id: "#018",
-          product: "Bota",
-          price: 299.99,
-        },
-        {
-          id: "#019",
-          product: "Tênis de corrida",
-          price: 399.99,
-        },
-        {
-          id: "#020",
-          product: "Tênis de academia",
-          price: 299.99,
-        },
-      ]}
-      renderHeader={() => (
-        <>
-          <Header width="80px">Id</Header>
-          <Header>Produto</Header>
-          <Header>Preço</Header>
-        </>
-      )}
-      renderRow={(item) => {
-        return (
+    <ThemePreview>
+      <Table
+        data={[
+          {
+            id: "#001",
+            product: "Camiseta",
+            price: 49.99,
+          },
+          {
+            id: "#002",
+            product: "Calça",
+            price: 99.99,
+          },
+          {
+            id: "#003",
+            product: "Boné",
+            price: 19.99,
+          },
+          {
+            id: "#004",
+            product: "Tênis",
+            price: 199.99,
+          },
+          {
+            id: "#005",
+            product: "Meia",
+            price: 9.99,
+          },
+          {
+            id: "#006",
+            product: "Cinto",
+            price: 29.99,
+          },
+          {
+            id: "#007",
+            product: "Relógio",
+            price: 149.99,
+          },
+          {
+            id: "#008",
+            product: "Chapéu",
+            price: 39.99,
+          },
+          {
+            id: "#009",
+            product: "Óculos",
+            price: 79.99,
+          },
+          {
+            id: "#010",
+            product: "Bolsa",
+            price: 199.99,
+          },
+          {
+            id: "#011",
+            product: "Mochila",
+            price: 149.99,
+          },
+          {
+            id: "#012",
+            product: "Carteira",
+            price: 49.99,
+          },
+          {
+            id: "#013",
+            product: "Sapato",
+            price: 299.99,
+          },
+          {
+            id: "#014",
+            product: "Sandália",
+            price: 79.99,
+          },
+          {
+            id: "#015",
+            product: "Sapatênis",
+            price: 199.99,
+          },
+          {
+            id: "#016",
+            product: "Chinelo",
+            price: 19.99,
+          },
+          {
+            id: "#017",
+            product: "Botina",
+            price: 249.99,
+          },
+          {
+            id: "#018",
+            product: "Bota",
+            price: 299.99,
+          },
+          {
+            id: "#019",
+            product: "Tênis de corrida",
+            price: 399.99,
+          },
+          {
+            id: "#020",
+            product: "Tênis de academia",
+            price: 299.99,
+          },
+        ]}
+        renderHeader={() => (
           <>
-            <Cell.Text>{item.id}</Cell.Text>
-            <Cell.Text>{item.product}</Cell.Text>
-            <Cell.Price>{item.price}</Cell.Price>
+            <Header width="80px">Id</Header>
+            <Header>Produto</Header>
+            <Header>Preço</Header>
           </>
-        );
-      }}
-    />
+        )}
+        renderRow={(item) => {
+          return (
+            <>
+              <Cell.Text>{item.id}</Cell.Text>
+              <Cell.Text>{item.product}</Cell.Text>
+              <Cell.Price>{item.price}</Cell.Price>
+            </>
+          );
+        }}
+      />
+    </ThemePreview>
   );
 };
+

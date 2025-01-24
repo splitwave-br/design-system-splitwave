@@ -1,0 +1,10 @@
+.light-theme {
+  --input-default-border: var(--colors-light-gray-300);
+  --icon-static: var(--colors-light-gray-500);
+}
+
+.dark-theme {
+  --input-default-border: var(--colors-dark-gray-500);
+  --icon-static: var(--colors-dark-gray-500);
+}
+

@@ -5,7 +5,9 @@ import React from "react";
 import { useCallback, useEffect, useState } from "react";
 
 import styles from "./styles.module.scss";
+import "./variables.scss";
 import { concatStyles } from "@/utils/concatStyles";
+import { Icon } from "@/components/Icon";
 
 type TRenderItem = {
   option: any;
@@ -130,7 +132,7 @@ export function Select({
   return (
     <div className={wrapperClass} onClick={handleOpenOptions}>
       <div className={selectClass}>
-        {/* <Icon name='chevron-down' size={2} /> */}
+        <Icon name='chevron-down' size={2} />
         {selectedOption ? (
           <span className={selectedValueClass}>{getLabel(selectedOption)}</span>
         ) : (
