@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.20.7](https://github.com/splitwave-br/design-system-splitwave/compare/v1.20.6...v1.20.7) (2025-01-27)
+
+
+### Bug Fixes
+
+* **#216:** remove unnecessary variable ([86cd83d](https://github.com/splitwave-br/design-system-splitwave/commit/86cd83dc563f6c8c64b49dc8bb7d286b8089c59b))
+* **#240:** fixed input color ([98d01ad](https://github.com/splitwave-br/design-system-splitwave/commit/98d01ad747e9631c253a876e9e606b96b766bb5e))
+
 ## [1.20.6](https://github.com/splitwave-br/design-system-splitwave/compare/v1.20.5...v1.20.6) (2025-01-23)
 
 
