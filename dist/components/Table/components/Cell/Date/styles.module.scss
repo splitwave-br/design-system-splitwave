@@ -1,0 +1,15 @@
+.cell {
+  display: flex;
+  gap: var(--spaces-micro);
+
+  font-size: 14px;
+  color: var(--table-text-color-primary);
+
+  time {
+    color: var(--table-text-color-secondary);
+  }
+
+  p {
+    margin: 0;
+  }
+}

@@ -1,0 +1,13 @@
+:root {
+  --trigger-width: 36px;
+  --trigger-height: 32px;
+  --trigger-radius: var(--border-radius-3);
+}
+
+.light-theme {
+  --input-default-border: var(--colors-light-gray-300);
+}
+
+.dark-theme {
+  --input-default-border: var(--colors-dark-gray-500);
+}
