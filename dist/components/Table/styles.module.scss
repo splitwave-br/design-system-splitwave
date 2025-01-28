@@ -6,7 +6,21 @@
 
 .table {
   display: grid;
-  overflow-x: scroll;
+  overflow-x: auto;
+  &::-webkit-scrollbar {
+    height: 8px;
+    background: var(--table-scroll-road);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--table-scroll-thumb);
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--table-scroll-road);
+    border-radius: 4px;
+  }
 }
 
 .header {
