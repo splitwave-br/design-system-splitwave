@@ -3,6 +3,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useEffect, useMemo, useState } from "react";
 import { Icon } from "../../components/Icon";
 import styles from "./styles.module.scss";
+import "./variables.scss";
 export var PresetEnum;
 (function (PresetEnum) {
     PresetEnum["Error"] = "error";

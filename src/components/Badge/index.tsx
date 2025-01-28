@@ -14,6 +14,7 @@ export type TVariant =
   | "orange"
   | "warning"
   | "indigo"
+  | "brand"
   | "success";
 
 export type TSizes = "sm" | "md" | "lg";

@@ -1,0 +1,21 @@
+.light-theme {
+    --component-toast-success-background: var(--colors-gray-25);
+    --component-toast-success-text: var(--colors-font-primary);
+    --component-toast-success-border: var(--colors-gray-300);
+
+    --component-toast-error-background: var(--colors-gray-25);
+    --component-toast-error-border: var(--colors-error-600);
+    --component-toast-error-text: var(--colors-font-primary);
+    --component-toast-error-icon: var(--colors-error-600);
+}
+
+.dark-theme {
+    --component-toast-success-background: var(--colors-dark-gray-800);
+    --component-toast-success-border: var(--colors-dark-gray-700);
+    --component-toast-success-text: var(--colors-font-primary);
+
+    --component-toast-error-background: var(--colors-error-600);
+    --component-toast-error-border: var(--colors-error-400);
+    --component-toast-error-text: var(--colors-font-primary);
+    --component-toast-error-icon: var(--colors-font-primary);
+}
