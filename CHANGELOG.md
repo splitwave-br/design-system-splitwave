@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.21.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.20.7...v1.21.0) (2025-01-28)
+
+
+### Features
+
+* **#240:** adjusted select border variable ([191be96](https://github.com/splitwave-br/design-system-splitwave/commit/191be96d3dbee5aa19e45c71f9fac2979b8109da))
+
 ## [1.20.7](https://github.com/splitwave-br/design-system-splitwave/compare/v1.20.6...v1.20.7) (2025-01-27)
 
 
