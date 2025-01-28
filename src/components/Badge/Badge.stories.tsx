@@ -21,7 +21,7 @@ export const Default: Story = {
 export const ThemeSupport: Story = {
   render: ({ children, ...args }) => (
     <ThemePreview>
-      <Badge>{children}</Badge>
+      <Badge {...args}>{children}</Badge>
     </ThemePreview>
   ),
   args: {
@@ -31,9 +31,28 @@ export const ThemeSupport: Story = {
 };
 
 export const Blue: Story = {
+  ...ThemeSupport,
   args: {
     size: "sm",
     variant: "blue",
+    children: "Badge",
+  }
+};
+
+export const Error: Story = {
+  ...ThemeSupport,
+  args: {
+    size: "sm",
+    variant: "error",
+    children: "Badge",
+  }
+};
+
+export const Orange: Story = {
+  ...ThemeSupport,
+  args: {
+    size: "sm",
+    variant: "orange",
     children: "Badge",
   }
 };
@@ -47,9 +66,28 @@ export const Indigo: Story = {
 };
 
 export const Success: Story = {
+  ...ThemeSupport,
   args: {
     size: "sm",
     variant: "success",
+    children: "Badge",
+  }
+};
+
+export const Purple: Story = {
+  ...ThemeSupport,
+  args: {
+    size: "sm",
+    variant: "purple",
+    children: "Badge",
+  }
+};
+
+export const Brand: Story = {
+  ...ThemeSupport,
+  args: {
+    size: "sm",
+    variant: "brand",
     children: "Badge",
   }
 };

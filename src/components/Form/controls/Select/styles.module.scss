@@ -3,11 +3,10 @@
 
   position: relative;
   cursor: pointer;
-
+  background-color: var(--color-background-sunken);
   &.disabled {
     cursor: not-allowed !important;
     color: var(--colors-gray-400);
-
     font-size: var(--font-size-3);
     font-weight: 500;
     line-height: 1.42em;
@@ -58,7 +57,7 @@
 
   border: 1px solid var(--input-default-border);
 
-  background-color: var(--colors-neutral-50);
+  background-color: var(--color-background-sunken);
 
   max-height: calc(5 * var(--spaces-5));
   overflow-y: auto;
@@ -89,9 +88,11 @@
 
 .option {
   user-select: none;
+  background-color: var(--color-background-sunken);
   font-size: var(--font-size-3);
   padding: 0 var(--spaces-2);
   height: var(--spaces-5);
+  color: var(--colors-font-primary);
   min-height: var(--spaces-5);
   display: flex;
   align-items: center;
@@ -100,7 +101,7 @@
   gap: var(--spaces-2);
 
   &:not(.optionSelected):hover {
-    background-color: var(--colors-gray-50);
+    background-color: var(--colors-background-overlay-gray);
   }
 }
 
@@ -122,8 +123,7 @@
 }
 
 .select {
-  background-color: var(--surface-background);
-
+  background-color: var(--color-background-sunken);
   width: 100%;
   border: 1px solid var(--input-default-border);
   border-radius: var(--border-radius-3);
@@ -157,8 +157,8 @@
   &.disabled {
     cursor: not-allowed;
 
-    background: var(--colors-gray-50);
-
+    background: var(--component-input-disabled);
+    color: var(--component-input-disabled-text);
     box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
     pointer-events: none;
   }
@@ -174,7 +174,7 @@
     top: calc(var(--spaces-4) / 2);
     right: var(--spaces-micro);
     transform: translateY(-50%);
-    color: var(--colors-gray-400);
+    color: var(--icon-static);
   }
 }
 

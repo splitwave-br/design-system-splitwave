@@ -14,7 +14,9 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 // import { Icon, TIcons } from '../../../../components/Icon';
 import { useCallback, useEffect, useState } from "react";
 import styles from "./styles.module.scss";
+import "./variables.scss";
 import { concatStyles } from "../../../../utils/concatStyles";
+import { Icon } from "../../../../components/Icon";
 var OPTION_WRAPPER_CLASSES = {
     top: styles.optionsWrapperTop,
     bottom: styles.optionsWrapperBottom,
@@ -90,7 +92,7 @@ export function Select(_a) {
         isDisabled && styles.disabled,
     ].join(" ");
     var optionWrapperClass = OPTION_WRAPPER_CLASSES[direction];
-    return (_jsxs("div", { className: wrapperClass, onClick: handleOpenOptions, children: [_jsx("div", { className: selectClass, children: selectedOption ? (_jsx("span", { className: selectedValueClass, children: getLabel(selectedOption) })) : (_jsx("span", { children: placeholder })) }), isOpen && (_jsx("div", { className: optionWrapperClass, children: !!options.length ? (options.map(function (option) {
+    return (_jsxs("div", { className: wrapperClass, onClick: handleOpenOptions, children: [_jsxs("div", { className: selectClass, children: [_jsx(Icon, { name: 'chevron-down', size: 2 }), selectedOption ? (_jsx("span", { className: selectedValueClass, children: getLabel(selectedOption) })) : (_jsx("span", { children: placeholder }))] }), isOpen && (_jsx("div", { className: optionWrapperClass, children: !!options.length ? (options.map(function (option) {
                     var isSelected = handleGetValue(option) === handleGetValue(selectedOption);
                     var className = concatStyles([
                         styles.option,
