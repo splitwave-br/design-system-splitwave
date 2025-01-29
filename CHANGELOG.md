@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.22.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.21.0...v1.22.0) (2025-01-29)
+
+
+### Features
+
+* **#240:** adjust variables on border radius and heigth on table scroll ([598dbf7](https://github.com/splitwave-br/design-system-splitwave/commit/598dbf7fc78b650a8673048236ca72bbc6f5e66f))
+* **#240:** fix script build ([2eab0ba](https://github.com/splitwave-br/design-system-splitwave/commit/2eab0bae857aed2428edaaffc03f3f6787a279bc))
+* **#240:** fix table scroll-x ([7372a8b](https://github.com/splitwave-br/design-system-splitwave/commit/7372a8b8a342cc3e5104844711c8b6a465d46ab2))
+
 ## [1.21.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.20.7...v1.21.0) (2025-01-28)
 
 
