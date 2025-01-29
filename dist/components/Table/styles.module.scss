@@ -8,18 +8,18 @@
   display: grid;
   overflow-x: auto;
   &::-webkit-scrollbar {
-    height: 8px;
+    height: var(--spaces-1);
     background: var(--table-scroll-road);
   }
 
   &::-webkit-scrollbar-thumb {
     background: var(--table-scroll-thumb);
-    border-radius: 4px;
+    border-radius: var(--border-radius-2);
   }
 
   &::-webkit-scrollbar-track {
     background: var(--table-scroll-road);
-    border-radius: 4px;
+    border-radius: var(--border-radius-2);
   }
 }
 
