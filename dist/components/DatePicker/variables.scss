@@ -1,0 +1,19 @@
+.light-theme {
+    --datepicker-middle-cell-background: var(--colors-brand-50);
+    --datepicker-current-day-background: var(--colors-gray-100);
+    --datepicker-hover-text: var(--colors-brand-400);
+    --datepicker-background-selectedDay: var(--colors-brand-600);
+    --datepicker-background: var(--background);
+    --datepicker-color: var(--colors-dark-gray-700);
+    --datepicker-border: var(--color-border-default);
+}
+
+.dark-theme {
+    --datepicker-middle-cell-background: var(--colors-brand-900);
+    --datepicker-current-day-background: var(--colors-dark-gray-600);
+    --datepicker-hover-text: var(--colors-brand-300);
+    --datepicker-background-selectedDay: var(--colors-brand-400);
+    --datepicker-background: var(--background);
+    --datepicker-color: var(--colors-dark-gray-300);
+    --datepicker-border: var(--color-border-default);
+}
