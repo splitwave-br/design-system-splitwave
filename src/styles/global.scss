@@ -71,6 +71,7 @@
 
   //Black
   --colors-black: #000;
+
   // Gray
   --colors-gray-25: #fcfcfd;
   --colors-gray-50: #f9fafb;
@@ -85,11 +86,13 @@
   --colors-gray-850: #2a3036;
   --colors-gray-900: #101828;
   --colors-gray: var(--colors-gray-500);
+
   // Dark gray
   --colors-dark-gray-400: #85909B;
   --colors-dark-gray-700: #161a1d;
   --colors-dark-gray-800: #101214;
   --colors-dark-gray-900: #0b0d0e;
+
   // Success
   --colors-success-25: #f6fef9;
   --colors-success-50: #ecfdf3;
