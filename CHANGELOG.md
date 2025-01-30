@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.22.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.22.0...v1.22.1) (2025-01-30)
+
+
+### Bug Fixes
+
+* **#832:** Fix globals file ([d8740f3](https://github.com/splitwave-br/design-system-splitwave/commit/d8740f3249366ab3b2ff98eb82c818d86e1bdb13))
+
 ## [1.22.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.21.0...v1.22.0) (2025-01-29)
 
 
