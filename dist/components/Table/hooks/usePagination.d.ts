@@ -1,7 +1,8 @@
 export interface IUsePagination<T> {
+    limit: number;
     rows?: T[];
 }
-export declare const usePagination: <T>({ rows }: IUsePagination<T>) => {
+export declare const usePagination: <T>({ rows, limit }: IUsePagination<T>) => {
     currentPage: number;
     pages: T[][];
     isLoading: boolean;
@@ -9,5 +10,4 @@ export declare const usePagination: <T>({ rows }: IUsePagination<T>) => {
     onClickNextPage: () => void;
     onClickPrevPage: () => void;
     onClickOnPage: (page: number) => void;
-    limit: number;
 };
