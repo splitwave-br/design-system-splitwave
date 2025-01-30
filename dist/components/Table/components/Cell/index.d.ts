@@ -28,7 +28,7 @@ export declare const Cell: {
     Placeholder: ({ children }: import("../../types").TCell & {
         children: React.ReactNode;
     }) => import("react/jsx-runtime").JSX.Element;
-    Actions: ({ children, renderTrigger, isFixed, onClick }: import("../../types").TCell & {
+    Actions: ({ children, renderTrigger, isFixed, onClick, }: import("../../types").TCell & {
         children: React.ReactNode;
         onClick?: (...args: any) => any;
         isFixed?: boolean;

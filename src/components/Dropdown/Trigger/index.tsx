@@ -1,17 +1,10 @@
 "use client";
-import { ButtonProps } from "../../../components/Button";
+import { Button, ButtonProps } from "@/components/Button";
 import { forwardRef } from "react";
-import styles from "./styles.module.scss";
-import "./variables.scss";
-import { concatStyles } from "../../../utils/concatStyles";
-import variants from "./variants.module.scss";
-
-export type TTriggerVariants = "primary" | "secondary";
 
 export interface TriggerProps extends ButtonProps {
   children: any;
   isOpen?: boolean;
-  variant?: TTriggerVariants;
 }
 
 const Trigger = forwardRef<HTMLButtonElement, TriggerProps>(
@@ -20,7 +13,7 @@ const Trigger = forwardRef<HTMLButtonElement, TriggerProps>(
       children,
       className,
       isOpen,
-      variant = "secondary",
+      variant = "tertiary",
       size = "medium",
       ...props
     },
@@ -30,18 +23,10 @@ const Trigger = forwardRef<HTMLButtonElement, TriggerProps>(
       return children(props, ref);
     }
 
-    const triggerStyles = concatStyles([
-      styles.wrapper,
-      variants[`variant__${variant}`],
-      styles[`size__${size}`],
-
-      className,
-    ]);
-
     return (
-      <button ref={ref} className={triggerStyles} {...props}>
+      <Button variant={variant} size={size} ref={ref} {...props}>
         {children}
-      </button>
+      </Button>
     );
   },
 );

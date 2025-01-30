@@ -6,5 +6,5 @@ type TProps = TCell & {
     isFixed?: boolean;
     renderTrigger?: (props: any, ref: ForwardedRef<any>) => React.ReactNode;
 };
-export declare const Actions: ({ children, renderTrigger, isFixed, onClick }: TProps) => import("react/jsx-runtime").JSX.Element;
+export declare const Actions: ({ children, renderTrigger, isFixed, onClick, }: TProps) => import("react/jsx-runtime").JSX.Element;
 export {};

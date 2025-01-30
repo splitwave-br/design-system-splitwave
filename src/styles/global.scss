@@ -54,16 +54,15 @@
   --colors-brand: #000;
   --colors-brand-25: #f1eafb;
   --colors-brand-50: #e3d4f6;
-  --colors-brand-100: #d5c0f2;
+  --colors-brand-100: #d5bff2;
   --colors-brand-200: #c7aaed;
-  --colors-brand-300: #ba95e9;
+  --colors-brand-300: #9851f3;
   --colors-brand-400: #742ad3;
-  --colors-brand-500: #511d95;
+  --colors-brand-500: #511d94;
   --colors-brand-600: #46197f;
   --colors-brand-700: #3a156a;
   --colors-brand-800: #2e1154;
   --colors-brand-900: #230d3f;
-  --colors-brand-950: var(--colors-brand);
 
   // Neutral colors
   --colors-neutral-50: #ffffff;
@@ -71,7 +70,7 @@
 
   //Black
   --colors-black: #000;
-
+  --colors-white: #fff;
   // Gray
   --colors-gray-25: #fcfcfd;
   --colors-gray-50: #f9fafb;
@@ -86,12 +85,6 @@
   --colors-gray-850: #2a3036;
   --colors-gray-900: #101828;
   --colors-gray: var(--colors-gray-500);
-
-  // Dark gray
-  --colors-dark-gray-400: #85909B;
-  --colors-dark-gray-700: #161a1d;
-  --colors-dark-gray-800: #101214;
-  --colors-dark-gray-900: #0b0d0e;
 
   // Success
   --colors-success-25: #f6fef9;
@@ -129,13 +122,12 @@
   // Purple
   --colors-purple-50: #f4f3ff;
   --colors-purple-100: #ebe9fe;
-  --colors-purple-200: #D9D6FE;
+  --colors-purple-200: #d9d6fe;
   --colors-purple-300: #bdb4fe;
   --colors-purple-500: #9851f3;
   --colors-purple-600: #6938ef;
   --colors-purple-700: #5925dc;
-  --colors-purple-800: #4A1FB8;
-  
+  --colors-purple-800: #4a1fb8;
 
   // Blue Gray
   --colors-blue-gray-50: #f8f9fc;
@@ -151,7 +143,7 @@
 
   // Blue
   --colors-blue-50: #eff8ff;
-  --colors-blue-200: #B2DDFF;
+  --colors-blue-200: #b2ddff;
   --colors-blue-300: #84caff;
   --colors-blue-500: #53b1fd;
   --colors-blue-700: #175cd3;
@@ -161,10 +153,10 @@
   --colors-orange-50: #fff6ed;
   --colors-orange-100: #ffead5;
   --colors-orange-200: #fddcab;
-  --colors-orange-300: #FEB273;
+  --colors-orange-300: #feb273;
   --colors-orange-400: #fd853a;
   --colors-orange-700: #c4320a;
-  --colors-orange-900: #7E2410;
+  --colors-orange-900: #7e2410;
 
   // Indigo
   --colors-indigo-50: #eef4ff;
@@ -184,15 +176,19 @@
   --background: #fff;
 
   // Dark Gray
+  --colors-dark-gray-400: #85909b;
   --colors-dark-gray-500: #636e79;
   --colors-dark-gray-600: #30373e;
   --colors-dark-gray-700: #161a1d;
+  --colors-dark-gray-800: #101214;
   --colors-dark-gray-900: #0b0d0e;
 
   //Light Gray
   --colors-light-gray-200: var(--colors-gray-200);
   --colors-light-gray-300: var(--colors-gray-300);
+  --colors-light-gray-400: var(--colors-gray-400);
   --colors-light-gray-500: var(--colors-gray-500);
+  --colors-light-gray-600: var(--colors-gray-600);
   --colors-light-gray-700: var(--colors-gray-700);
   --colors-light-gray-900: var(--colors-gray-900);
 

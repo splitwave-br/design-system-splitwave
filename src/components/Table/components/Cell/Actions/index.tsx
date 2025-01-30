@@ -10,7 +10,12 @@ type TProps = TCell & {
   renderTrigger?: (props: any, ref: ForwardedRef<any>) => React.ReactNode;
 };
 
-export const Actions = ({ children, renderTrigger, isFixed, onClick }: TProps) => {
+export const Actions = ({
+  children,
+  renderTrigger,
+  isFixed,
+  onClick,
+}: TProps) => {
   return (
     <div onClick={onClick} className={isFixed ? styles.isFixed : ""}>
       <Dropdown.Container>

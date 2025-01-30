@@ -38,11 +38,12 @@ import { useFilterContext } from "../../hooks/useFilter";
 import { concatStyles } from "../../../../utils/concatStyles";
 import { useFilterFields } from "../../hooks/useFields";
 import { Icon } from "../../../../components/Icon";
+import { Button as BaseButton } from "../../../../components/Button";
 export var Button = forwardRef(function (_a, ref) {
     var IconCustom = _a.icon, children = _a.children, isOpen = _a.isOpen, fields = _a.fields, props = __rest(_a, ["icon", "children", "isOpen", "fields"]);
     var getIsActive = useFilterContext().getIsActive;
     var registeredFields = useFilterFields().fields;
-    return (_jsxs("button", __assign({}, props, { ref: ref, className: concatStyles([
+    return (_jsxs(BaseButton, __assign({}, props, { variant: "tertiary", size: "medium", ref: ref, className: concatStyles([
             styles.button,
             getIsActive(__spreadArray(__spreadArray([], (fields || []), true), registeredFields, true))
                 ? styles.active

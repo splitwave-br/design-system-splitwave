@@ -315,4 +315,3 @@ export const TableWithPages: StoryFn = () => {
     </ThemePreview>
   );
 };
-

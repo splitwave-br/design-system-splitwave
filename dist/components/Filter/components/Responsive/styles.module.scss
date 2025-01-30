@@ -59,6 +59,7 @@
 
   gap: var(--spaces-2);
   width: 100%;
+  overflow-y: hidden;
   overflow-x: auto;
 
   @include temporary_mobile {
@@ -92,25 +93,12 @@
 }
 
 .button {
-  --component-cta-button-secondary-text: var(--colors-gray-900);
   --component-cta-filter-active-border: var(--colors-success-300);
   --component-cta-filter-active-background: var(--colors-success-100);
 
   display: none;
 
   position: relative;
-  align-items: center;
-  justify-content: center;
-
-  cursor: pointer;
-  padding: 0 var(--spaces-2);
-  gap: var(--spaces-1);
-  height: var(--spaces-4);
-  border-radius: var(--spaces-1);
-  border: 1px solid var(--colors-border);
-  font-size: var(--font-size-3);
-  background: transparent;
-  color: var(--component-cta-button-secondary-text);
 
   & figure {
     color: var(--colors-gray-500);
@@ -144,7 +132,7 @@
       font-family: "Inter Tight";
       font-size: var(--font-size-4);
       font-weight: 600;
-      line-height: 1.5em
+      line-height: 1.5em;
     }
   }
 }

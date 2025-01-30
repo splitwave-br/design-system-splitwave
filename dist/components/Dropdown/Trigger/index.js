@@ -22,23 +22,14 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 import { jsx as _jsx } from "react/jsx-runtime";
+import { Button } from "../../../components/Button";
 import { forwardRef } from "react";
-import styles from "./styles.module.scss";
-import "./variables.scss";
-import { concatStyles } from "../../../utils/concatStyles";
-import variants from "./variants.module.scss";
 var Trigger = forwardRef(function (_a, ref) {
-    var children = _a.children, className = _a.className, isOpen = _a.isOpen, _b = _a.variant, variant = _b === void 0 ? "secondary" : _b, _c = _a.size, size = _c === void 0 ? "medium" : _c, props = __rest(_a, ["children", "className", "isOpen", "variant", "size"]);
+    var children = _a.children, className = _a.className, isOpen = _a.isOpen, _b = _a.variant, variant = _b === void 0 ? "tertiary" : _b, _c = _a.size, size = _c === void 0 ? "medium" : _c, props = __rest(_a, ["children", "className", "isOpen", "variant", "size"]);
     if (typeof children === "function") {
         return children(props, ref);
     }
-    var triggerStyles = concatStyles([
-        styles.wrapper,
-        variants["variant__".concat(variant)],
-        styles["size__".concat(size)],
-        className,
-    ]);
-    return (_jsx("button", __assign({ ref: ref, className: triggerStyles }, props, { children: children })));
+    return (_jsx(Button, __assign({ variant: variant, size: size, ref: ref }, props, { children: children })));
 });
 Trigger.displayName = "Trigger";
 export default Trigger;

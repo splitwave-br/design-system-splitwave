@@ -1,5 +1,4 @@
 import React from "react";
-import "../Trigger/variables.scss";
 type TDropdown = {
     children: React.ReactNode;
     className?: string;

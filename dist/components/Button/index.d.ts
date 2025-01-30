@@ -1,12 +1,13 @@
-import { ButtonHTMLAttributes, ReactNode } from 'react';
+import React, { ButtonHTMLAttributes } from "react";
 import "./variables.scss";
-export type TButtonVariants = 'primary' | 'text' | 'secondary' | 'tertiary' | 'outline' | 'success' | 'danger';
-export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-    children: ReactNode;
+export type ButtonSize = "medium" | "large";
+export type TButtonVariants = "primary" | "secondary" | "tertiary" | "link-gray" | "link-color";
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+    variant?: TButtonVariants;
+    size?: ButtonSize;
+    children: React.ReactNode;
     disabled?: boolean;
     loading?: boolean;
-    variant?: TButtonVariants;
-    size?: 'small' | 'medium' | 'large';
     className?: string;
-};
-export declare const Button: ({ children, variant, size, type, disabled, loading, className, ...props }: ButtonProps) => import("react/jsx-runtime").JSX.Element;
+}
+export declare const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<HTMLButtonElement>>;

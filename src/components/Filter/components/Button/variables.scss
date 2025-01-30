@@ -1,13 +1,9 @@
 .light-theme {
-    --component-cta-button-tertiary-border: var(--colors-border);
-    --component-cta-button-tertiary-text: var(--colors-gray-900);
-    --component-cta-filter-active-border: var(--colors-success-300);
-    --component-cta-filter-active-background: var(--colors-success-100);
+  --component-cta-filter-active-border: var(--colors-success-300);
+  --component-cta-filter-active-background: var(--colors-success-100);
 }
 
 .dark-theme {
-    --component-cta-button-tertiary-border: var(--colors-dark-gray-600);
-    --component-cta-button-tertiary-text: var(--colors-neutral-50);
-    --component-cta-filter-active-border: var(--colors-success-400);
-    --component-cta-filter-active-background: var(--colors-success-900);
+  --component-cta-filter-active-border: var(--colors-success-400);
+  --component-cta-filter-active-background: var(--colors-success-900);
 }
