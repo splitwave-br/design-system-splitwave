@@ -92,7 +92,7 @@ export var DatePicker = function (_a) {
     };
     var combinedClassNames = __assign(__assign({}, defaultClassNames), (isSmallScreen
         ? { nav_button: styles.navButton, nav: styles.rdpNav }
-        : {}));
+        : { nav_button: styles.iconNav }));
     var modeSpecificProps = mode === "range"
         ? {
             mode: "range",

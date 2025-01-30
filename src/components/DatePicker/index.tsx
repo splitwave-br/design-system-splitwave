@@ -105,7 +105,7 @@ export const DatePicker = ({
     ...defaultClassNames,
     ...(isSmallScreen
       ? { nav_button: styles.navButton, nav: styles.rdpNav }
-      : {}),
+      : { nav_button: styles.iconNav }),
   };
 
   const modeSpecificProps =
