@@ -12,7 +12,8 @@ export { Filter } from "./components/Filter";
 export { useFilterContext, useFilter, } from "./components/Filter/hooks/useFilter";
 export { useFilterFields } from "./components/Filter/hooks/useFields";
 // Table
-export { Table, Cell, Header } from "./components/Table";
+export { Table, Cell, Header, Pagination } from "./components/Table";
+export { usePagination } from "./components/Table/hooks/usePagination";
 // Icon
 export { Icon } from "./components/Icon";
 // Modal

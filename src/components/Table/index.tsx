@@ -20,8 +20,9 @@ export const Table = <T extends ITableData>({
   renderEmptyState,
   pagination,
 }: TTable<T>) => {
+  const LIMIT = 15;
   const { isMobile } = useWindowSize();
-  const staticPagination = usePagination<T>({ rows: data });
+  const staticPagination = usePagination<T>({ rows: data, limit: 5 });
 
   const {
     currentPage,
@@ -31,7 +32,6 @@ export const Table = <T extends ITableData>({
     onClickPrevPage,
     totalPages,
     isLoading,
-    limit,
   } = pagination || staticPagination;
 
   const pageData = useMemo(() => {
@@ -73,7 +73,7 @@ export const Table = <T extends ITableData>({
         {isEmpty && renderEmptyState && renderEmptyState()}
 
         <Rows
-          limit={limit}
+          limit={LIMIT}
           keyExtractor={keyExtractor}
           data={pageData}
           renderRow={renderRow}
@@ -99,4 +99,4 @@ export const Table = <T extends ITableData>({
   );
 };
 
-export { Cell, Header };
+export { Cell, Header, Pagination };
