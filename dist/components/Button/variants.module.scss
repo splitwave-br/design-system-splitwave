@@ -106,3 +106,20 @@
     color: var(--button-link-disabled);
   }
 }
+
+.variant__danger {
+  color: var(--colors-white);
+
+  border: 1px solid var(--colors-error-600);
+  background: var(--colors-error-600);
+
+  transition:
+    box-shadow 0.3s,
+    background-color 0.3s;
+  will-change: box-shadow, background-color;
+
+  &:not(:disabled):hover {
+    border-color: var(--colors-error-700);
+    background-color: var(--colors-error-700);
+  }
+}

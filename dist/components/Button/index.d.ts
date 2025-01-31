@@ -1,7 +1,7 @@
 import React, { ButtonHTMLAttributes } from "react";
 import "./variables.scss";
 export type ButtonSize = "medium" | "large";
-export type TButtonVariants = "primary" | "secondary" | "tertiary" | "link-gray" | "link-color";
+export type TButtonVariants = "primary" | "secondary" | "tertiary" | "link-gray" | "link-color" | "danger";
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: TButtonVariants;
     size?: ButtonSize;

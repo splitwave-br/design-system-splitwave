@@ -64,3 +64,13 @@ export const LinkColor: Story = {
     children: "Link color",
   },
 };
+
+
+export const Danger:Story = {
+  args: {
+    name: "Button Danger",
+    variant: "danger",
+    children: "Danger",
+  },
+
+}

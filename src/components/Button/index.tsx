@@ -11,7 +11,8 @@ export type TButtonVariants =
   | "secondary"
   | "tertiary"
   | "link-gray"
-  | "link-color";
+  | "link-color"
+  | "danger";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: TButtonVariants;
