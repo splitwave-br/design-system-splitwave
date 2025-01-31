@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.23.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.23.0...v1.23.1) (2025-01-31)
+
+
+### Bug Fixes
+
+* **#832:** Fix limit default pagination ([7434e38](https://github.com/splitwave-br/design-system-splitwave/commit/7434e38b6707abd9f15052ad62dacb0a2bb6004f))
+
 ## [1.23.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.22.1...v1.23.0) (2025-01-31)
 
 
