@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.23.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.22.1...v1.23.0) (2025-01-31)
+
+
+### Features
+
+* **#225:** added build files ([e00fab5](https://github.com/splitwave-br/design-system-splitwave/commit/e00fab56dc222b166c110bc6a244ab72e44b5aac))
+* **#225:** try fix datepicker icons ([8057cdc](https://github.com/splitwave-br/design-system-splitwave/commit/8057cdce2cec2598d0227821dc2379613e0b6fcb))
+* **#255:** try fix colors undefined ([7015f0d](https://github.com/splitwave-br/design-system-splitwave/commit/7015f0d8cf8530f55033e39ae46179da0c330122))
+* **#255:** try fix colors undefined ([8a1054e](https://github.com/splitwave-br/design-system-splitwave/commit/8a1054e3e806a7129f721f035ae071bf0fb446b5))
+
 ## [1.22.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.22.0...v1.22.1) (2025-01-30)
 
 
