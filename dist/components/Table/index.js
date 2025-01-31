@@ -13,7 +13,7 @@ export var Table = function (_a) {
     var data = _a.data, onRowClick = _a.onRowClick, _b = _a.isEmpty, isEmpty = _b === void 0 ? false : _b, _c = _a.keyExtractor, keyExtractor = _c === void 0 ? function (item) { return item.id; } : _c, renderHeader = _a.renderHeader, renderRow = _a.renderRow, renderEmptyState = _a.renderEmptyState, pagination = _a.pagination;
     var LIMIT = 15;
     var isMobile = useWindowSize().isMobile;
-    var staticPagination = usePagination({ rows: data, limit: 5 });
+    var staticPagination = usePagination({ rows: data, limit: 15 });
     var _d = pagination || staticPagination, currentPage = _d.currentPage, pages = _d.pages, onClickNextPage = _d.onClickNextPage, onClickOnPage = _d.onClickOnPage, onClickPrevPage = _d.onClickPrevPage, totalPages = _d.totalPages, isLoading = _d.isLoading;
     var pageData = useMemo(function () {
         return (pages === null || pages === void 0 ? void 0 : pages[currentPage]) || data;
