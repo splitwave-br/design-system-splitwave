@@ -8,6 +8,7 @@ import useWindowSize from "@/hooks/useWindowSize";
 import { Button } from "@/components/Button";
 
 import styles from "./styles.module.scss";
+import "./variables.scss";
 import { format } from "date-fns";
 import { DatePickerProps } from "./types";
 import "react-day-picker/dist/style.css";
@@ -104,7 +105,7 @@ export const DatePicker = ({
     ...defaultClassNames,
     ...(isSmallScreen
       ? { nav_button: styles.navButton, nav: styles.rdpNav }
-      : {}),
+      : { nav_button: styles.iconNav }),
   };
 
   const modeSpecificProps =
