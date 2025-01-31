@@ -22,7 +22,7 @@ export const Table = <T extends ITableData>({
 }: TTable<T>) => {
   const LIMIT = 15;
   const { isMobile } = useWindowSize();
-  const staticPagination = usePagination<T>({ rows: data, limit: 5 });
+  const staticPagination = usePagination<T>({ rows: data, limit: 15 });
 
   const {
     currentPage,
