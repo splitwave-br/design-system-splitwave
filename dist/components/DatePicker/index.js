@@ -17,6 +17,7 @@ import { ptBR } from "date-fns/locale";
 import useWindowSize from "../../hooks/useWindowSize";
 import { Button } from "../../components/Button";
 import styles from "./styles.module.scss";
+import "./variables.scss";
 import { format } from "date-fns";
 import "react-day-picker/dist/style.css";
 import { adjustHorizontalPosition } from "./utils/adjustHorizontalPosition";
@@ -91,7 +92,7 @@ export var DatePicker = function (_a) {
     };
     var combinedClassNames = __assign(__assign({}, defaultClassNames), (isSmallScreen
         ? { nav_button: styles.navButton, nav: styles.rdpNav }
-        : {}));
+        : { nav_button: styles.iconNav }));
     var modeSpecificProps = mode === "range"
         ? {
             mode: "range",
