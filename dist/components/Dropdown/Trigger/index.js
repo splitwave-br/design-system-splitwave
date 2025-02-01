@@ -25,7 +25,7 @@ import { jsx as _jsx } from "react/jsx-runtime";
 import { Button } from "../../../components/Button";
 import { forwardRef } from "react";
 var Trigger = forwardRef(function (_a, ref) {
-    var children = _a.children, className = _a.className, isOpen = _a.isOpen, _b = _a.variant, variant = _b === void 0 ? "tertiary" : _b, _c = _a.size, size = _c === void 0 ? "medium" : _c, props = __rest(_a, ["children", "className", "isOpen", "variant", "size"]);
+    var children = _a.children, isOpen = _a.isOpen, _b = _a.variant, variant = _b === void 0 ? "tertiary" : _b, _c = _a.size, size = _c === void 0 ? "medium" : _c, props = __rest(_a, ["children", "isOpen", "variant", "size"]);
     if (typeof children === "function") {
         return children(props, ref);
     }

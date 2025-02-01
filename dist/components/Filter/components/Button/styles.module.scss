@@ -7,9 +7,10 @@
     color: var(--colors-gray-500);
   }
 
-  &.active {
+  &.active,
+  &:active:hover {
     border: 1px solid var(--component-cta-filter-active-border);
-    background: var(--component-cta-filter-active-background);
+    background: var(--component-cta-filter-active-background) !important;
   }
 
   @include temporary_mobile {

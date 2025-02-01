@@ -9,14 +9,7 @@ export interface TriggerProps extends ButtonProps {
 
 const Trigger = forwardRef<HTMLButtonElement, TriggerProps>(
   (
-    {
-      children,
-      className,
-      isOpen,
-      variant = "tertiary",
-      size = "medium",
-      ...props
-    },
+    { children, isOpen, variant = "tertiary", size = "medium", ...props },
     ref,
   ) => {
     if (typeof children === "function") {
