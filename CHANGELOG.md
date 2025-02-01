@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.24.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.23.1...v1.24.0) (2025-02-01)
+
+
+### Features
+
+* **#228:** Improve button hover effect and update dropdown trigger rendering ([0414bbe](https://github.com/splitwave-br/design-system-splitwave/commit/0414bbe76de9b8d97e9cad5603c6db8aa4232f29))
+
 ## [1.23.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.23.0...v1.23.1) (2025-01-31)
 
 
