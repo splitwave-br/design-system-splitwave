@@ -18,6 +18,6 @@ export var ConfirmationModal = function (_a) {
         styles.icon,
         icon ? styles["variant-".concat(icon.variant)] : "",
     ].join(" ");
-    return (_jsxs(Modal.Wrapper, { title: title, children: [_jsxs(Modal.Body, { className: styles.bodyWrapper, children: [icon && (_jsx("div", { className: iconStyles, children: _jsx(Icon, { name: icon.name }) })), _jsxs("div", { className: styles.textsWrapper, children: [actionTitle ? (_jsx("h3", { className: styles.actionTitle, children: actionTitle })) : null, description && _jsx("p", { className: styles.description, children: description })] })] }), _jsxs(Modal.Footer, { children: [_jsx(Button, { onClick: handleClose, variant: "outline", children: "Cancelar" }), _jsx(Button, { variant: actionVariant, onClick: handleConfirm, children: confirmationText })] })] }));
+    return (_jsxs(Modal.Wrapper, { title: title, children: [_jsxs(Modal.Body, { className: styles.bodyWrapper, children: [icon && (_jsx("div", { className: iconStyles, children: _jsx(Icon, { name: icon.name }) })), _jsxs("div", { className: styles.textsWrapper, children: [actionTitle ? (_jsx("h3", { className: styles.actionTitle, children: actionTitle })) : null, description && _jsx("p", { className: styles.description, children: description })] })] }), _jsxs(Modal.Footer, { children: [_jsx(Button, { onClick: handleClose, variant: "tertiary", children: "Cancelar" }), _jsx(Button, { variant: actionVariant, onClick: handleConfirm, children: confirmationText })] })] }));
 };
 export default ConfirmationModal;

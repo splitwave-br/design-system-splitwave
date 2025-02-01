@@ -136,7 +136,7 @@ export const DatePicker = ({
     <div className={styles.container} ref={datePickerRef}>
       <DayPicker {...commonProps} />
       <div className={styles.footer}>
-        <Button variant="outline" onClick={handleToggle}>
+        <Button variant="secondary" onClick={handleToggle}>
           Cancelar
         </Button>
         <Button onClick={handleApplyClick}>Aplicar</Button>

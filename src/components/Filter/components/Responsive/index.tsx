@@ -92,7 +92,9 @@ export const Responsive = ({
     <div className={styles.wrapper}>
       {isMobile && (
         <div>
-          <button
+          <Button
+            variant="tertiary"
+            size="medium"
             className={concatStyles([
               styles.button,
               handleGetIsActive ? styles.active : "",
@@ -101,7 +103,7 @@ export const Responsive = ({
           >
             Filtros
             <Icon name="filter" size={1} />
-          </button>
+          </Button>
         </div>
       )}
 

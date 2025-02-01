@@ -69,7 +69,7 @@ export var Responsive = function (_a) {
         });
         return activeFields.length > 0;
     }, [filter, notEjectedFields]);
-    return (_jsxs("div", { className: styles.wrapper, children: [isMobile && (_jsx("div", { children: _jsxs("button", { className: concatStyles([
+    return (_jsxs("div", { className: styles.wrapper, children: [isMobile && (_jsx("div", { children: _jsxs(Button, { variant: "tertiary", size: "medium", className: concatStyles([
                         styles.button,
                         handleGetIsActive ? styles.active : "",
                     ]), onClick: function () { return setIsOpen(!isOpen); }, children: ["Filtros", _jsx(Icon, { name: "filter", size: 1 })] }) })), renderNotEjectedChildren, _jsxs("div", { className: concatStyles([

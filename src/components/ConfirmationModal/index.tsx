@@ -58,7 +58,7 @@ export const ConfirmationModal = ({
         </div>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={handleClose} variant="outline">
+        <Button onClick={handleClose} variant="tertiary">
           Cancelar
         </Button>
         <Button variant={actionVariant} onClick={handleConfirm}>

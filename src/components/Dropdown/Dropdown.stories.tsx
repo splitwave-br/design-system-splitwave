@@ -1,9 +1,8 @@
 import React from "react";
 
 import { Dropdown } from ".";
-import { Meta, StoryFn, StoryObj } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import { TriggerProps } from "./Trigger";
-import "./Trigger/variables.scss";
 import { ThemePreview } from "../ThemePreview";
 
 export default {
