@@ -1,6 +1,6 @@
 "use client";
 
-import { Children, ElementType, forwardRef, useMemo, useState } from "react";
+import { ElementType, forwardRef } from "react";
 import styles from "./styles.module.scss";
 import "./variables.scss";
 import { useFilterContext } from "../../hooks/useFilter";
@@ -8,22 +8,26 @@ import { concatStyles } from "@/utils/concatStyles";
 import { useFilterFields } from "../../hooks/useFields";
 import { Icon } from "@/components/Icon";
 import React from "react";
-import { DATE_FIELDS } from "../../constants/dateFilter";
+import { Button as BaseButton, ButtonProps } from "@/components/Button";
 
-type TButton = {
+export interface FilterButtonProps
+  extends Omit<ButtonProps, "variant" | "size"> {
   icon?: ElementType;
   children: React.ReactNode;
   isOpen?: boolean;
   fields?: string[];
-};
-export const Button = forwardRef<HTMLButtonElement, TButton>(
+}
+
+export const Button = forwardRef<HTMLButtonElement, FilterButtonProps>(
   ({ icon: IconCustom, children, isOpen, fields, ...props }, ref) => {
     const { getIsActive } = useFilterContext();
     const { fields: registeredFields } = useFilterFields();
 
     return (
-      <button
+      <BaseButton
         {...props}
+        variant="tertiary"
+        size="medium"
         ref={ref}
         className={concatStyles([
           styles.button,
@@ -34,7 +38,7 @@ export const Button = forwardRef<HTMLButtonElement, TButton>(
       >
         {children}
         {IconCustom ? <IconCustom /> : <Icon name="chevron-down" size={1} />}
-      </button>
+      </BaseButton>
     );
   },
 );

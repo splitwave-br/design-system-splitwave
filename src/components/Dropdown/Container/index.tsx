@@ -8,7 +8,6 @@ import React, {
   useRef,
   useMemo,
 } from "react";
-import "../Trigger/variables.scss";
 
 import styles from "./styles.module.scss";
 import useClickOutside from "@/hooks/useClickOutside";

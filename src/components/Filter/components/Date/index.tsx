@@ -28,7 +28,7 @@ export const DateFilter = ({
         {label && <Form.Label>{label}</Form.Label>}
         <Button
           className={styles.datePickerTrigger}
-          variant="outline"
+          variant="tertiary"
           onClick={handleToggle}
         >
           <Icon name="calendar" size={1} />

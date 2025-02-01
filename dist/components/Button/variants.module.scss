@@ -1,211 +1,137 @@
-.variant__primary {
-  border-radius: var(--border-radius-3);
-  border: 1px solid var(--colors-brand-400);
-  background: var(--colors-brand-400) !important;
+.base-disabled-styles {
+  background: var(--button-base-disabled-background);
+  border: 1px solid var(--button-base-disabled-background);
 
-  color: var(--colors-neutral-50);
-  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  cursor: not-allowed;
 
-  transition:
-    box-shadow 0.3s,
-    background-color 0.3s;
-  will-change: box-shadow, background-color;
-
-  &:disabled {
-    cursor: not-allowed;
-    background: var(--colors-gray-300);
-    border-color: var(--colors-gray-300);
-    color: var(--colors-gray-400);
-  }
-
-  &:hover:not(:disabled):not(:active) {
-    border-color: 1px solid var(--colors-brand-700);
-    background-color: var(--colors-brand-700) !important;
-  }
-
-  &:active:not(:disabled) {
-    background: var(--colors-gray-300) !important;
-    border-color: var(--colors-gray-300);
-    color: var(--colors-gray-400);
-
-    box-shadow:
-      0px 0px 0px 4px #f4ebff,
-      0px 1px 2px 0px rgba(16, 24, 40, 0.05);
-  }
+  color: var(--button-base-disabled-color);
 }
 
-.variant__success {
-  border-radius: var(--border-radius-3);
-  border: 1px solid var(--colors-success-500);
-  background-color: var(--colors-success-500) !important;
+.variant__primary {
+  position: relative;
+  border: 1px solid var(--colors-brand-300);
+  color: var(--colors-white);
+  overflow: hidden;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    var(--colors-brand-400) 0%,
+    var(--colors-brand-300) 100%
+  );
 
-  color: var(--background) !important;
-  box-shadow: 0px 1px 2px 0px rgba(16, 40, 20, 0.05);
-
-  transition:
-    box-shadow 0.3s,
-    background-color 0.3s;
-  will-change: box-shadow, background-color;
-
-  &:hover:not(:disabled):not(:active) {
-    border-color: var(--colors-success-600);
-    background-color: var(--colors-success-600);
+  &::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(
+      180deg,
+      var(--colors-brand-500) 0%,
+      var(--colors-brand-400) 100%
+    );
+    z-index: -1;
+    transition: opacity 0.3s linear;
+    opacity: 0;
   }
 
-  &:active:not(:disabled) {
-    border-color: var(--colors-success-500);
-    background-color: var(--colors-success-500) !important;
-
-    box-shadow:
-      0px 0px 0px 4px #f4ebff,
-      0px 1px 2px 0px rgba(16, 40, 24, 0.05);
+  &:not(:disabled):hover::before {
+    opacity: 1;
   }
 
-  &:disabled:not(.loading) {
-    border: 1px solid var(--colors-success-600);
-    background: var(--colors-success-600) !important;
+  &:disabled {
+    @extend .base-disabled-styles;
   }
 }
 
 .variant__secondary {
-  border-radius: var(--border-radius-3);
-  border: 1px solid var(--colors-brand-50);
-  background-color: var(--colors-brand-50) !important;
+  color: var(--button-secondary-text);
+  border: 1px solid var(--button-secondary-border);
+  background: transparent;
 
-  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  transition: background 0.3s;
+  will-change: background;
 
-  color: var(--colors-brand-700);
-
-  transition:
-    box-shadow 0.3s,
-    background-color 0.3s,
-    border 0.3s;
-  will-change: box-shadow, background-color, border;
-
-  &:hover:not(:disabled):not(:active) {
-    border-color: var(--colors-brand-100);
-    background-color: var(--colors-brand-100) !important;
+  &:not(:disabled):not(:active):hover {
+    background: var(--button-secondary-hover);
   }
-
-  &:active:not(:disabled) {
-    border-color: var(--colors-brand);
-    background-color: var(--colors-brand) !important;
-
-    box-shadow:
-      0px 0px 0px 4px #f4ebff,
-      0px 1px 2px 0px rgba(16, 24, 40, 0.05);
-  }
-
   &:disabled {
-    cursor: not-allowed;
-    background: var(--colors-gray-300) !important;
-    border-color: var(--colors-gray-300);
-    color: var(--colors-gray-400);
+    @extend .base-disabled-styles;
   }
 }
 
 .variant__tertiary {
+  border: 1px solid var(--button-tertiary-border);
+  background: var(--color-background-sunken);
+
   color: var(--button-tertiary-text);
-  border-radius: var(--border-radius-3);
 
-  border: 2px solid var(--button-tertiary-border) !important;
-  background: var(--button-tertiary-background) !important;
-  box-shadow: 0px 0px 0px 2px var(--button-tertiary-border-2);
-  transition: background-color 0.3s, box-shadow 0.3s;
-  will-change: background-color box-shadow;
+  border-radius: 8px;
 
-  &:hover {
-    border: 2px solid #000;
-    background: var(--button-tertiary-hover) !important;
-    box-shadow: 0px 0px 0px 2px #fff;
-  }
-}
+  transition: background 0.3s;
+  will-change: background;
 
-.variant__outline {
-  color: var(--button-secondary-text) !important;
-  background-color: var(--color-background-sunken) !important;
-  border: 1px solid var(--button-secondary-border) !important;
-  border-radius: var(--border-radius-3);
-  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
-
-  transition:
-    box-shadow 0.3s,
-    background-color 0.3s;
-  will-change: box-shadow, background-color;
-
-  &:hover:not(:disabled):not(:active) {
-    background: var(--button-secondary-hover) !important;
-  }
-
-  &:active:not(:disabled) {
-    box-shadow:
-      0px 0px 0px 4px #f2f4f7,
-      0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  &:not(:disabled):hover {
+    background: var(--button-tertiary-hover);
   }
 
   &:disabled {
-    border-color: var(--color-border);
-    background-color: var(--background) !important;
-    color: var(--colors-gray-300);
+    @extend .base-disabled-styles;
+  }
+}
+
+.variant__link-gray,
+.variant__link-color {
+  padding: 0px !important;
+  height: fit-content !important;
+  width: fit-content !important;
+  background-color: transparent;
+}
+
+.variant__link-gray {
+  color: var(--button-link-gray-text);
+
+  transition: color 0.3s;
+  will-change: color;
+
+  &:not(:disabled):hover {
+    color: var(--button-link-gray-text-hover);
+  }
+
+  &:disabled {
+    color: var(--button-link-disabled);
+  }
+}
+
+.variant__link-color {
+  color: var(--colors-brand-400);
+
+  transition: color 0.3s;
+  will-change: color;
+
+  &:not(:disabled):hover {
+    color: var(--colors-brand-500);
+  }
+
+  &:disabled {
+    color: var(--button-link-disabled);
   }
 }
 
 .variant__danger {
-  color: var(--colors-neutral-50) !important;
+  color: var(--colors-white);
 
-  border-radius: var(--border-radius-3);
   border: 1px solid var(--colors-error-600);
-  background: var(--colors-error-600) !important;
-
-  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  background: var(--colors-error-600);
 
   transition:
     box-shadow 0.3s,
     background-color 0.3s;
   will-change: box-shadow, background-color;
 
-  &:hover:not(:disabled):not(:active) {
+  &:not(:disabled):hover {
     border-color: var(--colors-error-700);
-    background-color: var(--colors-error-700) !important;
-  }
-}
-
-.variant__text {
-  border: none;
-  border-radius: var(--border-radius-3);
-  background-color: transparent !important;
-  color: var(--colors-gray-700);
-
-  transition:
-    box-shadow 0.3s,
-    background-color 0.3s;
-  will-change: box-shadow, background-color;
-
-  &:hover:not(:disabled) {
-    background: var(--colors-gray-300) !important;
-
-    :global(.dark-theme) & {
-      background-color: var(--colors-dark-gray-700) !important;
-    }
-  }
-
-  &:active:not(:disabled) {
-    box-shadow:
-      0px 0px 0px 4px #f2f4f7,
-      0px 1px 2px 0px rgba(16, 24, 40, 0.05);
-  }
-
-  &:disabled {
-    cursor: not-allowed;
-    background-color: var(--background) !important;
-  }
-}
-
-.loading {
-  z-index: 101;
-  cursor: wait !important;
-
-  > figure {
-    display: none;
+    background-color: var(--colors-error-700);
   }
 }

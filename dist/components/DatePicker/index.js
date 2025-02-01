@@ -105,5 +105,5 @@ export var DatePicker = function (_a) {
     var commonProps = __assign({ locale: ptBR, defaultMonth: oneMonthAgo, showOutsideDays: true, fixedWeeks: true, numberOfMonths: numberOfMonths, classNames: combinedClassNames, onSelect: setSelectedDate }, modeSpecificProps);
     if (!isOpen)
         return null;
-    return (_jsxs("div", { className: styles.container, ref: datePickerRef, children: [_jsx(DayPicker, __assign({}, commonProps)), _jsxs("div", { className: styles.footer, children: [_jsx(Button, { variant: "outline", onClick: handleToggle, children: "Cancelar" }), _jsx(Button, { onClick: handleApplyClick, children: "Aplicar" })] })] }));
+    return (_jsxs("div", { className: styles.container, ref: datePickerRef, children: [_jsx(DayPicker, __assign({}, commonProps)), _jsxs("div", { className: styles.footer, children: [_jsx(Button, { variant: "secondary", onClick: handleToggle, children: "Cancelar" }), _jsx(Button, { onClick: handleApplyClick, children: "Aplicar" })] })] }));
 };

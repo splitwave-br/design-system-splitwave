@@ -22,6 +22,6 @@ export var DateFilter = function (_a) {
     var isPeriod = _a.isPeriod, formatter = _a.formatter, label = _a.label, props = __rest(_a, ["isPeriod", "formatter", "label"]);
     var _b = useDateFilter(props, isPeriod), isOpen = _b.isOpen, handleToggle = _b.handleToggle, handlePickDate = _b.handlePickDate, buttonLabel = _b.buttonLabel;
     var fieldRef = useRef(null);
-    return (_jsx("div", { ref: fieldRef, className: styles.container, children: _jsxs(Form.Field, { children: [label && _jsx(Form.Label, { children: label }), _jsxs(Button, { className: styles.datePickerTrigger, variant: "outline", onClick: handleToggle, children: [_jsx(Icon, { name: "calendar", size: 1 }), buttonLabel] }), _jsx(DatePicker, { formatter: formatter, parentRef: fieldRef, mode: isPeriod ? "range" : "single", isOpen: isOpen, handlePickDate: handlePickDate, handleToggle: handleToggle })] }) }));
+    return (_jsx("div", { ref: fieldRef, className: styles.container, children: _jsxs(Form.Field, { children: [label && _jsx(Form.Label, { children: label }), _jsxs(Button, { className: styles.datePickerTrigger, variant: "tertiary", onClick: handleToggle, children: [_jsx(Icon, { name: "calendar", size: 1 }), buttonLabel] }), _jsx(DatePicker, { formatter: formatter, parentRef: fieldRef, mode: isPeriod ? "range" : "single", isOpen: isOpen, handlePickDate: handlePickDate, handleToggle: handleToggle })] }) }));
 };
 DateFilter.displayName = "DateFilter";

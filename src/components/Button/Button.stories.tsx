@@ -18,6 +18,9 @@ const Template: Story = {
       <Button {...args}>{children}</Button>
     </ThemePreview>
   ),
+  args: {
+    children: "Button",
+  },
 };
 
 export const Default: Story = {
@@ -27,6 +30,7 @@ export const Default: Story = {
 };
 
 export const Secondary: Story = {
+  ...Template,
   args: {
     name: "Button Secondary",
     variant: "secondary",
@@ -43,34 +47,30 @@ export const Tertiary: Story = {
   },
 };
 
-export const Outline: Story = {
+export const LinkGray: Story = {
   ...Template,
   args: {
-    name: "Button Ouline",
-    variant: "outline",
-    children: "Outline",
+    name: "Button Link Gray",
+    variant: "link-gray",
+    children: "Link gray",
   },
 };
-export const Danger: Story = {
+
+export const LinkColor: Story = {
   ...Template,
+  args: {
+    name: "Button Link Color",
+    variant: "link-color",
+    children: "Link color",
+  },
+};
+
+
+export const Danger:Story = {
   args: {
     name: "Button Danger",
     variant: "danger",
     children: "Danger",
   },
-};
 
-export const Success: Story = {
-  args: {
-    name: "Button Success",
-    variant: "success",
-    children: "Success",
-  },
-};
-export const Text: Story = {
-  args: {
-    name: "Button Text",
-    variant: "text",
-    children: "Text",
-  },
-};
+}

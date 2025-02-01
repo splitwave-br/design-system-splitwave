@@ -7,12 +7,7 @@ export declare const Filter: {
         }): import("react/jsx-runtime").JSX.Element | null;
         displayName: string;
     };
-    Button: import("react").ForwardRefExoticComponent<{
-        icon?: import("react").ElementType;
-        children: React.ReactNode;
-        isOpen?: boolean;
-        fields?: string[];
-    } & import("react").RefAttributes<HTMLButtonElement>>;
+    Button: import("react").ForwardRefExoticComponent<import("../../components/Filter/components/Button").FilterButtonProps & import("react").RefAttributes<HTMLButtonElement>>;
     Content: import("react").ForwardRefExoticComponent<{
         children: React.ReactNode;
         className?: string;
