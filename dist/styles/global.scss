@@ -263,7 +263,7 @@
   &::-webkit-scrollbar-thumb {
     background: var(--scroll-thumb);
     border-radius: var(--border-radius-2);
-    width: 8px;
+    width: var(--spaces-1);
   }
 
   &::-webkit-scrollbar-track {
