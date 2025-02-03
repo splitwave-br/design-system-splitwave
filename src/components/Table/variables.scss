@@ -14,7 +14,6 @@
 .light-theme {
   --table-text-color-primary: var(--colors-gray-900);
   --table-text-color-secondary: var(--colors-dark-gray-500);
-
   --table-border-color: var(--colors-gray-200);
   --table-pagination-background: var(--colors-brand-300);
   --table-pagination-active-text: var(--colors-brand-700);
@@ -25,10 +24,8 @@
 }
 
 .dark-theme {
-
   --table-text-color-primary: #fff;
   --table-text-color-secondary: var(--colors-dark-gray-500);
-
   --table-border-color: var(--colors-dark-gray-700);
   --table-pagination-background: var(--colors-brand-700);
   --table-pagination-active-text: var(--colors-brand-300);
