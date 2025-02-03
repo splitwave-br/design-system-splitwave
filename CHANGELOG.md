@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.25.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.24.0...v1.25.0) (2025-02-03)
+
+
+### Features
+
+* **page-selector:** remove unnecessary spaces ([e6e842e](https://github.com/splitwave-br/design-system-splitwave/commit/e6e842e3d08afb462f175d81c2d81c9beec45e02))
+
+
+### Bug Fixes
+
+* **page-selector:** added build files ([0bc167f](https://github.com/splitwave-br/design-system-splitwave/commit/0bc167fc542404517c8b91a53107781d1bfd1001))
+* **page-selector:** changing width dimensions to variable ([45b605d](https://github.com/splitwave-br/design-system-splitwave/commit/45b605dda03dac738fae8f46dd4e7d7cf9d28863))
+* **page-selector:** Fix page selector colors and add custom scrollbar to it ([0f52201](https://github.com/splitwave-br/design-system-splitwave/commit/0f522012056898f117badeff8cee49a71a9d6dc3))
+* **page-selector:** Fix page selector colors and add custom scrollbar to it ([bc8f653](https://github.com/splitwave-br/design-system-splitwave/commit/bc8f653edd6a5937e25c6abd514bfd167b5ad882))
+
 ## [1.24.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.23.1...v1.24.0) (2025-02-01)
 
 
