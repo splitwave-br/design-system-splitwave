@@ -223,6 +223,9 @@
   --colors-background-overlay: var(--colors-neutral-50);
   --colors-background-overlay-gray: var(--colors-gray-100);
   --colors-icon-static: var(--colors-light-gray-500);
+
+  --scroll-road: var(--colors-light-gray-300);
+  --scroll-thumb: var(--colors-light-gray-400);
 }
 
 .dark-theme {
@@ -244,11 +247,29 @@
   --colors-background-overlay-gray: var(--colors-dark-gray-700);
 
   --colors-icon-static: var(--colors-dark-gray-500);
+
+  --scroll-road: var(--colors-dark-gray-700);
+  --scroll-thumb: var(--colors-dark-gray-500);
 }
 
 * {
   -webkit-tap-highlight-color: transparent;
   box-sizing: border-box;
+  &::-webkit-scrollbar {
+    width : var(--spaces-1);
+    background: var(--scroll-road);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--scroll-thumb);
+    border-radius: var(--border-radius-2);
+    width: var(--spaces-1);
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--scroll-road);
+    border-radius: var(--border-radius-2);
+  }
 }
 
 body > div {

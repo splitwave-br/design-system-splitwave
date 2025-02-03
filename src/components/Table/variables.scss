@@ -12,11 +12,8 @@
 }
 
 .light-theme {
-  --table-scroll-road: var(--colors-light-gray-300);
-  --table-scroll-thumb: var(--colors-light-gray-400);
   --table-text-color-primary: var(--colors-gray-900);
   --table-text-color-secondary: var(--colors-dark-gray-500);
-
   --table-border-color: var(--colors-gray-200);
   --table-pagination-background: var(--colors-brand-300);
   --table-pagination-active-text: var(--colors-brand-700);
@@ -27,11 +24,8 @@
 }
 
 .dark-theme {
-  --table-scroll-road: var(--colors-dark-gray-700);
-  --table-scroll-thumb: var(--colors-light-gray-600);
   --table-text-color-primary: #fff;
   --table-text-color-secondary: var(--colors-dark-gray-500);
-
   --table-border-color: var(--colors-dark-gray-700);
   --table-pagination-background: var(--colors-brand-700);
   --table-pagination-active-text: var(--colors-brand-300);
