@@ -1,5 +1,5 @@
 import React from "react";
-import "./variables.scss";
+import "../Input/variables.scss";
 type TRenderItem = {
     option: any;
     className: string;

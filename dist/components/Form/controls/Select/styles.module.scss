@@ -73,29 +73,33 @@
   flex-direction: column;
   border-radius: var(--border-radius-3);
 
-  border: 1px solid var(--input-default-border);
+  border: 1px solid var(--colors-gray-300);
 
   background-color: var(--color-background-sunken);
 
   max-height: calc(5 * var(--spaces-5));
-  overflow-y: auto;
-
+  overflow: hidden;
   position: absolute;
   bottom: calc(100% + var(--spaces-1));
   left: 0;
   right: 0;
 }
 
-.optionsWrapperTop::-webkit-scrollbar, .optionsWrapperBottom::-webkit-scrollbar-thumb {
-  border-radius: 0 var(--border-radius-2) var(--border-radius-2) 0;
+.scrollContainer {
+  max-height: calc(5 * var(--spaces-5));
+  overflow-y: auto;
 }
 
-.optionsWrapperTop::-webkit-scrollbar-track, .optionsWrapperBottom::-webkit-scrollbar-thumb {
-  border-radius: var(--border-radius-2);
+.scrollContainer::-webkit-scrollbar {
+  border-radius: 0 var(--border-radius-3) var(--border-radius-3) 0;
 }
 
-.optionsWrapperTop::-webkit-scrollbar-thumb, .optionsWrapperBottom::-webkit-scrollbar-thumb {
-  border-radius: 0 var(--border-radius-2) var(--border-radius-2) 0;
+.scrollContainer::-webkit-scrollbar-track {
+  border-radius: var(--border-radius-3);
+}
+
+.scrollContainer::-webkit-scrollbar-thumb {
+  border-radius: 0 var(--border-radius-3) var(--border-radius-3) 0;
 }
 
 .option {
@@ -186,7 +190,7 @@
     top: calc(var(--spaces-4) / 2);
     right: var(--spaces-micro);
     transform: translateY(-50%);
-    color: var(--icon-static);
+    color: var(--colors-icon-static);
   }
 }
 
