@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.25.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.25.0...v1.25.1) (2025-02-04)
+
+
+### Bug Fixes
+
+* **page-selector:** adjust scroll radius on select ([5abbe98](https://github.com/splitwave-br/design-system-splitwave/commit/5abbe9801c51c43594c3f515a083cc64bdf10b68))
+
 ## [1.25.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.24.0...v1.25.0) (2025-02-03)
 
 
