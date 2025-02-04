@@ -5,7 +5,7 @@ import React from "react";
 import { useCallback, useEffect, useState } from "react";
 
 import styles from "./styles.module.scss";
-import "../Input/variables.scss";
+import "./variables.scss";
 import { concatStyles } from "@/utils/concatStyles";
 import { Icon } from "@/components/Icon";
 

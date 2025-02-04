@@ -14,7 +14,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 // import { Icon, TIcons } from '../../../../components/Icon';
 import { useCallback, useEffect, useState } from "react";
 import styles from "./styles.module.scss";
-import "../Input/variables.scss";
+import "./variables.scss";
 import { concatStyles } from "../../../../utils/concatStyles";
 import { Icon } from "../../../../components/Icon";
 var OPTION_WRAPPER_CLASSES = {
