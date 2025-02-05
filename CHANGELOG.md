@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.25.3](https://github.com/splitwave-br/design-system-splitwave/compare/v1.25.2...v1.25.3) (2025-02-05)
+
+
+### Bug Fixes
+
+* **filter-scroll:** change overflow from scroll to auto ([2593f00](https://github.com/splitwave-br/design-system-splitwave/commit/2593f009c1db4d1a94c6cea712e6c1c2b1641e7c))
+
 ## [1.25.2](https://github.com/splitwave-br/design-system-splitwave/compare/v1.25.1...v1.25.2) (2025-02-05)
 
 
