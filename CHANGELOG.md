@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.25.2](https://github.com/splitwave-br/design-system-splitwave/compare/v1.25.1...v1.25.2) (2025-02-05)
+
+
+### Bug Fixes
+
+* **#228:** Add !important to gradient add background due to admin Tailwind setup ([3152a19](https://github.com/splitwave-br/design-system-splitwave/commit/3152a197a9b7248e34101aafe5b15fdc9d4cd915))
+* **#228:** Replace background image property ([80591a1](https://github.com/splitwave-br/design-system-splitwave/commit/80591a161964ce850d61ccce431c88562c5699f5))
+
 ## [1.25.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.25.0...v1.25.1) (2025-02-04)
 
 
