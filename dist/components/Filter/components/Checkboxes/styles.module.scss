@@ -3,7 +3,7 @@
   flex-direction: column;
   gap: var(--spaces-micro);
   max-height: 320px;
-  overflow-y: scroll;
+  overflow-y: auto;
   clip-path: inset(0 round --border-radius-3);
   &::-webkit-scrollbar {
     width: var(--spaces-micro);
