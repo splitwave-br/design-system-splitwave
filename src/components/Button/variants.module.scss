@@ -17,7 +17,7 @@
     180deg,
     var(--colors-brand-400) 0%,
     var(--colors-brand-300) 100%
-  );
+  ) !important; // added due to admin platform tailwind setup
 
   &::before {
     position: absolute;
