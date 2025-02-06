@@ -141,34 +141,36 @@ export function Select({
       </div>
       {isOpen && (
         <div className={optionWrapperClass}>
-          {!!options.length ? (
-            options.map((option: any) => {
-              const isSelected =
-                handleGetValue(option) === handleGetValue(selectedOption);
-              const className = concatStyles([
-                styles.option,
-                isSelected && styles.optionSelected,
-              ]);
-              const onClick = () => handleSelect(option);
+          <div className={styles.scrollContainer}>
+            {!!options.length ? (
+              options.map((option: any) => {
+                const isSelected =
+                  handleGetValue(option) === handleGetValue(selectedOption);
+                const className = concatStyles([
+                  styles.option,
+                  isSelected && styles.optionSelected,
+                ]);
+                const onClick = () => handleSelect(option);
 
-              const id = getId?.(option);
-              const value = getValue?.(option);
+                const id = getId?.(option);
+                const value = getValue?.(option);
 
-              const key = id ? id : value;
+                const key = id ? id : value;
 
-              return renderItem ? (
-                renderItem({ option, className, onClick })
-              ) : (
-                <span key={key} className={className} onClick={onClick}>
-                  {getLabel(option)}
-                </span>
-              );
-            })
-          ) : (
-            <span className={styles["empty-options"]}>
-              Nenhum item encontrado
-            </span>
-          )}
+                return renderItem ? (
+                  renderItem({ option, className, onClick })
+                ) : (
+                  <span key={key} className={className} onClick={onClick}>
+                    {getLabel(option)}
+                  </span>
+                );
+              })
+            ) : (
+              <span className={styles["empty-options"]}>
+                Nenhum item encontrado
+              </span>
+            )}
+          </div>
         </div>
       )}
     </div>
