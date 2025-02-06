@@ -47,6 +47,7 @@
   --font-size-12: 32px;
   --font-size-13: 34px;
   --font-size-14: 36px;
+  --font-size-15: 38px;
 
   /* -------- Colors -------- */
 
@@ -256,7 +257,7 @@
   -webkit-tap-highlight-color: transparent;
   box-sizing: border-box;
   &::-webkit-scrollbar {
-    width : var(--spaces-1);
+    width: var(--spaces-1);
     background: var(--scroll-road);
   }
 
