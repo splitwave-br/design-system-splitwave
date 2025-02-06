@@ -92,16 +92,16 @@ export function Select(_a) {
         isDisabled && styles.disabled,
     ].join(" ");
     var optionWrapperClass = OPTION_WRAPPER_CLASSES[direction];
-    return (_jsxs("div", { className: wrapperClass, onClick: handleOpenOptions, children: [_jsxs("div", { className: selectClass, children: [_jsx(Icon, { name: 'chevron-down', size: 2 }), selectedOption ? (_jsx("span", { className: selectedValueClass, children: getLabel(selectedOption) })) : (_jsx("span", { children: placeholder }))] }), isOpen && (_jsx("div", { className: optionWrapperClass, children: !!options.length ? (options.map(function (option) {
-                    var isSelected = handleGetValue(option) === handleGetValue(selectedOption);
-                    var className = concatStyles([
-                        styles.option,
-                        isSelected && styles.optionSelected,
-                    ]);
-                    var onClick = function () { return handleSelect(option); };
-                    var id = getId === null || getId === void 0 ? void 0 : getId(option);
-                    var value = getValue === null || getValue === void 0 ? void 0 : getValue(option);
-                    var key = id ? id : value;
-                    return renderItem ? (renderItem({ option: option, className: className, onClick: onClick })) : (_jsx("span", { className: className, onClick: onClick, children: getLabel(option) }, key));
-                })) : (_jsx("span", { className: styles["empty-options"], children: "Nenhum item encontrado" })) }))] }));
+    return (_jsxs("div", { className: wrapperClass, onClick: handleOpenOptions, children: [_jsxs("div", { className: selectClass, children: [_jsx(Icon, { name: 'chevron-down', size: 2 }), selectedOption ? (_jsx("span", { className: selectedValueClass, children: getLabel(selectedOption) })) : (_jsx("span", { children: placeholder }))] }), isOpen && (_jsx("div", { className: optionWrapperClass, children: _jsx("div", { className: styles.scrollContainer, children: !!options.length ? (options.map(function (option) {
+                        var isSelected = handleGetValue(option) === handleGetValue(selectedOption);
+                        var className = concatStyles([
+                            styles.option,
+                            isSelected && styles.optionSelected,
+                        ]);
+                        var onClick = function () { return handleSelect(option); };
+                        var id = getId === null || getId === void 0 ? void 0 : getId(option);
+                        var value = getValue === null || getValue === void 0 ? void 0 : getValue(option);
+                        var key = id ? id : value;
+                        return renderItem ? (renderItem({ option: option, className: className, onClick: onClick })) : (_jsx("span", { className: className, onClick: onClick, children: getLabel(option) }, key));
+                    })) : (_jsx("span", { className: styles["empty-options"], children: "Nenhum item encontrado" })) }) }))] }));
 }
