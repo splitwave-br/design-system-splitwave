@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.25.4](https://github.com/splitwave-br/design-system-splitwave/compare/v1.25.3...v1.25.4) (2025-02-06)
+
+
+### Bug Fixes
+
+* **version:** Fix version ([3aef93d](https://github.com/splitwave-br/design-system-splitwave/commit/3aef93d95b002ca5f51023f8d7a6bf72a7d8e052))
+
 ## [1.25.3](https://github.com/splitwave-br/design-system-splitwave/compare/v1.25.2...v1.25.3) (2025-02-05)
 
 
