@@ -123,7 +123,7 @@
   color: var(--colors-white);
 
   border: 1px solid var(--colors-error-600);
-  background: var(--colors-error-600);
+  background: var(--colors-error-600) !important;
 
   transition:
     box-shadow 0.3s,
