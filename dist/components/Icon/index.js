@@ -98,6 +98,8 @@ import ZoomOut from "./components/ZoomOut";
 import Money04 from "./components/Money04";
 import { Filter } from "./components/Filter";
 import { Affiliated } from "./components/Affiliated";
+import { Import } from "./components/Import";
+import { Export } from "./components/Export";
 var icons = {
     access: Access,
     alert: Alert,
@@ -197,6 +199,8 @@ var icons = {
     "zoom-out": ZoomOut,
     filter: Filter,
     affiliated: Affiliated,
+    import: Import,
+    export: Export,
 };
 export var Icon = function (_a) {
     var name = _a.name, _b = _a.size, size = _b === void 0 ? 2 : _b, className = _a.className;
