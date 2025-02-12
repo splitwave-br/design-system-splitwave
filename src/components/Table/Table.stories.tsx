@@ -45,63 +45,65 @@ export const Basic: StoryFn = () => {
 
 export const TableWithCustomFields: StoryFn = () => {
   return (
-    <Table
-      data={[
-        {
-          date: "2024-09-28T15:30:00",
-          orderId: "#9918202409280001",
-          price: 349,
-          product: "Camiseta",
-          img: "https://dummyimage.com/100x100/ddd/000&text=Camiseta",
-        },
-        {
-          date: "2024-09-28T14:28:00",
-          orderId: "#9918202409280002",
-          price: 199,
-          product: "Calça",
-          img: "https://dummyimage.com/100x100/ddd/000&text=Calça",
-        },
-        {
-          date: "2024-09-28T13:12:00",
-          orderId: "#9918202409280003",
-          price: 29,
-          product: "Boné",
-          img: "https://dummyimage.com/100x100/ddd/000&text=Boné",
-        },
-        {
-          date: "2024-09-28T09:49:00",
-          orderId: "#9918202409280004",
-          price: 99,
-          product: "Tênis",
-          img: "https://dummyimage.com/100x100/ddd/000&text=Tênis",
-        },
-      ]}
-      keyExtractor={(item) => item.orderId}
-      onRowClick={(item) => alert(`Clicked on ${item.product}`)}
-      renderHeader={() => (
-        <>
-          <Header.Date>Data</Header.Date>
-          <Header.Uuid>Código</Header.Uuid>
-          <Header identifier>Produto</Header>
-          <Header>Valor</Header>
-        </>
-      )}
-      renderRow={(item) => {
-        return (
+    <ThemePreview>
+      <Table
+        data={[
+          {
+            date: "2024-09-28T15:30:00",
+            orderId: "#9918202409280001",
+            price: 349,
+            product: "Camiseta",
+            img: "https://dummyimage.com/100x100/ddd/000&text=Camiseta",
+          },
+          {
+            date: "2024-09-28T14:28:00",
+            orderId: "#9918202409280002",
+            price: 199,
+            product: "Calça",
+            img: "https://dummyimage.com/100x100/ddd/000&text=Calça",
+          },
+          {
+            date: "2024-09-28T13:12:00",
+            orderId: "#9918202409280003",
+            price: 29,
+            product: "Boné",
+            img: "https://dummyimage.com/100x100/ddd/000&text=Boné",
+          },
+          {
+            date: "2024-09-28T09:49:00",
+            orderId: "#9918202409280004",
+            price: 99,
+            product: "Tênis",
+            img: "https://dummyimage.com/100x100/ddd/000&text=Tênis",
+          },
+        ]}
+        keyExtractor={(item) => item.orderId}
+        onRowClick={(item) => alert(`Clicked on ${item.product}`)}
+        renderHeader={() => (
           <>
-            <Cell.Date>{item.date}</Cell.Date>
-            <Cell.Text shouldTruncateText canCopy>
-              {item.orderId}
-            </Cell.Text>
-            <Cell.Text>
-              <Cell.Image src={item.img} />
-              {item.product}
-            </Cell.Text>
-            <Cell.Price>{item.price}</Cell.Price>
+            <Header.Date>Data</Header.Date>
+            <Header.Uuid>Código</Header.Uuid>
+            <Header identifier>Produto</Header>
+            <Header>Valor</Header>
           </>
-        );
-      }}
-    />
+        )}
+        renderRow={(item) => {
+          return (
+            <>
+              <Cell.Date>{item.date}</Cell.Date>
+              <Cell.Text shouldTruncateText canCopy>
+                {item.orderId}
+              </Cell.Text>
+              <Cell.Text>
+                <Cell.Image src={item.img} />
+                {item.product}
+              </Cell.Text>
+              <Cell.Price>{item.price}</Cell.Price>
+            </>
+          );
+        }}
+      />
+    </ThemePreview>
   );
 };
 
