@@ -103,7 +103,7 @@
   }
 
   &:hover {
-    --table-cell-background: var(--colors-gray-100);
+    --table-cell-background: var(--table-table-cell-hover);
   }
 
   & > div:first-child {
