@@ -35,6 +35,8 @@ import Date from "./components/Date";
 import Divide from "./components/Divide";
 import DollarSign from "./components/DollarSign";
 import { Download } from "./components/Download";
+import { Import } from "./components/Import";
+import { Export } from "./components/Export";
 import Dropdown from "./components/Dropdown";
 import { Edit } from "./components/Edit";
 import Eye from "./components/Eye";
@@ -98,8 +100,6 @@ import ZoomOut from "./components/ZoomOut";
 import Money04 from "./components/Money04";
 import { Filter } from "./components/Filter";
 import { Affiliated } from "./components/Affiliated";
-import { Import } from "./components/Import";
-import { Export } from "./components/Export";
 var icons = {
     access: Access,
     alert: Alert,

@@ -9,14 +9,14 @@
 
 .variant__primary {
   position: relative;
-  border: 1px solid var(--colors-brand-300);
+  border: 1px solid var(--colors-brand-400);
   color: var(--colors-white);
   overflow: hidden;
   z-index: 1;
   background: linear-gradient(
     180deg,
-    var(--colors-brand-400) 0%,
-    var(--colors-brand-300) 100%
+    var(--colors-brand-500) 0%,
+    var(--colors-brand-400) 100%
   ) !important; // added due to admin platform tailwind setup
 
   &::before {
@@ -28,8 +28,8 @@
     left: 0;
     background: linear-gradient(
       180deg,
-      var(--colors-brand-500) 0%,
-      var(--colors-brand-400) 100%
+      var(--colors-brand-600) 0%,
+      var(--colors-brand-500) 100%
     );
     z-index: -1;
     transition: opacity 0.3s linear;
