@@ -6,6 +6,8 @@ import { CheckCircle } from "./components/CheckCircle";
 import { Circle } from "./components/Circle";
 import { Copy } from "./components/Copy";
 import { Download } from "./components/Download";
+import { Import } from "./components/Import";
+import { Export } from "./components/Export";
 import { Edit } from "./components/Edit";
 import { FileText } from "./components/FileText";
 import { Folder } from "./components/Folder";
@@ -132,6 +134,8 @@ declare const icons: {
     "zoom-out": () => import("react/jsx-runtime").JSX.Element;
     filter: typeof Filter;
     affiliated: () => import("react/jsx-runtime").JSX.Element;
+    import: typeof Import;
+    export: typeof Export;
 };
 export type TIconSizes = "nano" | "micro" | 1 | 2 | 3 | 4;
 export type TIcons = keyof typeof icons;
