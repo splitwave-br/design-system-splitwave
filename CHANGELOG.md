@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.26.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.25.4...v1.26.0) (2025-02-12)
+
+
+### Features
+
+* **#000:** add import and export icon ([88161bc](https://github.com/splitwave-br/design-system-splitwave/commit/88161bc597cb79f3620568d5d36dee66b7b30fd0))
+
+
+### Bug Fixes
+
+* **#228:** Change primary button variant gradient colors ([ab6e07b](https://github.com/splitwave-br/design-system-splitwave/commit/ab6e07bb32feaa65eeae78b163638f76ba473bbc))
+* **button-danger:** Added 'important' in the background to resolve styles conflict ([7ddecf0](https://github.com/splitwave-br/design-system-splitwave/commit/7ddecf0727fbedc8dca561a72a61ae8d4c3c9777))
+* **table:** added build files ([a0d83a0](https://github.com/splitwave-br/design-system-splitwave/commit/a0d83a096c64cfbd807cdc1225868b317d74c9f0))
+* **table:** added support darkmode on table row ([3458d93](https://github.com/splitwave-br/design-system-splitwave/commit/3458d93157030e9db756c5cb3abc5ee2ff87f84a))
+* **table:** resolved variable name ([e462f14](https://github.com/splitwave-br/design-system-splitwave/commit/e462f1419700a0c22688c277973f78f05cf6f499))
+
 ## [1.25.4](https://github.com/splitwave-br/design-system-splitwave/compare/v1.25.3...v1.25.4) (2025-02-06)
 
 
