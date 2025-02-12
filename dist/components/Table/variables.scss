@@ -21,6 +21,7 @@
   --table-header-color: var(--colors-dark-gray-500);
   --table-footer-background: var(--colors-gray-200);
   --table-cell-background: #fff;
+  --table-table-cell-hover: var(--colors-gray-100);
 }
 
 .dark-theme {
@@ -33,4 +34,5 @@
   --table-header-color: var(--colors-dark-gray-500);
   --table-footer-background: var(--colors-dark-gray-800);
   --table-cell-background: var(--colors-dark-gray-900);
+  --table-table-cell-hover: var(--colors-dark-gray-800);
 }
