@@ -34,6 +34,8 @@ import Date from "./components/Date";
 import Divide from "./components/Divide";
 import DollarSign from "./components/DollarSign";
 import { Download } from "./components/Download";
+import { Import } from "./components/Import";
+import { Export } from "./components/Export";
 import Dropdown from "./components/Dropdown";
 import { Edit } from "./components/Edit";
 import Eye from "./components/Eye";
@@ -197,6 +199,8 @@ const icons = {
   "zoom-out": ZoomOut,
   filter: Filter,
   affiliated: Affiliated,
+  import: Import,
+  export: Export,
 };
 
 export type TIconSizes = "nano" | "micro" | 1 | 2 | 3 | 4;
