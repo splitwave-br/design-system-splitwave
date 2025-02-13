@@ -6,6 +6,7 @@ import styles from "./styles.module.scss";
 
 type TProps = TCell & {
   children: string | Date;
+  showTime?: boolean;
 };
 
 const convertDateToObject = (date: string | Date) => {
@@ -20,7 +21,7 @@ const convertDateToObject = (date: string | Date) => {
   };
 };
 
-export const Date = ({ children }: TProps) => {
+export const Date = ({ children, showTime = true }: TProps) => {
   const date = useMemo(() => {
     return convertDateToObject(children);
   }, [children]);
@@ -35,7 +36,7 @@ export const Date = ({ children }: TProps) => {
   return (
     <div className={styles.cell}>
       <p>{date.date}</p>
-      <time>{date.time}</time>
+      {showTime && <time>{date.time}</time>}
     </div>
   );
 };

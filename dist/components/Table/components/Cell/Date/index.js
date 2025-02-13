@@ -13,11 +13,11 @@ var convertDateToObject = function (date) {
     };
 };
 export var Date = function (_a) {
-    var children = _a.children;
+    var children = _a.children, _b = _a.showTime, showTime = _b === void 0 ? true : _b;
     var date = useMemo(function () {
         return convertDateToObject(children);
     }, [children]);
     if (!date)
         return (_jsx("div", { children: _jsx("p", { children: "-" }) }));
-    return (_jsxs("div", { className: styles.cell, children: [_jsx("p", { children: date.date }), _jsx("time", { children: date.time })] }));
+    return (_jsxs("div", { className: styles.cell, children: [_jsx("p", { children: date.date }), showTime && _jsx("time", { children: date.time })] }));
 };
