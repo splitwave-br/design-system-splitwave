@@ -1,6 +1,7 @@
 import { Meta, StoryFn } from "@storybook/react";
 import { Cell, Header, Table } from ".";
 import { ThemePreview } from "../ThemePreview";
+import React from "react";
 
 export default {
   component: Table,
@@ -152,7 +153,7 @@ export const TableWithActions: StoryFn = () => {
       renderRow={(item) => {
         return (
           <>
-            <Cell.Date>{item.date}</Cell.Date>
+            <Cell.Date >{item.date}</Cell.Date>
             <Cell.Text shouldTruncateText canCopy>
               {item.id}
             </Cell.Text>
