@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.26.2](https://github.com/splitwave-br/design-system-splitwave/compare/v1.26.1...v1.26.2) (2025-02-13)
+
+
+### Bug Fixes
+
+* **date-cell:** Make time render conditional ([ab65c19](https://github.com/splitwave-br/design-system-splitwave/commit/ab65c19ec7d55a78ccba0b38a54c637033564cca))
+
 ## [1.26.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.26.0...v1.26.1) (2025-02-13)
 
 
