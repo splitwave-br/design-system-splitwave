@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.26.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.26.0...v1.26.1) (2025-02-13)
+
+
+### Bug Fixes
+
+* **check-box:** added support dark ([ca3ef86](https://github.com/splitwave-br/design-system-splitwave/commit/ca3ef868e0e88ebbc93650439b57bba47c412363))
+
 ## [1.26.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.25.4...v1.26.0) (2025-02-12)
 
 
