@@ -1,6 +1,7 @@
 export declare const Cell: {
-    Date: ({ children }: import("../../types").TCell & {
+    Date: ({ children, showTime }: import("../../types").TCell & {
         children: string | Date;
+        showTime?: boolean;
     }) => import("react/jsx-runtime").JSX.Element;
     Price: ({ children, hasHighlight }: import("../../types").TCell & {
         children: number;
