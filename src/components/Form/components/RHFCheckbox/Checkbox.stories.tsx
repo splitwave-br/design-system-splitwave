@@ -4,6 +4,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import { FormProvider, useForm } from "react-hook-form";
 import {Form} from '../../index'
 import meta from "../../../ButtonLink/ButtonLink.stories";
+import { ThemePreview } from "../../../ThemePreview";
 
 
 export default {
@@ -12,9 +13,11 @@ export default {
      decorators: [(Story) => {
     const decoratorForm = useForm();
     return (
-      <FormProvider {...decoratorForm}>
-          <Story />
-      </FormProvider>
+      <ThemePreview>
+        <FormProvider {...decoratorForm}>
+            <Story />
+        </FormProvider>
+      </ThemePreview>
     );
   }],
 } as Meta<typeof Form.Checkbox>
