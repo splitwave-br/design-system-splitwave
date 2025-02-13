@@ -37,11 +37,11 @@
   user-select: none;
 
   &:hover {
-    background-color: var(--colors-light-gray-200);
+    background-color: var(--colors-background-overlay-gray);
   }
 
   .label {
-    color: var(--primary-text);
+    color: var(--colors-font-primary);
 
     font-size: var(--font-size-3);
     font-weight: 500;
