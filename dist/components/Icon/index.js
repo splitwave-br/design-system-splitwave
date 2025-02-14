@@ -100,6 +100,8 @@ import ZoomOut from "./components/ZoomOut";
 import Money04 from "./components/Money04";
 import { Filter } from "./components/Filter";
 import { Affiliated } from "./components/Affiliated";
+import { Dark } from "./components/Dark";
+import { Light } from "./components/Light";
 var icons = {
     access: Access,
     alert: Alert,
@@ -132,6 +134,7 @@ var icons = {
     copy: Copy,
     "credit-card": CreditCard,
     customer: Customer,
+    dark: Dark,
     date: Date,
     divide: Divide,
     "dollar-sign": DollarSign,
@@ -149,6 +152,7 @@ var icons = {
     info: Info,
     "information-circle": InformationCircle,
     invoice: Invoice,
+    light: Light,
     link: Link,
     loading: Loading,
     lock: Lock,
