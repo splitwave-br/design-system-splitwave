@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.26.3](https://github.com/splitwave-br/design-system-splitwave/compare/v1.26.2...v1.26.3) (2025-02-14)
+
+
+### Bug Fixes
+
+* **input-select:** adjusted color background and variables import in the select ([d2e64e4](https://github.com/splitwave-br/design-system-splitwave/commit/d2e64e46de7faa667c8b8cc95ed4ea2a14aac486))
+
 ## [1.26.2](https://github.com/splitwave-br/design-system-splitwave/compare/v1.26.1...v1.26.2) (2025-02-13)
 
 
