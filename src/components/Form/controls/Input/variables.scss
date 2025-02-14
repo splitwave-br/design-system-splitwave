@@ -1,4 +1,5 @@
 .light-theme {
+    --component-input-default: var(--colors-neutral-50);
     --component-input-default-border: var(--color-border);
     --component-input-default-shadow: var(--colors-gray-200);
     --component-input-default-prefix-suffix-background: var(--colors-neutral-50);
@@ -9,6 +10,7 @@
 }
 
 .dark-theme {
+    --component-input-default: transparent;
     --component-input-disabled-text: var(--colors-dark-gray-600);
     --component-input-disabled: var(--colors-dark-gray-700);
     --component-input-default-border: var(--colors-dark-gray-600);
