@@ -99,6 +99,8 @@ import ZoomOut from "./components/ZoomOut";
 import Money04 from "./components/Money04";
 import { Filter } from "./components/Filter";
 import { Affiliated } from "./components/Affiliated";
+import { Moon } from "./components/Moon";
+import { Sun } from "./components/Sun";
 
 const icons = {
   access: Access,
@@ -154,6 +156,7 @@ const icons = {
   lock: Lock,
   logout: Logout,
   menu: Menu,
+  moon: Moon,
   "money-down": MoneyDown,
   "money-up": MoneyUp,
   "money-exchange": MoneyExchange,
@@ -183,6 +186,7 @@ const icons = {
   sort: Sort,
   swap: Swap,
   swap2: Swap2,
+  sun: Sun,
   tag: Tag,
   tax: Tax,
   ticket: Ticket,

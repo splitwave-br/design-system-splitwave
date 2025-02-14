@@ -89,6 +89,7 @@ declare const icons: {
     lock: () => import("react/jsx-runtime").JSX.Element;
     logout: () => import("react/jsx-runtime").JSX.Element;
     menu: () => import("react/jsx-runtime").JSX.Element;
+    moon: () => import("react/jsx-runtime").JSX.Element;
     "money-down": () => import("react/jsx-runtime").JSX.Element;
     "money-up": () => import("react/jsx-runtime").JSX.Element;
     "money-exchange": () => import("react/jsx-runtime").JSX.Element;
@@ -118,6 +119,7 @@ declare const icons: {
     sort: typeof Sort;
     swap: () => import("react/jsx-runtime").JSX.Element;
     swap2: typeof Swap2;
+    sun: () => import("react/jsx-runtime").JSX.Element;
     tag: typeof Tag;
     tax: () => import("react/jsx-runtime").JSX.Element;
     ticket: () => import("react/jsx-runtime").JSX.Element;
