@@ -3,7 +3,7 @@
   display: flex;
   align-content: center;
   border-radius: var(--border-radius-3);
-  background-color: var(--color-background-sunken);
+  background-color: var(--component-input-default);
 
   & > figure {
     position: absolute;
@@ -61,7 +61,7 @@
   border: 1px solid var(--component-input-default-border);
   border-radius: var(--border-radius-3);
   box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
-  background-color: var(--color-background-sunken);
+  background-color: var(--component-input-default);
   font-size: var(--font-size-3);
 
   outline: none;
