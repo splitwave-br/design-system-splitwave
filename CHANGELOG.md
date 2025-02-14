@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.26.4](https://github.com/splitwave-br/design-system-splitwave/compare/v1.26.3...v1.26.4) (2025-02-14)
+
+
+### Bug Fixes
+
+* **badges-color:** added correct variable ([f5a8651](https://github.com/splitwave-br/design-system-splitwave/commit/f5a8651628352fbe539074b09fc530666ffc3a54))
+* **badges-color:** remove change on package ([1f5cf59](https://github.com/splitwave-br/design-system-splitwave/commit/1f5cf59c8b9577014786782d3d9d08e0e6df587c))
+* **badges-colors:** added correct color on badge gray ([164f775](https://github.com/splitwave-br/design-system-splitwave/commit/164f775cb705d741ddcb744e2772f2d6f890bc23))
+
 ## [1.26.3](https://github.com/splitwave-br/design-system-splitwave/compare/v1.26.2...v1.26.3) (2025-02-14)
 
 
