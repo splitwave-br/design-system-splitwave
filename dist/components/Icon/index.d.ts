@@ -67,7 +67,6 @@ declare const icons: {
     copy: typeof Copy;
     "credit-card": () => import("react/jsx-runtime").JSX.Element;
     customer: () => import("react/jsx-runtime").JSX.Element;
-    dark: () => import("react/jsx-runtime").JSX.Element;
     date: () => import("react/jsx-runtime").JSX.Element;
     divide: () => import("react/jsx-runtime").JSX.Element;
     "dollar-sign": () => import("react/jsx-runtime").JSX.Element;
@@ -85,12 +84,12 @@ declare const icons: {
     info: () => import("react/jsx-runtime").JSX.Element;
     "information-circle": () => import("react/jsx-runtime").JSX.Element;
     invoice: () => import("react/jsx-runtime").JSX.Element;
-    light: () => import("react/jsx-runtime").JSX.Element;
     link: typeof Link;
     loading: typeof Loading;
     lock: () => import("react/jsx-runtime").JSX.Element;
     logout: () => import("react/jsx-runtime").JSX.Element;
     menu: () => import("react/jsx-runtime").JSX.Element;
+    moon: () => import("react/jsx-runtime").JSX.Element;
     "money-down": () => import("react/jsx-runtime").JSX.Element;
     "money-up": () => import("react/jsx-runtime").JSX.Element;
     "money-exchange": () => import("react/jsx-runtime").JSX.Element;
@@ -120,6 +119,7 @@ declare const icons: {
     sort: typeof Sort;
     swap: () => import("react/jsx-runtime").JSX.Element;
     swap2: typeof Swap2;
+    sun: () => import("react/jsx-runtime").JSX.Element;
     tag: typeof Tag;
     tax: () => import("react/jsx-runtime").JSX.Element;
     ticket: () => import("react/jsx-runtime").JSX.Element;
