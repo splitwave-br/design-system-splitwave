@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.26.5](https://github.com/splitwave-br/design-system-splitwave/compare/v1.26.4...v1.26.5) (2025-02-19)
+
+
+### Bug Fixes
+
+* **button-disabled:** Ensure primary button disabled background ([592d95d](https://github.com/splitwave-br/design-system-splitwave/commit/592d95d562a41cd06299b91a5f1a9509bc6cb334))
+
 ## [1.26.4](https://github.com/splitwave-br/design-system-splitwave/compare/v1.26.3...v1.26.4) (2025-02-14)
 
 
