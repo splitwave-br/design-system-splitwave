@@ -1,5 +1,5 @@
 .base-disabled-styles {
-  background: var(--button-base-disabled-background);
+  background: var(--button-base-disabled-background) !important;
   border: 1px solid var(--button-base-disabled-background);
 
   cursor: not-allowed;
