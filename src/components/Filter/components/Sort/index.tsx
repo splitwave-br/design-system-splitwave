@@ -1,14 +1,12 @@
 "use client";
 
 import React, { forwardRef, useEffect } from "react";
-import { Form } from "@/components/Form";
-import { Select as SelectControl } from "@/components/Form/controls/Select";
 import { useFilterContext } from "../../hooks/useFilter";
 import { Dropdown } from "@/components/Dropdown";
 import styles from "./styles.module.scss";
-import { Filter } from "../..";
 import { concatStyles } from "@/utils/concatStyles";
 import { useFilterFields } from "../../hooks/useFields";
+import "./variables.scss";
 
 type TSelect = {
   getLabel: (option: any) => string;
