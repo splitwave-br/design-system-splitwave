@@ -8,7 +8,7 @@
   }
 
   &.active,
-  &:active:hover {
+  &.active:hover {
     border: 1px solid var(--component-cta-filter-active-border);
     background: var(--component-cta-filter-active-background) !important;
   }

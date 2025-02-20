@@ -14,6 +14,7 @@
   --button-link-gray-text-hover: var(--colors-light-gray-600);
 
   --button-link-disabled: var(--colors-light-gray-400);
+  --button-loading-overlay: var(--lighten-color);
 }
 
 .dark-theme {
@@ -32,4 +33,5 @@
   --button-link-gray-text-hover: var(--colors-dark-gray-400);
 
   --button-link-disabled: var(--colors-dark-gray-600);
+  --button-loading-overlay: var(--darken-color);
 }
