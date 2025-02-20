@@ -1,4 +1,5 @@
 import React from "react";
+import "./variables.scss";
 type TSelect = {
     getLabel: (option: any) => string;
     getValue: (option: any) => string;

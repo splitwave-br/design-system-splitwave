@@ -6,6 +6,7 @@ import { Dropdown } from "../../../../components/Dropdown";
 import styles from "./styles.module.scss";
 import { concatStyles } from "../../../../utils/concatStyles";
 import { useFilterFields } from "../../hooks/useFields";
+import "./variables.scss";
 export var Sort = forwardRef(function (_a, ref) {
     var getLabel = _a.getLabel, getValueOption = _a.getValue, getId = _a.getId, field = _a.field, label = _a.label, options = _a.options, className = _a.className;
     var _b = useFilterContext(), setFilter = _b.setFilter, getValue = _b.getValue;
