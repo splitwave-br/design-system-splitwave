@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.26.6](https://github.com/splitwave-br/design-system-splitwave/compare/v1.26.5...v1.26.6) (2025-02-20)
+
+
+### Bug Fixes
+
+* **#228:** Fix filter button active effect ([aa25a82](https://github.com/splitwave-br/design-system-splitwave/commit/aa25a82a762606d3949865f58e8ffa95c1bf5b91))
+* **loading-and-filter-sort:** added darken color on loading button and fixed color sort selected ([110bef8](https://github.com/splitwave-br/design-system-splitwave/commit/110bef86963ffa8e8d039ea939d5d184f80377aa))
+* **loading-and-filter-sort:** att branch ([3bc16da](https://github.com/splitwave-br/design-system-splitwave/commit/3bc16dab682900f7423509c4e92b1eec4695e514))
+* **loading-and-filter-sort:** fix script build ([ff1ac68](https://github.com/splitwave-br/design-system-splitwave/commit/ff1ac68dd33f291be6cca540403a2d325508150b))
+
 ## [1.26.5](https://github.com/splitwave-br/design-system-splitwave/compare/v1.26.4...v1.26.5) (2025-02-19)
 
 
