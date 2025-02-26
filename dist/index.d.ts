@@ -27,6 +27,4 @@ export type { ToastProps } from "./components/Toast";
 export { Tabs } from "./components/Tabs";
 export type { ITabTrigger, ITabsProps } from "./components/Tabs";
 export { default as useClickOutside } from "./hooks/useClickOutside";
-export type { QueryUpdater } from "./hooks/useQueryParams";
-export { useQueryParams } from "./hooks/useQueryParams";
 export { Form } from "./components/Form";

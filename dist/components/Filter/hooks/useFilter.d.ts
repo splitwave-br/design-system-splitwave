@@ -1,5 +1,4 @@
 import React from "react";
-import { QueryUpdater } from "../utils/urlHelpers";
 export interface IUseFilterReturn {
     filter: IFilter;
     setFilter: (field: string, value: string) => void;
@@ -19,9 +18,8 @@ interface IFilter extends Record<string, string> {
 }
 type TUseFilterConfig = {
     normalize?: Record<string, (value: any) => string>;
-    queryUpdater: QueryUpdater;
 };
-declare function useFilter({ queryUpdater, normalize: _normalize }: TUseFilterConfig): {
+declare function useFilter({ normalize: _normalize }?: TUseFilterConfig): {
     filter: IFilter;
     normalizedFilter: IFilter;
     setFilter: (field: string, value: string) => void;

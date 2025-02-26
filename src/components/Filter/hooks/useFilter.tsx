@@ -8,8 +8,6 @@ import React, {
   useState,
 } from "react";
 import { get } from "@/utils/get";
-import { QueryUpdater } from "../utils/urlHelpers";
-import { useFilterURLSync } from "./useFilterUrlSync";
 export interface IUseFilterReturn {
   filter: IFilter;
   setFilter: (field: string, value: string) => void;
@@ -29,9 +27,8 @@ interface IFilter extends Record<string, string> {}
 
 type TUseFilterConfig = {
   normalize?: Record<string, (value: any) => string>;
-  queryUpdater: QueryUpdater;
 };
-function useFilter({ queryUpdater, normalize: _normalize }: TUseFilterConfig) {
+function useFilter({ normalize: _normalize }: TUseFilterConfig = {}) {
   const [filter, setFilter] = useState<IFilter>({});
 
   // TODO: We can remove it after implement the filter on the backend
@@ -98,13 +95,6 @@ function useFilter({ queryUpdater, normalize: _normalize }: TUseFilterConfig) {
     });
     return normalized;
   }, [filter]);
-
-  useFilterURLSync({
-    cleanAll,
-    filter,
-    setFilter: handlesetFilter,
-    queryUpdater,
-  });
 
   return {
     filter,
