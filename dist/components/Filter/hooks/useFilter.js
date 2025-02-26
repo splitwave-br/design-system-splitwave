@@ -14,8 +14,8 @@ import { jsx as _jsx } from "react/jsx-runtime";
 import { createContext, useCallback, useContext, useMemo, useState, } from "react";
 import { get } from "../../../utils/get";
 function useFilter(_a) {
-    var _normalize = _a.normalize;
-    var _b = useState({}), filter = _b[0], setFilter = _b[1];
+    var _b = _a === void 0 ? {} : _a, _normalize = _b.normalize;
+    var _c = useState({}), filter = _c[0], setFilter = _c[1];
     // TODO: We can remove it after implement the filter on the backend
     var applyFilter = useCallback(function (data) {
         if (Object.keys(filter).length === 0)

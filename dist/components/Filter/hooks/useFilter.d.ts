@@ -19,7 +19,7 @@ interface IFilter extends Record<string, string> {
 type TUseFilterConfig = {
     normalize?: Record<string, (value: any) => string>;
 };
-declare function useFilter({ normalize: _normalize }: TUseFilterConfig): {
+declare function useFilter({ normalize: _normalize }?: TUseFilterConfig): {
     filter: IFilter;
     normalizedFilter: IFilter;
     setFilter: (field: string, value: string) => void;

@@ -17,7 +17,7 @@ export default {
   decorators: [
     (Story) => {
       const filterRegister = useFilter({
-        queryUpdater: () => {}
+        queryUpdater: () => {},
       });
 
       return (

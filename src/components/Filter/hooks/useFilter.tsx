@@ -28,7 +28,7 @@ interface IFilter extends Record<string, string> {}
 type TUseFilterConfig = {
   normalize?: Record<string, (value: any) => string>;
 };
-function useFilter({ normalize: _normalize }: TUseFilterConfig) {
+function useFilter({ normalize: _normalize }: TUseFilterConfig = {}) {
   const [filter, setFilter] = useState<IFilter>({});
 
   // TODO: We can remove it after implement the filter on the backend
