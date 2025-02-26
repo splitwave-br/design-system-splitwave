@@ -13,9 +13,8 @@ var __assign = (this && this.__assign) || function () {
 import { jsx as _jsx } from "react/jsx-runtime";
 import { createContext, useCallback, useContext, useMemo, useState, } from "react";
 import { get } from "../../../utils/get";
-import { useFilterURLSync } from "./useFilterUrlSync";
 function useFilter(_a) {
-    var queryUpdater = _a.queryUpdater, _normalize = _a.normalize;
+    var _normalize = _a.normalize;
     var _b = useState({}), filter = _b[0], setFilter = _b[1];
     // TODO: We can remove it after implement the filter on the backend
     var applyFilter = useCallback(function (data) {
@@ -69,12 +68,6 @@ function useFilter(_a) {
         });
         return normalized;
     }, [filter]);
-    useFilterURLSync({
-        cleanAll: cleanAll,
-        filter: filter,
-        setFilter: handlesetFilter,
-        queryUpdater: queryUpdater,
-    });
     return {
         filter: filter,
         normalizedFilter: normalizedFilter,
