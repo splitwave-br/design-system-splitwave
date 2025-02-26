@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.26.7](https://github.com/splitwave-br/design-system-splitwave/compare/v1.26.6...v1.26.7) (2025-02-26)
+
+
+### Bug Fixes
+
+* **save-filters:** Add deault props to useFilter ([ccae14f](https://github.com/splitwave-br/design-system-splitwave/commit/ccae14febffbf9e0818918e14ad7fcb3f9ab4b8f))
+* **save-filters:** Remove save filter behavior ([ac5f031](https://github.com/splitwave-br/design-system-splitwave/commit/ac5f0314a89f9f89d4ca1019558eaff3cda95040))
+
 ## [1.26.6](https://github.com/splitwave-br/design-system-splitwave/compare/v1.26.5...v1.26.6) (2025-02-20)
 
 
