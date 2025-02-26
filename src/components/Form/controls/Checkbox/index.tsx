@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from "react";
+import React, { forwardRef, useId, useState } from "react";
 import styles from "./styles.module.scss";
 
 import { concatStyles } from "@/utils/concatStyles";
@@ -14,16 +14,17 @@ type CheckboxProps = {
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   ({ label, onChange, value }, ref) => {
     const isChecked = value;
+    const randomId = useId();
 
     return (
-      <React.Fragment key={label}>
+      <React.Fragment key={randomId}>
         <div
           onClick={(e) => {
             e.stopPropagation();
             onChange();
           }}
         >
-          <label htmlFor={label} className={styles.field}>
+          <label htmlFor={randomId} className={styles.field}>
             <div
               className={concatStyles([
                 styles.inputWrapper,
@@ -33,7 +34,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
               <input
                 className={styles.checkbox}
                 type="checkbox"
-                id={label}
+                id={randomId}
                 ref={ref}
                 onChange={onChange}
                 checked={isChecked}
