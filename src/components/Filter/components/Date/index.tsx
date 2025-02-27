@@ -14,6 +14,9 @@ export const DateFilter = ({
   isPeriod,
   formatter,
   label,
+  disabled = {
+    after: new Date(),
+  },
   ...props
 }: DateFilterProps) => {
   const { isOpen, handleToggle, handlePickDate, buttonLabel } = useDateFilter(
@@ -21,6 +24,8 @@ export const DateFilter = ({
     isPeriod,
   );
   const fieldRef = useRef<HTMLDivElement>(null);
+
+  const isDisabledFilter = typeof disabled === "boolean";
 
   return (
     <div ref={fieldRef} className={styles.container}>
@@ -30,11 +35,13 @@ export const DateFilter = ({
           className={styles.datePickerTrigger}
           variant="tertiary"
           onClick={handleToggle}
+          disabled={isDisabledFilter && disabled}
         >
           <Icon name="calendar" size={1} />
           {buttonLabel}
         </Button>
         <DatePicker
+          disabled={disabled}
           formatter={formatter}
           parentRef={fieldRef}
           mode={isPeriod ? "range" : "single"}

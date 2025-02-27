@@ -1,4 +1,5 @@
 import { RefObject } from "react";
+import { type Matcher } from "react-day-picker";
 export interface IFilterPeriod {
     startDate: string;
     endDate: string;
@@ -16,5 +17,6 @@ export interface DatePickerCommonProps {
     handleToggle: () => void;
     formatter?: (date: Date) => string;
     parentRef: RefObject<HTMLDivElement>;
+    disabled?: Matcher;
 }
 export type DatePickerProps = DatePickerCommonProps & (DatePickerRangeProps | DatePickerSingleProps);

@@ -1,6 +1,7 @@
 import { DatePickerProps } from "@/components/DatePicker/types";
 
-interface BaseDateFilterProps extends Pick<DatePickerProps, "formatter"> {
+interface BaseDateFilterProps
+  extends Pick<DatePickerProps, "formatter" | "disabled"> {
   isPeriod: boolean;
   label?: string;
 }
