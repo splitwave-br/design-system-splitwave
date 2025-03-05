@@ -19,9 +19,12 @@ import { Form } from "../../../../components/Form";
 import { useDateFilter } from "./hooks/useDateFilter";
 import { useRef } from "react";
 export var DateFilter = function (_a) {
-    var isPeriod = _a.isPeriod, formatter = _a.formatter, label = _a.label, props = __rest(_a, ["isPeriod", "formatter", "label"]);
-    var _b = useDateFilter(props, isPeriod), isOpen = _b.isOpen, handleToggle = _b.handleToggle, handlePickDate = _b.handlePickDate, buttonLabel = _b.buttonLabel;
+    var isPeriod = _a.isPeriod, formatter = _a.formatter, label = _a.label, _b = _a.disabled, disabled = _b === void 0 ? {
+        after: new Date(),
+    } : _b, props = __rest(_a, ["isPeriod", "formatter", "label", "disabled"]);
+    var _c = useDateFilter(props, isPeriod), isOpen = _c.isOpen, handleToggle = _c.handleToggle, handlePickDate = _c.handlePickDate, buttonLabel = _c.buttonLabel;
     var fieldRef = useRef(null);
-    return (_jsx("div", { ref: fieldRef, className: styles.container, children: _jsxs(Form.Field, { children: [label && _jsx(Form.Label, { children: label }), _jsxs(Button, { className: styles.datePickerTrigger, variant: "tertiary", onClick: handleToggle, children: [_jsx(Icon, { name: "calendar", size: 1 }), buttonLabel] }), _jsx(DatePicker, { formatter: formatter, parentRef: fieldRef, mode: isPeriod ? "range" : "single", isOpen: isOpen, handlePickDate: handlePickDate, handleToggle: handleToggle })] }) }));
+    var isDisabledFilter = typeof disabled === "boolean";
+    return (_jsx("div", { ref: fieldRef, className: styles.container, children: _jsxs(Form.Field, { children: [label && _jsx(Form.Label, { children: label }), _jsxs(Button, { className: styles.datePickerTrigger, variant: "tertiary", onClick: handleToggle, disabled: isDisabledFilter && disabled, children: [_jsx(Icon, { name: "calendar", size: 1 }), buttonLabel] }), _jsx(DatePicker, { disabled: disabled, formatter: formatter, parentRef: fieldRef, mode: isPeriod ? "range" : "single", isOpen: isOpen, handlePickDate: handlePickDate, handleToggle: handleToggle })] }) }));
 };
 DateFilter.displayName = "DateFilter";

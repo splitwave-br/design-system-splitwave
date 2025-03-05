@@ -1,4 +1,4 @@
-import { Meta, StoryFn } from "@storybook/react";
+import { type Meta, type StoryFn, type StoryObj } from "@storybook/react";
 import { ThemePreview } from "../ThemePreview";
 import { Filter } from ".";
 import { useFilter } from "./hooks/useFilter";
@@ -145,17 +145,35 @@ export const DateFilter: StoryFn = () => {
     <Filter.Container>
       <Filter.Button>Data</Filter.Button>
       <Filter.Content>
+        {/* Normal, porém, o usuário não pode selecionar datas posteriores ao dia atual */}
         <Filter.Date label="Por período" isPeriod />
-        {/* <Filter.Date
-          field="createdAt"
-          label="Data de criação"
-          isPeriod={false}
-        />
+        {/* Campo inativo */}
+        <Filter.Date label="Desabilitado" isPeriod disabled />
+        {/* Campo ativo, porém, o usuário não pode selecionar datas antes de Janeiro de 2025 */}
         <Filter.Date
-          field="updatedAt"
-          label="Data da última atualização"
-          isPeriod={false}
-        /> */}
+          label="Apenas de 2025"
+          isPeriod
+          disabled={{
+            before: new Date(2025, 0),
+          }}
+        />
+        {/* Campo ativo, porém, o usuário não pode selecionar datas antes de Janeiro de 2025 até a data atual */}
+        <Filter.Date
+          label="Apenas de 2025"
+          isPeriod
+          disabled={{
+            before: new Date(2025, 0),
+            after: new Date(),
+          }}
+        />
+        {/* Só pode selecionar segunda, quarta, sexta */}
+        <Filter.Date
+          label="Dias especificos"
+          isPeriod
+          disabled={{
+            dayOfWeek: [0, 2, 4, 6],
+          }}
+        />
       </Filter.Content>
     </Filter.Container>
   );
@@ -262,7 +280,7 @@ export const MultipleFilters: StoryFn = () => {
   );
 };
 
-export const DarkOrLightTheme: StoryFn = {
+export const DarkOrLightTheme: StoryObj = {
   render: () => (
     <ThemePreview>
       <Filter.Container>
