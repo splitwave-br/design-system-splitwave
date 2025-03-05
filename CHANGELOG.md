@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.26.8](https://github.com/splitwave-br/design-system-splitwave/compare/v1.26.7...v1.26.8) (2025-03-05)
+
+
+### Bug Fixes
+
+* **#000:** Fix import and export icons color ([765f800](https://github.com/splitwave-br/design-system-splitwave/commit/765f800b85f1e5476c224bd5f9540c5d415954d1))
+
 ## [1.26.7](https://github.com/splitwave-br/design-system-splitwave/compare/v1.26.6...v1.26.7) (2025-02-26)
 
 
