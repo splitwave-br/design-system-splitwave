@@ -53,7 +53,7 @@ export declare const Filter: {
         className?: string;
     } & import("react").RefAttributes<HTMLDivElement>>;
     Date: {
-        ({ isPeriod, formatter, label, ...props }: import("./components/Date/types").DateFilterProps): import("react/jsx-runtime").JSX.Element;
+        ({ isPeriod, formatter, label, disabled, ...props }: import("./components/Date/types").DateFilterProps): import("react/jsx-runtime").JSX.Element;
         displayName: string;
     };
 };

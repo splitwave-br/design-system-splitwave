@@ -47,6 +47,7 @@ export const DatePicker = ({
   formatter,
   handleToggle,
   handlePickDate,
+  disabled,
 }: DatePickerProps) => {
   const [selectedDate, setSelectedDate] = useState<
     DateRange | Date | undefined
@@ -127,6 +128,7 @@ export const DatePicker = ({
     numberOfMonths,
     classNames: combinedClassNames,
     onSelect: setSelectedDate,
+    disabled,
     ...modeSpecificProps,
   };
 
