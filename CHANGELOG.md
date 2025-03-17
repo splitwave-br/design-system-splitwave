@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.26.9](https://github.com/splitwave-br/design-system-splitwave/compare/v1.26.8...v1.26.9) (2025-03-17)
+
+
+### Bug Fixes
+
+* **#scroll:** adjusted height ([1e7def7](https://github.com/splitwave-br/design-system-splitwave/commit/1e7def78602066d3f05b4175b0fa021dae5d509c))
+* **#scroll:** adjusted height ([b1ce4bc](https://github.com/splitwave-br/design-system-splitwave/commit/b1ce4bc4c8ecec39bcf712b72640d29104f84d9b))
+
 ## [1.26.8](https://github.com/splitwave-br/design-system-splitwave/compare/v1.26.7...v1.26.8) (2025-03-05)
 
 
