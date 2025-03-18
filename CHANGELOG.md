@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.26.10](https://github.com/splitwave-br/design-system-splitwave/compare/v1.26.9...v1.26.10) (2025-03-18)
+
+
+### Bug Fixes
+
+* **#filter-checkbox:** adjusted label color ([a67227b](https://github.com/splitwave-br/design-system-splitwave/commit/a67227bb71e9b21f81604751b57888f10fef2d7a))
+* **#filter-checkbox:** adjusted label color ([49ca1a8](https://github.com/splitwave-br/design-system-splitwave/commit/49ca1a8edf44a0352e90d6fc1ca3a742dfa0b6a4))
+
 ## [1.26.9](https://github.com/splitwave-br/design-system-splitwave/compare/v1.26.8...v1.26.9) (2025-03-17)
 
 
