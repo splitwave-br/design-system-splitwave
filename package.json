@@ -1,6 +1,6 @@
 {
   "name": "design-system",
-  "version": "1.26.9",
+  "version": "1.26.10",
   "description": "",
   "main": "dist/index.js",
   "files": [
