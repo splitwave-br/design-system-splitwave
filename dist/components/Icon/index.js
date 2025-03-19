@@ -102,6 +102,7 @@ import { Filter } from "./components/Filter";
 import { Affiliated } from "./components/Affiliated";
 import { Moon } from "./components/Moon";
 import { Sun } from "./components/Sun";
+import Drag from "./components/Drag";
 var icons = {
     access: Access,
     alert: Alert,
@@ -205,6 +206,7 @@ var icons = {
     affiliated: Affiliated,
     import: Import,
     export: Export,
+    drag: Drag,
 };
 export var Icon = function (_a) {
     var name = _a.name, _b = _a.size, size = _b === void 0 ? 2 : _b, className = _a.className;
