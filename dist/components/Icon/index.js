@@ -103,6 +103,8 @@ import { Affiliated } from "./components/Affiliated";
 import { Moon } from "./components/Moon";
 import { Sun } from "./components/Sun";
 import Drag from "./components/Drag";
+import Invoice03 from "./components/Invoice03";
+import CreditCard1 from "./components/CreditCard1";
 var icons = {
     access: Access,
     alert: Alert,
@@ -162,6 +164,8 @@ var icons = {
     "money-up": MoneyUp,
     "money-exchange": MoneyExchange,
     "money-04": Money04,
+    "invoice-03": Invoice03,
+    "credit-card-1": CreditCard1,
     more: More,
     "money-send": MoneySend,
     "money-bag": MoneyBag,
