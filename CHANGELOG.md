@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.27.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.26.10...v1.27.0) (2025-03-21)
+
+
+### Features
+
+* **drag-icon:** Add drag icon ([9e1d1f8](https://github.com/splitwave-br/design-system-splitwave/commit/9e1d1f8e81ee3052c2d21f30c28f5db2ce056a7c))
+* **drag-icon:** Add drag icon ([8032f3a](https://github.com/splitwave-br/design-system-splitwave/commit/8032f3ad2b0b2addf0aa71a6694e623cb02b185c))
+* **icons:** Add credit card and invoice icons ([7ea9c9d](https://github.com/splitwave-br/design-system-splitwave/commit/7ea9c9dcbf858023675a3cad1f589289dd8844e3))
+
 ## [1.26.10](https://github.com/splitwave-br/design-system-splitwave/compare/v1.26.9...v1.26.10) (2025-03-18)
 
 
