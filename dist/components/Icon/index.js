@@ -102,6 +102,9 @@ import { Filter } from "./components/Filter";
 import { Affiliated } from "./components/Affiliated";
 import { Moon } from "./components/Moon";
 import { Sun } from "./components/Sun";
+import Drag from "./components/Drag";
+import Invoice03 from "./components/Invoice03";
+import CreditCard1 from "./components/CreditCard1";
 var icons = {
     access: Access,
     alert: Alert,
@@ -161,6 +164,8 @@ var icons = {
     "money-up": MoneyUp,
     "money-exchange": MoneyExchange,
     "money-04": Money04,
+    "invoice-03": Invoice03,
+    "credit-card-1": CreditCard1,
     more: More,
     "money-send": MoneySend,
     "money-bag": MoneyBag,
@@ -205,6 +210,7 @@ var icons = {
     affiliated: Affiliated,
     import: Import,
     export: Export,
+    drag: Drag,
 };
 export var Icon = function (_a) {
     var name = _a.name, _b = _a.size, size = _b === void 0 ? 2 : _b, className = _a.className;

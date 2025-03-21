@@ -94,6 +94,8 @@ declare const icons: {
     "money-up": () => import("react/jsx-runtime").JSX.Element;
     "money-exchange": () => import("react/jsx-runtime").JSX.Element;
     "money-04": () => import("react/jsx-runtime").JSX.Element;
+    "invoice-03": () => import("react/jsx-runtime").JSX.Element;
+    "credit-card-1": () => import("react/jsx-runtime").JSX.Element;
     more: () => import("react/jsx-runtime").JSX.Element;
     "money-send": typeof MoneySend;
     "money-bag": typeof MoneyBag;
@@ -138,6 +140,7 @@ declare const icons: {
     affiliated: () => import("react/jsx-runtime").JSX.Element;
     import: typeof Import;
     export: typeof Export;
+    drag: () => import("react/jsx-runtime").JSX.Element;
 };
 export type TIconSizes = "nano" | "micro" | 1 | 2 | 3 | 4;
 export type TIcons = keyof typeof icons;
