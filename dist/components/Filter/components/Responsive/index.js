@@ -62,13 +62,6 @@ export var Responsive = function (_a) {
         });
         return fields;
     }, [isMobile, children]);
-    var handleGetIsActive = useMemo(function () {
-        var filterKeysWithoutNotEjectedFields = Object.keys(filter).filter(function (key) { return !notEjectedFields.includes(key); });
-        var activeFields = filterKeysWithoutNotEjectedFields.filter(function (field) {
-            return getIsActive([field]);
-        });
-        return activeFields.length > 0;
-    }, [filter, notEjectedFields]);
     return (_jsxs("div", { className: styles.wrapper, children: [isMobile && (_jsx("div", { children: _jsxs(Button, { variant: "tertiary", size: "medium", className: styles.button, onClick: function () { return setIsOpen(!isOpen); }, children: ["Filtros", _jsx(Icon, { name: "filter", size: 1 })] }) })), renderNotEjectedChildren, _jsxs("div", { className: concatStyles([
                     styles.wrapperFilters,
                     wrapperFiltersClassName,
