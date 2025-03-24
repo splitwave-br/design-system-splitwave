@@ -95,10 +95,7 @@ export const Responsive = ({
           <Button
             variant="tertiary"
             size="medium"
-            className={concatStyles([
-              styles.button,
-              // handleGetIsActive ? styles.active : "",
-            ])}
+            className={styles.button}
             onClick={() => setIsOpen(!isOpen)}
           >
             Filtros
