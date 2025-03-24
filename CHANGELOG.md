@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.27.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.27.0...v1.27.1) (2025-03-24)
+
+
+### Bug Fixes
+
+* **#button-filter:** remove active color ([6961fd8](https://github.com/splitwave-br/design-system-splitwave/commit/6961fd87e7cd045370696915f90f3e3bee5736c3))
+* **#button-filter:** remove active color ([a5bef1c](https://github.com/splitwave-br/design-system-splitwave/commit/a5bef1c891cafb4237861fb5f2f7ef37d4c02256))
+* **#button-filter:** remove active color on button filter responsive ([772da10](https://github.com/splitwave-br/design-system-splitwave/commit/772da10efa0047df91b4426c298cbf3bf6ed7e43))
+* **#button-filter:** remove unnecessary function ([5744709](https://github.com/splitwave-br/design-system-splitwave/commit/5744709a2f7b45a2417d102af8c32d967d54d051))
+* **#button-filter:** remove unnecessary function ([0eed6d1](https://github.com/splitwave-br/design-system-splitwave/commit/0eed6d1b2bdc3c1f25feed59d90362c14b3e935e))
+
 ## [1.27.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.26.10...v1.27.0) (2025-03-21)
 
 
