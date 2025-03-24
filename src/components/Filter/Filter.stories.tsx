@@ -189,94 +189,96 @@ export const MultipleFilters: StoryFn = () => {
   ];
   const shouldShow = false;
   return (
-    <Filter.Responsive>
-      <Filter.Container>
-        <Filter.Button>Cliente</Filter.Button>
-        <Filter.Content>
-          <Filter.Field field={"customerEmail"} label={"E-mail"} />
-          <Filter.Field field={"customerName"} label={"Nome do cliente"} />
-          <Filter.Field field={"customerCpfCnpj"} label={"CPF/CNPJ"} />
-          <Filter.Field field={"customerPhone"} label={"Telefone"} />
-        </Filter.Content>
-      </Filter.Container>
-
-      {shouldShow && (
+    <ThemePreview>
+      <Filter.Responsive>
         <Filter.Container>
-          <Filter.Button>Id do pedido</Filter.Button>
+          <Filter.Button>Cliente</Filter.Button>
           <Filter.Content>
-            <Filter.Field field={"orderId"} label={"Id do pedido"} />
+            <Filter.Field field={"customerEmail"} label={"E-mail"} />
+            <Filter.Field field={"customerName"} label={"Nome do cliente"} />
+            <Filter.Field field={"customerCpfCnpj"} label={"CPF/CNPJ"} />
+            <Filter.Field field={"customerPhone"} label={"Telefone"} />
           </Filter.Content>
         </Filter.Container>
-      )}
-      <Filter.Container>
-        <Filter.Button>Preço</Filter.Button>
-        <Filter.Content>
-          <Filter.Field field={"minPrice"} label={"Mínimo"} />
-          <Filter.Field field={"maxPrice"} label={"Máximo"} />
-        </Filter.Content>
-      </Filter.Container>
 
-      <Filter.Container>
-        <Filter.Button>Método de pagamento</Filter.Button>
-        <Filter.Check
-          label="Método de pagamento"
-          getLabel={(option) => option.label}
-          getValue={(option) => option.id}
-          field="paymentMethod"
-          options={PAYMENT_METHODS}
-        />
-      </Filter.Container>
-      <Filter.Container>
-        <Filter.Button>Data</Filter.Button>
-        <Filter.Content>
-          <Filter.Date label="Por período" isPeriod />
-          <Filter.Date
-            field="createdAt"
-            label="Data de criação"
-            isPeriod={false}
+        {shouldShow && (
+          <Filter.Container>
+            <Filter.Button>Id do pedido</Filter.Button>
+            <Filter.Content>
+              <Filter.Field field={"orderId"} label={"Id do pedido"} />
+            </Filter.Content>
+          </Filter.Container>
+        )}
+        <Filter.Container>
+          <Filter.Button>Preço</Filter.Button>
+          <Filter.Content>
+            <Filter.Field field={"minPrice"} label={"Mínimo"} />
+            <Filter.Field field={"maxPrice"} label={"Máximo"} />
+          </Filter.Content>
+        </Filter.Container>
+
+        <Filter.Container>
+          <Filter.Button>Método de pagamento</Filter.Button>
+          <Filter.Check
+            label="Método de pagamento"
+            getLabel={(option) => option.label}
+            getValue={(option) => option.id}
+            field="paymentMethod"
+            options={PAYMENT_METHODS}
           />
-          <Filter.Date
-            field="updatedAt"
-            label="Data da última atualização"
-            isPeriod={false}
+        </Filter.Container>
+        <Filter.Container>
+          <Filter.Button>Data</Filter.Button>
+          <Filter.Content>
+            <Filter.Date label="Por período" isPeriod />
+            <Filter.Date
+              field="createdAt"
+              label="Data de criação"
+              isPeriod={false}
+            />
+            <Filter.Date
+              field="updatedAt"
+              label="Data da última atualização"
+              isPeriod={false}
+            />
+          </Filter.Content>
+        </Filter.Container>
+        <Filter.Container shouldEjectOnMobile={false}>
+          <Filter.Button icon={() => <Icon name="sort" size={1} />}>
+            Ordem
+          </Filter.Button>
+          <Filter.Sort
+            getLabel={(item) => item.label}
+            getValue={(item) => item.value}
+            field={"orderByField"}
+            options={[
+              { label: "Alfabética", value: "client-asc" },
+              "divider",
+              { label: "Total em vendas (crescente)", value: "totalSales-asc" },
+              {
+                label: "Total em vendas (decrescente)",
+                value: "totalSales-desc",
+              },
+              "divider",
+              {
+                label: "Lucro do gateway (crescente)",
+                value: "profitGateway-asc",
+              },
+              {
+                label: "Lucro do gateway (decrescente)",
+                value: "profitGateway-desc",
+              },
+              "divider",
+              { label: "Reserva financeira (crescente)", value: "reserve-asc" },
+              {
+                label: "Reserva financeira (decrescente)",
+                value: "reserve-desc",
+              },
+            ]}
           />
-        </Filter.Content>
-      </Filter.Container>
-      <Filter.Container shouldEjectOnMobile={false}>
-        <Filter.Button icon={() => <Icon name="sort" size={1} />}>
-          Ordem
-        </Filter.Button>
-        <Filter.Sort
-          getLabel={(item) => item.label}
-          getValue={(item) => item.value}
-          field={"orderByField"}
-          options={[
-            { label: "Alfabética", value: "client-asc" },
-            "divider",
-            { label: "Total em vendas (crescente)", value: "totalSales-asc" },
-            {
-              label: "Total em vendas (decrescente)",
-              value: "totalSales-desc",
-            },
-            "divider",
-            {
-              label: "Lucro do gateway (crescente)",
-              value: "profitGateway-asc",
-            },
-            {
-              label: "Lucro do gateway (decrescente)",
-              value: "profitGateway-desc",
-            },
-            "divider",
-            { label: "Reserva financeira (crescente)", value: "reserve-asc" },
-            {
-              label: "Reserva financeira (decrescente)",
-              value: "reserve-desc",
-            },
-          ]}
-        />
-      </Filter.Container>
-    </Filter.Responsive>
+        </Filter.Container>
+      </Filter.Responsive>
+    </ThemePreview>
   );
 };
 

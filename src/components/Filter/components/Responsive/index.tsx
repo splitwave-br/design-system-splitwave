@@ -97,7 +97,7 @@ export const Responsive = ({
             size="medium"
             className={concatStyles([
               styles.button,
-              handleGetIsActive ? styles.active : "",
+              // handleGetIsActive ? styles.active : "",
             ])}
             onClick={() => setIsOpen(!isOpen)}
           >
