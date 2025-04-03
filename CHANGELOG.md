@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.27.2](https://github.com/splitwave-br/design-system-splitwave/compare/v1.27.1...v1.27.2) (2025-04-03)
+
+
+### Bug Fixes
+
+* **#885:** adding dist files ([3939359](https://github.com/splitwave-br/design-system-splitwave/commit/3939359ecf786e26688d1f413427b4952e26fcdb))
+* **#885:** increase 'z-index' in the filter content ([d70a2c4](https://github.com/splitwave-br/design-system-splitwave/commit/d70a2c451f0aacd1c53e8cd567eab0118f305dc5))
+
 ## [1.27.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.27.0...v1.27.1) (2025-03-24)
 
 
