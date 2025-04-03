@@ -154,3 +154,10 @@
   border-bottom-right-radius: var(--border-radius-3);
   border-top-right-radius: var(--border-radius-3);
 }
+
+.input:-webkit-autofill {
+  background-color: var(--colors-background-sunken) !important;
+  -webkit-text-fill-color: var(--component-input-active-text) !important;
+  -webkit-box-shadow: 0 0 0px 1000px var(--colors-background-sunken) inset !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
