@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.27.3](https://github.com/splitwave-br/design-system-splitwave/compare/v1.27.2...v1.27.3) (2025-04-03)
+
+
+### Bug Fixes
+
+* **#338:** adjust autofill color ([e44291f](https://github.com/splitwave-br/design-system-splitwave/commit/e44291fecc8a19b38dbe635fb529abdcf2e89bef))
+* **#338:** adjust autofill color ([c1f5c2f](https://github.com/splitwave-br/design-system-splitwave/commit/c1f5c2f9cab6db2dfa9722f466eb63892c06ea32))
+
 ## [1.27.2](https://github.com/splitwave-br/design-system-splitwave/compare/v1.27.1...v1.27.2) (2025-04-03)
 
 
