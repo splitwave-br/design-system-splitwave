@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.27.4](https://github.com/splitwave-br/design-system-splitwave/compare/v1.27.3...v1.27.4) (2025-04-04)
+
+
+### Bug Fixes
+
+* **#overlay:** adjust z-index ([aa3007f](https://github.com/splitwave-br/design-system-splitwave/commit/aa3007f1a65e6a23623c2ab645dff3515fba6cb1))
+* **#overlay:** adjust z-index ([6dbe0c3](https://github.com/splitwave-br/design-system-splitwave/commit/6dbe0c3f289994dd48a6ce4a0d540ad8565744dc))
+
 ## [1.27.3](https://github.com/splitwave-br/design-system-splitwave/compare/v1.27.2...v1.27.3) (2025-04-03)
 
 
