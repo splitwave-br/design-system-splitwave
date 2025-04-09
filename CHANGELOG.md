@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.28.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.27.4...v1.28.0) (2025-04-09)
+
+
+### Features
+
+* **modal:** Fix modal footer gradient and dark mode ([4af47ab](https://github.com/splitwave-br/design-system-splitwave/commit/4af47abf01e827fa3d619c8a165f790f63efffc1))
+* **modal:** Fix modal footer gradient and dark mode ([17071ba](https://github.com/splitwave-br/design-system-splitwave/commit/17071ba0b43071c6ed21cf06155889d534287c28))
+
 ## [1.27.4](https://github.com/splitwave-br/design-system-splitwave/compare/v1.27.3...v1.27.4) (2025-04-04)
 
 
