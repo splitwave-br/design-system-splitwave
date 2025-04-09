@@ -22,9 +22,8 @@
   border-bottom-right-radius: calc(var(--border-radius-3) * 2);
   background: linear-gradient(
     0deg,
-    #fff 30.68%,
-    rgba(255, 255, 255, 0.66) 223.12%,
-    rgba(255, 255, 255, 0) 249.43%
+    var(--component-modal-gradient-1) 0%,
+    var(--component-modal-gradient-2) 100%
   );
 
   @include temporary_mobile {
@@ -34,7 +33,7 @@
     justify-content: flex-end;
     position: static;
     border-radius: 0px;
-    background: var(--surface-background);
+    background: var(--component-modal-background);
     margin-top: auto;
 
     button {

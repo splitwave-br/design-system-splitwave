@@ -13,7 +13,7 @@
 
   border-bottom-left-radius: calc(var(--border-radius-3) * 2);
   border-bottom-right-radius: calc(var(--border-radius-3) * 2);
-  background: var(--color-background-sunken);
+  background: var(--component-modal-background);
 
   &::-webkit-scrollbar {
     width: var(--spaces-micro);

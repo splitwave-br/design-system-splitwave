@@ -9,6 +9,7 @@
   transform: translateZ(0);
   display: flex;
   flex-direction: column;
+  z-index: 100000;
 
   @include temporary_mobile {
     border-radius: 0px;
@@ -32,11 +33,10 @@
     justify-content: space-between;
     border-top-left-radius: calc(var(--border-radius-3) * 2);
     border-top-right-radius: calc(var(--border-radius-3) * 2);
-    background: var(--colors-light-gray-200);
+    background-color: var(--component-modal-header);
 
     @include temporary_mobile {
       background: var(--color-background-sunken);
-      padding-bottom: 0px;
       border-radius: 0px;
       align-items: center;
       gap: var(--spaces-1);
@@ -44,15 +44,18 @@
     }
 
     .title {
-      color: var(--colors-gray-900);
-
+      color: var(--colors-font-primary);
       font-size: var(--font-size-4);
       font-weight: 600;
       line-height: 1.5em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     .backBtn {
       display: none;
+      color: var(--colors-font-primary);
       @include temporary_mobile {
         display: inline;
       }

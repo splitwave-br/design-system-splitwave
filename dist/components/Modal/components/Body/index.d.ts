@@ -1,4 +1,5 @@
 import React from "react";
+import "./variables.scss";
 export interface ModalBodyProps {
     children: React.ReactNode;
     className?: string;

@@ -2,6 +2,7 @@ import React from "react";
 import { Icon } from "@/components/Icon";
 import styles from "./styles.module.scss";
 import { useModal } from "../../hooks/useModal";
+import "./variables.scss";
 import classnames from "classnames";
 
 export interface ModalWrapperProps {
@@ -30,21 +31,17 @@ const Wrapper = ({
     >
       {title && (
         <div className={styles.header}>
-          {
-            onClose && (
+          {onClose && (
             <button onClick={handleClose} className={styles.backBtn}>
               <Icon name="back" />
             </button>
-            )
-          }
+          )}
           <span className={styles.title}>{title}</span>
-          {
-            onClose && (
-              <button onClick={handleClose} className={styles.closeBtn}>
-                <Icon size={"nano"} name="cancel" />
-              </button>
-            )
-          }
+          {onClose && (
+            <button onClick={handleClose} className={styles.closeBtn}>
+              <Icon size={"nano"} name="cancel" />
+            </button>
+          )}
         </div>
       )}
       {children}
