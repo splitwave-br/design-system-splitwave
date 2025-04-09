@@ -2,6 +2,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { Icon } from "../../../../components/Icon";
 import styles from "./styles.module.scss";
 import { useModal } from "../../hooks/useModal";
+import "./variables.scss";
 import classnames from "classnames";
 var Wrapper = function (_a) {
     var className = _a.className, children = _a.children, title = _a.title, onClose = _a.onClose;

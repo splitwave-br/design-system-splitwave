@@ -1,0 +1,11 @@
+.light-theme {
+  --component-modal-background: var(--colors-neutral-50);
+  --component-modal-gradient-1: var(--colors-neutral-50);
+  --component-modal-gradient-2: rgba(255, 255, 255, 0.8);
+}
+
+.dark-theme {
+  --component-modal-background: var(--colors-dark-gray-800);
+  --component-modal-gradient-1: var(--colors-dark-gray-800);
+  --component-modal-gradient-2: rgba(16, 18, 20, 0.8);
+}

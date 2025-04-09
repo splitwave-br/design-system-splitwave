@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./styles.module.scss";
+import "./variables.scss";
 
 export interface ModalFooterProps {
   children: React.ReactNode;
