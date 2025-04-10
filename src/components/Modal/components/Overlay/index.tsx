@@ -1,5 +1,6 @@
 import { MouseEvent, MouseEventHandler } from "react";
 import styles from "./styles.module.scss";
+import "./variables.scss";
 
 export interface ModalOverlayProps {
   onClose: any;

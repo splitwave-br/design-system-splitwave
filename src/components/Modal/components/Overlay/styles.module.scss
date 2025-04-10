@@ -12,8 +12,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--modal-overlay) !important;
-  backdrop-filter: blur(4px);
+  background-color: var(--component-modal-overlay) !important;
 
   @include temporary_mobile {
     top: 0;

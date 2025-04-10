@@ -1,3 +1,4 @@
+import "./variables.scss";
 export interface ModalOverlayProps {
     onClose: any;
     children: React.ReactNode;
