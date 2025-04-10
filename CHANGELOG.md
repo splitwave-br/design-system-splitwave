@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.28.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.28.0...v1.28.1) (2025-04-10)
+
+
+### Bug Fixes
+
+* **modal:** Add missing border ([abc0dae](https://github.com/splitwave-br/design-system-splitwave/commit/abc0daea7ecc9e08ba39b5e673bccfa0b9ccd0d3))
+* **modal:** Add missing border ([3667caf](https://github.com/splitwave-br/design-system-splitwave/commit/3667cafcc4410d8cd1582fe06cae011aabfb5fbc))
+
 ## [1.28.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.27.4...v1.28.0) (2025-04-09)
 
 
