@@ -1,8 +1,9 @@
-
 .light-theme {
-    --component-modal-header: var(--colors-gray-200);
+  --component-modal-header: var(--colors-gray-200);
+  --component-modal-border: transparent;
 }
 
 .dark-theme {
-    --component-modal-header: var(--colors-dark-gray-900);
+  --component-modal-header: var(--colors-dark-gray-900);
+  --component-modal-border: var(--colors-dark-gray-700);
 }
