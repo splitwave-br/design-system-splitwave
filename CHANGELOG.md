@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.28.2](https://github.com/splitwave-br/design-system-splitwave/compare/v1.28.1...v1.28.2) (2025-04-10)
+
+
+### Bug Fixes
+
+* **modal:** Add missing build file ([9368f4f](https://github.com/splitwave-br/design-system-splitwave/commit/9368f4fbc7c041c3de74a79a51f054c87be153c7))
+* **modal:** Fix styles ([dde0ce2](https://github.com/splitwave-br/design-system-splitwave/commit/dde0ce29cba52c4519f0464864876679e90b5aa6))
+
 ## [1.28.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.28.0...v1.28.1) (2025-04-10)
 
 
