@@ -28,7 +28,7 @@ export const Table = <T extends ITableData>({
     currentPage,
     pages,
     onClickNextPage,
-    onClickOnPage,
+    onPageInputChange,
     onClickPrevPage,
     totalPages,
     isLoading,
@@ -90,7 +90,7 @@ export const Table = <T extends ITableData>({
             currentPage={currentPage}
             totalPages={totalPages}
             handleClickNextPage={!isLoading ? onClickNextPage : () => {}}
-            handleClickOnPage={!isLoading ? onClickOnPage : () => {}}
+            handlePageInputChange={!isLoading ? onPageInputChange : () => {}}
             handleClickPrevPage={!isLoading ? onClickPrevPage : () => {}}
           />
         </div>

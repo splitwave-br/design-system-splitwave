@@ -20,7 +20,7 @@ export type TTable<T extends ITableData> = {
         pages?: T[][];
         totalPages: number;
         onClickNextPage: () => void;
-        onClickOnPage: (page: number) => void;
+        onPageInputChange: (page: number) => void;
         onClickPrevPage: () => void;
         limit?: number;
     };

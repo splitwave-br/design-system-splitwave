@@ -14,7 +14,7 @@ export var Table = function (_a) {
     var LIMIT = 15;
     var isMobile = useWindowSize().isMobile;
     var staticPagination = usePagination({ rows: data, limit: 15 });
-    var _d = pagination || staticPagination, currentPage = _d.currentPage, pages = _d.pages, onClickNextPage = _d.onClickNextPage, onClickOnPage = _d.onClickOnPage, onClickPrevPage = _d.onClickPrevPage, totalPages = _d.totalPages, isLoading = _d.isLoading;
+    var _d = pagination || staticPagination, currentPage = _d.currentPage, pages = _d.pages, onClickNextPage = _d.onClickNextPage, onPageInputChange = _d.onPageInputChange, onClickPrevPage = _d.onClickPrevPage, totalPages = _d.totalPages, isLoading = _d.isLoading;
     var pageData = useMemo(function () {
         return (pages === null || pages === void 0 ? void 0 : pages[currentPage]) || data;
     }, [pages, currentPage, data]);
@@ -39,6 +39,6 @@ export var Table = function (_a) {
         })
             .join(" ");
     }, [columns, isMobile]);
-    return (_jsxs("div", { className: styles.wrapper, children: [_jsxs("div", { className: styles.table, style: { gridTemplateColumns: gridTemplateColumns }, children: [!isMobile && header && _jsx("div", { className: styles.header, children: header }), isEmpty && renderEmptyState && renderEmptyState(), _jsx(Rows, { limit: LIMIT, keyExtractor: keyExtractor, data: pageData, renderRow: renderRow, columns: columns, onRowClick: onRowClick, isLoading: isLoading, isMobile: isMobile })] }), !isEmpty && totalPages > 1 && (_jsx("div", { className: styles.footer, children: _jsx(Pagination, { currentPage: currentPage, totalPages: totalPages, handleClickNextPage: !isLoading ? onClickNextPage : function () { }, handleClickOnPage: !isLoading ? onClickOnPage : function () { }, handleClickPrevPage: !isLoading ? onClickPrevPage : function () { } }) }))] }));
+    return (_jsxs("div", { className: styles.wrapper, children: [_jsxs("div", { className: styles.table, style: { gridTemplateColumns: gridTemplateColumns }, children: [!isMobile && header && _jsx("div", { className: styles.header, children: header }), isEmpty && renderEmptyState && renderEmptyState(), _jsx(Rows, { limit: LIMIT, keyExtractor: keyExtractor, data: pageData, renderRow: renderRow, columns: columns, onRowClick: onRowClick, isLoading: isLoading, isMobile: isMobile })] }), !isEmpty && totalPages > 1 && (_jsx("div", { className: styles.footer, children: _jsx(Pagination, { currentPage: currentPage, totalPages: totalPages, handleClickNextPage: !isLoading ? onClickNextPage : function () { }, handlePageInputChange: !isLoading ? onPageInputChange : function () { }, handleClickPrevPage: !isLoading ? onClickPrevPage : function () { } }) }))] }));
 };
 export { Cell, Header, Pagination };

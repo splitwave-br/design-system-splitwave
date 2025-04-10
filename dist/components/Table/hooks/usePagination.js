@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState } from "react";
 var FAKE_TIMEOUT = 300; // ms
 export var usePagination = function (_a) {
     var rows = _a.rows, limit = _a.limit;
@@ -16,7 +16,6 @@ export var usePagination = function (_a) {
             setCurrentPage(page);
             setIsLoading(false);
         }, FAKE_TIMEOUT);
-        ;
     };
     var handleClickNextPage = function () {
         if (pages.length === currentPage + 1)
@@ -38,6 +37,6 @@ export var usePagination = function (_a) {
         totalPages: pages.length,
         onClickNextPage: handleClickNextPage,
         onClickPrevPage: handleClickPrevPage,
-        onClickOnPage: handleClickOnPage,
+        onPageInputChange: handleClickOnPage,
     };
 };
