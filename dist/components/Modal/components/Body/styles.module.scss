@@ -6,20 +6,20 @@
 
   padding: var(--spaces-3);
   padding-bottom: 88px;
-
+  color: var(--colors-font-primary);
   display: flex;
   flex-direction: column;
   gap: var(--spaces-3);
 
   border-bottom-left-radius: calc(var(--border-radius-3) * 2);
   border-bottom-right-radius: calc(var(--border-radius-3) * 2);
-  background: var(--color-background-sunken);
+  background: var(--component-modal-background);
 
   &::-webkit-scrollbar {
     width: var(--spaces-micro);
   }
   &::-webkit-scrollbar-track {
-    background: var(--color-background-sunken);
+    background: var(--component-modal-background);
 
     margin-bottom: 88px;
   }

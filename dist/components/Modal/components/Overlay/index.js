@@ -1,5 +1,6 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import styles from "./styles.module.scss";
+import "./variables.scss";
 var Overlay = function (_a) {
     var children = _a.children, onClose = _a.onClose;
     var handleClick = function (event) {

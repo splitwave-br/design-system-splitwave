@@ -3,6 +3,7 @@ import { Icon } from "../../../../components/Icon";
 import styles from "./styles.module.scss";
 import { useModal } from "../../hooks/useModal";
 import classnames from "classnames";
+import "./variables.scss";
 var Wrapper = function (_a) {
     var className = _a.className, children = _a.children, title = _a.title, onClose = _a.onClose;
     var closeModal = useModal().closeModal;

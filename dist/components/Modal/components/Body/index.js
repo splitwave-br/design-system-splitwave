@@ -1,5 +1,6 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import styles from "./styles.module.scss";
+import "./variables.scss";
 var ModalBody = function (_a) {
     var children = _a.children, className = _a.className;
     var modalBodyStyles = [styles.body, className].join(" ");
