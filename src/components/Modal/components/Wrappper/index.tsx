@@ -3,6 +3,7 @@ import { Icon } from "@/components/Icon";
 import styles from "./styles.module.scss";
 import { useModal } from "../../hooks/useModal";
 import classnames from "classnames";
+import "./variables.scss"
 
 export interface ModalWrapperProps {
   className?: string;

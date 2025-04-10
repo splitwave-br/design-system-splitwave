@@ -3,6 +3,7 @@ import { Button } from "@/components/Button";
 import { ModalProvider, useModal } from "./hooks/useModal"; // Ajuste o caminho conforme necessário
 import { Modal } from "./index";
 import ConfirmationModal from "../ConfirmationModal"; // Ajuste o caminho conforme necessário
+import { ThemePreview } from "../ThemePreview";
 
 export default {
   title: "Components/Modal",
@@ -49,17 +50,19 @@ export const BasicModal: StoryFn = () => {
   const { closeModal } = useModal();
 
   return (
-    <Modal.Wrapper title="Basic Modal">
-      <Modal.Body>
-        <p>
-          This is the modal content. Click anywhere outside this modal to close.
-        </p>
-        <Modal.Divider />
-        <Modal.Footer>
-          <Button onClick={() => closeModal()}>Close</Button>
-        </Modal.Footer>
-      </Modal.Body>
-    </Modal.Wrapper>
+    <ThemePreview>
+      <Modal.Wrapper title="Basic Modal">
+        <Modal.Body>
+          <p>
+            This is the modal content. Click anywhere outside this modal to close.
+          </p>
+          <Modal.Divider />
+          <Modal.Footer>
+            <Button onClick={() => closeModal()}>Close</Button>
+          </Modal.Footer>
+        </Modal.Body>
+      </Modal.Wrapper>
+    </ThemePreview>
   );
 };
 
@@ -141,7 +144,7 @@ export const BasicOpenModal: StoryFn = () => {
   };
 
   return (
-    <div style={{ height: "450px" }}>
+    <div style={{ height: "450px" }} className="dark-theme">
       <Button onClick={handleOpenModal}>Abrir modal</Button>
     </div>
   );

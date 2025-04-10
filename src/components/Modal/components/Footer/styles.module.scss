@@ -20,12 +20,7 @@
   border-top: none;
   border-bottom-left-radius: calc(var(--border-radius-3) * 2);
   border-bottom-right-radius: calc(var(--border-radius-3) * 2);
-  background: linear-gradient(
-    0deg,
-    #fff 30.68%,
-    rgba(255, 255, 255, 0.66) 223.12%,
-    rgba(255, 255, 255, 0) 249.43%
-  );
+  background: var(--component-modal-background);
 
   @include temporary_mobile {
     flex-direction: column-reverse;
@@ -34,7 +29,7 @@
     justify-content: flex-end;
     position: static;
     border-radius: 0px;
-    background: var(--surface-background);
+    background: var(--component-modal-background);
     margin-top: auto;
 
     button {
