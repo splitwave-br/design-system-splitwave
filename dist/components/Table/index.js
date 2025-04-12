@@ -10,11 +10,12 @@ import { COLUMNS_WIDTH } from "./components/Header/constants";
 import useWindowSize from "../../hooks/useWindowSize";
 import { Rows } from "./components/Rows";
 export var Table = function (_a) {
-    var data = _a.data, onRowClick = _a.onRowClick, _b = _a.isEmpty, isEmpty = _b === void 0 ? false : _b, _c = _a.keyExtractor, keyExtractor = _c === void 0 ? function (item) { return item.id; } : _c, renderHeader = _a.renderHeader, renderRow = _a.renderRow, renderEmptyState = _a.renderEmptyState, pagination = _a.pagination;
-    var LIMIT = 15;
+    var _b;
+    var data = _a.data, onRowClick = _a.onRowClick, _c = _a.isEmpty, isEmpty = _c === void 0 ? false : _c, _d = _a.keyExtractor, keyExtractor = _d === void 0 ? function (item) { return item.id; } : _d, renderHeader = _a.renderHeader, renderRow = _a.renderRow, renderEmptyState = _a.renderEmptyState, pagination = _a.pagination;
+    var LIMIT = (_b = pagination === null || pagination === void 0 ? void 0 : pagination.limit) !== null && _b !== void 0 ? _b : 1;
     var isMobile = useWindowSize().isMobile;
-    var staticPagination = usePagination({ rows: data, limit: 15 });
-    var _d = pagination || staticPagination, currentPage = _d.currentPage, pages = _d.pages, onClickNextPage = _d.onClickNextPage, onPageInputChange = _d.onPageInputChange, onClickPrevPage = _d.onClickPrevPage, totalPages = _d.totalPages, isLoading = _d.isLoading;
+    var staticPagination = usePagination({ rows: data, limit: LIMIT });
+    var _e = pagination || staticPagination, currentPage = _e.currentPage, pages = _e.pages, onClickNextPage = _e.onClickNextPage, onPageInputChange = _e.onPageInputChange, onClickPrevPage = _e.onClickPrevPage, totalPages = _e.totalPages, isLoading = _e.isLoading;
     var pageData = useMemo(function () {
         return (pages === null || pages === void 0 ? void 0 : pages[currentPage]) || data;
     }, [pages, currentPage, data]);

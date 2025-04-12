@@ -49,14 +49,13 @@ export const Pagination = ({
     [pages, currentPage],
   );
 
-  const [valueTyped, setValueTyped] = useState("");
   const [inputValue, setInputValue] = useState(String(currentPage + 1));
   const debouncedInput = useDebounceValue(inputValue, { delay: 500 });
   useEffect(() => {
     const page = Number(debouncedInput);
-    const isValid = !isNaN(page) && page > 0 && page <= totalPages;
+    const isValid = !isNaN(page) && page > 0 && page <= totalPages * 200;
 
-    if (isTyping.current && isValid && page !== currentPage) {
+    if (isTyping.current && isValid && page !== currentPage + 1) {
       handlePageInputChange(page);
       isTyping.current = false;
     }
@@ -71,8 +70,7 @@ export const Pagination = ({
 
   const handleInputChange = (value: string) => {
     isTyping.current = true;
-    const validatedValue = paginationMask(value, totalPages);
-    setValueTyped(value);
+    const validatedValue = paginationMask(value, totalPages * 200);
     setInputValue(validatedValue);
   };
 
@@ -89,8 +87,10 @@ export const Pagination = ({
       <div className={styles.pages}>
         <span>Página</span>
         <Input
-          size={1}
-          placeholder="0"
+          wrapperStyles={styles.inputWrapper}
+          placeholder="1"
+          size={inputValue.length || 1}
+          maxLength={String(totalPages * 200).length}
           onBlur={() => {
             isTyping.current = false;
             setInputValue(String(currentPage + 1));
@@ -98,8 +98,7 @@ export const Pagination = ({
           onChange={(e) => handleInputChange(e.target.value)}
           value={inputValue}
         />
-        <span>de {pages.length}</span>
-        <span>---- valor digitado: {valueTyped}</span>
+        <span>de {totalPages * 200}</span>
       </div>
       <button
         className={styles.button}
