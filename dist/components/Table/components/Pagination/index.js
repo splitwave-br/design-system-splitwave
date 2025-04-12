@@ -27,7 +27,7 @@ export var Pagination = function (_a) {
     var debouncedInput = useDebounceValue(inputValue, { delay: 500 });
     useEffect(function () {
         var page = Number(debouncedInput);
-        var isValid = !isNaN(page) && page > 0 && page <= totalPages * 200;
+        var isValid = !isNaN(page) && page > 0 && page <= totalPages;
         if (isTyping.current && isValid && page !== currentPage + 1) {
             handlePageInputChange(page);
             isTyping.current = false;
@@ -41,11 +41,11 @@ export var Pagination = function (_a) {
     }, [currentPage]);
     var handleInputChange = function (value) {
         isTyping.current = true;
-        var validatedValue = paginationMask(value, totalPages * 200);
+        var validatedValue = paginationMask(value, totalPages);
         setInputValue(validatedValue);
     };
-    return (_jsxs("div", { className: styles.wrapper, children: [_jsxs("button", { onClick: handleClickPrevPage, className: styles.button, disabled: isPrevDisabled, children: [_jsx(Icon, { name: "arrow-left", size: 2 }), _jsx("span", { children: "Anterior" })] }), _jsxs("div", { className: styles.pages, children: [_jsx("span", { children: "P\u00E1gina" }), _jsx(Input, { wrapperStyles: styles.inputWrapper, placeholder: "1", size: inputValue.length || 1, maxLength: String(totalPages * 200).length, onBlur: function () {
+    return (_jsxs("div", { className: styles.wrapper, children: [_jsxs("button", { onClick: handleClickPrevPage, className: styles.button, disabled: isPrevDisabled, children: [_jsx(Icon, { name: "arrow-left", size: 2 }), _jsx("span", { children: "Anterior" })] }), _jsxs("div", { className: styles.pages, children: [_jsx("span", { children: "P\u00E1gina" }), _jsx(Input, { wrapperStyles: styles.inputWrapper, placeholder: "1", size: inputValue.length || 1, maxLength: String(totalPages).length, onBlur: function () {
                             isTyping.current = false;
                             setInputValue(String(currentPage + 1));
-                        }, onChange: function (e) { return handleInputChange(e.target.value); }, value: inputValue }), _jsxs("span", { children: ["de ", totalPages * 200] })] }), _jsxs("button", { className: styles.button, onClick: handleClickNextPage, disabled: isNextDisabled, children: [_jsx("span", { children: "Pr\u00F3ximo" }), _jsx(Icon, { name: "arrow-right", size: 2 })] })] }));
+                        }, onChange: function (e) { return handleInputChange(e.target.value); }, value: inputValue }), _jsxs("span", { children: ["de ", totalPages] })] }), _jsxs("button", { className: styles.button, onClick: handleClickNextPage, disabled: isNextDisabled, children: [_jsx("span", { children: "Pr\u00F3ximo" }), _jsx(Icon, { name: "arrow-right", size: 2 })] })] }));
 };

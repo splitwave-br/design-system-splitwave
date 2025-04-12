@@ -53,7 +53,7 @@ export const Pagination = ({
   const debouncedInput = useDebounceValue(inputValue, { delay: 500 });
   useEffect(() => {
     const page = Number(debouncedInput);
-    const isValid = !isNaN(page) && page > 0 && page <= totalPages * 200;
+    const isValid = !isNaN(page) && page > 0 && page <= totalPages;
 
     if (isTyping.current && isValid && page !== currentPage + 1) {
       handlePageInputChange(page);
@@ -70,7 +70,7 @@ export const Pagination = ({
 
   const handleInputChange = (value: string) => {
     isTyping.current = true;
-    const validatedValue = paginationMask(value, totalPages * 200);
+    const validatedValue = paginationMask(value, totalPages);
     setInputValue(validatedValue);
   };
 
@@ -90,7 +90,7 @@ export const Pagination = ({
           wrapperStyles={styles.inputWrapper}
           placeholder="1"
           size={inputValue.length || 1}
-          maxLength={String(totalPages * 200).length}
+          maxLength={String(totalPages).length}
           onBlur={() => {
             isTyping.current = false;
             setInputValue(String(currentPage + 1));
@@ -98,7 +98,7 @@ export const Pagination = ({
           onChange={(e) => handleInputChange(e.target.value)}
           value={inputValue}
         />
-        <span>de {totalPages * 200}</span>
+        <span>de {totalPages}</span>
       </div>
       <button
         className={styles.button}

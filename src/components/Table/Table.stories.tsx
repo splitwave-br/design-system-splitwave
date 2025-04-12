@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from "@storybook/react";
 import { Cell, Header, Table } from ".";
 import { ThemePreview } from "../ThemePreview";
-import React from "react";
+import React, { useCallback, useMemo } from "react";
 
 export default {
   component: Table,
@@ -193,111 +193,46 @@ export const TableWithActions: StoryFn = () => {
 };
 
 export const TableWithPages: StoryFn = () => {
+  const generateFakeData = useCallback((quantity: number) => {
+    const baseProducts = [
+      "Camiseta",
+      "Calça",
+      "Boné",
+      "Tênis",
+      "Meia",
+      "Cinto",
+      "Relógio",
+      "Chapéu",
+      "Óculos",
+      "Bolsa",
+      "Mochila",
+      "Carteira",
+      "Sapato",
+      "Sandália",
+      "Sapatênis",
+      "Chinelo",
+      "Botina",
+      "Bota",
+      "Tênis de corrida",
+      "Tênis de academia",
+    ];
+
+    return Array.from({ length: quantity }, (_, i) => {
+      const baseProduct = baseProducts[i % baseProducts.length];
+      return {
+        id: `#${(i + 1).toString().padStart(3, "0")}`,
+        product: `${baseProduct} ${i + 1}`,
+        price: parseFloat((Math.random() * 400 + 9.99).toFixed(2)),
+      };
+    });
+  }, []);
+
+  const data = useMemo(() => generateFakeData(50), [generateFakeData]);
+
   return (
     <ThemePreview>
       <Table
-        data={[
-          {
-            id: "#001",
-            product: "Camiseta",
-            price: 49.99,
-          },
-          {
-            id: "#002",
-            product: "Calça",
-            price: 99.99,
-          },
-          {
-            id: "#003",
-            product: "Boné",
-            price: 19.99,
-          },
-          {
-            id: "#004",
-            product: "Tênis",
-            price: 199.99,
-          },
-          {
-            id: "#005",
-            product: "Meia",
-            price: 9.99,
-          },
-          {
-            id: "#006",
-            product: "Cinto",
-            price: 29.99,
-          },
-          {
-            id: "#007",
-            product: "Relógio",
-            price: 149.99,
-          },
-          {
-            id: "#008",
-            product: "Chapéu",
-            price: 39.99,
-          },
-          {
-            id: "#009",
-            product: "Óculos",
-            price: 79.99,
-          },
-          {
-            id: "#010",
-            product: "Bolsa",
-            price: 199.99,
-          },
-          {
-            id: "#011",
-            product: "Mochila",
-            price: 149.99,
-          },
-          {
-            id: "#012",
-            product: "Carteira",
-            price: 49.99,
-          },
-          {
-            id: "#013",
-            product: "Sapato",
-            price: 299.99,
-          },
-          {
-            id: "#014",
-            product: "Sandália",
-            price: 79.99,
-          },
-          {
-            id: "#015",
-            product: "Sapatênis",
-            price: 199.99,
-          },
-          {
-            id: "#016",
-            product: "Chinelo",
-            price: 19.99,
-          },
-          {
-            id: "#017",
-            product: "Botina",
-            price: 249.99,
-          },
-          {
-            id: "#018",
-            product: "Bota",
-            price: 299.99,
-          },
-          {
-            id: "#019",
-            product: "Tênis de corrida",
-            price: 399.99,
-          },
-          {
-            id: "#020",
-            product: "Tênis de academia",
-            price: 299.99,
-          },
-        ]}
+        data={data}
         renderHeader={() => (
           <>
             <Header width="80px">Id</Header>
