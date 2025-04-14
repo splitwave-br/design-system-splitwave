@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.29.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.28.2...v1.29.0) (2025-04-14)
+
+
+### Features
+
+* **page-selector:** Refactor page selector ([12a734e](https://github.com/splitwave-br/design-system-splitwave/commit/12a734eaf5d7adbe4639c8f50af7140441e91e68))
+
+
+### Bug Fixes
+
+* **table:** Fix pagination ([0d4796f](https://github.com/splitwave-br/design-system-splitwave/commit/0d4796f0e3209eed1f1a2f8fe4309310c9b8ac0f))
+
 ## [1.28.2](https://github.com/splitwave-br/design-system-splitwave/compare/v1.28.1...v1.28.2) (2025-04-10)
 
 
