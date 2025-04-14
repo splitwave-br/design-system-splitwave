@@ -1,5 +1,14 @@
 @import "src/styles/breakpoints";
 
+.inputWrapper {
+  display: inline-block;
+  input {
+    width: auto;
+    height: var(--spaces-4);
+    min-width: 1ch !important;
+  }
+}
+
 .wrapper {
   display: flex;
   flex-direction: row;

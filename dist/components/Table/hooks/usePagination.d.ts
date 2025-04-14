@@ -9,5 +9,5 @@ export declare const usePagination: <T>({ rows, limit }: IUsePagination<T>) => {
     totalPages: number;
     onClickNextPage: () => void;
     onClickPrevPage: () => void;
-    onClickOnPage: (page: number) => void;
+    onPageInputChange: (page: number) => void;
 };

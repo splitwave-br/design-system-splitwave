@@ -1,5 +1,5 @@
-import { on } from 'events';
-import { useMemo, useState } from 'react';
+import { on } from "events";
+import { useMemo, useState } from "react";
 
 export interface IUsePagination<T> {
   limit: number;
@@ -17,7 +17,7 @@ export const usePagination = <T,>({ rows, limit }: IUsePagination<T>) => {
 
     const result = Array.from(
       { length: Math.ceil(rows.length / limit) },
-      (v, i) => rows.slice(i * limit, i * limit + limit)
+      (v, i) => rows.slice(i * limit, i * limit + limit),
     );
 
     return result as T[][];
@@ -29,8 +29,8 @@ export const usePagination = <T,>({ rows, limit }: IUsePagination<T>) => {
     setTimeout(() => {
       setCurrentPage(page);
       setIsLoading(false);
-    }, FAKE_TIMEOUT);;
-  }
+    }, FAKE_TIMEOUT);
+  };
 
   const handleClickNextPage = () => {
     if (pages.length === currentPage + 1) return;
@@ -39,7 +39,7 @@ export const usePagination = <T,>({ rows, limit }: IUsePagination<T>) => {
   };
 
   const handleClickPrevPage = () => {
-    if(currentPage === 0) return;
+    if (currentPage === 0) return;
 
     handleSetCurrentPage(currentPage - 1);
   };
@@ -55,6 +55,6 @@ export const usePagination = <T,>({ rows, limit }: IUsePagination<T>) => {
     totalPages: pages.length,
     onClickNextPage: handleClickNextPage,
     onClickPrevPage: handleClickPrevPage,
-    onClickOnPage: handleClickOnPage,
+    onPageInputChange: handleClickOnPage,
   };
 };
