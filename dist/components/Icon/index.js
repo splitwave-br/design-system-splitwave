@@ -105,6 +105,8 @@ import { Sun } from "./components/Sun";
 import Drag from "./components/Drag";
 import Invoice03 from "./components/Invoice03";
 import CreditCard1 from "./components/CreditCard1";
+import { ShopBag } from "./components/ShopBag";
+import { Globe } from "./components/Globe";
 var icons = {
     access: Access,
     alert: Alert,
@@ -150,6 +152,7 @@ var icons = {
     folder: Folder,
     forward: Forward,
     gift: Gift,
+    globe: Globe,
     home: Home,
     info: Info,
     "information-circle": InformationCircle,
@@ -185,6 +188,7 @@ var icons = {
     settings: Settings,
     shopify: Shopify,
     "shopping-bag": ShoppingBag,
+    "shop-bag": ShopBag,
     "shopping-bag-3": ShoppingBag3,
     "shopping-cart": ShoppingCart,
     "source-code": SourceCode,
