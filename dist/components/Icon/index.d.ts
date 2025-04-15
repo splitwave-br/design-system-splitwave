@@ -35,6 +35,8 @@ import { Webhook } from "./components/Webhook";
 import { X } from "./components/X";
 import { XCircle } from "./components/XCircle";
 import { Filter } from "./components/Filter";
+import { ShopBag } from "./components/ShopBag";
+import { Globe } from "./components/Globe";
 declare const icons: {
     access: () => import("react/jsx-runtime").JSX.Element;
     alert: () => import("react/jsx-runtime").JSX.Element;
@@ -80,6 +82,7 @@ declare const icons: {
     folder: typeof Folder;
     forward: () => import("react/jsx-runtime").JSX.Element;
     gift: typeof Gift;
+    globe: typeof Globe;
     home: () => import("react/jsx-runtime").JSX.Element;
     info: () => import("react/jsx-runtime").JSX.Element;
     "information-circle": () => import("react/jsx-runtime").JSX.Element;
@@ -115,6 +118,7 @@ declare const icons: {
     settings: typeof Settings;
     shopify: typeof Shopify;
     "shopping-bag": typeof ShoppingBag;
+    "shop-bag": typeof ShopBag;
     "shopping-bag-3": typeof ShoppingBag3;
     "shopping-cart": typeof ShoppingCart;
     "source-code": typeof SourceCode;
