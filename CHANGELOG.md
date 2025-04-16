@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.30.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.30.0...v1.30.1) (2025-04-16)
+
+
+### Bug Fixes
+
+* **pagination:** Fix default pages limit ([d46c218](https://github.com/splitwave-br/design-system-splitwave/commit/d46c2182a054746a1fd8fa0c478abd113c3ae16b))
+* **pagination:** Fix default pages limit ([6079f96](https://github.com/splitwave-br/design-system-splitwave/commit/6079f9637413cb3030b4d3d170f1a5b61de561cb))
+
 ## [1.30.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.29.0...v1.30.0) (2025-04-16)
 
 
