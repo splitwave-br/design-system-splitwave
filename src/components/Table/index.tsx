@@ -20,7 +20,7 @@ export const Table = <T extends ITableData>({
   renderEmptyState,
   pagination,
 }: TTable<T>) => {
-  const LIMIT = pagination?.limit ?? 1;
+  const LIMIT = pagination?.limit ?? 15;
   const { isMobile } = useWindowSize();
   const staticPagination = usePagination<T>({ rows: data, limit: LIMIT });
 
