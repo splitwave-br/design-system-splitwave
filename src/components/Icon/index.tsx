@@ -106,6 +106,7 @@ import Invoice03 from "./components/Invoice03";
 import CreditCard1 from "./components/CreditCard1";
 import { ShopBag } from "./components/ShopBag";
 import { Globe } from "./components/Globe";
+import { Time } from "./components/Time";
 
 const icons = {
   access: Access,
@@ -215,6 +216,7 @@ const icons = {
   import: Import,
   export: Export,
   drag: Drag,
+  time: Time
 };
 
 export type TIconSizes = "nano" | "micro" | 1 | 2 | 3 | 4;

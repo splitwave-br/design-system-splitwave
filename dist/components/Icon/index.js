@@ -107,6 +107,7 @@ import Invoice03 from "./components/Invoice03";
 import CreditCard1 from "./components/CreditCard1";
 import { ShopBag } from "./components/ShopBag";
 import { Globe } from "./components/Globe";
+import { Time } from "./components/Time";
 var icons = {
     access: Access,
     alert: Alert,
@@ -215,6 +216,7 @@ var icons = {
     import: Import,
     export: Export,
     drag: Drag,
+    time: Time
 };
 export var Icon = function (_a) {
     var name = _a.name, _b = _a.size, size = _b === void 0 ? 2 : _b, className = _a.className;
