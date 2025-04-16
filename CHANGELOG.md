@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.30.2](https://github.com/splitwave-br/design-system-splitwave/compare/v1.30.1...v1.30.2) (2025-04-16)
+
+
+### Bug Fixes
+
+* **#icon-money:** adjust svg ([865c78d](https://github.com/splitwave-br/design-system-splitwave/commit/865c78d78ee0ba3a7832077d9aba1e814af9dd0b))
+* **#icon-money:** adjust svg ([64de220](https://github.com/splitwave-br/design-system-splitwave/commit/64de22065dbd3f06e85f0159ed7377870ecc133f))
+
 ## [1.30.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.30.0...v1.30.1) (2025-04-16)
 
 
