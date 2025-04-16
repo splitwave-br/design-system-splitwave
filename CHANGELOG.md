@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.30.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.29.0...v1.30.0) (2025-04-16)
+
+
+### Features
+
+* **#icon-time:** adding icon time ([28d855b](https://github.com/splitwave-br/design-system-splitwave/commit/28d855b55a0b1efddc05b22398590c4b949cac19))
+* **#icon-time:** adding icon time ([b99b018](https://github.com/splitwave-br/design-system-splitwave/commit/b99b018372546aa919cf09adbdbf6e2c50907612))
+
 ## [1.29.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.28.2...v1.29.0) (2025-04-14)
 
 
