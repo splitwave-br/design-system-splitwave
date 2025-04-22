@@ -131,21 +131,17 @@ export var Container = function (_a) {
             setContainerPortal(portalElement);
         }
     }, [shouldPortal, triggerRef]);
-    useEffect(function () {
-        if (containerPortal) {
-            usePositionElement({
-                relativeElement: triggerRef,
-                element: contentRef,
-                containerElement: containerPortal,
-                isRendered: isOpen,
-                shouldPortal: shouldPortal,
-            });
-        }
-    }, [containerPortal, isOpen, shouldPortal]);
+    usePositionElement({
+        relativeElement: triggerRef,
+        element: contentRef,
+        containerElement: containerPortal,
+        isRendered: isOpen && !!containerPortal,
+        shouldPortal: shouldPortal,
+    });
     useClickOutside({
         ref: contentRef,
         callback: function () { return setIsOpen(false); },
-        isActive: isOpen,
+        isActive: isOpen && !!containerPortal,
         exceptionRef: triggerRef,
     });
     var containerStyles = [

@@ -202,22 +202,18 @@ export const Container = ({
     }
   }, [shouldPortal, triggerRef]);
 
-  useEffect(() => {
-    if (containerPortal) {
-      usePositionElement({
-        relativeElement: triggerRef,
-        element: contentRef,
-        containerElement: containerPortal,
-        isRendered: isOpen,
-        shouldPortal,
-      });
-    }
-  }, [containerPortal, isOpen, shouldPortal]);
+  usePositionElement({
+    relativeElement: triggerRef,
+    element: contentRef,
+    containerElement: containerPortal!,
+    isRendered: isOpen && !!containerPortal,
+    shouldPortal,
+  });
 
   useClickOutside({
     ref: contentRef,
     callback: () => setIsOpen(false),
-    isActive: isOpen,
+    isActive: isOpen && !!containerPortal,
     exceptionRef: triggerRef,
   });
 
