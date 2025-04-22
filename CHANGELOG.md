@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.30.3](https://github.com/splitwave-br/design-system-splitwave/compare/v1.30.2...v1.30.3) (2025-04-22)
+
+
+### Bug Fixes
+
+* **#build-cartwave:** remove change on package ([b7787a3](https://github.com/splitwave-br/design-system-splitwave/commit/b7787a3a18a9e8c7ca38cfa2ec2ad4886d201395))
+* **#build-cartwave:** try fix build with validation if document is not defined ([523231b](https://github.com/splitwave-br/design-system-splitwave/commit/523231b434af564d71b619d589fe8a77aed6f791))
+* **#build-cartwave:** try fix build with validation if document is not defined ([18a4bbb](https://github.com/splitwave-br/design-system-splitwave/commit/18a4bbb98c462a06957bd89da4d550efdeafeebe))
+* **#build-cartwave:** try fix build with validation if document is not defined ([9e322cb](https://github.com/splitwave-br/design-system-splitwave/commit/9e322cb487986aad0aff525d160da1ecb51d286d))
+
 ## [1.30.2](https://github.com/splitwave-br/design-system-splitwave/compare/v1.30.1...v1.30.2) (2025-04-16)
 
 
