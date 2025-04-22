@@ -176,11 +176,13 @@ export const Container = ({
   shouldEjectOnMobile,
   shouldPortal = true,
 }: TContainer) => {
+  
   const { isMobile } = useWindowSize();
   const triggerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [containerPortal, setContainerPortal] = useState<HTMLElement | null>(null);
 
   const isMobileAndShouldEject = useMemo(
     () => isMobile && shouldEjectOnMobile,
@@ -191,17 +193,26 @@ export const Container = ({
     setIsOpen((v) => !v);
   }, []);
 
-  const containerPortal = shouldPortal
-    ? document.body
-    : triggerRef.current?.parentElement || document.body;
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const portalElement = shouldPortal
+        ? document.body
+        : triggerRef.current?.parentElement || document.body;
+      setContainerPortal(portalElement);
+    }
+  }, [shouldPortal, triggerRef]);
 
-  usePositionElement({
-    relativeElement: triggerRef,
-    element: contentRef,
-    containerElement: containerPortal,
-    isRendered: isOpen,
-    shouldPortal,
-  });
+  useEffect(() => {
+    if (containerPortal) {
+      usePositionElement({
+        relativeElement: triggerRef,
+        element: contentRef,
+        containerElement: containerPortal,
+        isRendered: isOpen,
+        shouldPortal,
+      });
+    }
+  }, [containerPortal, isOpen, shouldPortal]);
 
   useClickOutside({
     ref: contentRef,
@@ -270,7 +281,7 @@ export const Container = ({
     //   return cloneElement(contentChild, { isEjected: true });
     // }
 
-    if (!isOpen) return null;
+    if (!isOpen || !containerPortal) return null;
 
     return createPortal(
       cloneElement(contentChild, {
@@ -289,6 +300,7 @@ export const Container = ({
     setIsOpen,
     triggerRef,
     isMobileAndShouldEject,
+    containerPortal,
   ]);
 
   if (isEmpty) return null;
