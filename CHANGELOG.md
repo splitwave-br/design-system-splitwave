@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.31.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.30.3...v1.31.0) (2025-04-25)
+
+
+### Features
+
+* **#icon:** add pin icon ([eda1071](https://github.com/splitwave-br/design-system-splitwave/commit/eda10710cb57f62fa73da35f99813a3e0ea8620f))
+* **#icon:** add pin icon ([cf556e1](https://github.com/splitwave-br/design-system-splitwave/commit/cf556e1b6ba9df0d62c8542d4446c7fd7338d31e))
+
 ## [1.30.3](https://github.com/splitwave-br/design-system-splitwave/compare/v1.30.2...v1.30.3) (2025-04-22)
 
 
