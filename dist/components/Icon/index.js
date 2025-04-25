@@ -108,6 +108,7 @@ import CreditCard1 from "./components/CreditCard1";
 import { ShopBag } from "./components/ShopBag";
 import { Globe } from "./components/Globe";
 import { Time } from "./components/Time";
+import Pin from "./components/Pin";
 var icons = {
     access: Access,
     alert: Alert,
@@ -177,6 +178,7 @@ var icons = {
     "paint-board": PaintBoard,
     "pencil-edit": PencilEdit,
     percent: Percent,
+    pin: Pin,
     pix: Pix,
     plus: Plus,
     profile: Profile,

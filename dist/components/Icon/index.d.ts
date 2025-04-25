@@ -107,6 +107,7 @@ declare const icons: {
     "paint-board": () => import("react/jsx-runtime").JSX.Element;
     "pencil-edit": () => import("react/jsx-runtime").JSX.Element;
     percent: () => import("react/jsx-runtime").JSX.Element;
+    pin: () => import("react/jsx-runtime").JSX.Element;
     pix: () => import("react/jsx-runtime").JSX.Element;
     plus: () => import("react/jsx-runtime").JSX.Element;
     profile: () => import("react/jsx-runtime").JSX.Element;
