@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.31.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.31.0...v1.31.1) (2025-05-08)
+
+
+### Bug Fixes
+
+* **#date-picker:** adjust filter and datepicker nav ([ecdec9c](https://github.com/splitwave-br/design-system-splitwave/commit/ecdec9c368714519953a6549c16653ee7c077813))
+* **#date-picker:** adjust filter and datepicker nav ([fc1acf7](https://github.com/splitwave-br/design-system-splitwave/commit/fc1acf791c4a45c2d33a45b24b002ef89c5bd2bc))
+
 ## [1.31.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.30.3...v1.31.0) (2025-04-25)
 
 
