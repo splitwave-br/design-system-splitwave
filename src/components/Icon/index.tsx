@@ -108,6 +108,7 @@ import { ShopBag } from "./components/ShopBag";
 import { Globe } from "./components/Globe";
 import { Time } from "./components/Time";
 import Pin from "./components/Pin";
+import { Minus } from "./components/Minus";
 
 const icons = {
   access: Access,
@@ -218,7 +219,8 @@ const icons = {
   import: Import,
   export: Export,
   drag: Drag,
-  time: Time
+  time: Time,
+  minus: Minus,
 };
 
 export type TIconSizes = "nano" | "micro" | 1 | 2 | 3 | 4;

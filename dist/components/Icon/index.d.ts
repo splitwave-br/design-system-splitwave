@@ -38,6 +38,7 @@ import { Filter } from "./components/Filter";
 import { ShopBag } from "./components/ShopBag";
 import { Globe } from "./components/Globe";
 import { Time } from "./components/Time";
+import { Minus } from "./components/Minus";
 declare const icons: {
     access: () => import("react/jsx-runtime").JSX.Element;
     alert: () => import("react/jsx-runtime").JSX.Element;
@@ -148,6 +149,7 @@ declare const icons: {
     export: typeof Export;
     drag: () => import("react/jsx-runtime").JSX.Element;
     time: typeof Time;
+    minus: typeof Minus;
 };
 export type TIconSizes = "nano" | "micro" | 1 | 2 | 3 | 4;
 export type TIcons = keyof typeof icons;
