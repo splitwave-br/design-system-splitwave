@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.32.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.31.1...v1.32.0) (2025-05-10)
+
+
+### Features
+
+* **minus:** Add minus icon ([2ade5ba](https://github.com/splitwave-br/design-system-splitwave/commit/2ade5ba88b970509f5421550659a20314c0e4226))
+* **minus:** Add minus icon ([3468c50](https://github.com/splitwave-br/design-system-splitwave/commit/3468c502992ab91d652ef9dc4113eb9095f204b1))
+
 ## [1.31.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.31.0...v1.31.1) (2025-05-08)
 
 
