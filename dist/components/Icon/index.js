@@ -109,6 +109,7 @@ import { ShopBag } from "./components/ShopBag";
 import { Globe } from "./components/Globe";
 import { Time } from "./components/Time";
 import Pin from "./components/Pin";
+import { Minus } from "./components/Minus";
 var icons = {
     access: Access,
     alert: Alert,
@@ -218,7 +219,8 @@ var icons = {
     import: Import,
     export: Export,
     drag: Drag,
-    time: Time
+    time: Time,
+    minus: Minus,
 };
 export var Icon = function (_a) {
     var name = _a.name, _b = _a.size, size = _b === void 0 ? 2 : _b, className = _a.className;
