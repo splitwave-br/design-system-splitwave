@@ -102,6 +102,7 @@ import { Filter } from "./components/Filter";
 import { Affiliated } from "./components/Affiliated";
 import { Moon } from "./components/Moon";
 import { Sun } from "./components/Sun";
+import Attach from "./components/Attach";
 import Drag from "./components/Drag";
 import Invoice03 from "./components/Invoice03";
 import CreditCard1 from "./components/CreditCard1";
@@ -110,6 +111,7 @@ import { Globe } from "./components/Globe";
 import { Time } from "./components/Time";
 import Pin from "./components/Pin";
 import { Minus } from "./components/Minus";
+
 var icons = {
     access: Access,
     alert: Alert,
@@ -218,6 +220,7 @@ var icons = {
     affiliated: Affiliated,
     import: Import,
     export: Export,
+    attach: Attach,
     drag: Drag,
     time: Time,
     minus: Minus,

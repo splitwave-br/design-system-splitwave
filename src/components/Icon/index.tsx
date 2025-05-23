@@ -101,6 +101,7 @@ import { Filter } from "./components/Filter";
 import { Affiliated } from "./components/Affiliated";
 import { Moon } from "./components/Moon";
 import { Sun } from "./components/Sun";
+import Attach from "./components/Attach";
 import Drag from "./components/Drag";
 import Invoice03 from "./components/Invoice03";
 import CreditCard1 from "./components/CreditCard1";
@@ -218,6 +219,7 @@ const icons = {
   affiliated: Affiliated,
   import: Import,
   export: Export,
+  attach: Attach,
   drag: Drag,
   time: Time,
   minus: Minus,
