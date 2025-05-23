@@ -76,18 +76,6 @@ export const Responsive = ({
     return fields;
   }, [isMobile, children]);
 
-  const handleGetIsActive = useMemo(() => {
-    const filterKeysWithoutNotEjectedFields = Object.keys(filter).filter(
-      (key) => !notEjectedFields.includes(key),
-    );
-
-    const activeFields = filterKeysWithoutNotEjectedFields.filter((field) =>
-      getIsActive([field]),
-    );
-
-    return activeFields.length > 0;
-  }, [filter, notEjectedFields]);
-
   return (
     <div className={styles.wrapper}>
       {isMobile && (
@@ -95,10 +83,7 @@ export const Responsive = ({
           <Button
             variant="tertiary"
             size="medium"
-            className={concatStyles([
-              styles.button,
-              handleGetIsActive ? styles.active : "",
-            ])}
+            className={styles.button}
             onClick={() => setIsOpen(!isOpen)}
           >
             Filtros

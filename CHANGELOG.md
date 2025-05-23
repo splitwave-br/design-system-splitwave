@@ -1,5 +1,166 @@
 # Changelog
 
+## [1.32.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.31.1...v1.32.0) (2025-05-10)
+
+
+### Features
+
+* **minus:** Add minus icon ([2ade5ba](https://github.com/splitwave-br/design-system-splitwave/commit/2ade5ba88b970509f5421550659a20314c0e4226))
+* **minus:** Add minus icon ([3468c50](https://github.com/splitwave-br/design-system-splitwave/commit/3468c502992ab91d652ef9dc4113eb9095f204b1))
+
+## [1.31.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.31.0...v1.31.1) (2025-05-08)
+
+
+### Bug Fixes
+
+* **#date-picker:** adjust filter and datepicker nav ([ecdec9c](https://github.com/splitwave-br/design-system-splitwave/commit/ecdec9c368714519953a6549c16653ee7c077813))
+* **#date-picker:** adjust filter and datepicker nav ([fc1acf7](https://github.com/splitwave-br/design-system-splitwave/commit/fc1acf791c4a45c2d33a45b24b002ef89c5bd2bc))
+
+## [1.31.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.30.3...v1.31.0) (2025-04-25)
+
+
+### Features
+
+* **#icon:** add pin icon ([eda1071](https://github.com/splitwave-br/design-system-splitwave/commit/eda10710cb57f62fa73da35f99813a3e0ea8620f))
+* **#icon:** add pin icon ([cf556e1](https://github.com/splitwave-br/design-system-splitwave/commit/cf556e1b6ba9df0d62c8542d4446c7fd7338d31e))
+
+## [1.30.3](https://github.com/splitwave-br/design-system-splitwave/compare/v1.30.2...v1.30.3) (2025-04-22)
+
+
+### Bug Fixes
+
+* **#build-cartwave:** remove change on package ([b7787a3](https://github.com/splitwave-br/design-system-splitwave/commit/b7787a3a18a9e8c7ca38cfa2ec2ad4886d201395))
+* **#build-cartwave:** try fix build with validation if document is not defined ([523231b](https://github.com/splitwave-br/design-system-splitwave/commit/523231b434af564d71b619d589fe8a77aed6f791))
+* **#build-cartwave:** try fix build with validation if document is not defined ([18a4bbb](https://github.com/splitwave-br/design-system-splitwave/commit/18a4bbb98c462a06957bd89da4d550efdeafeebe))
+* **#build-cartwave:** try fix build with validation if document is not defined ([9e322cb](https://github.com/splitwave-br/design-system-splitwave/commit/9e322cb487986aad0aff525d160da1ecb51d286d))
+
+## [1.30.2](https://github.com/splitwave-br/design-system-splitwave/compare/v1.30.1...v1.30.2) (2025-04-16)
+
+
+### Bug Fixes
+
+* **#icon-money:** adjust svg ([865c78d](https://github.com/splitwave-br/design-system-splitwave/commit/865c78d78ee0ba3a7832077d9aba1e814af9dd0b))
+* **#icon-money:** adjust svg ([64de220](https://github.com/splitwave-br/design-system-splitwave/commit/64de22065dbd3f06e85f0159ed7377870ecc133f))
+
+## [1.30.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.30.0...v1.30.1) (2025-04-16)
+
+
+### Bug Fixes
+
+* **pagination:** Fix default pages limit ([d46c218](https://github.com/splitwave-br/design-system-splitwave/commit/d46c2182a054746a1fd8fa0c478abd113c3ae16b))
+* **pagination:** Fix default pages limit ([6079f96](https://github.com/splitwave-br/design-system-splitwave/commit/6079f9637413cb3030b4d3d170f1a5b61de561cb))
+
+## [1.30.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.29.0...v1.30.0) (2025-04-16)
+
+
+### Features
+
+* **#icon-time:** adding icon time ([28d855b](https://github.com/splitwave-br/design-system-splitwave/commit/28d855b55a0b1efddc05b22398590c4b949cac19))
+* **#icon-time:** adding icon time ([b99b018](https://github.com/splitwave-br/design-system-splitwave/commit/b99b018372546aa919cf09adbdbf6e2c50907612))
+
+## [1.29.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.28.2...v1.29.0) (2025-04-14)
+
+
+### Features
+
+* **page-selector:** Refactor page selector ([12a734e](https://github.com/splitwave-br/design-system-splitwave/commit/12a734eaf5d7adbe4639c8f50af7140441e91e68))
+
+
+### Bug Fixes
+
+* **table:** Fix pagination ([0d4796f](https://github.com/splitwave-br/design-system-splitwave/commit/0d4796f0e3209eed1f1a2f8fe4309310c9b8ac0f))
+
+## [1.28.2](https://github.com/splitwave-br/design-system-splitwave/compare/v1.28.1...v1.28.2) (2025-04-10)
+
+
+### Bug Fixes
+
+* **modal:** Add missing build file ([9368f4f](https://github.com/splitwave-br/design-system-splitwave/commit/9368f4fbc7c041c3de74a79a51f054c87be153c7))
+* **modal:** Fix styles ([dde0ce2](https://github.com/splitwave-br/design-system-splitwave/commit/dde0ce29cba52c4519f0464864876679e90b5aa6))
+
+## [1.28.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.28.0...v1.28.1) (2025-04-10)
+
+
+### Bug Fixes
+
+* **modal:** Add missing border ([abc0dae](https://github.com/splitwave-br/design-system-splitwave/commit/abc0daea7ecc9e08ba39b5e673bccfa0b9ccd0d3))
+* **modal:** Add missing border ([3667caf](https://github.com/splitwave-br/design-system-splitwave/commit/3667cafcc4410d8cd1582fe06cae011aabfb5fbc))
+
+## [1.28.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.27.4...v1.28.0) (2025-04-09)
+
+
+### Features
+
+* **modal:** Fix modal footer gradient and dark mode ([4af47ab](https://github.com/splitwave-br/design-system-splitwave/commit/4af47abf01e827fa3d619c8a165f790f63efffc1))
+* **modal:** Fix modal footer gradient and dark mode ([17071ba](https://github.com/splitwave-br/design-system-splitwave/commit/17071ba0b43071c6ed21cf06155889d534287c28))
+
+## [1.27.4](https://github.com/splitwave-br/design-system-splitwave/compare/v1.27.3...v1.27.4) (2025-04-04)
+
+
+### Bug Fixes
+
+* **#overlay:** adjust z-index ([aa3007f](https://github.com/splitwave-br/design-system-splitwave/commit/aa3007f1a65e6a23623c2ab645dff3515fba6cb1))
+* **#overlay:** adjust z-index ([6dbe0c3](https://github.com/splitwave-br/design-system-splitwave/commit/6dbe0c3f289994dd48a6ce4a0d540ad8565744dc))
+
+## [1.27.3](https://github.com/splitwave-br/design-system-splitwave/compare/v1.27.2...v1.27.3) (2025-04-03)
+
+
+### Bug Fixes
+
+* **#338:** adjust autofill color ([e44291f](https://github.com/splitwave-br/design-system-splitwave/commit/e44291fecc8a19b38dbe635fb529abdcf2e89bef))
+* **#338:** adjust autofill color ([c1f5c2f](https://github.com/splitwave-br/design-system-splitwave/commit/c1f5c2f9cab6db2dfa9722f466eb63892c06ea32))
+
+## [1.27.2](https://github.com/splitwave-br/design-system-splitwave/compare/v1.27.1...v1.27.2) (2025-04-03)
+
+
+### Bug Fixes
+
+* **#885:** adding dist files ([3939359](https://github.com/splitwave-br/design-system-splitwave/commit/3939359ecf786e26688d1f413427b4952e26fcdb))
+* **#885:** increase 'z-index' in the filter content ([d70a2c4](https://github.com/splitwave-br/design-system-splitwave/commit/d70a2c451f0aacd1c53e8cd567eab0118f305dc5))
+
+## [1.27.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.27.0...v1.27.1) (2025-03-24)
+
+
+### Bug Fixes
+
+* **#button-filter:** remove active color ([6961fd8](https://github.com/splitwave-br/design-system-splitwave/commit/6961fd87e7cd045370696915f90f3e3bee5736c3))
+* **#button-filter:** remove active color ([a5bef1c](https://github.com/splitwave-br/design-system-splitwave/commit/a5bef1c891cafb4237861fb5f2f7ef37d4c02256))
+* **#button-filter:** remove active color on button filter responsive ([772da10](https://github.com/splitwave-br/design-system-splitwave/commit/772da10efa0047df91b4426c298cbf3bf6ed7e43))
+* **#button-filter:** remove unnecessary function ([5744709](https://github.com/splitwave-br/design-system-splitwave/commit/5744709a2f7b45a2417d102af8c32d967d54d051))
+* **#button-filter:** remove unnecessary function ([0eed6d1](https://github.com/splitwave-br/design-system-splitwave/commit/0eed6d1b2bdc3c1f25feed59d90362c14b3e935e))
+
+## [1.27.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.26.10...v1.27.0) (2025-03-21)
+
+
+### Features
+
+* **drag-icon:** Add drag icon ([9e1d1f8](https://github.com/splitwave-br/design-system-splitwave/commit/9e1d1f8e81ee3052c2d21f30c28f5db2ce056a7c))
+* **drag-icon:** Add drag icon ([8032f3a](https://github.com/splitwave-br/design-system-splitwave/commit/8032f3ad2b0b2addf0aa71a6694e623cb02b185c))
+* **icons:** Add credit card and invoice icons ([7ea9c9d](https://github.com/splitwave-br/design-system-splitwave/commit/7ea9c9dcbf858023675a3cad1f589289dd8844e3))
+
+## [1.26.10](https://github.com/splitwave-br/design-system-splitwave/compare/v1.26.9...v1.26.10) (2025-03-18)
+
+
+### Bug Fixes
+
+* **#filter-checkbox:** adjusted label color ([a67227b](https://github.com/splitwave-br/design-system-splitwave/commit/a67227bb71e9b21f81604751b57888f10fef2d7a))
+* **#filter-checkbox:** adjusted label color ([49ca1a8](https://github.com/splitwave-br/design-system-splitwave/commit/49ca1a8edf44a0352e90d6fc1ca3a742dfa0b6a4))
+
+## [1.26.9](https://github.com/splitwave-br/design-system-splitwave/compare/v1.26.8...v1.26.9) (2025-03-17)
+
+
+### Bug Fixes
+
+* **#scroll:** adjusted height ([1e7def7](https://github.com/splitwave-br/design-system-splitwave/commit/1e7def78602066d3f05b4175b0fa021dae5d509c))
+* **#scroll:** adjusted height ([b1ce4bc](https://github.com/splitwave-br/design-system-splitwave/commit/b1ce4bc4c8ecec39bcf712b72640d29104f84d9b))
+
+## [1.26.8](https://github.com/splitwave-br/design-system-splitwave/compare/v1.26.7...v1.26.8) (2025-03-05)
+
+
+### Bug Fixes
+
+* **#000:** Fix import and export icons color ([765f800](https://github.com/splitwave-br/design-system-splitwave/commit/765f800b85f1e5476c224bd5f9540c5d415954d1))
+
 ## [1.26.7](https://github.com/splitwave-br/design-system-splitwave/compare/v1.26.6...v1.26.7) (2025-02-26)
 
 

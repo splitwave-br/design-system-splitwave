@@ -103,6 +103,15 @@ import { Affiliated } from "./components/Affiliated";
 import { Moon } from "./components/Moon";
 import { Sun } from "./components/Sun";
 import Attach from "./components/Attach";
+import Drag from "./components/Drag";
+import Invoice03 from "./components/Invoice03";
+import CreditCard1 from "./components/CreditCard1";
+import { ShopBag } from "./components/ShopBag";
+import { Globe } from "./components/Globe";
+import { Time } from "./components/Time";
+import Pin from "./components/Pin";
+import { Minus } from "./components/Minus";
+
 var icons = {
     access: Access,
     alert: Alert,
@@ -148,6 +157,7 @@ var icons = {
     folder: Folder,
     forward: Forward,
     gift: Gift,
+    globe: Globe,
     home: Home,
     info: Info,
     "information-circle": InformationCircle,
@@ -162,6 +172,8 @@ var icons = {
     "money-up": MoneyUp,
     "money-exchange": MoneyExchange,
     "money-04": Money04,
+    "invoice-03": Invoice03,
+    "credit-card-1": CreditCard1,
     more: More,
     "money-send": MoneySend,
     "money-bag": MoneyBag,
@@ -169,6 +181,7 @@ var icons = {
     "paint-board": PaintBoard,
     "pencil-edit": PencilEdit,
     percent: Percent,
+    pin: Pin,
     pix: Pix,
     plus: Plus,
     profile: Profile,
@@ -181,6 +194,7 @@ var icons = {
     settings: Settings,
     shopify: Shopify,
     "shopping-bag": ShoppingBag,
+    "shop-bag": ShopBag,
     "shopping-bag-3": ShoppingBag3,
     "shopping-cart": ShoppingCart,
     "source-code": SourceCode,
@@ -206,7 +220,10 @@ var icons = {
     affiliated: Affiliated,
     import: Import,
     export: Export,
-    attach: Attach
+    attach: Attach,
+    drag: Drag,
+    time: Time,
+    minus: Minus,
 };
 export var Icon = function (_a) {
     var name = _a.name, _b = _a.size, size = _b === void 0 ? 2 : _b, className = _a.className;

@@ -1,9 +1,10 @@
 type TPagination = {
     totalPages: number;
-    handleClickOnPage: (page: number) => void;
+    handlePageInputChange: (page: number) => void;
     handleClickPrevPage: () => void;
     handleClickNextPage: () => void;
     currentPage: number;
 };
-export declare const Pagination: ({ totalPages, handleClickOnPage, handleClickPrevPage, handleClickNextPage, currentPage, }: TPagination) => import("react/jsx-runtime").JSX.Element;
+export declare const paginationMask: (value: string, totalPages: number) => string;
+export declare const Pagination: ({ totalPages, handlePageInputChange, handleClickPrevPage, handleClickNextPage, currentPage, }: TPagination) => import("react/jsx-runtime").JSX.Element;
 export {};

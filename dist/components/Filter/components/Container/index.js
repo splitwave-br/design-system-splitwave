@@ -112,30 +112,36 @@ export var usePositionElement = function (_a) {
     }, [isRendered]);
 };
 export var Container = function (_a) {
-    var _b;
-    var children = _a.children, shouldEjectOnMobile = _a.shouldEjectOnMobile, _c = _a.shouldPortal, shouldPortal = _c === void 0 ? true : _c;
+    var children = _a.children, shouldEjectOnMobile = _a.shouldEjectOnMobile, _b = _a.shouldPortal, shouldPortal = _b === void 0 ? true : _b;
     var isMobile = useWindowSize().isMobile;
     var triggerRef = useRef(null);
     var contentRef = useRef(null);
-    var _d = useState(false), isOpen = _d[0], setIsOpen = _d[1];
+    var _c = useState(false), isOpen = _c[0], setIsOpen = _c[1];
+    var _d = useState(null), containerPortal = _d[0], setContainerPortal = _d[1];
     var isMobileAndShouldEject = useMemo(function () { return isMobile && shouldEjectOnMobile; }, [isMobile, shouldEjectOnMobile]);
     var handleToggle = useCallback(function () {
         setIsOpen(function (v) { return !v; });
     }, []);
-    var containerPortal = shouldPortal
-        ? document.body
-        : ((_b = triggerRef.current) === null || _b === void 0 ? void 0 : _b.parentElement) || document.body;
+    useEffect(function () {
+        var _a;
+        if (typeof window !== 'undefined') {
+            var portalElement = shouldPortal
+                ? document.body
+                : ((_a = triggerRef.current) === null || _a === void 0 ? void 0 : _a.parentElement) || document.body;
+            setContainerPortal(portalElement);
+        }
+    }, [shouldPortal, triggerRef]);
     usePositionElement({
         relativeElement: triggerRef,
         element: contentRef,
         containerElement: containerPortal,
-        isRendered: isOpen,
+        isRendered: isOpen && !!containerPortal,
         shouldPortal: shouldPortal,
     });
     useClickOutside({
         ref: contentRef,
         callback: function () { return setIsOpen(false); },
-        isActive: isOpen,
+        isActive: isOpen && !!containerPortal,
         exceptionRef: triggerRef,
     });
     var containerStyles = [
@@ -186,7 +192,7 @@ export var Container = function (_a) {
         // if (isMobileAndShouldEject) {
         //   return cloneElement(contentChild, { isEjected: true });
         // }
-        if (!isOpen)
+        if (!isOpen || !containerPortal)
             return null;
         return createPortal(cloneElement(contentChild, {
             ref: contentRef,
@@ -202,6 +208,7 @@ export var Container = function (_a) {
         setIsOpen,
         triggerRef,
         isMobileAndShouldEject,
+        containerPortal,
     ]);
     if (isEmpty)
         return null;

@@ -258,6 +258,7 @@
   box-sizing: border-box;
   &::-webkit-scrollbar {
     width: var(--spaces-1);
+    height: var(--spaces-1);
     background: var(--scroll-road);
   }
 

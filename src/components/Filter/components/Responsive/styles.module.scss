@@ -93,20 +93,12 @@
 }
 
 .button {
-  --component-cta-filter-active-border: var(--colors-success-300);
-  --component-cta-filter-active-background: var(--colors-success-100);
-
   display: none;
 
   position: relative;
 
   & figure {
     color: var(--colors-gray-500);
-  }
-
-  &.active {
-    border: 1px solid var(--component-cta-filter-active-border);
-    background: var(--component-cta-filter-active-background);
   }
 
   @include temporary_mobile {
@@ -116,7 +108,7 @@
 
 .header {
   display: none;
-
+  color: var(--colors-font-primary);
   @include temporary_mobile {
     width: 100%;
     display: flex;

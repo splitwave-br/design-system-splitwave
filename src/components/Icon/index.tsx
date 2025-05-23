@@ -102,6 +102,14 @@ import { Affiliated } from "./components/Affiliated";
 import { Moon } from "./components/Moon";
 import { Sun } from "./components/Sun";
 import Attach from "./components/Attach";
+import Drag from "./components/Drag";
+import Invoice03 from "./components/Invoice03";
+import CreditCard1 from "./components/CreditCard1";
+import { ShopBag } from "./components/ShopBag";
+import { Globe } from "./components/Globe";
+import { Time } from "./components/Time";
+import Pin from "./components/Pin";
+import { Minus } from "./components/Minus";
 
 const icons = {
   access: Access,
@@ -148,6 +156,7 @@ const icons = {
   folder: Folder,
   forward: Forward,
   gift: Gift,
+  globe: Globe,
   home: Home,
   info: Info,
   "information-circle": InformationCircle,
@@ -162,6 +171,8 @@ const icons = {
   "money-up": MoneyUp,
   "money-exchange": MoneyExchange,
   "money-04": Money04,
+  "invoice-03": Invoice03,
+  "credit-card-1": CreditCard1,
   more: More,
   "money-send": MoneySend,
   "money-bag": MoneyBag,
@@ -169,6 +180,7 @@ const icons = {
   "paint-board": PaintBoard,
   "pencil-edit": PencilEdit,
   percent: Percent,
+  pin: Pin,
   pix: Pix,
   plus: Plus,
   profile: Profile,
@@ -181,6 +193,7 @@ const icons = {
   settings: Settings,
   shopify: Shopify,
   "shopping-bag": ShoppingBag,
+  "shop-bag": ShopBag,
   "shopping-bag-3": ShoppingBag3,
   "shopping-cart": ShoppingCart,
   "source-code": SourceCode,
@@ -206,7 +219,10 @@ const icons = {
   affiliated: Affiliated,
   import: Import,
   export: Export,
-  attach: Attach
+  attach: Attach,
+  drag: Drag,
+  time: Time,
+  minus: Minus,
 };
 
 export type TIconSizes = "nano" | "micro" | 1 | 2 | 3 | 4;

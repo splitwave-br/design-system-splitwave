@@ -1,4 +1,4 @@
-import { Meta, StoryFn } from "@storybook/react";
+import { type Meta, type StoryFn, type StoryObj } from "@storybook/react";
 import { ThemePreview } from "../ThemePreview";
 import { Filter } from ".";
 import { useFilter } from "./hooks/useFilter";
@@ -145,17 +145,35 @@ export const DateFilter: StoryFn = () => {
     <Filter.Container>
       <Filter.Button>Data</Filter.Button>
       <Filter.Content>
+        {/* Normal, porém, o usuário não pode selecionar datas posteriores ao dia atual */}
         <Filter.Date label="Por período" isPeriod />
-        {/* <Filter.Date
-          field="createdAt"
-          label="Data de criação"
-          isPeriod={false}
-        />
+        {/* Campo inativo */}
+        <Filter.Date label="Desabilitado" isPeriod disabled />
+        {/* Campo ativo, porém, o usuário não pode selecionar datas antes de Janeiro de 2025 */}
         <Filter.Date
-          field="updatedAt"
-          label="Data da última atualização"
-          isPeriod={false}
-        /> */}
+          label="Apenas de 2025"
+          isPeriod
+          disabled={{
+            before: new Date(2025, 0),
+          }}
+        />
+        {/* Campo ativo, porém, o usuário não pode selecionar datas antes de Janeiro de 2025 até a data atual */}
+        <Filter.Date
+          label="Apenas de 2025"
+          isPeriod
+          disabled={{
+            before: new Date(2025, 0),
+            after: new Date(),
+          }}
+        />
+        {/* Só pode selecionar segunda, quarta, sexta */}
+        <Filter.Date
+          label="Dias especificos"
+          isPeriod
+          disabled={{
+            dayOfWeek: [0, 2, 4, 6],
+          }}
+        />
       </Filter.Content>
     </Filter.Container>
   );
@@ -171,98 +189,100 @@ export const MultipleFilters: StoryFn = () => {
   ];
   const shouldShow = false;
   return (
-    <Filter.Responsive>
-      <Filter.Container>
-        <Filter.Button>Cliente</Filter.Button>
-        <Filter.Content>
-          <Filter.Field field={"customerEmail"} label={"E-mail"} />
-          <Filter.Field field={"customerName"} label={"Nome do cliente"} />
-          <Filter.Field field={"customerCpfCnpj"} label={"CPF/CNPJ"} />
-          <Filter.Field field={"customerPhone"} label={"Telefone"} />
-        </Filter.Content>
-      </Filter.Container>
-
-      {shouldShow && (
+    <ThemePreview>
+      <Filter.Responsive>
         <Filter.Container>
-          <Filter.Button>Id do pedido</Filter.Button>
+          <Filter.Button>Cliente</Filter.Button>
           <Filter.Content>
-            <Filter.Field field={"orderId"} label={"Id do pedido"} />
+            <Filter.Field field={"customerEmail"} label={"E-mail"} />
+            <Filter.Field field={"customerName"} label={"Nome do cliente"} />
+            <Filter.Field field={"customerCpfCnpj"} label={"CPF/CNPJ"} />
+            <Filter.Field field={"customerPhone"} label={"Telefone"} />
           </Filter.Content>
         </Filter.Container>
-      )}
-      <Filter.Container>
-        <Filter.Button>Preço</Filter.Button>
-        <Filter.Content>
-          <Filter.Field field={"minPrice"} label={"Mínimo"} />
-          <Filter.Field field={"maxPrice"} label={"Máximo"} />
-        </Filter.Content>
-      </Filter.Container>
 
-      <Filter.Container>
-        <Filter.Button>Método de pagamento</Filter.Button>
-        <Filter.Check
-          label="Método de pagamento"
-          getLabel={(option) => option.label}
-          getValue={(option) => option.id}
-          field="paymentMethod"
-          options={PAYMENT_METHODS}
-        />
-      </Filter.Container>
-      <Filter.Container>
-        <Filter.Button>Data</Filter.Button>
-        <Filter.Content>
-          <Filter.Date label="Por período" isPeriod />
-          <Filter.Date
-            field="createdAt"
-            label="Data de criação"
-            isPeriod={false}
+        {shouldShow && (
+          <Filter.Container>
+            <Filter.Button>Id do pedido</Filter.Button>
+            <Filter.Content>
+              <Filter.Field field={"orderId"} label={"Id do pedido"} />
+            </Filter.Content>
+          </Filter.Container>
+        )}
+        <Filter.Container>
+          <Filter.Button>Preço</Filter.Button>
+          <Filter.Content>
+            <Filter.Field field={"minPrice"} label={"Mínimo"} />
+            <Filter.Field field={"maxPrice"} label={"Máximo"} />
+          </Filter.Content>
+        </Filter.Container>
+
+        <Filter.Container>
+          <Filter.Button>Método de pagamento</Filter.Button>
+          <Filter.Check
+            label="Método de pagamento"
+            getLabel={(option) => option.label}
+            getValue={(option) => option.id}
+            field="paymentMethod"
+            options={PAYMENT_METHODS}
           />
-          <Filter.Date
-            field="updatedAt"
-            label="Data da última atualização"
-            isPeriod={false}
+        </Filter.Container>
+        <Filter.Container>
+          <Filter.Button>Data</Filter.Button>
+          <Filter.Content>
+            <Filter.Date label="Por período" isPeriod />
+            <Filter.Date
+              field="createdAt"
+              label="Data de criação"
+              isPeriod={false}
+            />
+            <Filter.Date
+              field="updatedAt"
+              label="Data da última atualização"
+              isPeriod={false}
+            />
+          </Filter.Content>
+        </Filter.Container>
+        <Filter.Container shouldEjectOnMobile={false}>
+          <Filter.Button icon={() => <Icon name="sort" size={1} />}>
+            Ordem
+          </Filter.Button>
+          <Filter.Sort
+            getLabel={(item) => item.label}
+            getValue={(item) => item.value}
+            field={"orderByField"}
+            options={[
+              { label: "Alfabética", value: "client-asc" },
+              "divider",
+              { label: "Total em vendas (crescente)", value: "totalSales-asc" },
+              {
+                label: "Total em vendas (decrescente)",
+                value: "totalSales-desc",
+              },
+              "divider",
+              {
+                label: "Lucro do gateway (crescente)",
+                value: "profitGateway-asc",
+              },
+              {
+                label: "Lucro do gateway (decrescente)",
+                value: "profitGateway-desc",
+              },
+              "divider",
+              { label: "Reserva financeira (crescente)", value: "reserve-asc" },
+              {
+                label: "Reserva financeira (decrescente)",
+                value: "reserve-desc",
+              },
+            ]}
           />
-        </Filter.Content>
-      </Filter.Container>
-      <Filter.Container shouldEjectOnMobile={false}>
-        <Filter.Button icon={() => <Icon name="sort" size={1} />}>
-          Ordem
-        </Filter.Button>
-        <Filter.Sort
-          getLabel={(item) => item.label}
-          getValue={(item) => item.value}
-          field={"orderByField"}
-          options={[
-            { label: "Alfabética", value: "client-asc" },
-            "divider",
-            { label: "Total em vendas (crescente)", value: "totalSales-asc" },
-            {
-              label: "Total em vendas (decrescente)",
-              value: "totalSales-desc",
-            },
-            "divider",
-            {
-              label: "Lucro do gateway (crescente)",
-              value: "profitGateway-asc",
-            },
-            {
-              label: "Lucro do gateway (decrescente)",
-              value: "profitGateway-desc",
-            },
-            "divider",
-            { label: "Reserva financeira (crescente)", value: "reserve-asc" },
-            {
-              label: "Reserva financeira (decrescente)",
-              value: "reserve-desc",
-            },
-          ]}
-        />
-      </Filter.Container>
-    </Filter.Responsive>
+        </Filter.Container>
+      </Filter.Responsive>
+    </ThemePreview>
   );
 };
 
-export const DarkOrLightTheme: StoryFn = {
+export const DarkOrLightTheme: StoryObj = {
   render: () => (
     <ThemePreview>
       <Filter.Container>

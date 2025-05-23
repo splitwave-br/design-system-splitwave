@@ -1,6 +1,6 @@
 {
   "name": "design-system",
-  "version": "1.26.7",
+  "version": "1.32.0",
   "description": "",
   "main": "dist/index.js",
   "files": [
@@ -10,7 +10,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "clean": "rimraf dist/",
-    "copy-files": "copyfiles -u 1 'src/**/*.scss' dist",
+    "copy-files": "copyfiles -u 1 \"src/**/*.scss\" dist",
     "declaration": "npx tsc --declaration",
     "build": "yarn clean && yarn declaration && tsc && tsc-alias && yarn copy-files",
     "storybook": "storybook dev -p 6006",
@@ -60,8 +60,8 @@
     "typescript": "^5.5.4"
   },
   "peerDependencies": {
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "react": "^18.2.0 || ^19.0.0",
+    "react-dom": "^18.2.0 || ^19.0.0",
     "react-hook-form": "^7.47.0"
   },
   "dependencies": {

@@ -35,6 +35,10 @@ import { Webhook } from "./components/Webhook";
 import { X } from "./components/X";
 import { XCircle } from "./components/XCircle";
 import { Filter } from "./components/Filter";
+import { ShopBag } from "./components/ShopBag";
+import { Globe } from "./components/Globe";
+import { Time } from "./components/Time";
+import { Minus } from "./components/Minus";
 declare const icons: {
     access: () => import("react/jsx-runtime").JSX.Element;
     alert: () => import("react/jsx-runtime").JSX.Element;
@@ -80,6 +84,7 @@ declare const icons: {
     folder: typeof Folder;
     forward: () => import("react/jsx-runtime").JSX.Element;
     gift: typeof Gift;
+    globe: typeof Globe;
     home: () => import("react/jsx-runtime").JSX.Element;
     info: () => import("react/jsx-runtime").JSX.Element;
     "information-circle": () => import("react/jsx-runtime").JSX.Element;
@@ -94,6 +99,8 @@ declare const icons: {
     "money-up": () => import("react/jsx-runtime").JSX.Element;
     "money-exchange": () => import("react/jsx-runtime").JSX.Element;
     "money-04": () => import("react/jsx-runtime").JSX.Element;
+    "invoice-03": () => import("react/jsx-runtime").JSX.Element;
+    "credit-card-1": () => import("react/jsx-runtime").JSX.Element;
     more: () => import("react/jsx-runtime").JSX.Element;
     "money-send": typeof MoneySend;
     "money-bag": typeof MoneyBag;
@@ -101,6 +108,7 @@ declare const icons: {
     "paint-board": () => import("react/jsx-runtime").JSX.Element;
     "pencil-edit": () => import("react/jsx-runtime").JSX.Element;
     percent: () => import("react/jsx-runtime").JSX.Element;
+    pin: () => import("react/jsx-runtime").JSX.Element;
     pix: () => import("react/jsx-runtime").JSX.Element;
     plus: () => import("react/jsx-runtime").JSX.Element;
     profile: () => import("react/jsx-runtime").JSX.Element;
@@ -113,6 +121,7 @@ declare const icons: {
     settings: typeof Settings;
     shopify: typeof Shopify;
     "shopping-bag": typeof ShoppingBag;
+    "shop-bag": typeof ShopBag;
     "shopping-bag-3": typeof ShoppingBag3;
     "shopping-cart": typeof ShoppingCart;
     "source-code": typeof SourceCode;
@@ -139,6 +148,9 @@ declare const icons: {
     import: typeof Import;
     export: typeof Export;
     attach: () => import("react/jsx-runtime").JSX.Element;
+    drag: () => import("react/jsx-runtime").JSX.Element;
+    time: typeof Time;
+    minus: typeof Minus;
 };
 export type TIconSizes = "nano" | "micro" | 1 | 2 | 3 | 4;
 export type TIcons = keyof typeof icons;
