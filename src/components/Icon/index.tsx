@@ -101,6 +101,7 @@ import { Filter } from "./components/Filter";
 import { Affiliated } from "./components/Affiliated";
 import { Moon } from "./components/Moon";
 import { Sun } from "./components/Sun";
+import Attach from "./components/Attach";
 
 const icons = {
   access: Access,
@@ -205,6 +206,7 @@ const icons = {
   affiliated: Affiliated,
   import: Import,
   export: Export,
+  attach: Attach
 };
 
 export type TIconSizes = "nano" | "micro" | 1 | 2 | 3 | 4;
