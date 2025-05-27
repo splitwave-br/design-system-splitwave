@@ -147,6 +147,7 @@ declare const icons: {
     affiliated: () => import("react/jsx-runtime").JSX.Element;
     import: typeof Import;
     export: typeof Export;
+    attach: () => import("react/jsx-runtime").JSX.Element;
     drag: () => import("react/jsx-runtime").JSX.Element;
     time: typeof Time;
     minus: typeof Minus;
