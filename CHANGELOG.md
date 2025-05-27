@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.33.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.32.0...v1.33.0) (2025-05-27)
+
+
+### Features
+
+* **#000:** Attach icon ([6e85a3d](https://github.com/splitwave-br/design-system-splitwave/commit/6e85a3d3a11127fc98cb8867cd425831911baf79))
+* **#000:** Attach icon ([e8f659e](https://github.com/splitwave-br/design-system-splitwave/commit/e8f659ec626fa710fbba406f96dee06f870f4c40))
+
+
+### Bug Fixes
+
+* **#000:** Fix currentColor Attach icon ([ba6b33f](https://github.com/splitwave-br/design-system-splitwave/commit/ba6b33faef0ac48d5bae5ed9b9929fbe1be692b0))
+
 ## [1.32.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.31.1...v1.32.0) (2025-05-10)
 
 
