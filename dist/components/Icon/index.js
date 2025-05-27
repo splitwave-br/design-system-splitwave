@@ -111,7 +111,6 @@ import { Globe } from "./components/Globe";
 import { Time } from "./components/Time";
 import Pin from "./components/Pin";
 import { Minus } from "./components/Minus";
-
 var icons = {
     access: Access,
     alert: Alert,

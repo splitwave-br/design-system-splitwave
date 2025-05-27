@@ -73,6 +73,7 @@ export const Table = <T extends ITableData>({
         {isEmpty && renderEmptyState && renderEmptyState()}
 
         <Rows
+          hasPagination={!isEmpty && totalPages > 1}
           limit={LIMIT}
           keyExtractor={keyExtractor}
           data={pageData}
