@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.34.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.33.0...v1.34.0) (2025-05-29)
+
+
+### Features
+
+* **#372:** Add table style fixes ([ba299a6](https://github.com/splitwave-br/design-system-splitwave/commit/ba299a64f40c5a8e3f17a559790e4193ce625775))
+
 ## [1.33.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.32.0...v1.33.0) (2025-05-27)
 
 
