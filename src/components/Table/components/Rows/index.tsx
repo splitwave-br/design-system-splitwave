@@ -8,8 +8,6 @@ import { getIdentifierIndex, reorderCells } from "@/components/Table/utils";
 import styles from "../../styles.module.scss";
 import { FakeRows } from "../FakeRows";
 
-const LIMIT = 15;
-
 type RowsProps<T extends ITableData> = {
   keyExtractor: (item: T, index: number) => string;
   data: T[];
@@ -22,6 +20,7 @@ type RowsProps<T extends ITableData> = {
 
   limit?: number;
   isLoading?: boolean;
+  hasPagination?: boolean;
 
   isMobile: boolean;
 };
@@ -38,6 +37,7 @@ export const Rows = <T extends ITableData>({
 
   limit,
   isLoading,
+  hasPagination,
 
   isMobile,
 }: RowsProps<T>) => {
@@ -57,6 +57,7 @@ export const Rows = <T extends ITableData>({
   const rowClassName = concatStyles([
     styles.row,
     hasClickBehavior ? styles.row_hover : "",
+    hasPagination ? styles.hasPagination : "",
   ]);
 
   if (isLoading) {

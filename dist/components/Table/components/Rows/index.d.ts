@@ -7,7 +7,8 @@ type RowsProps<T extends ITableData> = {
     onRowClick?: (row: T) => void;
     limit?: number;
     isLoading?: boolean;
+    hasPagination?: boolean;
     isMobile: boolean;
 };
-export declare const Rows: <T extends ITableData>({ keyExtractor, data, renderRow, columns, onRowClick, limit, isLoading, isMobile, }: RowsProps<T>) => import("react/jsx-runtime").JSX.Element | import("react/jsx-runtime").JSX.Element[];
+export declare const Rows: <T extends ITableData>({ keyExtractor, data, renderRow, columns, onRowClick, limit, isLoading, hasPagination, isMobile, }: RowsProps<T>) => import("react/jsx-runtime").JSX.Element | import("react/jsx-runtime").JSX.Element[];
 export {};

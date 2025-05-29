@@ -5,10 +5,9 @@ import { Row } from "../../../../components/Table/components/Row";
 import { getIdentifierIndex, reorderCells } from "../../../../components/Table/utils";
 import styles from "../../styles.module.scss";
 import { FakeRows } from "../FakeRows";
-var LIMIT = 15;
 export var Rows = function (_a) {
     var _b;
-    var keyExtractor = _a.keyExtractor, data = _a.data, renderRow = _a.renderRow, columns = _a.columns, onRowClick = _a.onRowClick, limit = _a.limit, isLoading = _a.isLoading, isMobile = _a.isMobile;
+    var keyExtractor = _a.keyExtractor, data = _a.data, renderRow = _a.renderRow, columns = _a.columns, onRowClick = _a.onRowClick, limit = _a.limit, isLoading = _a.isLoading, hasPagination = _a.hasPagination, isMobile = _a.isMobile;
     var identifierIndex = useMemo(function () { return getIdentifierIndex(columns); }, [columns]);
     var columnsHeader = useMemo(function () {
         var columnsText = columns.map(function (column) { var _a; return ((_a = column === null || column === void 0 ? void 0 : column.props) === null || _a === void 0 ? void 0 : _a.children) || null; });
@@ -20,6 +19,7 @@ export var Rows = function (_a) {
     var rowClassName = concatStyles([
         styles.row,
         hasClickBehavior ? styles.row_hover : "",
+        hasPagination ? styles.hasPagination : "",
     ]);
     if (isLoading) {
         return (_jsx(FakeRows, { identifierIndex: identifierIndex, limit: limit, columnsHeader: columnsHeader, className: rowClassName, isMobile: isMobile }));

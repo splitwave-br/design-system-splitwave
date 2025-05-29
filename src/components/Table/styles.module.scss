@@ -56,6 +56,10 @@
     border-bottom: 1px solid var(--table-border-color);
   }
 
+  &:last-child:not(.hasPagination) > div {
+    border-bottom: 1px solid var(--table-border-color);
+  }
+
   & > div {
     color: var(--table-text-color-primary);
     background-color: var(--table-cell-background);
@@ -76,8 +80,8 @@
       border-bottom: 1px solid var(--table-border-color);
     }
 
-    & > div:first-child,
-    & > div:nth-child(2) {
+    &:not(:first-of-type) > div:first-child,
+    &:not(:first-of-type) > div:nth-child(2) {
       margin-top: var(--spaces-2);
       background-color: var(--table-header-background);
       min-height: calc(var(--spaces-5) + var(--spaces-micro));
