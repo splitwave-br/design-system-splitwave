@@ -7,6 +7,7 @@ import { Placeholder } from "./Placeholder";
 import { Actions } from "./Actions";
 import { Dropdown } from "../../../../components/Dropdown";
 import { Skeleton } from "./Skeleton";
+import { Card } from "./Card";
 export var Cell = {
     Date: Date,
     Price: Price,
@@ -15,6 +16,7 @@ export var Cell = {
     Image: Image,
     Placeholder: Placeholder,
     Actions: Actions,
+    Card: Card,
     ActionItem: Dropdown.Item,
     Skeleton: Skeleton,
 };

@@ -7,6 +7,7 @@ import { Placeholder } from "./Placeholder";
 import { Actions } from "./Actions";
 import { Dropdown } from "@/components/Dropdown";
 import { Skeleton } from "./Skeleton";
+import { Card } from "./Card";
 
 export const Cell = {
   Date,
@@ -16,6 +17,7 @@ export const Cell = {
   Image,
   Placeholder,
   Actions,
+  Card,
   ActionItem: Dropdown.Item,
 
   Skeleton: Skeleton,
