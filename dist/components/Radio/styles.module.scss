@@ -1,0 +1,47 @@
+.radioOptions {
+  display: flex;
+  gap: 1rem;
+}
+
+.radioContainer {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+.radioButton {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid var(--radio-border-default);
+  background-color: var(--radio-bg-default);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.selected {
+  border-color: var(--radio-border-selected);
+  background-color: var(--radio-bg-selected);
+}
+
+.label {
+  font-size: var(--font-size-3);
+  color: var(--colors-font-primary);
+  user-select: none;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 16px;
+}
