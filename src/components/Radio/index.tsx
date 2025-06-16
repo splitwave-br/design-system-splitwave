@@ -20,13 +20,13 @@ export interface RadioProps {
   className?: string;
 }
 
-export const Radio: React.FC<RadioProps> = ({
+export const Radio = ({
   options,
   value,
   onSelect,
   variant = "default",
   className,
-}) => {
+}: RadioProps) => {
   return (
     <div className={styles.radioOptions}>
       {options.map((option, index) => {

@@ -1,6 +1,6 @@
 .radioOptions {
   display: flex;
-  gap: 1rem;
+  gap: var(--spaces-3);
 }
 
 .radioContainer {
@@ -10,14 +10,14 @@
   border: none;
   background: none;
   padding: 0;
-  gap: 0.5rem;
+  gap: var(--spaces-1);
 }
 
 .radioButton {
-  width: 24px;
-  height: 24px;
+  width: var(--spaces-3);
+  height: var(--spaces-3);
   border-radius: 50%;
-  border: 2px solid var(--radio-border-default);
+  border: var(--border-radius-1) solid var(--radio-border-default);
   background-color: var(--radio-bg-default);
   display: flex;
   align-items: center;
@@ -31,7 +31,7 @@
 }
 
 .label {
-  font-size: var(--font-size-3);
+  font-size: var(--font-size-4);
   color: var(--colors-font-primary);
   user-select: none;
   font-style: normal;
@@ -43,5 +43,4 @@
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: 16px;
 }
