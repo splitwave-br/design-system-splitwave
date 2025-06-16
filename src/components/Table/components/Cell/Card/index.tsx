@@ -7,11 +7,12 @@ type TProps = TCell & {
 };
 
 export const Card = ({ children }: TProps) => {
-  return <div className={styles.cardWrapper}>
-    <div className={styles.content}>
-      {children}
-    </div>
-    </div>;
+  return (
+    <div className={styles.cell}>
+      <div className={styles.cardWrapper}>
+        <div className={styles.content}>
+          {children}
+        </div>
+      </div>
+    </div>);
 };
-
-

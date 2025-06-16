@@ -1,3 +1,11 @@
+.cell {
+  display: flex;
+  padding: var(--spaces-2) var(--spaces-4);
+  align-items: center;
+  gap: var(--spaces-3);
+  align-self: stretch;
+}
+
 .cardWrapper {
   width: 100px;
   height: var(--spaces-9);
