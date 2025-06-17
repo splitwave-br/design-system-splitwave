@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.35.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.34.0...v1.35.0) (2025-06-17)
+
+
+### Features
+
+* **#cell-card:** Adding card component on table cell ([88771e9](https://github.com/splitwave-br/design-system-splitwave/commit/88771e95ac60c773e5a9350a167b847a9fdd8ab0))
+* **#cell-card:** Adding card component on table cell ([1dba139](https://github.com/splitwave-br/design-system-splitwave/commit/1dba13938e2b7d46b5246f74ff2efc9459b88182))
+* **#cell-card:** Adding classname ([6852320](https://github.com/splitwave-br/design-system-splitwave/commit/6852320f8b11e824a872aca152d4cdcccfc928d0))
+
 ## [1.34.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.33.0...v1.34.0) (2025-05-29)
 
 
