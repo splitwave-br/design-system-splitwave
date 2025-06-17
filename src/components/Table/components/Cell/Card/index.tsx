@@ -4,12 +4,13 @@ import { ReactNode } from "react";
 
 type TProps = TCell & {
   children: ReactNode;
+  className?: string;
 };
 
-export const Card = ({ children }: TProps) => {
+export const Card = ({ children, className }: TProps) => {
   return (
     <div className={styles.cell}>
-      <div className={styles.cardWrapper}>
+      <div className={[styles.cardWrapper, className].join(" ")}>
         <div className={styles.content}>
           {children}
         </div>
