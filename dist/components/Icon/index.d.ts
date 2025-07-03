@@ -57,6 +57,9 @@ declare const icons: {
     box: typeof Box;
     calendar: () => import("react/jsx-runtime").JSX.Element;
     cancel: () => import("react/jsx-runtime").JSX.Element;
+    "cfg-ranking-first": () => import("react/jsx-runtime").JSX.Element;
+    "cfg-ranking-second": () => import("react/jsx-runtime").JSX.Element;
+    "cfg-ranking-third": () => import("react/jsx-runtime").JSX.Element;
     chart: () => import("react/jsx-runtime").JSX.Element;
     "chart-line-data": typeof ChartLineData;
     check: () => import("react/jsx-runtime").JSX.Element;

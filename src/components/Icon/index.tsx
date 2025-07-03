@@ -110,6 +110,9 @@ import { Globe } from "./components/Globe";
 import { Time } from "./components/Time";
 import Pin from "./components/Pin";
 import { Minus } from "./components/Minus";
+import CfgRankingFirst from "./components/CfgRankingFirst";
+import CfgRankingSecond from "./components/CfgRankingSecond";
+import CfgRankingThird from "./components/CfgRankingThird";
 
 const icons = {
   access: Access,
@@ -129,6 +132,9 @@ const icons = {
   box: Box,
   calendar: Calendar,
   cancel: Cancel,
+  "cfg-ranking-first": CfgRankingFirst,
+  "cfg-ranking-second": CfgRankingSecond,
+  "cfg-ranking-third": CfgRankingThird,
   chart: Chart,
   "chart-line-data": ChartLineData,
   check: Check,

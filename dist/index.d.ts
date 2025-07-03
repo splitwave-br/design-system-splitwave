@@ -28,5 +28,3 @@ export { Tabs } from "./components/Tabs";
 export type { ITabTrigger, ITabsProps } from "./components/Tabs";
 export { default as useClickOutside } from "./hooks/useClickOutside";
 export { Form } from "./components/Form";
-export { Radio } from "./components/Radio";
-export type { RadioProps, RadioVariant, RadioOption } from "./components/Radio";
