@@ -1,40 +1,53 @@
 const CfgRankingSecond = () => {
   return (
-<svg
-  width="40"
-  height="40"
-  viewBox="0 0 40 40"
-  fill="none"
-  xmlns="http://www.w3.org/2000/svg"
->
-<path
-  d="M20.0002 28.3334C17.2108 28.3334 14.783 30.4417 13.5296 33.552C12.9309 35.0375 13.79 36.6667 14.9314 36.6667H25.0688C26.2103 36.6667 27.0693 35.0375 26.4707 33.552C25.2173 30.4417 22.7895 28.3334 20.0002 28.3334Z"
-  stroke="currentColor"
-  strokeWidth="1.5"
-  strokeLinecap="round"
-/>
-<path
-  d="M30.8332 8.33337H32.8368C34.8383 8.33337 35.839 8.33337 36.3612 8.96231C36.8832 9.59124 36.6662 10.5353 36.232 12.4233L35.5807 15.2552C34.6013 19.5144 31.018 22.6814 26.6665 23.3334"
-  stroke="currentColor"
-  strokeWidth="1.5"
-  strokeLinecap="round"
-  strokeLinejoin="round"
-/>
-<path
-  d="M9.16683 8.33337H7.16315C5.1617 8.33337 4.16098 8.33337 3.6389 8.96231C3.11681 9.59124 3.3339 10.5353 3.76808 12.4233L4.4193 15.2552C5.39873 19.5144 8.98203 22.6814 13.3335 23.3334"
-  stroke="currentColor"
-  strokeWidth="1.5"
-  strokeLinecap="round"
-  strokeLinejoin="round"
-/>
-<path
-  d="M19.9998 28.3334C25.0345 28.3334 29.2748 20.5632 30.5493 9.98486C30.9018 7.05934 31.0782 5.59659 30.1445 4.46497C29.211 3.33337 27.7037 3.33337 24.6888 3.33337H15.3108C12.2961 3.33337 10.7887 3.33337 9.85512 4.46497C8.92152 5.59659 9.09775 7.05934 9.45025 9.98486C10.7248 20.5632 14.9652 28.3334 19.9998 28.3334Z"
-  stroke="currentColor"
-  strokeWidth="1.5"
-  strokeLinecap="round"
-/>
-</svg>
-
+    <svg
+      width="40"
+      height="40"
+      viewBox="0 0 40 40"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M17.5 23.3333L18.3842 22.3808C19.4217 21.3316 21.1375 21.455 22.0178 22.642C22.7055 23.5695 22.6525 24.8583 21.891 25.7248L17.5 30H22.3858"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M19.9998 36.6667C25.9829 36.6667 30.8332 31.8164 30.8332 25.8333C30.8332 19.8502 25.9829 15 19.9998 15C14.0168 15 9.1665 19.8502 9.1665 25.8333C9.1665 31.8164 14.0168 36.6667 19.9998 36.6667Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
+      <path
+        d="M14.9998 15.8334L9.1665 3.33337"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M25 15.8334L30.8333 3.33337"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M25.0002 3.33337L23.3335 7.50004"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M20.8335 15L15.8335 3.33337"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
   );
 };
 
