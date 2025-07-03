@@ -1,5 +1,4 @@
-import React from "react";
-import "./variables.scss";
+import "./variants.module.scss";
 export type RadioVariant = "default" | "success";
 export interface RadioOption {
     label: string;
@@ -12,4 +11,5 @@ export interface RadioProps {
     variant?: RadioVariant;
     className?: string;
 }
-export declare const Radio: React.FC<RadioProps>;
+export declare const Radio: ({ options, value, onSelect, variant, className, }: RadioProps) => import("react/jsx-runtime").JSX.Element;
+export default Radio;

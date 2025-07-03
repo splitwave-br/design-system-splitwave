@@ -34,5 +34,3 @@ export { Tabs } from "./components/Tabs";
 export { default as useClickOutside } from "./hooks/useClickOutside";
 // FORM
 export { Form } from "./components/Form";
-// Radio
-export { Radio } from "./components/Radio";
