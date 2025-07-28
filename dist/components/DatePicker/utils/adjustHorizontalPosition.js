@@ -1,4 +1,4 @@
-import { DEFAULT_PADDING } from "../../../components/Dropdown/Container";
+export var DEFAULT_PADDING = 16;
 export var adjustHorizontalPosition = function (datePickerRef, parentRef) {
     if (datePickerRef.current && parentRef.current) {
         var datePicker = datePickerRef.current.getBoundingClientRect();

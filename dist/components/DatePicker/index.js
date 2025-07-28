@@ -15,13 +15,13 @@ import { useEffect, useRef, useState } from "react";
 import { DayPicker } from "react-day-picker";
 import { ptBR } from "date-fns/locale";
 import useWindowSize from "../../hooks/useWindowSize";
-import { Button } from "../../components/Button";
 import styles from "./styles.module.scss";
 import "./variables.scss";
 import { format } from "date-fns";
 import "react-day-picker/dist/style.css";
 import { adjustHorizontalPosition } from "./utils/adjustHorizontalPosition";
-import useClickOutside from "../../hooks/useClickOutside";
+import { createPortal } from "react-dom";
+import { Button } from "../Button";
 var defaultClassNames = {
     root: styles.rdpRoot,
     months: styles.months,
@@ -47,17 +47,17 @@ var defaultClassNames = {
 var today = new Date();
 var oneMonthAgo = new Date(today.getFullYear(), today.getMonth() - 1);
 export var DatePicker = function (_a) {
-    var isOpen = _a.isOpen, mode = _a.mode, parentRef = _a.parentRef, formatter = _a.formatter, handleToggle = _a.handleToggle, handlePickDate = _a.handlePickDate, disabled = _a.disabled;
+    var isOpen = _a.isOpen, mode = _a.mode, parentRef = _a.parentRef, formatter = _a.formatter, handleToggle = _a.handleToggle, handlePickDate = _a.handlePickDate, disabled = _a.disabled, asPortal = _a.asPortal;
     var _b = useState(), selectedDate = _b[0], setSelectedDate = _b[1];
     var datePickerRef = useRef(null);
     var size = useWindowSize().size;
     var isSmallScreen = ((size === null || size === void 0 ? void 0 : size.width) || 1366) < 768;
     var numberOfMonths = isSmallScreen ? 1 : 2;
-    useClickOutside({
-        callback: handleToggle,
-        isActive: isOpen,
-        ref: datePickerRef,
-    });
+    // useClickOutside({
+    //   callback: handleToggle,
+    //   isActive: isOpen,
+    //   ref: datePickerRef,
+    // });
     useEffect(function () {
         adjustHorizontalPosition(datePickerRef, parentRef);
     }, [isOpen]);
@@ -103,7 +103,19 @@ export var DatePicker = function (_a) {
             selected: selectedDate,
         };
     var commonProps = __assign({ locale: ptBR, defaultMonth: oneMonthAgo, showOutsideDays: true, fixedWeeks: true, numberOfMonths: numberOfMonths, classNames: combinedClassNames, onSelect: setSelectedDate, disabled: disabled }, modeSpecificProps);
+    var datePickerElement = (_jsxs("div", { className: styles.container, ref: datePickerRef, children: [_jsx(DayPicker, __assign({}, commonProps)), _jsxs("div", { className: styles.footer, children: [_jsx(Button, { variant: "secondary", onClick: handleToggle, children: "Cancelar" }), _jsx(Button, { onClick: handleApplyClick, children: "Aplicar" })] })] }));
+    useEffect(function () {
+        if (!asPortal || !isOpen || !parentRef.current || !datePickerRef.current)
+            return;
+        var parentRect = parentRef.current.getBoundingClientRect();
+        var pickerEl = datePickerRef.current;
+        pickerEl.style.top = "".concat(parentRect.bottom + window.scrollY + 8, "px");
+        pickerEl.style.left = "".concat(parentRect.left + window.scrollX, "px");
+    }, [asPortal, isOpen]);
     if (!isOpen)
         return null;
-    return (_jsxs("div", { className: styles.container, ref: datePickerRef, children: [_jsx(DayPicker, __assign({}, commonProps)), _jsxs("div", { className: styles.footer, children: [_jsx(Button, { variant: "secondary", onClick: handleToggle, children: "Cancelar" }), _jsx(Button, { onClick: handleApplyClick, children: "Aplicar" })] })] }));
+    var portalContainer = typeof window !== "undefined" ? document.body : null;
+    return asPortal && portalContainer
+        ? createPortal(datePickerElement, portalContainer)
+        : datePickerElement;
 };

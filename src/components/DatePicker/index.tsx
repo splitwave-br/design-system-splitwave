@@ -5,7 +5,6 @@ import { DateRange, DayPicker } from "react-day-picker";
 import { ptBR } from "date-fns/locale";
 
 import useWindowSize from "@/hooks/useWindowSize";
-import { Button } from "@/components/Button";
 
 import styles from "./styles.module.scss";
 import "./variables.scss";
@@ -13,7 +12,8 @@ import { format } from "date-fns";
 import { DatePickerProps } from "./types";
 import "react-day-picker/dist/style.css";
 import { adjustHorizontalPosition } from "./utils/adjustHorizontalPosition";
-import useClickOutside from "@/hooks/useClickOutside";
+import { createPortal } from "react-dom";
+import { Button } from "../Button";
 
 const defaultClassNames = {
   root: styles.rdpRoot,
@@ -48,6 +48,7 @@ export const DatePicker = ({
   handleToggle,
   handlePickDate,
   disabled,
+  asPortal,
 }: DatePickerProps) => {
   const [selectedDate, setSelectedDate] = useState<
     DateRange | Date | undefined
@@ -58,11 +59,11 @@ export const DatePicker = ({
   const isSmallScreen = (size?.width || 1366) < 768;
   const numberOfMonths = isSmallScreen ? 1 : 2;
 
-  useClickOutside({
-    callback: handleToggle,
-    isActive: isOpen,
-    ref: datePickerRef,
-  });
+  // useClickOutside({
+  //   callback: handleToggle,
+  //   isActive: isOpen,
+  //   ref: datePickerRef,
+  // });
 
   useEffect(() => {
     adjustHorizontalPosition(datePickerRef, parentRef);
@@ -132,9 +133,7 @@ export const DatePicker = ({
     ...modeSpecificProps,
   };
 
-  if (!isOpen) return null;
-
-  return (
+  const datePickerElement = (
     <div className={styles.container} ref={datePickerRef}>
       <DayPicker {...commonProps} />
       <div className={styles.footer}>
@@ -145,4 +144,23 @@ export const DatePicker = ({
       </div>
     </div>
   );
+
+  useEffect(() => {
+    if (!asPortal || !isOpen || !parentRef.current || !datePickerRef.current)
+      return;
+
+    const parentRect = parentRef.current.getBoundingClientRect();
+    const pickerEl = datePickerRef.current;
+
+    pickerEl.style.top = `${parentRect.bottom + window.scrollY + 8}px`;
+    pickerEl.style.left = `${parentRect.left + window.scrollX}px`;
+  }, [asPortal, isOpen]);
+
+  if (!isOpen) return null;
+
+  const portalContainer = typeof window !== "undefined" ? document.body : null;
+
+  return asPortal && portalContainer
+    ? createPortal(datePickerElement, portalContainer)
+    : datePickerElement;
 };
