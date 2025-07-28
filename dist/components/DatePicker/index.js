@@ -22,6 +22,7 @@ import "react-day-picker/dist/style.css";
 import { adjustHorizontalPosition } from "./utils/adjustHorizontalPosition";
 import { createPortal } from "react-dom";
 import { Button } from "../Button";
+import useClickOutside from "../../hooks/useClickOutside";
 var defaultClassNames = {
     root: styles.rdpRoot,
     months: styles.months,
@@ -53,11 +54,11 @@ export var DatePicker = function (_a) {
     var size = useWindowSize().size;
     var isSmallScreen = ((size === null || size === void 0 ? void 0 : size.width) || 1366) < 768;
     var numberOfMonths = isSmallScreen ? 1 : 2;
-    // useClickOutside({
-    //   callback: handleToggle,
-    //   isActive: isOpen,
-    //   ref: datePickerRef,
-    // });
+    useClickOutside({
+        callback: handleToggle,
+        isActive: isOpen,
+        ref: datePickerRef,
+    });
     useEffect(function () {
         adjustHorizontalPosition(datePickerRef, parentRef);
     }, [isOpen]);
