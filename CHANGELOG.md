@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.36.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.35.0...v1.36.0) (2025-07-03)
+
+
+### Features
+
+* **#ranking-icons:** Adding dist files ([b2b9ed4](https://github.com/splitwave-br/design-system-splitwave/commit/b2b9ed435ae3200ee6dce9e06012e342ae599f8f))
+* **#ranking-icons:** Adding radio files ([3b94f30](https://github.com/splitwave-br/design-system-splitwave/commit/3b94f301b35222f4771bb74deee3863a74166acf))
+* **#ranking-icons:** Adding ranking icons ([225369c](https://github.com/splitwave-br/design-system-splitwave/commit/225369cf6f0a81addc50cb02444798cd1de13a37))
+* **#ranking-icons:** Adjust second icon ([a9d9230](https://github.com/splitwave-br/design-system-splitwave/commit/a9d9230f2f5c5b3b98d76e174d8c65a179d0614f))
+
 ## [1.35.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.34.0...v1.35.0) (2025-06-17)
 
 
