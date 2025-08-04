@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.37.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.36.0...v1.37.0) (2025-08-04)
+
+
+### Features
+
+* **datepicker:** Add portal capabilities to datepicker ([1341675](https://github.com/splitwave-br/design-system-splitwave/commit/13416755bd57250333e16119793d97df29c222bc))
+* **datepicker:** Add portal capabilities to datepicker ([5e4746b](https://github.com/splitwave-br/design-system-splitwave/commit/5e4746b0ae1155c27033b00faaeda7930331328e))
+
 ## [1.36.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.35.0...v1.36.0) (2025-07-03)
 
 
