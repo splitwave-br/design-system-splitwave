@@ -1,11 +1,11 @@
-import { DEFAULT_PADDING } from "@/components/Dropdown/Container";
-import { RefObject } from "react";
+import { RefObject } from 'react';
 
 type TElementRef = RefObject<HTMLDivElement>;
+export const DEFAULT_PADDING = 16;
 
 export const adjustHorizontalPosition = (
   datePickerRef: TElementRef,
-  parentRef: TElementRef,
+  parentRef: TElementRef
 ) => {
   if (datePickerRef.current && parentRef.current) {
     const datePicker = datePickerRef.current.getBoundingClientRect();

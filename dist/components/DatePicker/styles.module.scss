@@ -14,7 +14,7 @@
     0px 8px 8px -4px rgba(16, 24, 40, 0.03);
 
   animation: 0.3s menuEntry;
-  z-index: 100;
+  z-index: 100000000000000;
 
   &.align__end {
     right: 0;
@@ -71,7 +71,9 @@
   color: var(--colors-gray-500) !important;
 }
 .today {
-  background-color: var(--component-datepicker-current-day-background) !important;
+  background-color: var(
+    --component-datepicker-current-day-background
+  ) !important;
   color: var(--component-datepicker-color) !important;
 }
 
@@ -92,10 +94,14 @@
   color: white !important;
 
   font-weight: 500;
-  background-color: var(--component-datepicker-background-selectedDay) !important;
+  background-color: var(
+    --component-datepicker-background-selectedDay
+  ) !important;
   &:hover {
     color: white !important;
-    background-color: var(--component-datepicker-background-selectedDay) !important;
+    background-color: var(
+      --component-datepicker-background-selectedDay
+    ) !important;
   }
 }
 
@@ -129,7 +135,7 @@
     }
     &:hover {
       button {
-        color: var(--colors-brand-700);
+        color: var(--component-datepicker-middle-cell-text);
       }
       background: var(--component-datepicker-middle-cell-background);
     }
@@ -176,11 +182,13 @@
 
     .range {
       border-radius: 0;
-      color: var(--colors-brand-700) !important;
+      color: var(--component-datepicker-background-selectedDay) !important;
       background: var(--component-datepicker-middle-cell-background) !important;
       &:hover {
-        color: var(--colors-brand-700) !important;
-        background: var(--component-datepicker-middle-cell-background) !important;
+        color: var(--component-datepicker-background-selectedDay) !important;
+        background: var(
+          --component-datepicker-middle-cell-background
+        ) !important;
       }
     }
   }
