@@ -110,8 +110,9 @@ export var DatePicker = function (_a) {
             return;
         var parentRect = parentRef.current.getBoundingClientRect();
         var pickerEl = datePickerRef.current;
-        pickerEl.style.top = "".concat(parentRect.bottom + window.scrollY + 8, "px");
-        pickerEl.style.left = "".concat(parentRect.left + window.scrollX, "px");
+        var scale = window.devicePixelRatio || 1;
+        pickerEl.style.top = "".concat((parentRect.bottom + window.scrollY + 8) / scale, "px");
+        pickerEl.style.left = "".concat((parentRect.left + window.scrollX) / scale, "px");
     }, [asPortal, isOpen]);
     if (!isOpen)
         return null;

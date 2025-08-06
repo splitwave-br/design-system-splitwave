@@ -145,7 +145,6 @@ export const DatePicker = ({
       </div>
     </div>
   );
-
   useEffect(() => {
     if (!asPortal || !isOpen || !parentRef.current || !datePickerRef.current)
       return;
@@ -153,8 +152,10 @@ export const DatePicker = ({
     const parentRect = parentRef.current.getBoundingClientRect();
     const pickerEl = datePickerRef.current;
 
-    pickerEl.style.top = `${parentRect.bottom + window.scrollY + 8}px`;
-    pickerEl.style.left = `${parentRect.left + window.scrollX}px`;
+    const scale = window.devicePixelRatio || 1;
+
+    pickerEl.style.top = `${(parentRect.bottom + window.scrollY + 8) / scale}px`;
+    pickerEl.style.left = `${(parentRect.left + window.scrollX) / scale}px`;
   }, [asPortal, isOpen]);
 
   if (!isOpen) return null;
