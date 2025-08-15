@@ -1,22 +1,27 @@
 "use client";
-import styles from "react-day-picker/dist/style.css";
-import { Checkbox } from "../../controls/Checkbox";
+import { Checkbox, CheckboxProps } from "../../controls/Checkbox";
 import { useFormContext } from "react-hook-form";
 
-export interface RHFCheckboxProps {
+export interface RHFCheckboxProps
+  extends Partial<Omit<CheckboxProps, "value" | "onChange">> {
   name: string;
-  label: string;
+  onCheck?: (value?: boolean) => void;
 }
-export function RHFCheckbox({ label, name }: RHFCheckboxProps) {
+
+export function RHFCheckbox({ name, onCheck, ...props }: RHFCheckboxProps) {
   const { watch, getValues, setValue } = useFormContext();
 
   const isChecked = watch(name);
 
   const handleCheck = () => {
-    return setValue(name, !getValues(name), {
+    const updatedValue = !getValues(name);
+
+    setValue(name, updatedValue, {
       shouldValidate: true,
     });
+
+    onCheck?.(updatedValue);
   };
 
-  return <Checkbox label={label} onChange={handleCheck} value={isChecked} />;
+  return <Checkbox onChange={handleCheck} value={isChecked} {...props} />;
 }

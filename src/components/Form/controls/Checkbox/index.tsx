@@ -5,26 +5,37 @@ import { concatStyles } from "@/utils/concatStyles";
 import Checked from "../../../Filter/components/Checkboxes/components/Checked";
 import Unchecked from "../../../Filter/components/Checkboxes/components/Unchecked";
 
-type CheckboxProps = {
+export type CheckboxProps = {
   label?: string;
   onChange: () => void;
   value: boolean;
+  disabled?: boolean;
+  className?: string;
+  disableHover?: boolean;
 };
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
-  ({ label, onChange, value }, ref) => {
+  ({ label, onChange, value, className, disabled, disableHover }, ref) => {
     const isChecked = value;
     const randomId = useId();
+
+    const fieldStyles = concatStyles([
+      styles.field,
+      disableHover ? styles.disableHover : "",
+      disabled ? styles.disabled : "",
+      className,
+    ]);
 
     return (
       <React.Fragment key={randomId}>
         <div
           onClick={(e) => {
+            if (disabled) return;
             e.stopPropagation();
             onChange();
           }}
         >
-          <label htmlFor={randomId} className={styles.field}>
+          <label htmlFor={randomId} className={fieldStyles}>
             <div
               className={concatStyles([
                 styles.inputWrapper,
@@ -36,6 +47,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
                 type="checkbox"
                 id={randomId}
                 ref={ref}
+                disabled={disabled}
                 onChange={onChange}
                 checked={isChecked}
               />
