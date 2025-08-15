@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.38.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.37.0...v1.38.0) (2025-08-15)
+
+
+### Features
+
+* **checkbox:** Add more features to checkbox component ([af486b9](https://github.com/splitwave-br/design-system-splitwave/commit/af486b9525d9537c115ca05484b751f7189a62a5))
+* **checkbox:** Add more features to checkbox component ([bae94b7](https://github.com/splitwave-br/design-system-splitwave/commit/bae94b7d88256c50929661c63219d36b37f3f4e7))
+
 ## [1.37.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.36.0...v1.37.0) (2025-08-04)
 
 
