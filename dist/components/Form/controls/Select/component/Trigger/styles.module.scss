@@ -1,0 +1,69 @@
+.trigger {
+  width: 100%;
+  border-radius: var(--border-radius-3);
+  border: 1px solid var(--component-input-default-border);
+  background: var(--component-input-default);
+  position: relative;
+  cursor: pointer;
+
+  display: flex;
+  height: var(--spaces-5);
+  align-items: center;
+  gap: var(--spaces-1);
+
+  padding-right: calc(
+    var(--spaces-1) + var(--spaces-2) + var(--spaces-3)
+  ); // gap + padding  + icon
+
+  color: var(--component-input-default-icon);
+
+  .placeholder {
+    color: var(--component-input-default-text);
+
+    font-size: var(--font-size-3);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.57em;
+  }
+
+  &.trigger__disabled {
+    background: var(--component-input-disabled);
+    border: 1px solid var(--component-input-disabled);
+    box-shadow: 0 1px 2px 0 rgba(16, 24, 40, 0.05);
+    color: var(--component-input-default-icon-disabled);
+    cursor: not-allowed;
+  }
+
+  &:not(.prefix) {
+    padding-left: var(--spaces-2);
+  }
+
+  &.prefix {
+    padding-left: calc(
+      var(--spaces-1) + var(--spaces-2) + var(--spaces-3)
+    ); // gap + padding  + icon
+  }
+
+  .selectedValue {
+    color: var(--component-input-active-text);
+    font-size: var(--font-size-3);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.57em;
+  }
+}
+
+.prefixIcon,
+.suffixIcon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.prefixIcon {
+  left: var(--spaces-2);
+}
+
+.suffixIcon {
+  right: var(--spaces-2);
+}

@@ -1,0 +1,131 @@
+.wrapper {
+  z-index: 2;
+  position: relative;
+  cursor: pointer;
+  flex-shrink: 1;
+
+  &.disabled {
+    cursor: not-allowed !important;
+    color: var(--colors-gray-400);
+
+    font-size: var(--font-size-md);
+    font-weight: 500;
+    line-height: 1.42em;
+  }
+
+  & > .prefixIcon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--colors-gray-400);
+  }
+
+  & > .prefixIcon:first-child {
+    left: var(--spaces-md);
+  }
+}
+
+.wrapper-opened {
+  z-index: 999;
+}
+
+.input {
+  cursor: pointer;
+  pointer-events: none;
+  height: var(--spaces-xxl);
+  padding: 0 var(--spaces-md);
+  padding-right: calc(3 * var(--spaces-md));
+  width: 100%;
+  border: 1px solid var(--input-border);
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-md);
+
+  outline: none;
+}
+
+.inputWrapper {
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  right: var(--spaces-md);
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--colors-dark-gray-500);
+}
+
+.select {
+  min-height: var(--spaces-xxl);
+  padding: var(--spaces-sm) var(--spaces-md);
+  width: 100%;
+  border: 1px solid var(--component-input-default-border);
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-md);
+
+  align-items: center;
+
+  outline: none;
+
+  padding-right: var(--spaces-xxxl);
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--spaces-sm);
+
+  .prefixIcon,
+  .suffixIcon {
+    position: absolute;
+    top: calc(var(--spaces-xxl) / 2);
+    transform: translateY(-50%);
+    color: var(--colors-gray-700);
+  }
+
+  .suffixIcon {
+    right: calc(var(--spaces-md) - var(--spaces-micro));
+  }
+
+  .prefixIcon {
+    left: var(--spaces-md);
+  }
+
+  & > span {
+    color: var(--colors-dark-gray-500);
+  }
+
+  &.prefix {
+    padding-left: var(--spaces-xxxl);
+  }
+
+  & > .selected_value {
+    color: var(--colors-font-primary);
+
+    &.disabled {
+      color: var(--component-input-disabled-text);
+
+      font-size: var(--font-size-md);
+      font-weight: 500;
+      line-height: 1.42em;
+    }
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    color: var(--component-input-disabled-text);
+    background-color: var(--component-input-disabled);
+    box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+    pointer-events: none;
+  }
+}
+
+.inputSearch {
+  all: unset;
+  width: 100%;
+  flex-shrink: 1;
+}

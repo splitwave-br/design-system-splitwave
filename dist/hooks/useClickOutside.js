@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-var useClickOutside = function (_a) {
+export var useClickOutside = function (_a) {
     var ref = _a.ref, callback = _a.callback, isActive = _a.isActive, exceptionRef = _a.exceptionRef;
     useEffect(function () {
         var handleClickOutside = function (event) {
@@ -19,4 +19,3 @@ var useClickOutside = function (_a) {
         };
     }, [isActive, ref, callback]);
 };
-export default useClickOutside;

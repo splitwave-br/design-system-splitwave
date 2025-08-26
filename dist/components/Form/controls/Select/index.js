@@ -1,4 +1,14 @@
-"use client";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __rest = (this && this.__rest) || function (s, e) {
     var t = {};
     for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
@@ -11,97 +21,79 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-// import { Icon, TIcons } from '../../../../components/Icon';
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, } from "react";
 import styles from "./styles.module.scss";
-import "../Input/variables.scss";
+import { SelectMenu } from "./component/Menu";
+import { useFloatingElement } from "../../../../hooks/useFloatingElement/hooks";
+import { useClickOutside } from "../../../../hooks/useClickOutside";
 import { concatStyles } from "../../../../utils/concatStyles";
-import { Icon } from "../../../../components/Icon";
-var OPTION_WRAPPER_CLASSES = {
-    top: styles.optionsWrapperTop,
-    bottom: styles.optionsWrapperBottom,
+import { SelectTrigger } from "./component/Trigger";
+export var Select = function (_a) {
+    var _b = _a.asPortal, asPortal = _b === void 0 ? false : _b, name = _a.name, options = _a.options, prefix = _a.prefix, _c = _a.placeholder, placeholder = _c === void 0 ? "Selecione" : _c, exceptionRef = _a.exceptionRef, _d = _a.enableDeselect, enableDeselect = _d === void 0 ? true : _d, _e = _a.searchable, searchable = _e === void 0 ? false : _e, value = _a.value, disabled = _a.disabled, className = _a.className, triggerClassname = _a.triggerClassname, menuContainerClassname = _a.menuContainerClassname, menuInnerClassname = _a.menuInnerClassname, getValue = _a.getValue, onChange = _a.onChange, getLabel = _a.getLabel, renderItem = _a.renderItem, props = __rest(_a, ["asPortal", "name", "options", "prefix", "placeholder", "exceptionRef", "enableDeselect", "searchable", "value", "disabled", "className", "triggerClassname", "menuContainerClassname", "menuInnerClassname", "getValue", "onChange", "getLabel", "renderItem"]);
+    var containerRef = useRef(null);
+    var menuRef = useRef(null);
+    var _f = useState(false), isOpen = _f[0], setIsOpen = _f[1];
+    var _g = useState(null), selectedOption = _g[0], setSelectedOption = _g[1];
+    var _h = useState(""), searchValue = _h[0], setSearchValue = _h[1];
+    var animationDirection = useFloatingElement({
+        triggerRef: containerRef,
+        elementRef: menuRef,
+        isEnabled: isOpen && asPortal,
+    }).animationDirection;
+    var filteredOptions = useMemo(function () {
+        if (!searchable)
+            return options;
+        return options.filter(function (option) {
+            return getLabel(option)
+                .toString()
+                .toLowerCase()
+                .includes(searchValue.toLowerCase());
+        });
+    }, [searchValue, options, getLabel]);
+    var handleSelect = useCallback(function (option) {
+        var selectedOptionValue = selectedOption && getValue(selectedOption);
+        var optionValue = getValue(option);
+        var isSelectedOption = optionValue === selectedOptionValue;
+        if (isSelectedOption) {
+            if (!enableDeselect)
+                return;
+            setSelectedOption(null);
+            onChange === null || onChange === void 0 ? void 0 : onChange(undefined);
+            return;
+        }
+        setSelectedOption(option);
+        onChange === null || onChange === void 0 ? void 0 : onChange(option);
+        setSearchValue("");
+    }, 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [enableDeselect, selectedOption]);
+    var handleFirstRender = useCallback(function () {
+        if (!value) {
+            setSelectedOption(null);
+            return;
+        }
+        var currentSelectedOption = options.find(function (option) { return getValue(option) === value; });
+        if (currentSelectedOption) {
+            setSelectedOption(currentSelectedOption);
+        }
+    }, [options, value, getValue]);
+    useEffect(function () {
+        handleFirstRender();
+    }, [handleFirstRender]);
+    var handleOpenOptions = function () {
+        if (disabled)
+            return;
+        setIsOpen(function (prev) { return !prev; });
+    };
+    useClickOutside({
+        callback: function () { return setIsOpen(false); },
+        isActive: isOpen,
+        ref: containerRef,
+        exceptionRef: menuRef,
+    });
+    var containerStyles = concatStyles([styles.container, className]);
+    var selectedOptionLabel = selectedOption
+        ? getLabel(selectedOption)
+        : undefined;
+    return (_jsxs("div", { ref: containerRef, className: containerStyles, onClick: handleOpenOptions, children: [_jsx(SelectTrigger, { prefix: prefix, disabled: disabled, selectedLabel: selectedOptionLabel, placeholder: placeholder, searchable: searchable, isOpen: isOpen, searchValue: searchValue, onSearchChange: setSearchValue }), isOpen && (_jsx(SelectMenu, __assign({ ref: menuRef, options: filteredOptions, onSelect: handleSelect, getLabel: getLabel, getValue: getValue, handleGetIsSelected: function (option) { return option === selectedOption; }, animationDirection: animationDirection, asPortal: asPortal, disabled: disabled }, props)))] }));
 };
-export function Select(_a) {
-    var _b = _a.size, size = _b === void 0 ? 2 : _b, _c = _a.direction, direction = _c === void 0 ? "bottom" : _c, className = _a.className, 
-    // suffix,
-    options = _a.options, getLabel = _a.getLabel, getValue = _a.getValue, getId = _a.getId, _d = _a.placeholder, placeholder = _d === void 0 ? "Selecione" : _d, onChange = _a.onChange, renderItem = _a.renderItem, _value = _a.value, props = __rest(_a, ["size", "direction", "className", "options", "getLabel", "getValue", "getId", "placeholder", "onChange", "renderItem", "value"]);
-    var _e = useState(false), isOpen = _e[0], setIsOpen = _e[1];
-    var _f = useState(null), selectedOption = _f[0], setSelectedOption = _f[1];
-    var _g = useState(_value), value = _g[0], setValue = _g[1];
-    // Need to set the value when the prop changes to control the value by the parent
-    useEffect(function () {
-        if (_value) {
-            setValue(_value);
-        }
-    }, [_value]);
-    var handleGetValue = useCallback(function (option) {
-        if (!option)
-            return "";
-        var value = getValue === null || getValue === void 0 ? void 0 : getValue(option);
-        if (typeof value === "undefined")
-            return option;
-        return value;
-    }, [getValue]);
-    var handleSelect = function (option) {
-        if (handleGetValue(option) === handleGetValue(selectedOption)) {
-            onChange === null || onChange === void 0 ? void 0 : onChange("");
-            setValue("");
-        }
-        else {
-            onChange === null || onChange === void 0 ? void 0 : onChange(option);
-            setValue(handleGetValue(option));
-        }
-    };
-    useEffect(function () {
-        if (handleGetValue(selectedOption) !== value) {
-            var currentOption = options.find(function (option) { return handleGetValue(option) === value; });
-            setSelectedOption(currentOption);
-        }
-    }, [value, options, handleGetValue, selectedOption]);
-    var handleOpenOptions = function (e) {
-        e.stopPropagation();
-        if (!props.disabled)
-            setIsOpen(function (prev) { return !prev; });
-    };
-    var handleClickWindow = useCallback(function () {
-        setIsOpen(false);
-        document.removeEventListener("click", handleClickWindow);
-    }, []);
-    useEffect(function () {
-        if (isOpen) {
-            document.addEventListener("click", handleClickWindow);
-        }
-        else {
-            document.removeEventListener("click", handleClickWindow);
-        }
-    }, [isOpen, handleClickWindow]);
-    var isDisabled = props.disabled;
-    var wrapperClass = [
-        styles.wrapper,
-        className ? className : "",
-        isOpen ? styles["wrapper-opened"] : "",
-        isDisabled && styles.disabled,
-    ].join(" ");
-    var selectClass = [
-        styles.select,
-        isDisabled && styles.disabled,
-        styles["select-size-".concat(size)],
-    ].join(" ");
-    var selectedValueClass = [
-        styles.selected_value,
-        isDisabled && styles.disabled,
-    ].join(" ");
-    var optionWrapperClass = OPTION_WRAPPER_CLASSES[direction];
-    return (_jsxs("div", { className: wrapperClass, onClick: handleOpenOptions, children: [_jsxs("div", { className: selectClass, children: [_jsx(Icon, { name: 'chevron-down', size: 2 }), selectedOption ? (_jsx("span", { className: selectedValueClass, children: getLabel(selectedOption) })) : (_jsx("span", { children: placeholder }))] }), isOpen && (_jsx("div", { className: optionWrapperClass, children: _jsx("div", { className: styles.scrollContainer, children: !!options.length ? (options.map(function (option) {
-                        var isSelected = handleGetValue(option) === handleGetValue(selectedOption);
-                        var className = concatStyles([
-                            styles.option,
-                            isSelected && styles.optionSelected,
-                        ]);
-                        var onClick = function () { return handleSelect(option); };
-                        var id = getId === null || getId === void 0 ? void 0 : getId(option);
-                        var value = getValue === null || getValue === void 0 ? void 0 : getValue(option);
-                        var key = id ? id : value;
-                        return renderItem ? (renderItem({ option: option, className: className, onClick: onClick })) : (_jsx("span", { className: className, onClick: onClick, children: getLabel(option) }, key));
-                    })) : (_jsx("span", { className: styles["empty-options"], children: "Nenhum item encontrado" })) }) }))] }));
-}

@@ -8,7 +8,6 @@ import { Form } from "@/components/Form";
 import { DateFilterProps } from "./types";
 import { useDateFilter } from "./hooks/useDateFilter";
 import { useRef } from "react";
-import useClickOutside from "@/hooks/useClickOutside";
 
 export const DateFilter = ({
   isPeriod,

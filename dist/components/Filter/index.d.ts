@@ -24,15 +24,7 @@ export declare const Filter: {
         label?: string;
         mask?: (value: string) => string;
     }) => import("react/jsx-runtime").JSX.Element;
-    Select: ({ getLabel, getValue: getValueOption, getId, field, label, options, className, }: {
-        getLabel: (option: any) => string;
-        getValue: (option: any) => string;
-        getId?: (option: any) => string;
-        field: string;
-        label?: string;
-        options: any;
-        className?: string;
-    }) => import("react/jsx-runtime").JSX.Element;
+    Select: <T>({ getLabel, getValue: getValueOption, field, label, options, className, }: import("../../components/Filter/components/Select").FilterSelectProps<T>) => import("react/jsx-runtime").JSX.Element;
     Check: import("react").ForwardRefExoticComponent<{
         field: string;
         options: any[];

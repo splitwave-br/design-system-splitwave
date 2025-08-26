@@ -10,7 +10,7 @@ import React, {
 } from "react";
 
 import styles from "./styles.module.scss";
-import useClickOutside from "@/hooks/useClickOutside";
+import { useClickOutside } from "@/hooks/useClickOutside";
 import { DropdownProvider } from "../hooks/useDropdown";
 import { useToggle } from "@/hooks/useToggle";
 

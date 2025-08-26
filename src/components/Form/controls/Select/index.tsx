@@ -1,178 +1,155 @@
-"use client";
-
-import React from "react";
-// import { Icon, TIcons } from '@/components/Icon';
-import { useCallback, useEffect, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useImperativeHandle,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 
 import styles from "./styles.module.scss";
-import "../Input/variables.scss";
+
+import { SelectProps } from "./types";
+import { SelectMenu } from "./component/Menu";
+import { useFloatingElement } from "@/hooks/useFloatingElement/hooks";
+import { useClickOutside } from "@/hooks/useClickOutside";
 import { concatStyles } from "@/utils/concatStyles";
-import { Icon } from "@/components/Icon";
+import { SelectTrigger } from "./component/Trigger";
 
-type TRenderItem = {
-  option: any;
-  className: string;
-  onClick: (option: any) => any;
-};
-
-const OPTION_WRAPPER_CLASSES = {
-  top: styles.optionsWrapperTop,
-  bottom: styles.optionsWrapperBottom,
-};
-
-export interface ISelect extends React.InputHTMLAttributes<HTMLInputElement> {
-  direction?: "top" | "bottom";
-  size?: 1 | 2;
-  className?: string;
-  value?: string;
-  options: any[];
-  getLabel: (option: any) => string;
-  getValue: (option: any) => string;
-  getId?: (option: any) => string;
-  renderItem?: (params: TRenderItem) => React.ReactNode;
-
-  // prefix?: TIcons;
-  // suffix?: TIcons;
-}
-export function Select({
-  size = 2,
-  direction = "bottom",
-  className,
-  // suffix,
+export const Select = <T,>({
+  asPortal = false,
+  name,
   options,
-  getLabel,
-  getValue,
-  getId,
+  prefix,
   placeholder = "Selecione",
+  exceptionRef,
+  enableDeselect = true,
+  searchable = false,
+  value,
+  disabled,
+  className,
+  triggerClassname,
+  menuContainerClassname,
+  menuInnerClassname,
+  getValue,
   onChange,
+  getLabel,
   renderItem,
-  value: _value,
   ...props
-}: ISelect) {
+}: SelectProps<T>) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
+
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState<any>(null);
-  const [value, setValue] = useState<string | undefined>(_value);
+  const [selectedOption, setSelectedOption] = useState<T | null>(null);
+  const [searchValue, setSearchValue] = useState("");
 
-  // Need to set the value when the prop changes to control the value by the parent
-  useEffect(() => {
-    if (_value) {
-      setValue(_value);
-    }
-  }, [_value]);
+  const { animationDirection } = useFloatingElement({
+    triggerRef: containerRef,
+    elementRef: menuRef,
+    isEnabled: isOpen && asPortal,
+  });
 
-  const handleGetValue = useCallback(
-    (option: any) => {
-      if (!option) return "";
-      const value = getValue?.(option);
-      if (typeof value === "undefined") return option;
-      return value;
+  const filteredOptions = useMemo(() => {
+    if (!searchable) return options;
+
+    return options.filter((option) => {
+      return getLabel(option)
+        .toString()
+        .toLowerCase()
+        .includes(searchValue.toLowerCase());
+    });
+  }, [searchValue, options, getLabel]);
+
+  const handleSelect = useCallback(
+    (option: T) => {
+      const selectedOptionValue = selectedOption && getValue(selectedOption);
+      const optionValue = getValue(option);
+      const isSelectedOption = optionValue === selectedOptionValue;
+
+      if (isSelectedOption) {
+        if (!enableDeselect) return;
+        setSelectedOption(null);
+        onChange?.(undefined);
+        return;
+      }
+
+      setSelectedOption(option);
+      onChange?.(option);
+      setSearchValue("");
     },
-    [getValue],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [enableDeselect, selectedOption],
   );
 
-  const handleSelect = (option: any) => {
-    if (handleGetValue(option) === handleGetValue(selectedOption)) {
-      onChange?.("" as any);
-      setValue("");
-    } else {
-      onChange?.(option);
-      setValue(handleGetValue(option));
+  const handleFirstRender = useCallback(() => {
+    if (!value) {
+      setSelectedOption(null);
+      return;
     }
-  };
+
+    const currentSelectedOption = options.find(
+      (option) => getValue(option) === value,
+    );
+
+    if (currentSelectedOption) {
+      setSelectedOption(currentSelectedOption);
+    }
+  }, [options, value, getValue]);
 
   useEffect(() => {
-    if (handleGetValue(selectedOption) !== value) {
-      const currentOption = options.find(
-        (option) => handleGetValue(option) === value,
-      );
-      setSelectedOption(currentOption);
-    }
-  }, [value, options, handleGetValue, selectedOption]);
+    handleFirstRender();
+  }, [handleFirstRender]);
 
-  const handleOpenOptions = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.stopPropagation();
-
-    if (!props.disabled) setIsOpen((prev) => !prev);
+  const handleOpenOptions = () => {
+    if (disabled) return;
+    setIsOpen((prev) => !prev);
   };
 
-  const handleClickWindow = useCallback(() => {
-    setIsOpen(false);
-    document.removeEventListener("click", handleClickWindow);
-  }, []);
+  useClickOutside({
+    callback: () => setIsOpen(false),
+    isActive: isOpen,
+    ref: containerRef,
+    exceptionRef: menuRef,
+  });
 
-  useEffect(() => {
-    if (isOpen) {
-      document.addEventListener("click", handleClickWindow);
-    } else {
-      document.removeEventListener("click", handleClickWindow);
-    }
-  }, [isOpen, handleClickWindow]);
+  const containerStyles = concatStyles([styles.container, className]);
 
-  const isDisabled = props.disabled;
-  const wrapperClass = [
-    styles.wrapper,
-    className ? className : "",
-    isOpen ? styles["wrapper-opened"] : "",
-    isDisabled && styles.disabled,
-  ].join(" ");
-
-  const selectClass = [
-    styles.select,
-    isDisabled && styles.disabled,
-    styles[`select-size-${size}`],
-  ].join(" ");
-
-  const selectedValueClass = [
-    styles.selected_value,
-    isDisabled && styles.disabled,
-  ].join(" ");
-
-  const optionWrapperClass = OPTION_WRAPPER_CLASSES[direction];
+  const selectedOptionLabel = selectedOption
+    ? getLabel(selectedOption)
+    : undefined;
 
   return (
-    <div className={wrapperClass} onClick={handleOpenOptions}>
-      <div className={selectClass}>
-        <Icon name='chevron-down' size={2} />
-        {selectedOption ? (
-          <span className={selectedValueClass}>{getLabel(selectedOption)}</span>
-        ) : (
-          <span>{placeholder}</span>
-        )}
-      </div>
+    <div
+      ref={containerRef}
+      className={containerStyles}
+      onClick={handleOpenOptions}
+    >
+      <SelectTrigger
+        prefix={prefix}
+        disabled={disabled}
+        selectedLabel={selectedOptionLabel}
+        placeholder={placeholder}
+        searchable={searchable}
+        isOpen={isOpen}
+        searchValue={searchValue}
+        onSearchChange={setSearchValue}
+      />
+
       {isOpen && (
-        <div className={optionWrapperClass}>
-          <div className={styles.scrollContainer}>
-            {!!options.length ? (
-              options.map((option: any) => {
-                const isSelected =
-                  handleGetValue(option) === handleGetValue(selectedOption);
-                const className = concatStyles([
-                  styles.option,
-                  isSelected && styles.optionSelected,
-                ]);
-                const onClick = () => handleSelect(option);
-
-                const id = getId?.(option);
-                const value = getValue?.(option);
-
-                const key = id ? id : value;
-
-                return renderItem ? (
-                  renderItem({ option, className, onClick })
-                ) : (
-                  <span key={key} className={className} onClick={onClick}>
-                    {getLabel(option)}
-                  </span>
-                );
-              })
-            ) : (
-              <span className={styles["empty-options"]}>
-                Nenhum item encontrado
-              </span>
-            )}
-          </div>
-        </div>
+        <SelectMenu<T>
+          ref={menuRef}
+          options={filteredOptions}
+          onSelect={handleSelect}
+          getLabel={getLabel}
+          getValue={getValue}
+          handleGetIsSelected={(option) => option === selectedOption}
+          animationDirection={animationDirection}
+          asPortal={asPortal}
+          disabled={disabled}
+          {...props}
+        />
       )}
     </div>
   );
-}
+};

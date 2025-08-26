@@ -7,7 +7,7 @@ interface UseClickOutsideProps {
   exceptionRef?: React.RefObject<HTMLElement>;
 }
 
-const useClickOutside = ({
+export const useClickOutside = ({
   ref,
   callback,
   isActive,
@@ -35,5 +35,3 @@ const useClickOutside = ({
     };
   }, [isActive, ref, callback]);
 };
-
-export default useClickOutside;

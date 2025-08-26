@@ -11,7 +11,7 @@ import {
   useState,
 } from "react";
 import { createPortal } from "react-dom";
-import useClickOutside from "@/hooks/useClickOutside";
+import { useClickOutside } from "@/hooks/useClickOutside";
 
 import styles from "./styles.module.scss";
 import useWindowSize from "@/hooks/useWindowSize";
@@ -176,13 +176,14 @@ export const Container = ({
   shouldEjectOnMobile,
   shouldPortal = true,
 }: TContainer) => {
-  
   const { isMobile } = useWindowSize();
   const triggerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [containerPortal, setContainerPortal] = useState<HTMLElement | null>(null);
+  const [containerPortal, setContainerPortal] = useState<HTMLElement | null>(
+    null,
+  );
 
   const isMobileAndShouldEject = useMemo(
     () => isMobile && shouldEjectOnMobile,
@@ -194,7 +195,7 @@ export const Container = ({
   }, []);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       const portalElement = shouldPortal
         ? document.body
         : triggerRef.current?.parentElement || document.body;

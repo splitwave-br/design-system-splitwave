@@ -3,7 +3,7 @@ import { jsxs as _jsxs, jsx as _jsx } from "react/jsx-runtime";
 import { createPortal } from "react-dom";
 import { Children, cloneElement, useEffect, useRef, useMemo, } from "react";
 import styles from "./styles.module.scss";
-import useClickOutside from "../../../hooks/useClickOutside";
+import { useClickOutside } from "../../../hooks/useClickOutside";
 import { DropdownProvider } from "../hooks/useDropdown";
 import { useToggle } from "../../../hooks/useToggle";
 function getElementPosition(element) {

@@ -1,12 +1,10 @@
 "use client";
 
 import React, { useMemo } from "react";
-// import { Icon, TIcons } from '@/components/Icon';
 import { useCallback, useEffect, useState } from "react";
 
 import styles from "./styles.module.scss";
 import { concatStyles } from "@/utils/concatStyles";
-import useClickOutside from "@/hooks/useClickOutside";
 import { Badge } from "@/components/Badge";
 import { Icon } from "@/components/Icon";
 import Unchecked from "@/components/Filter/components/Checkboxes/components/Unchecked";
@@ -244,10 +242,7 @@ export function MultiSelect({
           )}
 
           {!!value?.length && (
-            <span
-              onClick={handleClickClear}
-              className={styles.cleanButton}
-            >
+            <span onClick={handleClickClear} className={styles.cleanButton}>
               Limpar
             </span>
           )}

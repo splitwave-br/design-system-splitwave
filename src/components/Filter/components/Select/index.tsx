@@ -5,24 +5,22 @@ import { Form } from "@/components/Form";
 import { useFilterFields } from "../../hooks/useFields";
 import { useEffect } from "react";
 
-type TSelect = {
-  getLabel: (option: any) => string;
-  getValue: (option: any) => string;
-  getId?: (option: any) => string;
+export interface FilterSelectProps<T> {
+  getLabel: (option: T) => string;
+  getValue: (option: T) => string;
   field: string;
   label?: string;
-  options: any;
+  options: T[];
   className?: string;
-};
-export const Select = ({
+}
+export const Select = <T,>({
   getLabel,
   getValue: getValueOption,
-  getId,
   field,
   label,
   options,
   className,
-}: TSelect) => {
+}: FilterSelectProps<T>) => {
   const { setFilter, getValue } = useFilterContext();
   const { registerField } = useFilterFields();
 
@@ -43,7 +41,6 @@ export const Select = ({
         options={options}
         getLabel={getLabel}
         getValue={getValueOption}
-        getId={getId}
         value={getValue(field) || ""}
       />
     </Form.Field>
