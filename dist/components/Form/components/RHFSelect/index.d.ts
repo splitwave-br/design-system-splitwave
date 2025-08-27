@@ -1,4 +1,3 @@
-import "../../controls/Input/variables.scss";
 import { SelectProps } from "../../controls/Select/types";
 export interface IRHFSelect<T> extends Omit<SelectProps<T>, "onChange"> {
     name: string;

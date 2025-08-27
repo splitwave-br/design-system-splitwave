@@ -1,7 +1,5 @@
 import { useFormContext } from "react-hook-form";
 
-import "../../controls/Input/variables.scss";
-
 import { SelectProps } from "../../controls/Select/types";
 import { Select } from "../../controls/Select";
 

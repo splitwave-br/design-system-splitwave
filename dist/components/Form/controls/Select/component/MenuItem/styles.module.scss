@@ -1,0 +1,37 @@
+.option {
+  user-select: none;
+  cursor: pointer;
+  display: flex;
+  padding: var(--spaces-micro) calc(var(--spaces-1) + var(--spaces-micro));
+  align-items: center;
+  gap: var(--spaces-1);
+  border-radius: var(--border-radius-3);
+  align-self: stretch;
+
+  color: var(--primary-text);
+
+  font-size: var(--font-size-3);
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.57em;
+  transition: background-color 0.3s;
+
+  svg {
+    color: var(--colors-dark-gray-500);
+  }
+
+  &.option__selected {
+    svg {
+      color: var(--colors-brand-400);
+    }
+  }
+
+  &.option__selected,
+  &:not(.option__empty):hover {
+    background: var(--highlight-dropdown-selected-item);
+  }
+
+  &.option__empty {
+    cursor: auto;
+  }
+}

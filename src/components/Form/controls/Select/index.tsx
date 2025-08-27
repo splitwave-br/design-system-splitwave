@@ -15,6 +15,7 @@ import { useFloatingElement } from "@/hooks/useFloatingElement/hooks";
 import { useClickOutside } from "@/hooks/useClickOutside";
 import { concatStyles } from "@/utils/concatStyles";
 import { SelectTrigger } from "./component/Trigger";
+import { SelectedValue } from "./component/SelectedValue";
 
 export const Select = <T,>({
   asPortal = false,
@@ -48,6 +49,13 @@ export const Select = <T,>({
     triggerRef: containerRef,
     elementRef: menuRef,
     isEnabled: isOpen && asPortal,
+  });
+
+  useClickOutside({
+    callback: () => setIsOpen(false),
+    isActive: isOpen,
+    ref: containerRef,
+    exceptionRef: menuRef,
   });
 
   const filteredOptions = useMemo(() => {
@@ -106,13 +114,6 @@ export const Select = <T,>({
     setIsOpen((prev) => !prev);
   };
 
-  useClickOutside({
-    callback: () => setIsOpen(false),
-    isActive: isOpen,
-    ref: containerRef,
-    exceptionRef: menuRef,
-  });
-
   const containerStyles = concatStyles([styles.container, className]);
 
   const selectedOptionLabel = selectedOption
@@ -129,18 +130,22 @@ export const Select = <T,>({
         prefix={prefix}
         disabled={disabled}
         selectedLabel={selectedOptionLabel}
-        placeholder={placeholder}
-        searchable={searchable}
-        isOpen={isOpen}
+        shouldRenderSearch={isOpen && searchable}
         searchValue={searchValue}
         onSearchChange={setSearchValue}
-      />
+      >
+        <SelectedValue
+          placeholder={placeholder}
+          selectedOptionLabel={selectedOptionLabel}
+          disabled={disabled}
+        />
+      </SelectTrigger>
 
       {isOpen && (
-        <SelectMenu<T>
+        <SelectMenu
           ref={menuRef}
           options={filteredOptions}
-          onSelect={handleSelect}
+          onChange={handleSelect}
           getLabel={getLabel}
           getValue={getValue}
           handleGetIsSelected={(option) => option === selectedOption}

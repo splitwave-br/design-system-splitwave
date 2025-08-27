@@ -6,11 +6,12 @@ import styles from "./styles.module.scss";
 
 import { SelectMenuProps } from "../../types";
 import { createPortal } from "react-dom";
+import { MenuItem } from "../MenuItem";
 
 const BaseSelectMenu = <T,>(
   {
     handleGetIsSelected,
-    onSelect,
+    onChange,
     renderItem,
     getValue,
     getLabel,
@@ -19,7 +20,7 @@ const BaseSelectMenu = <T,>(
     menuContainerClassname,
     menuInnerClassname,
     animationDirection,
-    withDivider,
+    children,
     ...props
   }: SelectMenuProps<T>,
   ref: React.Ref<HTMLDivElement>,
@@ -41,32 +42,33 @@ const BaseSelectMenu = <T,>(
         {options.length ? (
           options.map((option) => {
             const isSelected = handleGetIsSelected(option);
-            const optionStyles = concatStyles([
-              styles.option,
-              isSelected && styles.option__selected,
-              withDivider && styles.option__divider,
-            ]);
+            const optionValue = getValue(option);
 
-            const onClick = () => onSelect(option);
+            const onClick = () => onChange(option);
 
             if (renderItem)
-              return renderItem({ option, className: optionStyles, onClick });
+              return renderItem({
+                option,
+                isSelected,
+                onClick,
+              });
 
             return (
-              <span
-                key={getValue(option)}
-                className={optionStyles}
+              <MenuItem
+                isSelected={isSelected}
+                key={optionValue}
                 onClick={onClick}
               >
-                {getLabel(option)}
-              </span>
+                <span>{getLabel(option)}</span>
+              </MenuItem>
             );
           })
         ) : (
-          <span className={concatStyles([styles.option, styles.option__empty])}>
+          <MenuItem isSelected={false} className={styles.option__empty}>
             Nenhum item encontrado
-          </span>
+          </MenuItem>
         )}
+        {children}
       </div>
     </div>
   );

@@ -44,7 +44,7 @@ export var CheckboxFilters = forwardRef(function (_a, ref) {
         registerField(field);
     }, []);
     if (isMobile && isEjected) {
-        return (_jsx(Filter.Content, { className: concatStyles([styles.wrapper, className]), isEjected: true, children: _jsxs(Form.Field, { children: [label && _jsx(Form.Label, { children: label }), _jsx(MultiSelectControl, { autoFocus: true, onChange: handleChangeMobile, options: options, getLabel: getLabel, getValue: getOptionValue, getId: getOptionValue, value: options.filter(function (opt) {
+        return (_jsx(Filter.Content, { className: concatStyles([styles.wrapper, className]), isEjected: true, children: _jsxs(Form.Field, { children: [label && _jsx(Form.Label, { children: label }), _jsx(MultiSelectControl, { autoFocus: true, onChange: handleChangeMobile, options: options, getLabel: getLabel, getValue: getOptionValue, value: options.filter(function (opt) {
                             return selectedValues.includes(getOptionValue(opt));
                         }) || [] })] }) }));
     }

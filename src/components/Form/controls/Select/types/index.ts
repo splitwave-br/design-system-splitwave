@@ -18,14 +18,15 @@ export interface SelectMenuProps<T = any> extends BaseSelectProps<T> {
   animationDirection: FloatingDirection;
   menuContainerClassname?: string;
   menuInnerClassname?: string;
+  children?: React.ReactNode;
   handleGetIsSelected: (option: T) => boolean;
-  onSelect: (option: T) => void;
+  onChange: (option: T) => void;
 }
 
 export type TRenderItem<T> = {
   option: T;
-  className: string;
-  onClick: (option: T) => any;
+  onClick: () => any;
+  isSelected: boolean;
 };
 
 export interface BaseSelectProps<T>
@@ -34,9 +35,8 @@ export interface BaseSelectProps<T>
     "onSelect" | "onChange"
   > {
   options: T[];
-  withDivider?: boolean;
   getLabel: (option: T) => string;
-  getValue: (option: T) => string;
+  getValue: (option: T) => any;
   renderItem?: (params: TRenderItem<T>) => React.ReactNode;
   asPortal?: boolean;
 }

@@ -1,0 +1,15 @@
+.selectedValue,
+.placeholder {
+  font-size: var(--font-size-3);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.57em;
+}
+
+.selectedValue {
+  color: var(--component-input-active-text);
+}
+
+.placeholder {
+  color: var(--component-input-default-text);
+}

@@ -1,4 +1,15 @@
 "use client";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __rest = (this && this.__rest) || function (s, e) {
     var t = {};
     for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
@@ -20,38 +31,41 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     return to.concat(ar || Array.prototype.slice.call(from));
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { useMemo } from "react";
-// import { Icon, TIcons } from '../../../../components/Icon';
+import { useMemo, useRef } from "react";
 import { useCallback, useEffect, useState } from "react";
 import styles from "./styles.module.scss";
 import { concatStyles } from "../../../../utils/concatStyles";
-import { Badge } from "../../../../components/Badge";
-import { Icon } from "../../../../components/Icon";
 import Unchecked from "../../../../components/Filter/components/Checkboxes/components/Unchecked";
 import Checked from "../../../../components/Filter/components/Checkboxes/components/Checked";
-var OPTION_WRAPPER_CLASSES = {
-    top: styles.optionsWrapperTop,
-    bottom: styles.optionsWrapperBottom,
-};
+import { SelectTrigger } from "../Select/component/Trigger";
+import { SelectedValues } from "./components/SelectedValues";
+import { SelectMenu } from "../Select/component/Menu";
+import { useFloatingElement } from "../../../../hooks/useFloatingElement/hooks";
+import { useClickOutside } from "../../../../hooks/useClickOutside";
+import { MenuItem } from "../Select/component/MenuItem";
 export function MultiSelect(_a) {
-    var _b = _a.size, size = _b === void 0 ? 2 : _b, _c = _a.direction, direction = _c === void 0 ? "bottom" : _c, className = _a.className, 
-    // suffix,
-    options = _a.options, getLabel = _a.getLabel, getValue = _a.getValue, getId = _a.getId, _d = _a.placeholder, placeholder = _d === void 0 ? "Selecione" : _d, onChange = _a.onChange, renderItem = _a.renderItem, _value = _a.value, props = __rest(_a, ["size", "direction", "className", "options", "getLabel", "getValue", "getId", "placeholder", "onChange", "renderItem", "value"]);
-    var _e = useState(false), isOpen = _e[0], setIsOpen = _e[1];
-    var _f = useState(""), searchValue = _f[0], setSearchValue = _f[1];
-    // const [selectedOption, setSelectedOption] = useState<any>(null);
-    var _g = useState(_value || []), value = _g[0], setValue = _g[1];
+    var getLabel = _a.getLabel, getValue = _a.getValue, onChange = _a.onChange, renderItem = _a.renderItem, onRemove = _a.onRemove, _b = _a.size, size = _b === void 0 ? 2 : _b, className = _a.className, options = _a.options, _c = _a.placeholder, placeholder = _c === void 0 ? "Selecione" : _c, _d = _a.disableDeselect, disableDeselect = _d === void 0 ? false : _d, disabled = _a.disabled, _e = _a.hasClear, hasClear = _e === void 0 ? true : _e, _f = _a.asPortal, asPortal = _f === void 0 ? false : _f, value = _a.value, props = __rest(_a, ["getLabel", "getValue", "onChange", "renderItem", "onRemove", "size", "className", "options", "placeholder", "disableDeselect", "disabled", "hasClear", "asPortal", "value"]);
+    var containerRef = useRef(null);
+    var menuRef = useRef(null);
+    var _g = useState(false), isOpen = _g[0], setIsOpen = _g[1];
+    var _h = useState(""), searchValue = _h[0], setSearchValue = _h[1];
+    var _j = useState([]), selectedOptions = _j[0], setSelectedOptions = _j[1];
+    var animationDirection = useFloatingElement({
+        triggerRef: containerRef,
+        elementRef: menuRef,
+        isEnabled: isOpen && asPortal,
+    }).animationDirection;
+    useClickOutside({
+        callback: function () { return setIsOpen(false); },
+        isActive: isOpen,
+        ref: containerRef,
+        exceptionRef: menuRef,
+    });
     var filteredOptions = useMemo(function () {
         return options.filter(function (option) {
             return getLabel(option).toLowerCase().includes(searchValue.toLowerCase());
         });
     }, [searchValue, options, getLabel]);
-    // Need to set the value when the prop changes to control the value by the parent
-    useEffect(function () {
-        if (_value) {
-            setValue(_value);
-        }
-    }, [_value]);
     var handleGetValue = useCallback(function (option) {
         if (!option)
             return "";
@@ -60,98 +74,51 @@ export function MultiSelect(_a) {
             return option;
         return value;
     }, [getValue]);
+    var handleRemoveItem = function (option) {
+        var currentSelectedOptions = selectedOptions || [];
+        var optionValue = handleGetValue(option);
+        var newValue = currentSelectedOptions.filter(function (opt) { return handleGetValue(opt) !== handleGetValue(option); });
+        setSelectedOptions(newValue);
+        return onRemove === null || onRemove === void 0 ? void 0 : onRemove(optionValue);
+    };
     var handleSelect = function (option) {
-        var currentValue = value || [];
-        var isExist = currentValue.find(function (opt) { return handleGetValue(opt) === handleGetValue(option); });
-        if (isExist) {
-            var newValue = currentValue.filter(function (opt) { return handleGetValue(opt) !== handleGetValue(option); });
-            setValue(newValue);
-            onChange === null || onChange === void 0 ? void 0 : onChange(newValue);
-            return;
+        var currentSelectedOptions = selectedOptions || [];
+        var optionValue = handleGetValue(option);
+        var hasBeenAdded = currentSelectedOptions.find(function (option) { return handleGetValue(option) === optionValue; });
+        if (hasBeenAdded && !disableDeselect) {
+            return handleRemoveItem(option);
         }
-        else {
-            setValue(__spreadArray(__spreadArray([], currentValue, true), [option], false));
-            onChange === null || onChange === void 0 ? void 0 : onChange(__spreadArray(__spreadArray([], currentValue, true), [option], false));
-        }
+        setSelectedOptions(__spreadArray(__spreadArray([], currentSelectedOptions, true), [option], false));
+        onChange === null || onChange === void 0 ? void 0 : onChange(optionValue);
     };
-    // useEffect(() => {
-    //   if (handleGetValue(selectedOption) !== value) {
-    //     const currentOption = options.find(
-    //       (option) => handleGetValue(option) === value,
-    //     );
-    //     setSelectedOption(currentOption);
-    //   }
-    // }, [value, options, handleGetValue, selectedOption]);
-    var handleOpenOptions = function (e) {
-        e.stopPropagation();
-        if (!props.disabled)
-            setIsOpen(function (prev) { return !prev; });
-    };
-    // useClickOutside()
-    var handleClickWindow = useCallback(function () {
-        setIsOpen(false);
-        document.removeEventListener("click", handleClickWindow);
-    }, []);
-    useEffect(function () {
-        if (isOpen) {
-            document.addEventListener("click", handleClickWindow);
-        }
-        else {
-            document.removeEventListener("click", handleClickWindow);
-        }
-    }, [isOpen, handleClickWindow]);
-    var isDisabled = props.disabled;
-    var wrapperClass = [
-        styles.wrapper,
-        className ? className : "",
-        isOpen ? styles["wrapper-opened"] : "",
-        isDisabled && styles.disabled,
-    ].join(" ");
-    var selectClass = [
-        styles.select,
-        isDisabled && styles.disabled,
-        styles["select-size-".concat(size)],
-    ].join(" ");
-    var selectedValueClass = [
-        styles.selected_value,
-        isDisabled && styles.disabled,
-    ].join(" ");
-    var optionWrapperClass = OPTION_WRAPPER_CLASSES[direction];
-    var renderValueLabel = useMemo(function () {
-        var valueLabel = [];
-        // const selectedOptionLabel = value ? getLabel(value) : ''
-        if (value) {
-            value === null || value === void 0 ? void 0 : value.forEach(function (option) {
-                var optionLabel = getLabel(option);
-                if (optionLabel && optionLabel.length > 24)
-                    optionLabel = optionLabel.slice(0, 24) + "...";
-                valueLabel.push(_jsxs(Badge, { onClick: function (e) {
-                        e.stopPropagation();
-                        handleSelect(option);
-                    }, children: [optionLabel, _jsx(Icon, { name: "x", size: 1 })] }, "value-".concat(getValue(option))));
-            });
-        }
-        if (isOpen) {
-            valueLabel.push(_jsx("input", { className: styles.inputSearch, autoFocus: true, onChange: function (e) {
-                    setSearchValue(e.target.value);
-                } }));
-        }
-        if (valueLabel.length)
-            return valueLabel.map(function (v) { return v; });
-        return _jsx("span", { children: placeholder });
-    }, [value, placeholder, getLabel, getId, handleSelect, isOpen]);
+    var handleGetIsSelected = useCallback(function (option) { return selectedOptions === null || selectedOptions === void 0 ? void 0 : selectedOptions.includes(option); }, [selectedOptions]);
     var handleClickClear = function () {
         onChange === null || onChange === void 0 ? void 0 : onChange([]);
-        setValue([]);
+        setSelectedOptions([]);
     };
-    return (_jsxs("div", { className: wrapperClass, onClick: handleOpenOptions, children: [_jsx("div", { className: selectClass, children: renderValueLabel }), isOpen && (_jsxs("div", { className: styles.optionsWrapper, children: [!!filteredOptions.length ? (filteredOptions === null || filteredOptions === void 0 ? void 0 : filteredOptions.map(function (option) {
-                        var isSelected = value === null || value === void 0 ? void 0 : value.find(function (opt) { return getValue(option) === getValue(opt); });
-                        return (_jsxs("span", { className: concatStyles([
-                                styles.option,
-                                isSelected && styles.optionSelected,
-                            ]), onClick: function (e) {
-                                e.stopPropagation();
-                                handleSelect(option);
-                            }, children: [isSelected ? _jsx(Checked, {}) : _jsx(Unchecked, {}), getLabel(option)] }, getValue(option)));
-                    })) : (_jsx("span", { className: styles["empty-options"], children: "Nenhum item encontrado" })), !!(value === null || value === void 0 ? void 0 : value.length) && (_jsx("span", { onClick: handleClickClear, className: styles.cleanButton, children: "Limpar" }))] }))] }));
+    var handleFirstRender = useCallback(function () {
+        if (!value)
+            return;
+        var matchedOptions = options === null || options === void 0 ? void 0 : options.filter(function (option) {
+            return value.some(function (selectedOption) { return getValue(option) === selectedOption; });
+        });
+        if (!matchedOptions || matchedOptions === selectedOptions)
+            return;
+        setSelectedOptions(matchedOptions);
+    }, [value, options, getValue]);
+    useEffect(handleFirstRender, [handleFirstRender]);
+    var handleToggleOptions = function (e) {
+        e.stopPropagation();
+        if (disabled)
+            return;
+        setIsOpen(function (prev) { return !prev; });
+    };
+    var wrapperClass = concatStyles([styles.wrapper, className]);
+    var shouldRenderClearButton = hasClear && selectedOptions.length > 0;
+    return (_jsxs("div", { ref: containerRef, className: wrapperClass, onClick: handleToggleOptions, children: [_jsx(SelectTrigger, { triggerClassname: selectedOptions.length > 0 ? styles.trigger : "", disabled: disabled, shouldRenderSearch: false, searchValue: searchValue, onSearchChange: setSearchValue, children: _jsx(SelectedValues, { getLabel: getLabel, onRemove: handleRemoveItem, placeholder: placeholder, selectedOptions: selectedOptions, disabled: disabled }) }), isOpen && (_jsx(SelectMenu, __assign({ ref: menuRef, options: filteredOptions, onChange: handleSelect, getLabel: getLabel, getValue: getValue, handleGetIsSelected: handleGetIsSelected, animationDirection: animationDirection, asPortal: asPortal, disabled: disabled, renderItem: function (_a) {
+                    var option = _a.option, isSelected = _a.isSelected, onClick = _a.onClick;
+                    if (renderItem)
+                        return renderItem({ option: option, isSelected: isSelected, onClick: onClick });
+                    return (_jsxs(MenuItem, { isSelected: isSelected, onClick: onClick, children: [isSelected ? _jsx(Checked, {}) : _jsx(Unchecked, {}), getLabel(option)] }, getValue(option)));
+                } }, props, { children: shouldRenderClearButton && (_jsx("span", { onClick: handleClickClear, className: styles.cleanButton, children: "Limpar" })) })))] }));
 }

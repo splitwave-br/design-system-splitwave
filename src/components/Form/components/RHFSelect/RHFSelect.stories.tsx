@@ -51,7 +51,6 @@ export const Default: Story = {
         options={options}
         getLabel={(opt) => opt.label}
         getValue={(opt) => opt.id}
-        getId={(opt) => opt.id}
         placeholder="Selecione uma opção"
       />
     </FormWrapper>
@@ -68,7 +67,6 @@ export const PreSelected: Story = {
           options={options}
           getLabel={(opt) => opt.label}
           getValue={(opt) => opt.id}
-          getId={(opt) => opt.id}
           placeholder="Selecione uma opção"
         />
       </FormWrapper>
@@ -86,7 +84,6 @@ export const Searchable: Story = {
         options={options}
         getLabel={(opt) => opt.label}
         getValue={(opt) => opt.id}
-        getId={(opt) => opt.id}
         placeholder="Pesquise..."
         searchable
       />

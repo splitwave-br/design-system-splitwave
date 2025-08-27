@@ -8,21 +8,19 @@ type SelectTriggerProps = {
   prefix?: TIcons;
   disabled?: boolean;
   selectedLabel?: string;
-  placeholder: string;
-  searchable: boolean;
-  isOpen: boolean;
+  shouldRenderSearch: boolean;
   searchValue: string;
   onSearchChange: (value: string) => void;
   triggerClassname?: string;
+  children: React.ReactNode;
 };
 
 export const SelectTrigger = ({
   prefix,
   disabled,
   selectedLabel,
-  placeholder,
-  searchable,
-  isOpen,
+  children,
+  shouldRenderSearch,
   searchValue,
   onSearchChange,
   triggerClassname,
@@ -38,23 +36,14 @@ export const SelectTrigger = ({
     <div className={triggerStyles}>
       {prefix && <Icon className={styles.prefixIcon} name={prefix} size={2} />}
 
-      {isOpen && searchable ? (
+      {shouldRenderSearch ? (
         <SearchInput
           placeholder={selectedLabel || "Pesquise"}
           value={searchValue}
           onChange={onSearchChange}
         />
-      ) : selectedLabel ? (
-        <span
-          className={concatStyles([
-            styles.selectedValue,
-            disabled && styles.selectedValue__disabled,
-          ])}
-        >
-          {selectedLabel}
-        </span>
       ) : (
-        <span className={styles.placeholder}>{placeholder}</span>
+        children
       )}
 
       <Icon className={styles.suffixIcon} name="chevron-down" size={2} />

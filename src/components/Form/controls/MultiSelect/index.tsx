@@ -1,60 +1,56 @@
 "use client";
 
-import React, { useMemo } from "react";
+import React, { useMemo, useRef } from "react";
 import { useCallback, useEffect, useState } from "react";
 
 import styles from "./styles.module.scss";
 import { concatStyles } from "@/utils/concatStyles";
-import { Badge } from "@/components/Badge";
-import { Icon } from "@/components/Icon";
 import Unchecked from "@/components/Filter/components/Checkboxes/components/Unchecked";
 import Checked from "@/components/Filter/components/Checkboxes/components/Checked";
+import { SelectTrigger } from "../Select/component/Trigger";
+import { SelectedValues } from "./components/SelectedValues";
+import { SelectMenu } from "../Select/component/Menu";
+import { useFloatingElement } from "@/hooks/useFloatingElement/hooks";
+import { useClickOutside } from "@/hooks/useClickOutside";
+import { MenuItem } from "../Select/component/MenuItem";
+import { MultiSelectProps } from "./types";
 
-type TRenderItem = {
-  option: any;
-  className: string;
-  onClick: (option: any) => any;
-};
-
-const OPTION_WRAPPER_CLASSES = {
-  top: styles.optionsWrapperTop,
-  bottom: styles.optionsWrapperBottom,
-};
-
-export interface IMultiSelect
-  extends React.InputHTMLAttributes<HTMLInputElement> {
-  direction?: "top" | "bottom";
-  size?: 1 | 2;
-  className?: string;
-  value?: string[];
-  options: any[];
-  getLabel: (option: any) => string;
-  getValue: (option: any) => string;
-  getId?: (option: any) => string;
-  renderItem?: (params: TRenderItem) => React.ReactNode;
-  onChange?: (value: any) => void;
-  // prefix?: TIcons;
-  // suffix?: TIcons;
-}
-export function MultiSelect({
-  size = 2,
-  direction = "bottom",
-  className,
-  // suffix,
-  options,
+export function MultiSelect<T>({
   getLabel,
   getValue,
-  getId,
-  placeholder = "Selecione",
   onChange,
   renderItem,
-  value: _value,
+  onRemove,
+  size = 2,
+  className,
+  options,
+  placeholder = "Selecione",
+  disableDeselect = false,
+  disabled,
+  hasClear = true,
+  asPortal = false,
+  value,
   ...props
-}: IMultiSelect) {
+}: MultiSelectProps<T>) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
+
   const [isOpen, setIsOpen] = useState(false);
   const [searchValue, setSearchValue] = useState("");
-  // const [selectedOption, setSelectedOption] = useState<any>(null);
-  const [value, setValue] = useState<string[] | undefined>(_value || []);
+  const [selectedOptions, setSelectedOptions] = useState<T[]>([]);
+
+  const { animationDirection } = useFloatingElement({
+    triggerRef: containerRef,
+    elementRef: menuRef,
+    isEnabled: isOpen && asPortal,
+  });
+
+  useClickOutside({
+    callback: () => setIsOpen(false),
+    isActive: isOpen,
+    ref: containerRef,
+    exceptionRef: menuRef,
+  });
 
   const filteredOptions = useMemo(() => {
     return options.filter((option) => {
@@ -62,15 +58,8 @@ export function MultiSelect({
     });
   }, [searchValue, options, getLabel]);
 
-  // Need to set the value when the prop changes to control the value by the parent
-  useEffect(() => {
-    if (_value) {
-      setValue(_value);
-    }
-  }, [_value]);
-
   const handleGetValue = useCallback(
-    (option: any) => {
+    (option: T) => {
       if (!option) return "";
       const value = getValue?.(option);
       if (typeof value === "undefined") return option;
@@ -79,207 +68,126 @@ export function MultiSelect({
     [getValue],
   );
 
-  const handleSelect = (option: any) => {
-    const currentValue = value || [];
+  const handleRemoveItem = (option: T) => {
+    const currentSelectedOptions = selectedOptions || [];
 
-    const isExist = currentValue.find(
-      (opt: any) => handleGetValue(opt) === handleGetValue(option),
+    const optionValue = handleGetValue(option);
+    const newValue = currentSelectedOptions.filter(
+      (opt: any) => handleGetValue(opt) !== handleGetValue(option),
     );
 
-    if (isExist) {
-      const newValue = currentValue.filter(
-        (opt: any) => handleGetValue(opt) !== handleGetValue(option),
-      );
-
-      setValue(newValue);
-      onChange?.(newValue);
-
-      return;
-    } else {
-      setValue([...currentValue, option]);
-      onChange?.([...currentValue, option]);
-    }
+    setSelectedOptions(newValue);
+    return onRemove?.(optionValue);
   };
 
-  // useEffect(() => {
-  //   if (handleGetValue(selectedOption) !== value) {
-  //     const currentOption = options.find(
-  //       (option) => handleGetValue(option) === value,
-  //     );
-  //     setSelectedOption(currentOption);
-  //   }
-  // }, [value, options, handleGetValue, selectedOption]);
+  const handleSelect = (option: T) => {
+    const currentSelectedOptions = selectedOptions || [];
 
-  const handleOpenOptions = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.stopPropagation();
+    const optionValue = handleGetValue(option);
 
-    if (!props.disabled) setIsOpen((prev) => !prev);
+    const hasBeenAdded = currentSelectedOptions.find(
+      (option) => handleGetValue(option) === optionValue,
+    );
+
+    if (hasBeenAdded && !disableDeselect) {
+      return handleRemoveItem(option);
+    }
+
+    setSelectedOptions([...currentSelectedOptions, option]);
+    onChange?.(optionValue);
   };
 
-  // useClickOutside()
-
-  const handleClickWindow = useCallback(() => {
-    setIsOpen(false);
-    document.removeEventListener("click", handleClickWindow);
-  }, []);
-
-  useEffect(() => {
-    if (isOpen) {
-      document.addEventListener("click", handleClickWindow);
-    } else {
-      document.removeEventListener("click", handleClickWindow);
-    }
-  }, [isOpen, handleClickWindow]);
-
-  const isDisabled = props.disabled;
-  const wrapperClass = [
-    styles.wrapper,
-    className ? className : "",
-    isOpen ? styles["wrapper-opened"] : "",
-    isDisabled && styles.disabled,
-  ].join(" ");
-
-  const selectClass = [
-    styles.select,
-    isDisabled && styles.disabled,
-    styles[`select-size-${size}`],
-  ].join(" ");
-
-  const selectedValueClass = [
-    styles.selected_value,
-    isDisabled && styles.disabled,
-  ].join(" ");
-
-  const optionWrapperClass = OPTION_WRAPPER_CLASSES[direction];
-
-  const renderValueLabel = useMemo(() => {
-    const valueLabel = [];
-    // const selectedOptionLabel = value ? getLabel(value) : ''
-
-    if (value) {
-      value?.forEach((option: any) => {
-        let optionLabel = getLabel(option);
-        if (optionLabel && optionLabel.length > 24)
-          optionLabel = optionLabel.slice(0, 24) + "...";
-
-        valueLabel.push(
-          <Badge
-            key={`value-${getValue(option)}`}
-            onClick={(e) => {
-              e.stopPropagation();
-              handleSelect(option);
-            }}
-          >
-            {optionLabel}
-            <Icon name="x" size={1} />
-          </Badge>,
-        );
-      });
-    }
-
-    if (isOpen) {
-      valueLabel.push(
-        <input
-          className={styles.inputSearch}
-          autoFocus
-          onChange={(e) => {
-            setSearchValue(e.target.value);
-          }}
-        />,
-      );
-    }
-
-    if (valueLabel.length) return valueLabel.map((v) => v);
-
-    return <span>{placeholder}</span>;
-  }, [value, placeholder, getLabel, getId, handleSelect, isOpen]);
+  const handleGetIsSelected = useCallback(
+    (option: T) => selectedOptions?.includes(option),
+    [selectedOptions],
+  );
 
   const handleClickClear = () => {
     onChange?.([]);
-    setValue([]);
+    setSelectedOptions([]);
   };
 
+  const handleFirstRender = useCallback(() => {
+    if (!value) return;
+
+    const matchedOptions = options?.filter((option) =>
+      value.some((selectedOption) => getValue(option) === selectedOption),
+    );
+
+    if (!matchedOptions || matchedOptions === selectedOptions) return;
+
+    setSelectedOptions(matchedOptions);
+  }, [value, options, getValue]);
+
+  useEffect(handleFirstRender, [handleFirstRender]);
+
+  const handleToggleOptions = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation();
+
+    if (disabled) return;
+    setIsOpen((prev) => !prev);
+  };
+
+  const wrapperClass = concatStyles([styles.wrapper, className]);
+
+  const shouldRenderClearButton = hasClear && selectedOptions.length > 0;
+
   return (
-    <div className={wrapperClass} onClick={handleOpenOptions}>
-      <div className={selectClass}>
-        {renderValueLabel}
-        {/* <Icon name='chevron-down' size={2} /> */}
-        {/* {value ? (
-          <span className={selectedValueClass}>{getLabel(value)}</span>
-        ) : (
-          <span>{placeholder}</span>
-        )} */}
-      </div>
+    <div
+      ref={containerRef}
+      className={wrapperClass}
+      onClick={handleToggleOptions}
+    >
+      <SelectTrigger
+        triggerClassname={selectedOptions.length > 0 ? styles.trigger : ""}
+        disabled={disabled}
+        shouldRenderSearch={false}
+        searchValue={searchValue}
+        onSearchChange={setSearchValue}
+      >
+        <SelectedValues
+          getLabel={getLabel}
+          onRemove={handleRemoveItem}
+          placeholder={placeholder}
+          selectedOptions={selectedOptions}
+          disabled={disabled}
+        />
+      </SelectTrigger>
+
       {isOpen && (
-        <div className={styles.optionsWrapper}>
-          {!!filteredOptions.length ? (
-            filteredOptions?.map((option: any) => {
-              const isSelected = value?.find(
-                (opt: any) => getValue(option) === getValue(opt),
-              );
+        <SelectMenu
+          ref={menuRef}
+          options={filteredOptions}
+          onChange={handleSelect}
+          getLabel={getLabel}
+          getValue={getValue}
+          handleGetIsSelected={handleGetIsSelected}
+          animationDirection={animationDirection}
+          asPortal={asPortal}
+          disabled={disabled}
+          renderItem={({ option, isSelected, onClick }) => {
+            if (renderItem) return renderItem({ option, isSelected, onClick });
 
-              return (
-                <span
-                  key={getValue(option)}
-                  className={concatStyles([
-                    styles.option,
-                    isSelected && styles.optionSelected,
-                  ])}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleSelect(option);
-                  }}
-                >
-                  {isSelected ? <Checked /> : <Unchecked />}
-                  {getLabel(option)}
-                </span>
-              );
-            })
-          ) : (
-            <span className={styles["empty-options"]}>
-              Nenhum item encontrado
-            </span>
-          )}
-
-          {!!value?.length && (
+            return (
+              <MenuItem
+                isSelected={isSelected}
+                onClick={onClick}
+                key={getValue(option)}
+              >
+                {isSelected ? <Checked /> : <Unchecked />}
+                {getLabel(option)}
+              </MenuItem>
+            );
+          }}
+          {...props}
+        >
+          {shouldRenderClearButton && (
             <span onClick={handleClickClear} className={styles.cleanButton}>
               Limpar
             </span>
           )}
-        </div>
+        </SelectMenu>
       )}
-      {/* {isOpen && (
-        <div className={optionWrapperClass}>
-          {!!options.length ? (
-            options.map((option: any) => {
-              const isSelected =
-                handleGetValue(option) === handleGetValue(selectedOption);
-              const className = concatStyles([
-                styles.option,
-                isSelected && styles.optionSelected,
-              ]);
-              const onClick = () => handleSelect(option);
-
-              const id = getId?.(option);
-              const value = getValue?.(option);
-
-              const key = id ? id : value;
-
-              return renderItem ? (
-                renderItem({ option, className, onClick })
-              ) : (
-                <span key={key} className={className} onClick={onClick}>
-                  {getLabel(option)}
-                </span>
-              );
-            })
-          ) : (
-            <span className={styles["empty-options"]}>
-              Nenhum item encontrado
-            </span>
-          )}
-        </div>
-      )} */}
     </div>
   );
 }
