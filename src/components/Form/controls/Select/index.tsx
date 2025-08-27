@@ -1,21 +1,14 @@
-import {
-  useCallback,
-  useEffect,
-  useImperativeHandle,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import styles from "./styles.module.scss";
 
 import { SelectProps } from "./types";
-import { SelectMenu } from "./component/Menu";
+import { SelectMenu } from "./components/Menu";
 import { useFloatingElement } from "@/hooks/useFloatingElement/hooks";
 import { useClickOutside } from "@/hooks/useClickOutside";
 import { concatStyles } from "@/utils/concatStyles";
-import { SelectTrigger } from "./component/Trigger";
-import { SelectedValue } from "./component/SelectedValue";
+import { SelectTrigger } from "./components/Trigger";
+import { SelectedValue } from "./components/SelectedValue";
 
 export const Select = <T,>({
   asPortal = false,

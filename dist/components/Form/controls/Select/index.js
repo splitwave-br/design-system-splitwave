@@ -21,14 +21,14 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-import { useCallback, useEffect, useMemo, useRef, useState, } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import styles from "./styles.module.scss";
-import { SelectMenu } from "./component/Menu";
+import { SelectMenu } from "./components/Menu";
 import { useFloatingElement } from "../../../../hooks/useFloatingElement/hooks";
 import { useClickOutside } from "../../../../hooks/useClickOutside";
 import { concatStyles } from "../../../../utils/concatStyles";
-import { SelectTrigger } from "./component/Trigger";
-import { SelectedValue } from "./component/SelectedValue";
+import { SelectTrigger } from "./components/Trigger";
+import { SelectedValue } from "./components/SelectedValue";
 export var Select = function (_a) {
     var _b = _a.asPortal, asPortal = _b === void 0 ? false : _b, name = _a.name, options = _a.options, prefix = _a.prefix, _c = _a.placeholder, placeholder = _c === void 0 ? "Selecione" : _c, exceptionRef = _a.exceptionRef, _d = _a.enableDeselect, enableDeselect = _d === void 0 ? true : _d, _e = _a.searchable, searchable = _e === void 0 ? false : _e, value = _a.value, disabled = _a.disabled, className = _a.className, triggerClassname = _a.triggerClassname, menuContainerClassname = _a.menuContainerClassname, menuInnerClassname = _a.menuInnerClassname, getValue = _a.getValue, onChange = _a.onChange, getLabel = _a.getLabel, renderItem = _a.renderItem, props = __rest(_a, ["asPortal", "name", "options", "prefix", "placeholder", "exceptionRef", "enableDeselect", "searchable", "value", "disabled", "className", "triggerClassname", "menuContainerClassname", "menuInnerClassname", "getValue", "onChange", "getLabel", "renderItem"]);
     var containerRef = useRef(null);

@@ -7,12 +7,12 @@ import styles from "./styles.module.scss";
 import { concatStyles } from "@/utils/concatStyles";
 import Unchecked from "@/components/Filter/components/Checkboxes/components/Unchecked";
 import Checked from "@/components/Filter/components/Checkboxes/components/Checked";
-import { SelectTrigger } from "../Select/component/Trigger";
+import { SelectTrigger } from "../Select/components/Trigger";
 import { SelectedValues } from "./components/SelectedValues";
-import { SelectMenu } from "../Select/component/Menu";
+import { SelectMenu } from "../Select/components/Menu";
 import { useFloatingElement } from "@/hooks/useFloatingElement/hooks";
 import { useClickOutside } from "@/hooks/useClickOutside";
-import { MenuItem } from "../Select/component/MenuItem";
+import { MenuItem } from "../Select/components/MenuItem";
 import { MultiSelectProps } from "./types";
 
 export function MultiSelect<T>({

@@ -1,6 +1,6 @@
 import React, { forwardRef, Ref } from "react";
 import { concatStyles } from "@/utils/concatStyles";
-import floatingStyles from "@/hooks/useFloatingElement/styles/styles.module.scss";
+import floatingStyles from "../../../../../../hooks/useFloatingElement/styles/styles.module.scss";
 import "../../../../../Dropdown/Item/variables.scss";
 import styles from "./styles.module.scss";
 

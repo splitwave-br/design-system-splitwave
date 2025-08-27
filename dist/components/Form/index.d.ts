@@ -5,4 +5,6 @@ export declare const Form: {
     Field: typeof Field;
     Label: typeof Label;
     Checkbox: typeof RHFCheckbox;
+    Select: <T>({ getLabel, getValue, options, name, ...props }: import("./components/RHFSelect").IRHFSelect<T>) => import("react/jsx-runtime").JSX.Element;
+    MultiSelect: <T>({ getLabel, getValue, options, name, ...props }: import("./components/RHFMultiSelect").IRHFMultiSelect<T>) => import("react/jsx-runtime").JSX.Element;
 };

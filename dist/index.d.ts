@@ -27,6 +27,7 @@ export type { ToastProps } from "./components/Toast";
 export { Tabs } from "./components/Tabs";
 export type { ITabTrigger, ITabsProps } from "./components/Tabs";
 export { Form } from "./components/Form";
+export * from "./components/Form/controls";
 export { useClickOutside } from "./hooks/useClickOutside";
 export { useDebounceValue } from "./hooks/useDebounceValue";
 export { useToggle } from "./hooks/useToggle";

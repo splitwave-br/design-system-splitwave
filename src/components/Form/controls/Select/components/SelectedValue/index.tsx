@@ -1,5 +1,5 @@
 import { concatStyles } from "@/utils/concatStyles";
-import "@/components/Form/controls/Input/variables.scss";
+import "../../../Input/variables.scss";
 
 import styles from "./styles.module.scss";
 

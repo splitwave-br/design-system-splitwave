@@ -37,12 +37,12 @@ import styles from "./styles.module.scss";
 import { concatStyles } from "../../../../utils/concatStyles";
 import Unchecked from "../../../../components/Filter/components/Checkboxes/components/Unchecked";
 import Checked from "../../../../components/Filter/components/Checkboxes/components/Checked";
-import { SelectTrigger } from "../Select/component/Trigger";
+import { SelectTrigger } from "../Select/components/Trigger";
 import { SelectedValues } from "./components/SelectedValues";
-import { SelectMenu } from "../Select/component/Menu";
+import { SelectMenu } from "../Select/components/Menu";
 import { useFloatingElement } from "../../../../hooks/useFloatingElement/hooks";
 import { useClickOutside } from "../../../../hooks/useClickOutside";
-import { MenuItem } from "../Select/component/MenuItem";
+import { MenuItem } from "../Select/components/MenuItem";
 export function MultiSelect(_a) {
     var getLabel = _a.getLabel, getValue = _a.getValue, onChange = _a.onChange, renderItem = _a.renderItem, onRemove = _a.onRemove, _b = _a.size, size = _b === void 0 ? 2 : _b, className = _a.className, options = _a.options, _c = _a.placeholder, placeholder = _c === void 0 ? "Selecione" : _c, _d = _a.disableDeselect, disableDeselect = _d === void 0 ? false : _d, disabled = _a.disabled, _e = _a.hasClear, hasClear = _e === void 0 ? true : _e, _f = _a.asPortal, asPortal = _f === void 0 ? false : _f, value = _a.value, props = __rest(_a, ["getLabel", "getValue", "onChange", "renderItem", "onRemove", "size", "className", "options", "placeholder", "disableDeselect", "disabled", "hasClear", "asPortal", "value"]);
     var containerRef = useRef(null);
