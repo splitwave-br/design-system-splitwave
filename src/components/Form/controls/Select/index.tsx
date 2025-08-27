@@ -9,6 +9,7 @@ import { useClickOutside } from "@/hooks/useClickOutside";
 import { concatStyles } from "@/utils/concatStyles";
 import { SelectTrigger } from "./components/Trigger";
 import { SelectedValue } from "./components/SelectedValue";
+import { useScrollOutside } from "@/hooks/useScrollOutside";
 
 export const Select = <T,>({
   asPortal = false,
@@ -49,6 +50,12 @@ export const Select = <T,>({
     isActive: isOpen,
     ref: containerRef,
     exceptionRef: menuRef,
+  });
+
+  useScrollOutside({
+    isActive: isOpen,
+    containerRef: menuRef,
+    onTrigger: () => setIsOpen(false),
   });
 
   const filteredOptions = useMemo(() => {

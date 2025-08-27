@@ -14,6 +14,7 @@ import { useFloatingElement } from "@/hooks/useFloatingElement/hooks";
 import { useClickOutside } from "@/hooks/useClickOutside";
 import { MenuItem } from "../Select/components/MenuItem";
 import { MultiSelectProps } from "./types";
+import { useScrollOutside } from "@/hooks/useScrollOutside";
 
 export function MultiSelect<T>({
   getLabel,
@@ -50,6 +51,12 @@ export function MultiSelect<T>({
     isActive: isOpen,
     ref: containerRef,
     exceptionRef: menuRef,
+  });
+
+  useScrollOutside({
+    onTrigger: () => setIsOpen(false),
+    isActive: isOpen,
+    containerRef: menuRef,
   });
 
   const filteredOptions = useMemo(() => {
