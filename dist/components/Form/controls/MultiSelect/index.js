@@ -97,7 +97,7 @@ export function MultiSelect(_a) {
         setSelectedOptions([]);
     };
     var handleFirstRender = useCallback(function () {
-        if (!value)
+        if (value === null || value === undefined)
             return;
         var matchedOptions = options === null || options === void 0 ? void 0 : options.filter(function (option) {
             return value.some(function (selectedOption) { return getValue(option) === selectedOption; });

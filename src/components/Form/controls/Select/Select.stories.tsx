@@ -4,7 +4,7 @@ import { ThemePreview } from "../../../ThemePreview";
 import { Select } from ".";
 
 interface OptionType {
-  id: string;
+  id: string | boolean;
   label: string;
 }
 
@@ -16,7 +16,7 @@ const options: OptionType[] = [
   { id: "5", label: "Opção 5" },
   { id: "6", label: "Opção 6" },
   { id: "7", label: "Opção 7" },
-  { id: "8", label: "Opção 8" },
+  { id: false, label: "Opção 8" },
   { id: "9", label: "Opção 9" },
   { id: "10", label: "Opção 10" },
   { id: "11", label: "Opção 11" },
@@ -76,4 +76,15 @@ Default.args = {
   placeholder: "Selecione uma opção",
   searchable: true,
   enableDeselect: true,
+};
+
+export const DeselectDisabled = Template.bind({});
+DeselectDisabled.args = {
+  options,
+  getId: (option) => option.id,
+  getLabel: (option) => option.label,
+  getValue: (option) => option.id,
+  placeholder: "Selecione uma opção",
+  searchable: true,
+  enableDeselect: false,
 };

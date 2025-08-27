@@ -24,6 +24,7 @@ import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { forwardRef } from "react";
 import { concatStyles } from "../../../../../../utils/concatStyles";
 import floatingStyles from "../../../../../../hooks/useFloatingElement/styles/styles.module.scss";
+import "./variables.scss";
 import "../../../../../Dropdown/Item/variables.scss";
 import styles from "./styles.module.scss";
 import { createPortal } from "react-dom";

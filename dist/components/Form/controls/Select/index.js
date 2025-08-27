@@ -75,7 +75,7 @@ export var Select = function (_a) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [enableDeselect, selectedOption]);
     var handleFirstRender = useCallback(function () {
-        if (!value) {
+        if (value === null || value === undefined) {
             setSelectedOption(null);
             return;
         }

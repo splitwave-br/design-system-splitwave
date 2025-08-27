@@ -12,17 +12,19 @@
   &::-webkit-scrollbar {
     width: var(--spaces-micro);
   }
+
   &::-webkit-scrollbar-track {
     background: transparent;
   }
+
   &::-webkit-scrollbar-thumb {
-    background: var(--colors-gray-900);
+    background: var(--scroll-thumb);
   }
 }
 
 .menu {
   overflow: hidden;
-  z-index: 10000;
+  z-index: 1005;
 
   min-width: 200px;
   width: 100%;
@@ -32,7 +34,7 @@
   border: 1px solid var(--color-border-default);
   background: var(--colors-background-overlay);
 
-  box-shadow: 0 8px 16px 4px rgba(102, 112, 133, 0.1);
+  box-shadow: 0 8px 16px 4px var(--component-modal-shadow);
 
   &:not(.asPortal) {
     width: 100%;

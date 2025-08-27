@@ -108,7 +108,7 @@ export function MultiSelect<T>({
   };
 
   const handleFirstRender = useCallback(() => {
-    if (!value) return;
+    if (value === null || value === undefined) return;
 
     const matchedOptions = options?.filter((option) =>
       value.some((selectedOption) => getValue(option) === selectedOption),

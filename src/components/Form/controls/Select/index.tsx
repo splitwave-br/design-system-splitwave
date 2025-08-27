@@ -84,7 +84,7 @@ export const Select = <T,>({
   );
 
   const handleFirstRender = useCallback(() => {
-    if (!value) {
+    if (value === null || value === undefined) {
       setSelectedOption(null);
       return;
     }

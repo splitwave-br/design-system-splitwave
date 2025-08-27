@@ -2,6 +2,7 @@
 import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
 import { useForm, FormProvider } from "react-hook-form";
+import { ThemePreview } from "../../../ThemePreview";
 
 import { RHFSelect } from ".";
 
@@ -35,10 +36,14 @@ const FormWrapper = ({
   const { watch } = methods;
 
   return (
-    <FormProvider {...methods}>
-      {children}
-      <div style={{ marginTop: 20 }}>Valor selecionado: {watch("select")}</div>
-    </FormProvider>
+    <ThemePreview>
+      <FormProvider {...methods}>
+        {children}
+        <div style={{ marginTop: 20 }}>
+          Valor selecionado: {watch("select")}
+        </div>
+      </FormProvider>
+    </ThemePreview>
   );
 };
 
@@ -62,6 +67,24 @@ export const PreSelected: Story = {
     return (
       <FormWrapper defaultValue={"2"}>
         <RHFSelect
+          asPortal
+          name="select"
+          options={options}
+          getLabel={(opt) => opt.label}
+          getValue={(opt) => opt.id}
+          placeholder="Selecione uma opção"
+        />
+      </FormWrapper>
+    );
+  },
+};
+
+export const DisabledPreSelected: Story = {
+  render: () => {
+    return (
+      <FormWrapper defaultValue={"2"}>
+        <RHFSelect
+          disabled
           asPortal
           name="select"
           options={options}
