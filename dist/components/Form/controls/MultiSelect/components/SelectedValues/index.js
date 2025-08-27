@@ -3,7 +3,7 @@ import { concatStyles } from "../../../../../../utils/concatStyles";
 import styles from "./styles.module.scss";
 import { Badge } from "../../../../../../components/Badge";
 import { Icon } from "../../../../../../components/Icon";
-import "@/components/Form/controls/Input/variables.scss";
+import "../../../Input/variables.scss";
 export var SelectedValues = function (_a) {
     var selectedOptions = _a.selectedOptions, placeholder = _a.placeholder, disabled = _a.disabled, getLabel = _a.getLabel, onRemove = _a.onRemove;
     var containerStyles = concatStyles([

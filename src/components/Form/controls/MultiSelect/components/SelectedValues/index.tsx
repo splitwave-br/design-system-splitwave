@@ -4,7 +4,7 @@ import styles from "./styles.module.scss";
 import { Badge } from "@/components/Badge";
 import { Icon } from "@/components/Icon";
 
-import "@/components/Form/controls/Input/variables.scss";
+import "../../../Input/variables.scss";
 
 interface SelectedValuesProps {
   selectedOptions: any[] | undefined;

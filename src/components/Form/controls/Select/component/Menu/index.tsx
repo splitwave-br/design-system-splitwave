@@ -1,7 +1,7 @@
 import React, { forwardRef, Ref } from "react";
 import { concatStyles } from "@/utils/concatStyles";
 import floatingStyles from "@/hooks/useFloatingElement/styles/styles.module.scss";
-import "@/components/Dropdown/Item/variables.scss";
+import "../../../../../Dropdown/Item/variables.scss";
 import styles from "./styles.module.scss";
 
 import { SelectMenuProps } from "../../types";

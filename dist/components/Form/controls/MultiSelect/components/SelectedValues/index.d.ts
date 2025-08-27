@@ -1,4 +1,4 @@
-import "@/components/Form/controls/Input/variables.scss";
+import "../../../Input/variables.scss";
 interface SelectedValuesProps {
     selectedOptions: any[] | undefined;
     getLabel: (option: any) => string;
