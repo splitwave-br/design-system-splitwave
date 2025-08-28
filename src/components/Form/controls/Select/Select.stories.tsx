@@ -66,59 +66,12 @@ const Template: StoryFn<React.ComponentProps<typeof Select<OptionType>>> = (
           gap: 32,
         }}
       >
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum
-          dignissimos ea sint perferendis dolores optio perspiciatis repellendus
-          vel maxime tempora consequuntur quibusdam voluptas nostrum, voluptatum
-          atque reprehenderit voluptate nemo harum.
-        </p>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum
-          dignissimos ea sint perferendis dolores optio perspiciatis repellendus
-          vel maxime tempora consequuntur quibusdam voluptas nostrum, voluptatum
-          atque reprehenderit voluptate nemo harum.
-        </p>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum
-          dignissimos ea sint perferendis dolores optio perspiciatis repellendus
-          vel maxime tempora consequuntur quibusdam voluptas nostrum, voluptatum
-          atque reprehenderit voluptate nemo harum.
-        </p>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum
-          dignissimos ea sint perferendis dolores optio perspiciatis repellendus
-          vel maxime tempora consequuntur quibusdam voluptas nostrum, voluptatum
-          atque reprehenderit voluptate nemo harum.
-        </p>
         <Select
+          asPortal
           {...args}
           value={selectedOption ? args.getValue(selectedOption) : undefined}
           onChange={(option) => setSelectedOption(option)}
         />
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum
-          dignissimos ea sint perferendis dolores optio perspiciatis repellendus
-          vel maxime tempora consequuntur quibusdam voluptas nostrum, voluptatum
-          atque reprehenderit voluptate nemo harum.
-        </p>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum
-          dignissimos ea sint perferendis dolores optio perspiciatis repellendus
-          vel maxime tempora consequuntur quibusdam voluptas nostrum, voluptatum
-          atque reprehenderit voluptate nemo harum.
-        </p>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum
-          dignissimos ea sint perferendis dolores optio perspiciatis repellendus
-          vel maxime tempora consequuntur quibusdam voluptas nostrum, voluptatum
-          atque reprehenderit voluptate nemo harum.
-        </p>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum
-          dignissimos ea sint perferendis dolores optio perspiciatis repellendus
-          vel maxime tempora consequuntur quibusdam voluptas nostrum, voluptatum
-          atque reprehenderit voluptate nemo harum.
-        </p>
       </div>
     </ThemePreview>
   );

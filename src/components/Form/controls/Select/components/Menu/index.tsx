@@ -29,7 +29,9 @@ const BaseSelectMenu = <T,>(
 ) => {
   const menuStyles = concatStyles([
     styles.menu,
+    styles[`to${animationDirection}`],
     floatingStyles[`animateFrom${animationDirection}`],
+    asPortal ? styles.asPortal : "",
     menuContainerClassname,
   ]);
 

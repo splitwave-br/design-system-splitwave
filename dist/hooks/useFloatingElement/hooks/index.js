@@ -17,17 +17,17 @@ function getElementPosition(element) {
     };
 }
 export var useFloatingElement = function (_a) {
-    var triggerRef = _a.triggerRef, elementRef = _a.elementRef, isEnabled = _a.isEnabled, _b = _a.gap, gap = _b === void 0 ? DEFAULT_GAP : _b;
-    var _c = useState("Bottom"), animationDirection = _c[0], setAnimationDirection = _c[1];
+    var triggerRef = _a.triggerRef, elementRef = _a.elementRef, isEnabled = _a.isEnabled, _b = _a.asPortal, asPortal = _b === void 0 ? false : _b, _c = _a.gap, gap = _c === void 0 ? DEFAULT_GAP : _c;
+    var _d = useState("Bottom"), animationDirection = _d[0], setAnimationDirection = _d[1];
     useEffect(function () {
         if (!isEnabled || !triggerRef.current || !elementRef.current)
             return;
         var _a = triggerRef.current.getBoundingClientRect(), triggerHeight = _a.height, triggerWidth = _a.width, triggerLeft = _a.left, triggerTop = _a.top;
         var elementHeight = elementRef.current.getBoundingClientRect().height;
-        var viewportHeight = document.documentElement.scrollHeight;
+        var viewportHeight = window.innerHeight;
         var bottomEdge = triggerTop + triggerHeight + elementHeight + gap;
-        var finalTop = triggerTop + triggerHeight + gap;
         var overflowsBottom = bottomEdge > viewportHeight;
+        var finalTop = triggerTop + triggerHeight + gap;
         if (overflowsBottom) {
             finalTop = triggerTop - elementHeight - gap;
             setAnimationDirection("Top");
@@ -35,11 +35,14 @@ export var useFloatingElement = function (_a) {
         else {
             setAnimationDirection("Bottom");
         }
-        var floatingElement = elementRef.current;
-        floatingElement.style.zIndex = "1011";
-        floatingElement.style.top = "".concat(finalTop, "px");
-        floatingElement.style.left = "".concat(triggerLeft, "px");
-        floatingElement.style.width = "".concat(triggerWidth, "px");
-    }, [isEnabled]);
+        if (asPortal) {
+            var floatingElement = elementRef.current;
+            floatingElement.style.zIndex = "1011";
+            floatingElement.style.top = "".concat(finalTop + window.scrollY, "px");
+            floatingElement.style.left = "".concat(triggerLeft + window.scrollX, "px");
+            floatingElement.style.width = "".concat(triggerWidth, "px");
+            floatingElement.style.position = "absolute";
+        }
+    }, [isEnabled, asPortal, gap, triggerRef, elementRef]);
     return { animationDirection: animationDirection };
 };

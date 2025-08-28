@@ -42,7 +42,8 @@ export const Select = <T,>({
   const { animationDirection } = useFloatingElement({
     triggerRef: containerRef,
     elementRef: menuRef,
-    isEnabled: isOpen && asPortal,
+    isEnabled: isOpen,
+    asPortal,
   });
 
   useClickOutside({
@@ -50,12 +51,6 @@ export const Select = <T,>({
     isActive: isOpen,
     ref: containerRef,
     exceptionRef: menuRef,
-  });
-
-  useScrollOutside({
-    isActive: isOpen,
-    containerRef: menuRef,
-    onTrigger: () => setIsOpen(false),
   });
 
   const filteredOptions = useMemo(() => {

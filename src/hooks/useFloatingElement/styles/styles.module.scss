@@ -6,7 +6,7 @@
 @keyframes slideDownFromTop {
   0% {
     opacity: 0;
-    transform: translateY(-var(--spaces-1));
+    transform: translateY(calc(-1 * var(--spaces-1, 8px)));
   }
   100% {
     opacity: 1;

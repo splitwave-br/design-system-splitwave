@@ -28,6 +28,7 @@ interface UseFloatingElementProps {
   triggerRef: React.RefObject<HTMLDivElement | null>;
   elementRef: React.RefObject<HTMLDivElement | null>;
   isEnabled: boolean;
+  asPortal?: boolean;
   gap?: number;
 }
 
@@ -35,6 +36,7 @@ export const useFloatingElement = ({
   triggerRef,
   elementRef,
   isEnabled,
+  asPortal = false,
   gap = DEFAULT_GAP,
 }: UseFloatingElementProps) => {
   const [animationDirection, setAnimationDirection] =
@@ -49,27 +51,32 @@ export const useFloatingElement = ({
       left: triggerLeft,
       top: triggerTop,
     } = triggerRef.current.getBoundingClientRect();
+
     const { height: elementHeight } =
       elementRef.current.getBoundingClientRect();
-    const viewportHeight = document.documentElement.scrollHeight;
 
+    const viewportHeight = window.innerHeight;
     const bottomEdge = triggerTop + triggerHeight + elementHeight + gap;
 
-    let finalTop = triggerTop + triggerHeight + gap;
-
     const overflowsBottom = bottomEdge > viewportHeight;
+
+    let finalTop = triggerTop + triggerHeight + gap;
     if (overflowsBottom) {
       finalTop = triggerTop - elementHeight - gap;
       setAnimationDirection("Top");
     } else {
       setAnimationDirection("Bottom");
     }
-    const floatingElement = elementRef.current;
-    floatingElement.style.zIndex = "1011";
-    floatingElement.style.top = `${finalTop}px`;
-    floatingElement.style.left = `${triggerLeft}px`;
-    floatingElement.style.width = `${triggerWidth}px`;
-  }, [isEnabled]);
+
+    if (asPortal) {
+      const floatingElement = elementRef.current;
+      floatingElement.style.zIndex = "1011";
+      floatingElement.style.top = `${finalTop + window.scrollY}px`;
+      floatingElement.style.left = `${triggerLeft + window.scrollX}px`;
+      floatingElement.style.width = `${triggerWidth}px`;
+      floatingElement.style.position = "absolute";
+    }
+  }, [isEnabled, asPortal, gap, triggerRef, elementRef]);
 
   return { animationDirection };
 };

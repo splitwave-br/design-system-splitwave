@@ -33,7 +33,9 @@ var BaseSelectMenu = function (_a, ref) {
     var handleGetIsSelected = _a.handleGetIsSelected, onChange = _a.onChange, renderItem = _a.renderItem, getValue = _a.getValue, getLabel = _a.getLabel, options = _a.options, _b = _a.asPortal, asPortal = _b === void 0 ? false : _b, menuContainerClassname = _a.menuContainerClassname, menuInnerClassname = _a.menuInnerClassname, animationDirection = _a.animationDirection, children = _a.children, props = __rest(_a, ["handleGetIsSelected", "onChange", "renderItem", "getValue", "getLabel", "options", "asPortal", "menuContainerClassname", "menuInnerClassname", "animationDirection", "children"]);
     var menuStyles = concatStyles([
         styles.menu,
+        styles["to".concat(animationDirection)],
         floatingStyles["animateFrom".concat(animationDirection)],
+        asPortal ? styles.asPortal : "",
         menuContainerClassname,
     ]);
     var innerContainerStyles = concatStyles([
