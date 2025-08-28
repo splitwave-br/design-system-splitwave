@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.39.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.38.0...v1.39.0) (2025-08-28)
+
+
+### Features
+
+* ([#370](https://github.com/splitwave-br/design-system-splitwave/issues/370), [#371](https://github.com/splitwave-br/design-system-splitwave/issues/371)): Enhance text overflow and barrel export ([f958cb0](https://github.com/splitwave-br/design-system-splitwave/commit/f958cb0cd7e3382ca20b19001006b8a1c256a82e))
+* **#370, #371:** Add close on scroll behavior and useScrollOutside hook ([3d4c79f](https://github.com/splitwave-br/design-system-splitwave/commit/3d4c79fc2c42f8a62502f80ca28e53ccd109b0ca))
+* **#370:** Refactor select component and add RHFSelect component ([f562a8f](https://github.com/splitwave-br/design-system-splitwave/commit/f562a8f0d84e5569c4fc7fb824c1bc4320296ed1))
+* **#370:** Refactor select component and add RHFSelect component ([76106a7](https://github.com/splitwave-br/design-system-splitwave/commit/76106a7afc3a3a1f4f8e46ec593f2b832b8a65a9))
+* **#371:** Add multiselect component ([6153355](https://github.com/splitwave-br/design-system-splitwave/commit/6153355f3151e1acaceb7399c8fbc97ef712acbc))
+* Add  onChange and onRemove support  to RHFMultiSelect and RHFSelect; atualizar estilos e tipos para incluir keyExtractor ([73186ee](https://github.com/splitwave-br/design-system-splitwave/commit/73186ee26af1fc0906ecee48ccf1f7ea5705eb55))
+* Fix from top animation and improve portal logic and vertical position calcs ([2dca3c7](https://github.com/splitwave-br/design-system-splitwave/commit/2dca3c776f9d41b9d90c2df184323416d5f48317))
+
+
+### Bug Fixes
+
+* **#370, #371:** Fix multiselect closing on select ([83a74e3](https://github.com/splitwave-br/design-system-splitwave/commit/83a74e332e06147fa2bada3b6305f370e92ff5f4))
+* **#370, #371:** Replace scss file alias import ([8e79b08](https://github.com/splitwave-br/design-system-splitwave/commit/8e79b0876f05c0aa582010e49f8cd1ba22cd2ec7))
+* **#370, 371:** Fix falsy values select and some styles ([46a1e48](https://github.com/splitwave-br/design-system-splitwave/commit/46a1e4882ee3d612291721192f6ffdf76cbf1d0a))
+* **#371:** Fix multiselect clear and remove internal state ([8bf7d22](https://github.com/splitwave-br/design-system-splitwave/commit/8bf7d22d31edfe56a2d597eb238ecb1d981e8fc3))
+
 ## [1.38.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.37.0...v1.38.0) (2025-08-15)
 
 
