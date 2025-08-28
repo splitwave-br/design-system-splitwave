@@ -9,6 +9,10 @@
 
 .selectedValue {
   color: var(--component-input-active-text);
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   &.selectedValue__disabled {
     color: var(--component-input-disabled-text);

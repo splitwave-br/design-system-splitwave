@@ -1,5 +1,6 @@
 .menuInner {
   overflow-y: auto;
+  overflow-x: hidden;
   max-height: 320px;
   width: 100%;
   padding: var(--spaces-micro);

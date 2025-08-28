@@ -60,8 +60,7 @@ export { Tabs } from "./components/Tabs";
 export type { ITabTrigger, ITabsProps } from "./components/Tabs";
 
 // FORM
-export { Form } from "./components/Form";
-export * from "./components/Form/controls";
+export * from "./components/Form";
 
 // Hooks
 export { useClickOutside } from "./hooks/useClickOutside";

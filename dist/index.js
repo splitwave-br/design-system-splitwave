@@ -31,8 +31,7 @@ export { ToastProvider, useToast } from "./components/Toast/hooks/useToast";
 // Tabs
 export { Tabs } from "./components/Tabs";
 // FORM
-export { Form } from "./components/Form";
-export * from "./components/Form/controls";
+export * from "./components/Form";
 // Hooks
 export { useClickOutside } from "./hooks/useClickOutside";
 export { useDebounceValue } from "./hooks/useDebounceValue";

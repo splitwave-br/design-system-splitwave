@@ -16,7 +16,11 @@ const options: OptionType[] = [
   { id: "5", label: "Opção 5" },
   { id: "6", label: "Opção 6" },
   { id: "7", label: "Opção 7" },
-  { id: false, label: "Opção 8" },
+  {
+    id: false,
+    label:
+      "Opção 8 gigante muito texto aq, aksdmnaskjdfbaklshdbflahsdvbfhasvbdfksdb",
+  },
   { id: "9", label: "Opção 9" },
   { id: "10", label: "Opção 10" },
   { id: "11", label: "Opção 11" },
@@ -60,7 +64,7 @@ const Template: StoryFn<React.ComponentProps<typeof Select<OptionType>>> = (
     <ThemePreview>
       <div
         style={{
-          maxHeight: 800,
+          width: 150,
           display: "flex",
           flexDirection: "column",
           gap: 32,
@@ -83,7 +87,7 @@ Default.args = {
   getId: (option) => option.id,
   getLabel: (option) => option.label,
   getValue: (option) => option.id,
-  placeholder: "Selecione uma opção",
+  placeholder: "Selecione",
   searchable: true,
   enableDeselect: true,
 };
@@ -94,7 +98,7 @@ DeselectDisabled.args = {
   getId: (option) => option.id,
   getLabel: (option) => option.label,
   getValue: (option) => option.id,
-  placeholder: "Selecione uma opção",
+  placeholder: "Selecione",
   searchable: true,
   enableDeselect: false,
 };

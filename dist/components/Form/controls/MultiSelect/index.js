@@ -43,7 +43,6 @@ import { SelectMenu } from "../Select/components/Menu";
 import { useFloatingElement } from "../../../../hooks/useFloatingElement/hooks";
 import { useClickOutside } from "../../../../hooks/useClickOutside";
 import { MenuItem } from "../Select/components/MenuItem";
-import { useScrollOutside } from "../../../../hooks/useScrollOutside";
 export function MultiSelect(_a) {
     var getLabel = _a.getLabel, getValue = _a.getValue, onChange = _a.onChange, renderItem = _a.renderItem, onRemove = _a.onRemove, _b = _a.size, size = _b === void 0 ? 2 : _b, className = _a.className, options = _a.options, _c = _a.placeholder, placeholder = _c === void 0 ? "Selecione" : _c, _d = _a.disableDeselect, disableDeselect = _d === void 0 ? false : _d, disabled = _a.disabled, _e = _a.hasClear, hasClear = _e === void 0 ? true : _e, _f = _a.asPortal, asPortal = _f === void 0 ? false : _f, value = _a.value, props = __rest(_a, ["getLabel", "getValue", "onChange", "renderItem", "onRemove", "size", "className", "options", "placeholder", "disableDeselect", "disabled", "hasClear", "asPortal", "value"]);
     var containerRef = useRef(null);
@@ -54,18 +53,14 @@ export function MultiSelect(_a) {
     var animationDirection = useFloatingElement({
         triggerRef: containerRef,
         elementRef: menuRef,
-        isEnabled: isOpen && asPortal,
+        isEnabled: isOpen,
+        asPortal: asPortal,
     }).animationDirection;
     useClickOutside({
         callback: function () { return setIsOpen(false); },
         isActive: isOpen,
         ref: containerRef,
         exceptionRef: menuRef,
-    });
-    useScrollOutside({
-        onTrigger: function () { return setIsOpen(false); },
-        isActive: isOpen,
-        containerRef: menuRef,
     });
     var filteredOptions = useMemo(function () {
         return options.filter(function (option) {

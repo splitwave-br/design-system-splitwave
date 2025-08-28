@@ -4,6 +4,9 @@ import { RHFCheckbox } from "./components/RHFCheckbox";
 import { RHFMultiselect } from "./components/RHFMultiSelect";
 import { RHFSelect } from "./components/RHFSelect";
 
+export * from "./controls";
+export * from "./components/types";
+
 export const Form = {
   Field,
   Label,

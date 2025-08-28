@@ -43,7 +43,8 @@ export function MultiSelect<T>({
   const { animationDirection } = useFloatingElement({
     triggerRef: containerRef,
     elementRef: menuRef,
-    isEnabled: isOpen && asPortal,
+    isEnabled: isOpen,
+    asPortal,
   });
 
   useClickOutside({
@@ -51,12 +52,6 @@ export function MultiSelect<T>({
     isActive: isOpen,
     ref: containerRef,
     exceptionRef: menuRef,
-  });
-
-  useScrollOutside({
-    onTrigger: () => setIsOpen(false),
-    isActive: isOpen,
-    containerRef: menuRef,
   });
 
   const filteredOptions = useMemo(() => {
