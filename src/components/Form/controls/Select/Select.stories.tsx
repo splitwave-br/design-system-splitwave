@@ -84,7 +84,6 @@ const Template: StoryFn<React.ComponentProps<typeof Select<OptionType>>> = (
 export const Default = Template.bind({});
 Default.args = {
   options,
-  getId: (option) => option.id,
   getLabel: (option) => option.label,
   getValue: (option) => option.id,
   placeholder: "Selecione",
@@ -95,7 +94,6 @@ Default.args = {
 export const DeselectDisabled = Template.bind({});
 DeselectDisabled.args = {
   options,
-  getId: (option) => option.id,
   getLabel: (option) => option.label,
   getValue: (option) => option.id,
   placeholder: "Selecione",

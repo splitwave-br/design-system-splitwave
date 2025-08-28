@@ -1,7 +1,7 @@
 import React from "react";
 interface MenuItemProps {
     children: React.ReactNode;
-    onClick?: () => void;
+    onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
     isSelected: boolean;
     className?: string;
 }

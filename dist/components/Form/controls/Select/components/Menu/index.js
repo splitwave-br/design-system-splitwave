@@ -46,7 +46,10 @@ var BaseSelectMenu = function (_a, ref) {
                     var isSelected = handleGetIsSelected(option);
                     var optionValue = getValue(option);
                     var itemKey = keyExtractor ? keyExtractor(option) : optionValue;
-                    var onClick = function () { return onChange(option); };
+                    var onClick = function (e) {
+                        e.stopPropagation();
+                        onChange(option);
+                    };
                     if (renderItem)
                         return renderItem({
                             option: option,

@@ -50,7 +50,10 @@ const BaseSelectMenu = <T,>(
             const optionValue = getValue(option);
             const itemKey = keyExtractor ? keyExtractor(option) : optionValue;
 
-            const onClick = () => onChange(option);
+            const onClick = (e: React.MouseEvent<HTMLDivElement>) => {
+              e.stopPropagation();
+              onChange(option);
+            };
 
             if (renderItem)
               return renderItem({

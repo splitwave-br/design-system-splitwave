@@ -67,11 +67,13 @@ export var Select = function (_a) {
                 return;
             setSelectedOption(null);
             onChange === null || onChange === void 0 ? void 0 : onChange(undefined);
+            setIsOpen(false);
             return;
         }
         setSelectedOption(option);
         onChange === null || onChange === void 0 ? void 0 : onChange(option);
         setSearchValue("");
+        setIsOpen(false);
     }, 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [enableDeselect, selectedOption]);

@@ -9,7 +9,6 @@ import { useClickOutside } from "@/hooks/useClickOutside";
 import { concatStyles } from "@/utils/concatStyles";
 import { SelectTrigger } from "./components/Trigger";
 import { SelectedValue } from "./components/SelectedValue";
-import { useScrollOutside } from "@/hooks/useScrollOutside";
 
 export const Select = <T,>({
   asPortal = false,
@@ -75,12 +74,14 @@ export const Select = <T,>({
         if (!enableDeselect) return;
         setSelectedOption(null);
         onChange?.(undefined);
+        setIsOpen(false);
         return;
       }
 
       setSelectedOption(option);
       onChange?.(option);
       setSearchValue("");
+      setIsOpen(false);
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [enableDeselect, selectedOption],

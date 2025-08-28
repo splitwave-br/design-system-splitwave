@@ -26,7 +26,7 @@ export interface SelectMenuProps<T = any> extends BaseSelectProps<T> {
 export type TRenderItem<T> = {
   option: T;
   key: string;
-  onClick: () => any;
+  onClick: (e: React.MouseEvent<HTMLDivElement>) => any;
   isSelected: boolean;
 };
 

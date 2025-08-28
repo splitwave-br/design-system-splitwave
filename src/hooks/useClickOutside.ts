@@ -14,21 +14,19 @@ export const useClickOutside = ({
   exceptionRef,
 }: UseClickOutsideProps) => {
   useEffect(() => {
+    if (!isActive) return;
+
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Node;
+      const clickedInsideRef = ref.current?.contains(target);
+      const clickedInsideException = exceptionRef?.current?.contains(target);
 
-      const exceptionHasTarget =
-        exceptionRef?.current && exceptionRef?.current?.contains(target);
-      const refHasTarget = ref.current && ref.current.contains(target);
-
-      if (!exceptionHasTarget && !refHasTarget) {
+      if (!clickedInsideRef && !clickedInsideException) {
         callback();
       }
     };
 
-    if (isActive) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
+    document.addEventListener("mousedown", handleClickOutside);
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
