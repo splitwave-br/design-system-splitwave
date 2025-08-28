@@ -33,9 +33,13 @@ import { jsx as _jsx } from "react/jsx-runtime";
 import { useFormContext } from "react-hook-form";
 import { MultiSelect } from "../../controls/MultiSelect";
 export var RHFMultiselect = function (_a) {
+    var _b;
     var getLabel = _a.getLabel, getValue = _a.getValue, onChange = _a.onChange, onRemove = _a.onRemove, options = _a.options, name = _a.name, props = __rest(_a, ["getLabel", "getValue", "onChange", "onRemove", "options", "name"]);
-    var _b = useFormContext(), watch = _b.watch, setValue = _b.setValue;
-    var fieldSelectedValues = watch(name);
+    var _c = useFormContext(), watch = _c.watch, setValue = _c.setValue;
+    var fieldSelectedValues = (_b = watch(name)) !== null && _b !== void 0 ? _b : [];
+    var selectedOptions = options.filter(function (opt) {
+        return fieldSelectedValues.includes(getValue(opt));
+    });
     var handleSelect = function (optionValue) {
         onChange === null || onChange === void 0 ? void 0 : onChange(optionValue);
         var currentValues = fieldSelectedValues !== null && fieldSelectedValues !== void 0 ? fieldSelectedValues : [];
@@ -48,8 +52,11 @@ export var RHFMultiselect = function (_a) {
     };
     var handleRemoveValue = function (optionValue) {
         onRemove === null || onRemove === void 0 ? void 0 : onRemove(optionValue);
+        if (!optionValue) {
+            return setValue(name, []);
+        }
         var updatedValues = fieldSelectedValues === null || fieldSelectedValues === void 0 ? void 0 : fieldSelectedValues.filter(function (value) { return value !== optionValue; });
         return setValue(name, updatedValues);
     };
-    return (_jsx(MultiSelect, __assign({ onChange: handleSelect, getLabel: getLabel, getValue: getValue, onRemove: handleRemoveValue, options: options, value: fieldSelectedValues }, props)));
+    return (_jsx(MultiSelect, __assign({ onChange: handleSelect, getLabel: getLabel, getValue: getValue, onRemove: handleRemoveValue, options: options, value: selectedOptions }, props)));
 };

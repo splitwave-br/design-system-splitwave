@@ -2,8 +2,7 @@ import { useFormContext } from "react-hook-form";
 import { MultiSelectProps } from "../../controls/MultiSelect/types";
 import { MultiSelect } from "../../controls/MultiSelect";
 
-export interface IRHFMultiSelect<T>
-  extends Omit<MultiSelectProps<T>, "values"> {
+export interface IRHFMultiSelect<T> extends Omit<MultiSelectProps<T>, "value"> {
   name: string;
 }
 
@@ -18,7 +17,11 @@ export const RHFMultiselect = <T,>({
 }: IRHFMultiSelect<T>) => {
   const { watch, setValue } = useFormContext();
 
-  const fieldSelectedValues = watch(name);
+  const fieldSelectedValues = watch(name) ?? [];
+
+  const selectedOptions = options.filter((opt) =>
+    fieldSelectedValues.includes(getValue(opt)),
+  );
 
   const handleSelect = (optionValue: any) => {
     onChange?.(optionValue);
@@ -37,6 +40,9 @@ export const RHFMultiselect = <T,>({
 
   const handleRemoveValue = (optionValue: any) => {
     onRemove?.(optionValue);
+    if (!optionValue) {
+      return setValue(name, []);
+    }
 
     const updatedValues = fieldSelectedValues?.filter(
       (value: any) => value !== optionValue,
@@ -51,7 +57,7 @@ export const RHFMultiselect = <T,>({
       getValue={getValue}
       onRemove={handleRemoveValue}
       options={options}
-      value={fieldSelectedValues}
+      value={selectedOptions}
       {...props}
     />
   );

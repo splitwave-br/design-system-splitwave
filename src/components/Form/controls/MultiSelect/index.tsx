@@ -14,7 +14,6 @@ import { useFloatingElement } from "@/hooks/useFloatingElement/hooks";
 import { useClickOutside } from "@/hooks/useClickOutside";
 import { MenuItem } from "../Select/components/MenuItem";
 import { MultiSelectProps } from "./types";
-import { useScrollOutside } from "@/hooks/useScrollOutside";
 
 export function MultiSelect<T>({
   getLabel,
@@ -31,7 +30,7 @@ export function MultiSelect<T>({
   disabled,
   hasClear = true,
   asPortal = false,
-  value,
+  value = [],
   ...props
 }: MultiSelectProps<T>) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -39,7 +38,6 @@ export function MultiSelect<T>({
 
   const [isOpen, setIsOpen] = useState(false);
   const [searchValue, setSearchValue] = useState("");
-  const [selectedOptions, setSelectedOptions] = useState<T[]>([]);
 
   const { animationDirection } = useFloatingElement({
     triggerRef: containerRef,
@@ -56,84 +54,48 @@ export function MultiSelect<T>({
   });
 
   const filteredOptions = useMemo(() => {
-    return options.filter((option) => {
-      return getLabel(option).toLowerCase().includes(searchValue.toLowerCase());
-    });
+    return options.filter((option) =>
+      getLabel(option).toLowerCase().includes(searchValue.toLowerCase()),
+    );
   }, [searchValue, options, getLabel]);
 
-  const handleGetValue = useCallback(
-    (option: T) => {
-      if (!option) return "";
-      const value = getValue?.(option);
-      if (typeof value === "undefined") return option;
-      return value;
-    },
-    [getValue],
-  );
-
   const handleRemoveItem = (option: T) => {
-    const currentSelectedOptions = selectedOptions || [];
+    const optionValue = getValue(option);
 
-    const optionValue = handleGetValue(option);
-    const newValue = currentSelectedOptions.filter(
-      (opt: any) => handleGetValue(opt) !== handleGetValue(option),
-    );
-
-    setSelectedOptions(newValue);
-    return onRemove?.(optionValue);
+    onRemove?.(optionValue);
   };
 
   const handleSelect = (option: T) => {
-    const currentSelectedOptions = selectedOptions || [];
+    const optionValue = getValue(option);
 
-    const optionValue = handleGetValue(option);
-
-    const hasBeenAdded = currentSelectedOptions.find(
-      (option) => handleGetValue(option) === optionValue,
+    const isAlreadySelected = value.find(
+      (opt) => getValue(opt) === optionValue,
     );
 
-    if (hasBeenAdded && !disableDeselect) {
+    if (isAlreadySelected && !disableDeselect) {
       return handleRemoveItem(option);
     }
 
-    setSelectedOptions([...currentSelectedOptions, option]);
     onChange?.(optionValue);
   };
 
   const handleGetIsSelected = useCallback(
-    (option: T) => selectedOptions?.includes(option),
-    [selectedOptions],
+    (option: T) => value.some((opt) => getValue(opt) === getValue(option)),
+    [value],
   );
 
   const handleClickClear = () => {
-    onChange?.([]);
-    setSelectedOptions([]);
+    onRemove?.();
   };
-
-  const handleFirstRender = useCallback(() => {
-    if (value === null || value === undefined) return;
-
-    const matchedOptions = options?.filter((option) =>
-      value.some((selectedOption) => getValue(option) === selectedOption),
-    );
-
-    if (!matchedOptions || matchedOptions === selectedOptions) return;
-
-    setSelectedOptions(matchedOptions);
-  }, [value, options, getValue]);
-
-  useEffect(handleFirstRender, [handleFirstRender]);
 
   const handleToggleOptions = (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
-
     if (disabled) return;
     setIsOpen((prev) => !prev);
   };
 
   const wrapperClass = concatStyles([styles.wrapper, className]);
-
-  const shouldRenderClearButton = hasClear && selectedOptions.length > 0;
+  const shouldRenderClearButton = hasClear && value.length > 0;
 
   return (
     <div
@@ -142,7 +104,7 @@ export function MultiSelect<T>({
       onClick={handleToggleOptions}
     >
       <SelectTrigger
-        triggerClassname={selectedOptions.length > 0 ? styles.trigger : ""}
+        triggerClassname={value.length > 0 ? styles.trigger : ""}
         disabled={disabled}
         shouldRenderSearch={false}
         searchValue={searchValue}
@@ -152,7 +114,7 @@ export function MultiSelect<T>({
           getLabel={getLabel}
           onRemove={handleRemoveItem}
           placeholder={placeholder}
-          selectedOptions={selectedOptions}
+          selectedOptions={value}
           disabled={disabled}
         />
       </SelectTrigger>
@@ -183,9 +145,13 @@ export function MultiSelect<T>({
           {...props}
         >
           {shouldRenderClearButton && (
-            <span onClick={handleClickClear} className={styles.cleanButton}>
+            <MenuItem
+              isSelected={false}
+              onClick={handleClickClear}
+              className={styles.cleanButton}
+            >
               Limpar
-            </span>
+            </MenuItem>
           )}
         </SelectMenu>
       )}

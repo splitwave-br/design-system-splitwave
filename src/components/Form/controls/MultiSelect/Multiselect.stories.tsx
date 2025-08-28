@@ -2,6 +2,7 @@ import { Meta, StoryFn } from "@storybook/react";
 import { MultiSelect } from ".";
 import { MultiSelectProps } from "./types";
 import { ThemePreview } from "../../../ThemePreview";
+import { useState } from "react";
 
 interface Option {
   id: string;
@@ -36,11 +37,42 @@ export default {
 
 const Template: StoryFn<typeof MultiSelect> = (args) => {
   const typedArgs = args as MultiSelectProps<Option>;
+  const [selected, setSelected] = useState<Option[]>([]);
+
+  const handleSelect = (optionValue: any) => {
+    const exists = selected.find(
+      (opt) => typedArgs.getValue(opt) === optionValue,
+    );
+
+    if (exists) {
+      return setSelected((prev) =>
+        prev.filter((opt) => typedArgs.getValue(opt) !== optionValue),
+      );
+    }
+
+    const newOption = typedArgs.options.find(
+      (opt) => typedArgs.getValue(opt) === optionValue,
+    );
+    if (newOption) setSelected((prev) => [...prev, newOption]);
+  };
 
   return (
     <ThemePreview>
       <div style={{ margin: 50, maxWidth: 300 }}>
-        <MultiSelect {...typedArgs} />
+        <MultiSelect
+          {...typedArgs}
+          value={selected}
+          onChange={handleSelect}
+          onRemove={(optionValue?: any) => {
+            if (!optionValue) {
+              setSelected([]);
+            } else {
+              setSelected((prev) =>
+                prev.filter((opt) => typedArgs.getValue(opt) !== optionValue),
+              );
+            }
+          }}
+        />
       </div>
     </ThemePreview>
   );

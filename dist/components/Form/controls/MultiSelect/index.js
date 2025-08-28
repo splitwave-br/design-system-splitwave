@@ -21,18 +21,9 @@ var __rest = (this && this.__rest) || function (s, e) {
         }
     return t;
 };
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useMemo, useRef } from "react";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import styles from "./styles.module.scss";
 import { concatStyles } from "../../../../utils/concatStyles";
 import Unchecked from "../../../../components/Filter/components/Checkboxes/components/Unchecked";
@@ -44,12 +35,11 @@ import { useFloatingElement } from "../../../../hooks/useFloatingElement/hooks";
 import { useClickOutside } from "../../../../hooks/useClickOutside";
 import { MenuItem } from "../Select/components/MenuItem";
 export function MultiSelect(_a) {
-    var getLabel = _a.getLabel, getValue = _a.getValue, onChange = _a.onChange, renderItem = _a.renderItem, onRemove = _a.onRemove, keyExtractor = _a.keyExtractor, _b = _a.size, size = _b === void 0 ? 2 : _b, className = _a.className, options = _a.options, _c = _a.placeholder, placeholder = _c === void 0 ? "Selecione" : _c, _d = _a.disableDeselect, disableDeselect = _d === void 0 ? false : _d, disabled = _a.disabled, _e = _a.hasClear, hasClear = _e === void 0 ? true : _e, _f = _a.asPortal, asPortal = _f === void 0 ? false : _f, value = _a.value, props = __rest(_a, ["getLabel", "getValue", "onChange", "renderItem", "onRemove", "keyExtractor", "size", "className", "options", "placeholder", "disableDeselect", "disabled", "hasClear", "asPortal", "value"]);
+    var getLabel = _a.getLabel, getValue = _a.getValue, onChange = _a.onChange, renderItem = _a.renderItem, onRemove = _a.onRemove, keyExtractor = _a.keyExtractor, _b = _a.size, size = _b === void 0 ? 2 : _b, className = _a.className, options = _a.options, _c = _a.placeholder, placeholder = _c === void 0 ? "Selecione" : _c, _d = _a.disableDeselect, disableDeselect = _d === void 0 ? false : _d, disabled = _a.disabled, _e = _a.hasClear, hasClear = _e === void 0 ? true : _e, _f = _a.asPortal, asPortal = _f === void 0 ? false : _f, _g = _a.value, value = _g === void 0 ? [] : _g, props = __rest(_a, ["getLabel", "getValue", "onChange", "renderItem", "onRemove", "keyExtractor", "size", "className", "options", "placeholder", "disableDeselect", "disabled", "hasClear", "asPortal", "value"]);
     var containerRef = useRef(null);
     var menuRef = useRef(null);
-    var _g = useState(false), isOpen = _g[0], setIsOpen = _g[1];
-    var _h = useState(""), searchValue = _h[0], setSearchValue = _h[1];
-    var _j = useState([]), selectedOptions = _j[0], setSelectedOptions = _j[1];
+    var _h = useState(false), isOpen = _h[0], setIsOpen = _h[1];
+    var _j = useState(""), searchValue = _j[0], setSearchValue = _j[1];
     var animationDirection = useFloatingElement({
         triggerRef: containerRef,
         elementRef: menuRef,
@@ -67,47 +57,22 @@ export function MultiSelect(_a) {
             return getLabel(option).toLowerCase().includes(searchValue.toLowerCase());
         });
     }, [searchValue, options, getLabel]);
-    var handleGetValue = useCallback(function (option) {
-        if (!option)
-            return "";
-        var value = getValue === null || getValue === void 0 ? void 0 : getValue(option);
-        if (typeof value === "undefined")
-            return option;
-        return value;
-    }, [getValue]);
     var handleRemoveItem = function (option) {
-        var currentSelectedOptions = selectedOptions || [];
-        var optionValue = handleGetValue(option);
-        var newValue = currentSelectedOptions.filter(function (opt) { return handleGetValue(opt) !== handleGetValue(option); });
-        setSelectedOptions(newValue);
-        return onRemove === null || onRemove === void 0 ? void 0 : onRemove(optionValue);
+        var optionValue = getValue(option);
+        onRemove === null || onRemove === void 0 ? void 0 : onRemove(optionValue);
     };
     var handleSelect = function (option) {
-        var currentSelectedOptions = selectedOptions || [];
-        var optionValue = handleGetValue(option);
-        var hasBeenAdded = currentSelectedOptions.find(function (option) { return handleGetValue(option) === optionValue; });
-        if (hasBeenAdded && !disableDeselect) {
+        var optionValue = getValue(option);
+        var isAlreadySelected = value.find(function (opt) { return getValue(opt) === optionValue; });
+        if (isAlreadySelected && !disableDeselect) {
             return handleRemoveItem(option);
         }
-        setSelectedOptions(__spreadArray(__spreadArray([], currentSelectedOptions, true), [option], false));
         onChange === null || onChange === void 0 ? void 0 : onChange(optionValue);
     };
-    var handleGetIsSelected = useCallback(function (option) { return selectedOptions === null || selectedOptions === void 0 ? void 0 : selectedOptions.includes(option); }, [selectedOptions]);
+    var handleGetIsSelected = useCallback(function (option) { return value.some(function (opt) { return getValue(opt) === getValue(option); }); }, [value]);
     var handleClickClear = function () {
-        onChange === null || onChange === void 0 ? void 0 : onChange([]);
-        setSelectedOptions([]);
+        onRemove === null || onRemove === void 0 ? void 0 : onRemove();
     };
-    var handleFirstRender = useCallback(function () {
-        if (value === null || value === undefined)
-            return;
-        var matchedOptions = options === null || options === void 0 ? void 0 : options.filter(function (option) {
-            return value.some(function (selectedOption) { return getValue(option) === selectedOption; });
-        });
-        if (!matchedOptions || matchedOptions === selectedOptions)
-            return;
-        setSelectedOptions(matchedOptions);
-    }, [value, options, getValue]);
-    useEffect(handleFirstRender, [handleFirstRender]);
     var handleToggleOptions = function (e) {
         e.stopPropagation();
         if (disabled)
@@ -115,11 +80,11 @@ export function MultiSelect(_a) {
         setIsOpen(function (prev) { return !prev; });
     };
     var wrapperClass = concatStyles([styles.wrapper, className]);
-    var shouldRenderClearButton = hasClear && selectedOptions.length > 0;
-    return (_jsxs("div", { ref: containerRef, className: wrapperClass, onClick: handleToggleOptions, children: [_jsx(SelectTrigger, { triggerClassname: selectedOptions.length > 0 ? styles.trigger : "", disabled: disabled, shouldRenderSearch: false, searchValue: searchValue, onSearchChange: setSearchValue, children: _jsx(SelectedValues, { getLabel: getLabel, onRemove: handleRemoveItem, placeholder: placeholder, selectedOptions: selectedOptions, disabled: disabled }) }), isOpen && (_jsx(SelectMenu, __assign({ ref: menuRef, options: filteredOptions, onChange: handleSelect, getLabel: getLabel, getValue: getValue, handleGetIsSelected: handleGetIsSelected, animationDirection: animationDirection, asPortal: asPortal, disabled: disabled, keyExtractor: keyExtractor, renderItem: function (_a) {
+    var shouldRenderClearButton = hasClear && value.length > 0;
+    return (_jsxs("div", { ref: containerRef, className: wrapperClass, onClick: handleToggleOptions, children: [_jsx(SelectTrigger, { triggerClassname: value.length > 0 ? styles.trigger : "", disabled: disabled, shouldRenderSearch: false, searchValue: searchValue, onSearchChange: setSearchValue, children: _jsx(SelectedValues, { getLabel: getLabel, onRemove: handleRemoveItem, placeholder: placeholder, selectedOptions: value, disabled: disabled }) }), isOpen && (_jsx(SelectMenu, __assign({ ref: menuRef, options: filteredOptions, onChange: handleSelect, getLabel: getLabel, getValue: getValue, handleGetIsSelected: handleGetIsSelected, animationDirection: animationDirection, asPortal: asPortal, disabled: disabled, keyExtractor: keyExtractor, renderItem: function (_a) {
                     var option = _a.option, isSelected = _a.isSelected, onClick = _a.onClick, key = _a.key;
                     if (renderItem)
                         return renderItem({ option: option, isSelected: isSelected, onClick: onClick, key: key });
                     return (_jsxs(MenuItem, { isSelected: isSelected, onClick: onClick, children: [isSelected ? _jsx(Checked, {}) : _jsx(Unchecked, {}), getLabel(option)] }, key));
-                } }, props, { children: shouldRenderClearButton && (_jsx("span", { onClick: handleClickClear, className: styles.cleanButton, children: "Limpar" })) })))] }));
+                } }, props, { children: shouldRenderClearButton && (_jsx(MenuItem, { isSelected: false, onClick: handleClickClear, className: styles.cleanButton, children: "Limpar" })) })))] }));
 }

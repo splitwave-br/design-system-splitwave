@@ -1,7 +1,7 @@
-// RHFSelect.stories.tsx
 import React from "react";
-import { Meta, StoryFn } from "@storybook/react";
+import { Meta, StoryFn, StoryObj } from "@storybook/react";
 import { useForm, FormProvider } from "react-hook-form";
+import { ThemePreview } from "../../../ThemePreview";
 import { RHFMultiselect, IRHFMultiSelect } from ".";
 
 interface Option {
@@ -14,6 +14,8 @@ const options: Option[] = [
   { id: "2", label: "Opção 2" },
   { id: "3", label: "Opção 3" },
 ];
+
+type Story = StoryObj<typeof RHFMultiselect>;
 
 export default {
   component: RHFMultiselect,
@@ -49,7 +51,9 @@ const FormWrapper = ({
 const Template: StoryFn<IRHFMultiSelect<Option>> = (args) => {
   return (
     <FormWrapper>
-      <RHFMultiselect {...args} />
+      <ThemePreview>
+        <RHFMultiselect {...args} />
+      </ThemePreview>
     </FormWrapper>
   );
 };
@@ -67,4 +71,21 @@ export const WithClearButton = Template.bind({});
 WithClearButton.args = {
   ...Default.args,
   hasClear: true,
+};
+
+export const PreSelected: Story = {
+  render: () => {
+    return (
+      <FormWrapper defaultValue={"2"}>
+        <RHFMultiselect
+          asPortal
+          name="select"
+          options={options}
+          getLabel={(opt) => opt.label}
+          getValue={(opt) => opt.id}
+          placeholder="Selecione uma opção"
+        />
+      </FormWrapper>
+    );
+  },
 };
