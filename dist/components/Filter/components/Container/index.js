@@ -3,7 +3,7 @@ import { jsxs as _jsxs, jsx as _jsx } from "react/jsx-runtime";
 import { FilterFieldsProvider } from "../../hooks/useFields";
 import { Children, cloneElement, useCallback, useEffect, useMemo, useRef, useState, } from "react";
 import { createPortal } from "react-dom";
-import useClickOutside from "../../../../hooks/useClickOutside";
+import { useClickOutside } from "../../../../hooks/useClickOutside";
 import styles from "./styles.module.scss";
 import useWindowSize from "../../../../hooks/useWindowSize";
 import React from "react";
@@ -124,7 +124,7 @@ export var Container = function (_a) {
     }, []);
     useEffect(function () {
         var _a;
-        if (typeof window !== 'undefined') {
+        if (typeof window !== "undefined") {
             var portalElement = shouldPortal
                 ? document.body
                 : ((_a = triggerRef.current) === null || _a === void 0 ? void 0 : _a.parentElement) || document.body;

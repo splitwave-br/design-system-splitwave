@@ -1,0 +1,87 @@
+import React, { forwardRef, Ref } from "react";
+import { concatStyles } from "@/utils/concatStyles";
+import floatingStyles from "../../../../../../hooks/useFloatingElement/styles/styles.module.scss";
+
+import "./variables.scss";
+import "../../../../../Dropdown/Item/variables.scss";
+import styles from "./styles.module.scss";
+
+import { SelectMenuProps } from "../../types";
+import { createPortal } from "react-dom";
+import { MenuItem } from "../MenuItem";
+
+const BaseSelectMenu = <T,>(
+  {
+    handleGetIsSelected,
+    onChange,
+    renderItem,
+    getValue,
+    getLabel,
+    keyExtractor,
+    options,
+    asPortal = false,
+    menuContainerClassname,
+    menuInnerClassname,
+    animationDirection,
+    children,
+    ...props
+  }: SelectMenuProps<T>,
+  ref: React.Ref<HTMLDivElement>,
+) => {
+  const menuStyles = concatStyles([
+    styles.menu,
+    styles[`to${animationDirection}`],
+    floatingStyles[`animateFrom${animationDirection}`],
+    asPortal ? styles.asPortal : "",
+    menuContainerClassname,
+  ]);
+
+  const innerContainerStyles = concatStyles([
+    styles.menuInner,
+    menuInnerClassname,
+  ]);
+
+  const content = (
+    <div ref={ref} className={menuStyles} {...props}>
+      <div className={innerContainerStyles}>
+        {options.length ? (
+          options.map((option) => {
+            const isSelected = handleGetIsSelected(option);
+            const optionValue = getValue(option);
+            const itemKey = keyExtractor ? keyExtractor(option) : optionValue;
+
+            const onClick = (e: React.MouseEvent<HTMLDivElement>) => {
+              e.stopPropagation();
+              onChange(option);
+            };
+
+            if (renderItem)
+              return renderItem({
+                option,
+                key: itemKey,
+                isSelected,
+                onClick,
+              });
+
+            return (
+              <MenuItem isSelected={isSelected} key={itemKey} onClick={onClick}>
+                <span>{getLabel(option)}</span>
+              </MenuItem>
+            );
+          })
+        ) : (
+          <MenuItem isSelected={false} className={styles.option__empty}>
+            Nenhum item encontrado
+          </MenuItem>
+        )}
+        {children}
+      </div>
+    </div>
+  );
+
+  return asPortal ? createPortal(content, document.body) : content;
+};
+
+export const SelectMenu = forwardRef(BaseSelectMenu) as <T>(
+  props: SelectMenuProps<T> & { ref?: Ref<HTMLDivElement> },
+) => JSX.Element;

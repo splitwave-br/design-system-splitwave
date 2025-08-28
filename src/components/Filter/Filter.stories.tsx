@@ -16,9 +16,7 @@ export default {
   },
   decorators: [
     (Story) => {
-      const filterRegister = useFilter({
-        queryUpdater: () => {},
-      });
+      const filterRegister = useFilter();
 
       return (
         <div style={{ height: 500 }}>

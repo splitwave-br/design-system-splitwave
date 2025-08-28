@@ -4,5 +4,5 @@ interface UseClickOutsideProps {
     isActive: boolean;
     exceptionRef?: React.RefObject<HTMLElement>;
 }
-declare const useClickOutside: ({ ref, callback, isActive, exceptionRef, }: UseClickOutsideProps) => void;
-export default useClickOutside;
+export declare const useClickOutside: ({ ref, callback, isActive, exceptionRef, }: UseClickOutsideProps) => void;
+export {};

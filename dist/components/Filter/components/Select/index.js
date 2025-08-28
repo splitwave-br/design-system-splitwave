@@ -6,7 +6,7 @@ import { Form } from "../../../../components/Form";
 import { useFilterFields } from "../../hooks/useFields";
 import { useEffect } from "react";
 export var Select = function (_a) {
-    var getLabel = _a.getLabel, getValueOption = _a.getValue, getId = _a.getId, field = _a.field, label = _a.label, options = _a.options, className = _a.className;
+    var getLabel = _a.getLabel, getValueOption = _a.getValue, field = _a.field, label = _a.label, options = _a.options, className = _a.className;
     var _b = useFilterContext(), setFilter = _b.setFilter, getValue = _b.getValue;
     var registerField = useFilterFields().registerField;
     useEffect(function () {
@@ -15,5 +15,5 @@ export var Select = function (_a) {
     var handleChange = function (option) {
         return setFilter(field, getValueOption(option));
     };
-    return (_jsxs(Form.Field, { className: className, children: [label && _jsx(Form.Label, { children: label }), _jsx(SelectControl, { autoFocus: true, onChange: handleChange, options: options, getLabel: getLabel, getValue: getValueOption, getId: getId, value: getValue(field) || "" })] }));
+    return (_jsxs(Form.Field, { className: className, children: [label && _jsx(Form.Label, { children: label }), _jsx(SelectControl, { autoFocus: true, onChange: handleChange, options: options, getLabel: getLabel, getValue: getValueOption, value: getValue(field) || "" })] }));
 };

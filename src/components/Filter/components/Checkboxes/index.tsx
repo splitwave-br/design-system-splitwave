@@ -80,7 +80,6 @@ export const CheckboxFilters = forwardRef<
               options={options}
               getLabel={getLabel}
               getValue={getOptionValue}
-              getId={getOptionValue}
               value={
                 options.filter((opt) =>
                   selectedValues.includes(getOptionValue(opt)),

@@ -1,11 +1,9 @@
-type TSelect = {
-    getLabel: (option: any) => string;
-    getValue: (option: any) => string;
-    getId?: (option: any) => string;
+export interface FilterSelectProps<T> {
+    getLabel: (option: T) => string;
+    getValue: (option: T) => string;
     field: string;
     label?: string;
-    options: any;
+    options: T[];
     className?: string;
-};
-export declare const Select: ({ getLabel, getValue: getValueOption, getId, field, label, options, className, }: TSelect) => import("react/jsx-runtime").JSX.Element;
-export {};
+}
+export declare const Select: <T>({ getLabel, getValue: getValueOption, field, label, options, className, }: FilterSelectProps<T>) => import("react/jsx-runtime").JSX.Element;

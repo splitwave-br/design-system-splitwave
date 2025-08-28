@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: var(--spaces-1);
+  flex-wrap: wrap;
+
+  &.container__disabled {
+  }
+
+  .option {
+    cursor: pointer;
+
+    max-width: 200px;
+    span {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+.placeholder {
+  color: var(--component-input-default-text);
+}

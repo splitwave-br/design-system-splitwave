@@ -14,7 +14,7 @@ import "react-day-picker/dist/style.css";
 import { adjustHorizontalPosition } from "./utils/adjustHorizontalPosition";
 import { createPortal } from "react-dom";
 import { Button } from "../Button";
-import useClickOutside from "@/hooks/useClickOutside";
+import { useClickOutside } from "@/hooks/useClickOutside";
 
 const defaultClassNames = {
   root: styles.rdpRoot,
