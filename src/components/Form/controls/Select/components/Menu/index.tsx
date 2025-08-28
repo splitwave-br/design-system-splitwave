@@ -17,6 +17,7 @@ const BaseSelectMenu = <T,>(
     renderItem,
     getValue,
     getLabel,
+    keyExtractor,
     options,
     asPortal = false,
     menuContainerClassname,
@@ -47,22 +48,20 @@ const BaseSelectMenu = <T,>(
           options.map((option) => {
             const isSelected = handleGetIsSelected(option);
             const optionValue = getValue(option);
+            const itemKey = keyExtractor ? keyExtractor(option) : optionValue;
 
             const onClick = () => onChange(option);
 
             if (renderItem)
               return renderItem({
                 option,
+                key: itemKey,
                 isSelected,
                 onClick,
               });
 
             return (
-              <MenuItem
-                isSelected={isSelected}
-                key={optionValue}
-                onClick={onClick}
-              >
+              <MenuItem isSelected={isSelected} key={itemKey} onClick={onClick}>
                 <span>{getLabel(option)}</span>
               </MenuItem>
             );

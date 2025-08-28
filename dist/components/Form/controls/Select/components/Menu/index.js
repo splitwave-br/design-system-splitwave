@@ -30,7 +30,7 @@ import styles from "./styles.module.scss";
 import { createPortal } from "react-dom";
 import { MenuItem } from "../MenuItem";
 var BaseSelectMenu = function (_a, ref) {
-    var handleGetIsSelected = _a.handleGetIsSelected, onChange = _a.onChange, renderItem = _a.renderItem, getValue = _a.getValue, getLabel = _a.getLabel, options = _a.options, _b = _a.asPortal, asPortal = _b === void 0 ? false : _b, menuContainerClassname = _a.menuContainerClassname, menuInnerClassname = _a.menuInnerClassname, animationDirection = _a.animationDirection, children = _a.children, props = __rest(_a, ["handleGetIsSelected", "onChange", "renderItem", "getValue", "getLabel", "options", "asPortal", "menuContainerClassname", "menuInnerClassname", "animationDirection", "children"]);
+    var handleGetIsSelected = _a.handleGetIsSelected, onChange = _a.onChange, renderItem = _a.renderItem, getValue = _a.getValue, getLabel = _a.getLabel, keyExtractor = _a.keyExtractor, options = _a.options, _b = _a.asPortal, asPortal = _b === void 0 ? false : _b, menuContainerClassname = _a.menuContainerClassname, menuInnerClassname = _a.menuInnerClassname, animationDirection = _a.animationDirection, children = _a.children, props = __rest(_a, ["handleGetIsSelected", "onChange", "renderItem", "getValue", "getLabel", "keyExtractor", "options", "asPortal", "menuContainerClassname", "menuInnerClassname", "animationDirection", "children"]);
     var menuStyles = concatStyles([
         styles.menu,
         styles["to".concat(animationDirection)],
@@ -45,14 +45,16 @@ var BaseSelectMenu = function (_a, ref) {
     var content = (_jsx("div", __assign({ ref: ref, className: menuStyles }, props, { children: _jsxs("div", { className: innerContainerStyles, children: [options.length ? (options.map(function (option) {
                     var isSelected = handleGetIsSelected(option);
                     var optionValue = getValue(option);
+                    var itemKey = keyExtractor ? keyExtractor(option) : optionValue;
                     var onClick = function () { return onChange(option); };
                     if (renderItem)
                         return renderItem({
                             option: option,
+                            key: itemKey,
                             isSelected: isSelected,
                             onClick: onClick,
                         });
-                    return (_jsx(MenuItem, { isSelected: isSelected, onClick: onClick, children: _jsx("span", { children: getLabel(option) }) }, optionValue));
+                    return (_jsx(MenuItem, { isSelected: isSelected, onClick: onClick, children: _jsx("span", { children: getLabel(option) }) }, itemKey));
                 })) : (_jsx(MenuItem, { isSelected: false, className: styles.option__empty, children: "Nenhum item encontrado" })), children] }) })));
     return asPortal ? createPortal(content, document.body) : content;
 };

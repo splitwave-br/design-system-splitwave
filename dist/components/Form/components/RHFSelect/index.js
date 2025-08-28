@@ -24,10 +24,11 @@ import { jsx as _jsx } from "react/jsx-runtime";
 import { useFormContext } from "react-hook-form";
 import { Select } from "../../controls/Select";
 export var RHFSelect = function (_a) {
-    var getLabel = _a.getLabel, getValue = _a.getValue, options = _a.options, name = _a.name, props = __rest(_a, ["getLabel", "getValue", "options", "name"]);
+    var getLabel = _a.getLabel, getValue = _a.getValue, onChange = _a.onChange, options = _a.options, name = _a.name, props = __rest(_a, ["getLabel", "getValue", "onChange", "options", "name"]);
     var _b = useFormContext(), setValue = _b.setValue, watch = _b.watch;
     var value = watch(name);
     var handleSelect = function (option) {
+        onChange === null || onChange === void 0 ? void 0 : onChange(option);
         if (option) {
             return setValue(name, getValue(option), {
                 shouldValidate: true,

@@ -22,6 +22,7 @@ export function MultiSelect<T>({
   onChange,
   renderItem,
   onRemove,
+  keyExtractor,
   size = 2,
   className,
   options,
@@ -167,15 +168,13 @@ export function MultiSelect<T>({
           animationDirection={animationDirection}
           asPortal={asPortal}
           disabled={disabled}
-          renderItem={({ option, isSelected, onClick }) => {
-            if (renderItem) return renderItem({ option, isSelected, onClick });
+          keyExtractor={keyExtractor}
+          renderItem={({ option, isSelected, onClick, key }) => {
+            if (renderItem)
+              return renderItem({ option, isSelected, onClick, key });
 
             return (
-              <MenuItem
-                isSelected={isSelected}
-                onClick={onClick}
-                key={getValue(option)}
-              >
+              <MenuItem isSelected={isSelected} onClick={onClick} key={key}>
                 {isSelected ? <Checked /> : <Unchecked />}
                 {getLabel(option)}
               </MenuItem>

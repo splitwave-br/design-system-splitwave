@@ -26,6 +26,7 @@ export const Select = <T,>({
   triggerClassname,
   menuContainerClassname,
   menuInnerClassname,
+  keyExtractor,
   getValue,
   onChange,
   getLabel,
@@ -143,6 +144,7 @@ export const Select = <T,>({
           onChange={handleSelect}
           getLabel={getLabel}
           getValue={getValue}
+          keyExtractor={keyExtractor}
           handleGetIsSelected={(option) => option === selectedOption}
           animationDirection={animationDirection}
           asPortal={asPortal}

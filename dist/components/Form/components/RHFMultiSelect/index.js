@@ -33,10 +33,11 @@ import { jsx as _jsx } from "react/jsx-runtime";
 import { useFormContext } from "react-hook-form";
 import { MultiSelect } from "../../controls/MultiSelect";
 export var RHFMultiselect = function (_a) {
-    var getLabel = _a.getLabel, getValue = _a.getValue, options = _a.options, name = _a.name, props = __rest(_a, ["getLabel", "getValue", "options", "name"]);
+    var getLabel = _a.getLabel, getValue = _a.getValue, onChange = _a.onChange, onRemove = _a.onRemove, options = _a.options, name = _a.name, props = __rest(_a, ["getLabel", "getValue", "onChange", "onRemove", "options", "name"]);
     var _b = useFormContext(), watch = _b.watch, setValue = _b.setValue;
     var fieldSelectedValues = watch(name);
     var handleSelect = function (optionValue) {
+        onChange === null || onChange === void 0 ? void 0 : onChange(optionValue);
         var currentValues = fieldSelectedValues !== null && fieldSelectedValues !== void 0 ? fieldSelectedValues : [];
         var isSelected = currentValues === null || currentValues === void 0 ? void 0 : currentValues.includes(optionValue);
         if (isSelected) {
@@ -46,6 +47,7 @@ export var RHFMultiselect = function (_a) {
         setValue(name, __spreadArray(__spreadArray([], currentValues, true), [optionValue], false));
     };
     var handleRemoveValue = function (optionValue) {
+        onRemove === null || onRemove === void 0 ? void 0 : onRemove(optionValue);
         var updatedValues = fieldSelectedValues === null || fieldSelectedValues === void 0 ? void 0 : fieldSelectedValues.filter(function (value) { return value !== optionValue; });
         return setValue(name, updatedValues);
     };

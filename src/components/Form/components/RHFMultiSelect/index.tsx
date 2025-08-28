@@ -3,13 +3,15 @@ import { MultiSelectProps } from "../../controls/MultiSelect/types";
 import { MultiSelect } from "../../controls/MultiSelect";
 
 export interface IRHFMultiSelect<T>
-  extends Omit<MultiSelectProps<T>, "onChange" | "values"> {
+  extends Omit<MultiSelectProps<T>, "values"> {
   name: string;
 }
 
 export const RHFMultiselect = <T,>({
   getLabel,
   getValue,
+  onChange,
+  onRemove,
   options,
   name,
   ...props
@@ -19,6 +21,8 @@ export const RHFMultiselect = <T,>({
   const fieldSelectedValues = watch(name);
 
   const handleSelect = (optionValue: any) => {
+    onChange?.(optionValue);
+
     const currentValues = fieldSelectedValues ?? [];
     const isSelected = currentValues?.includes(optionValue);
 
@@ -32,6 +36,8 @@ export const RHFMultiselect = <T,>({
   };
 
   const handleRemoveValue = (optionValue: any) => {
+    onRemove?.(optionValue);
+
     const updatedValues = fieldSelectedValues?.filter(
       (value: any) => value !== optionValue,
     );

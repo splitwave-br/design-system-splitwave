@@ -44,7 +44,7 @@ import { useFloatingElement } from "../../../../hooks/useFloatingElement/hooks";
 import { useClickOutside } from "../../../../hooks/useClickOutside";
 import { MenuItem } from "../Select/components/MenuItem";
 export function MultiSelect(_a) {
-    var getLabel = _a.getLabel, getValue = _a.getValue, onChange = _a.onChange, renderItem = _a.renderItem, onRemove = _a.onRemove, _b = _a.size, size = _b === void 0 ? 2 : _b, className = _a.className, options = _a.options, _c = _a.placeholder, placeholder = _c === void 0 ? "Selecione" : _c, _d = _a.disableDeselect, disableDeselect = _d === void 0 ? false : _d, disabled = _a.disabled, _e = _a.hasClear, hasClear = _e === void 0 ? true : _e, _f = _a.asPortal, asPortal = _f === void 0 ? false : _f, value = _a.value, props = __rest(_a, ["getLabel", "getValue", "onChange", "renderItem", "onRemove", "size", "className", "options", "placeholder", "disableDeselect", "disabled", "hasClear", "asPortal", "value"]);
+    var getLabel = _a.getLabel, getValue = _a.getValue, onChange = _a.onChange, renderItem = _a.renderItem, onRemove = _a.onRemove, keyExtractor = _a.keyExtractor, _b = _a.size, size = _b === void 0 ? 2 : _b, className = _a.className, options = _a.options, _c = _a.placeholder, placeholder = _c === void 0 ? "Selecione" : _c, _d = _a.disableDeselect, disableDeselect = _d === void 0 ? false : _d, disabled = _a.disabled, _e = _a.hasClear, hasClear = _e === void 0 ? true : _e, _f = _a.asPortal, asPortal = _f === void 0 ? false : _f, value = _a.value, props = __rest(_a, ["getLabel", "getValue", "onChange", "renderItem", "onRemove", "keyExtractor", "size", "className", "options", "placeholder", "disableDeselect", "disabled", "hasClear", "asPortal", "value"]);
     var containerRef = useRef(null);
     var menuRef = useRef(null);
     var _g = useState(false), isOpen = _g[0], setIsOpen = _g[1];
@@ -116,10 +116,10 @@ export function MultiSelect(_a) {
     };
     var wrapperClass = concatStyles([styles.wrapper, className]);
     var shouldRenderClearButton = hasClear && selectedOptions.length > 0;
-    return (_jsxs("div", { ref: containerRef, className: wrapperClass, onClick: handleToggleOptions, children: [_jsx(SelectTrigger, { triggerClassname: selectedOptions.length > 0 ? styles.trigger : "", disabled: disabled, shouldRenderSearch: false, searchValue: searchValue, onSearchChange: setSearchValue, children: _jsx(SelectedValues, { getLabel: getLabel, onRemove: handleRemoveItem, placeholder: placeholder, selectedOptions: selectedOptions, disabled: disabled }) }), isOpen && (_jsx(SelectMenu, __assign({ ref: menuRef, options: filteredOptions, onChange: handleSelect, getLabel: getLabel, getValue: getValue, handleGetIsSelected: handleGetIsSelected, animationDirection: animationDirection, asPortal: asPortal, disabled: disabled, renderItem: function (_a) {
-                    var option = _a.option, isSelected = _a.isSelected, onClick = _a.onClick;
+    return (_jsxs("div", { ref: containerRef, className: wrapperClass, onClick: handleToggleOptions, children: [_jsx(SelectTrigger, { triggerClassname: selectedOptions.length > 0 ? styles.trigger : "", disabled: disabled, shouldRenderSearch: false, searchValue: searchValue, onSearchChange: setSearchValue, children: _jsx(SelectedValues, { getLabel: getLabel, onRemove: handleRemoveItem, placeholder: placeholder, selectedOptions: selectedOptions, disabled: disabled }) }), isOpen && (_jsx(SelectMenu, __assign({ ref: menuRef, options: filteredOptions, onChange: handleSelect, getLabel: getLabel, getValue: getValue, handleGetIsSelected: handleGetIsSelected, animationDirection: animationDirection, asPortal: asPortal, disabled: disabled, keyExtractor: keyExtractor, renderItem: function (_a) {
+                    var option = _a.option, isSelected = _a.isSelected, onClick = _a.onClick, key = _a.key;
                     if (renderItem)
-                        return renderItem({ option: option, isSelected: isSelected, onClick: onClick });
-                    return (_jsxs(MenuItem, { isSelected: isSelected, onClick: onClick, children: [isSelected ? _jsx(Checked, {}) : _jsx(Unchecked, {}), getLabel(option)] }, getValue(option)));
+                        return renderItem({ option: option, isSelected: isSelected, onClick: onClick, key: key });
+                    return (_jsxs(MenuItem, { isSelected: isSelected, onClick: onClick, children: [isSelected ? _jsx(Checked, {}) : _jsx(Unchecked, {}), getLabel(option)] }, key));
                 } }, props, { children: shouldRenderClearButton && (_jsx("span", { onClick: handleClickClear, className: styles.cleanButton, children: "Limpar" })) })))] }));
 }

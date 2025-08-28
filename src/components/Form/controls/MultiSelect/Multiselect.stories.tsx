@@ -1,7 +1,7 @@
-import { useState } from "react";
 import { Meta, StoryFn } from "@storybook/react";
 import { MultiSelect } from ".";
 import { MultiSelectProps } from "./types";
+import { ThemePreview } from "../../../ThemePreview";
 
 interface Option {
   id: string;
@@ -38,9 +38,11 @@ const Template: StoryFn<typeof MultiSelect> = (args) => {
   const typedArgs = args as MultiSelectProps<Option>;
 
   return (
-    <div style={{ margin: 50, maxWidth: 300 }}>
-      <MultiSelect {...typedArgs} />
-    </div>
+    <ThemePreview>
+      <div style={{ margin: 50, maxWidth: 300 }}>
+        <MultiSelect {...typedArgs} />
+      </div>
+    </ThemePreview>
   );
 };
 

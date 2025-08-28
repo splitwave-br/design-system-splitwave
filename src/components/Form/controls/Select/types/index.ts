@@ -25,6 +25,7 @@ export interface SelectMenuProps<T = any> extends BaseSelectProps<T> {
 
 export type TRenderItem<T> = {
   option: T;
+  key: string;
   onClick: () => any;
   isSelected: boolean;
 };
@@ -35,6 +36,7 @@ export interface BaseSelectProps<T>
     "onSelect" | "onChange"
   > {
   options: T[];
+  keyExtractor?: (option: T) => string;
   getLabel: (option: T) => string;
   getValue: (option: T) => any;
   renderItem?: (params: TRenderItem<T>) => React.ReactNode;
