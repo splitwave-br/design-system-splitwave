@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.40.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.39.0...v1.40.0) (2025-08-29)
+
+
+### Features
+
+* **#connect-icon:** Adding connect icon ([8db1f24](https://github.com/splitwave-br/design-system-splitwave/commit/8db1f2466b64877fa57f76e3da24e31bab8ce1e5))
+* **#connect-icon:** Adding connect icon ([dea874a](https://github.com/splitwave-br/design-system-splitwave/commit/dea874ad943b0f8667f37b1615e44a2217d6400e))
+
 ## [1.39.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.38.0...v1.39.0) (2025-08-28)
 
 
