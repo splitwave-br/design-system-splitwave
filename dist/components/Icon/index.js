@@ -114,6 +114,7 @@ import { Minus } from "./components/Minus";
 import CfgRankingFirst from "./components/CfgRankingFirst";
 import CfgRankingSecond from "./components/CfgRankingSecond";
 import CfgRankingThird from "./components/CfgRankingThird";
+import Connect from "./components/Connect";
 var icons = {
     access: Access,
     alert: Alert,
@@ -147,6 +148,7 @@ var icons = {
     "coin-stack": CoinStack,
     config: Config,
     copy: Copy,
+    connect: Connect,
     "credit-card": CreditCard,
     customer: Customer,
     date: Date,
