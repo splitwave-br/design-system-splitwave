@@ -72,6 +72,7 @@ declare const icons: {
     "coin-stack": () => import("react/jsx-runtime").JSX.Element;
     config: () => import("react/jsx-runtime").JSX.Element;
     copy: typeof Copy;
+    connect: () => import("react/jsx-runtime").JSX.Element;
     "credit-card": () => import("react/jsx-runtime").JSX.Element;
     customer: () => import("react/jsx-runtime").JSX.Element;
     date: () => import("react/jsx-runtime").JSX.Element;
