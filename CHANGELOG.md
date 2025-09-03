@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.41.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.40.0...v1.41.0) (2025-09-02)
+
+
+### Features
+
+* **icons:** Add transfer and unlink icons ([0c71ee8](https://github.com/splitwave-br/design-system-splitwave/commit/0c71ee879ed4160b757bdfbb5d57888232cf7137))
+* **icons:** Add transfer and unlink icons ([8df38c4](https://github.com/splitwave-br/design-system-splitwave/commit/8df38c4953f6e996ddf999e95fbbb98d2faf09f2))
+
 ## [1.40.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.39.0...v1.40.0) (2025-08-29)
 
 
