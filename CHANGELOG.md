@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.41.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.41.0...v1.41.1) (2025-09-03)
+
+
+### Bug Fixes
+
+* **icons:** Add missing icons import ([ea3a23b](https://github.com/splitwave-br/design-system-splitwave/commit/ea3a23bdc2c017cb1b4ecfb60566f25b51d9c9ec))
+* **icons:** Add missing icons import ([925abf8](https://github.com/splitwave-br/design-system-splitwave/commit/925abf8d225f1cab3f127d2e9420902bdeb020bf))
+
 ## [1.41.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.40.0...v1.41.0) (2025-09-02)
 
 
