@@ -115,6 +115,8 @@ import CfgRankingFirst from "./components/CfgRankingFirst";
 import CfgRankingSecond from "./components/CfgRankingSecond";
 import CfgRankingThird from "./components/CfgRankingThird";
 import Connect from "./components/Connect";
+import { Unlink } from "./components/Unlink";
+import { Transfer } from "./components/Transfer";
 var icons = {
     access: Access,
     alert: Alert,
@@ -231,6 +233,8 @@ var icons = {
     drag: Drag,
     time: Time,
     minus: Minus,
+    unlink: Unlink,
+    transfer: Transfer,
 };
 export var Icon = function (_a) {
     var name = _a.name, _b = _a.size, size = _b === void 0 ? 2 : _b, className = _a.className;

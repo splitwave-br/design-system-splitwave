@@ -114,6 +114,8 @@ import CfgRankingFirst from "./components/CfgRankingFirst";
 import CfgRankingSecond from "./components/CfgRankingSecond";
 import CfgRankingThird from "./components/CfgRankingThird";
 import Connect from "./components/Connect";
+import { Unlink } from "./components/Unlink";
+import { Transfer } from "./components/Transfer";
 
 const icons = {
   access: Access,
@@ -231,6 +233,8 @@ const icons = {
   drag: Drag,
   time: Time,
   minus: Minus,
+  unlink: Unlink,
+  transfer: Transfer,
 };
 
 export type TIconSizes = "nano" | "micro" | 1 | 2 | 3 | 4;
