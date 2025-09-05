@@ -29,8 +29,9 @@ import { useClickOutside } from "../../../../hooks/useClickOutside";
 import { concatStyles } from "../../../../utils/concatStyles";
 import { SelectTrigger } from "./components/Trigger";
 import { SelectedValue } from "./components/SelectedValue";
+import { useScrollOutside } from "../../../../hooks/useScrollOutside";
 export var Select = function (_a) {
-    var _b = _a.asPortal, asPortal = _b === void 0 ? false : _b, name = _a.name, options = _a.options, prefix = _a.prefix, _c = _a.placeholder, placeholder = _c === void 0 ? "Selecione" : _c, exceptionRef = _a.exceptionRef, _d = _a.enableDeselect, enableDeselect = _d === void 0 ? true : _d, _e = _a.searchable, searchable = _e === void 0 ? false : _e, value = _a.value, disabled = _a.disabled, className = _a.className, triggerClassname = _a.triggerClassname, menuContainerClassname = _a.menuContainerClassname, menuInnerClassname = _a.menuInnerClassname, keyExtractor = _a.keyExtractor, getValue = _a.getValue, onChange = _a.onChange, getLabel = _a.getLabel, renderItem = _a.renderItem, props = __rest(_a, ["asPortal", "name", "options", "prefix", "placeholder", "exceptionRef", "enableDeselect", "searchable", "value", "disabled", "className", "triggerClassname", "menuContainerClassname", "menuInnerClassname", "keyExtractor", "getValue", "onChange", "getLabel", "renderItem"]);
+    var _b = _a.asPortal, asPortal = _b === void 0 ? false : _b, name = _a.name, options = _a.options, prefix = _a.prefix, _c = _a.placeholder, placeholder = _c === void 0 ? "Selecione" : _c, exceptionRef = _a.exceptionRef, _d = _a.enableDeselect, enableDeselect = _d === void 0 ? true : _d, _e = _a.searchable, searchable = _e === void 0 ? false : _e, value = _a.value, disabled = _a.disabled, className = _a.className, triggerClassname = _a.triggerClassname, menuContainerClassname = _a.menuContainerClassname, menuInnerClassname = _a.menuInnerClassname, scrollStrategy = _a.scrollStrategy, keyExtractor = _a.keyExtractor, getValue = _a.getValue, onChange = _a.onChange, getLabel = _a.getLabel, renderItem = _a.renderItem, props = __rest(_a, ["asPortal", "name", "options", "prefix", "placeholder", "exceptionRef", "enableDeselect", "searchable", "value", "disabled", "className", "triggerClassname", "menuContainerClassname", "menuInnerClassname", "scrollStrategy", "keyExtractor", "getValue", "onChange", "getLabel", "renderItem"]);
     var containerRef = useRef(null);
     var menuRef = useRef(null);
     var _f = useState(false), isOpen = _f[0], setIsOpen = _f[1];
@@ -47,6 +48,12 @@ export var Select = function (_a) {
         isActive: isOpen,
         ref: containerRef,
         exceptionRef: menuRef,
+    });
+    useScrollOutside({
+        containerRef: containerRef,
+        exceptionRef: menuRef,
+        isActive: isOpen && scrollStrategy === 'close',
+        onTrigger: function () { return setIsOpen(false); }
     });
     var filteredOptions = useMemo(function () {
         if (!searchable)

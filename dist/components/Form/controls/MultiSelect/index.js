@@ -34,8 +34,9 @@ import { SelectMenu } from "../Select/components/Menu";
 import { useFloatingElement } from "../../../../hooks/useFloatingElement/hooks";
 import { useClickOutside } from "../../../../hooks/useClickOutside";
 import { MenuItem } from "../Select/components/MenuItem";
+import { useScrollOutside } from "../../../../hooks/useScrollOutside";
 export function MultiSelect(_a) {
-    var getLabel = _a.getLabel, getValue = _a.getValue, onChange = _a.onChange, renderItem = _a.renderItem, onRemove = _a.onRemove, keyExtractor = _a.keyExtractor, _b = _a.size, size = _b === void 0 ? 2 : _b, className = _a.className, options = _a.options, _c = _a.placeholder, placeholder = _c === void 0 ? "Selecione" : _c, _d = _a.disableDeselect, disableDeselect = _d === void 0 ? false : _d, disabled = _a.disabled, _e = _a.hasClear, hasClear = _e === void 0 ? true : _e, _f = _a.asPortal, asPortal = _f === void 0 ? false : _f, _g = _a.value, value = _g === void 0 ? [] : _g, props = __rest(_a, ["getLabel", "getValue", "onChange", "renderItem", "onRemove", "keyExtractor", "size", "className", "options", "placeholder", "disableDeselect", "disabled", "hasClear", "asPortal", "value"]);
+    var getLabel = _a.getLabel, getValue = _a.getValue, onChange = _a.onChange, renderItem = _a.renderItem, onRemove = _a.onRemove, keyExtractor = _a.keyExtractor, _b = _a.size, size = _b === void 0 ? 2 : _b, scrollStrategy = _a.scrollStrategy, className = _a.className, options = _a.options, _c = _a.placeholder, placeholder = _c === void 0 ? "Selecione" : _c, _d = _a.disableDeselect, disableDeselect = _d === void 0 ? false : _d, disabled = _a.disabled, _e = _a.hasClear, hasClear = _e === void 0 ? true : _e, _f = _a.asPortal, asPortal = _f === void 0 ? false : _f, _g = _a.value, value = _g === void 0 ? [] : _g, props = __rest(_a, ["getLabel", "getValue", "onChange", "renderItem", "onRemove", "keyExtractor", "size", "scrollStrategy", "className", "options", "placeholder", "disableDeselect", "disabled", "hasClear", "asPortal", "value"]);
     var containerRef = useRef(null);
     var menuRef = useRef(null);
     var _h = useState(false), isOpen = _h[0], setIsOpen = _h[1];
@@ -51,6 +52,12 @@ export function MultiSelect(_a) {
         isActive: isOpen,
         ref: containerRef,
         exceptionRef: menuRef,
+    });
+    useScrollOutside({
+        containerRef: containerRef,
+        exceptionRef: menuRef,
+        isActive: isOpen && scrollStrategy === 'close',
+        onTrigger: function () { return setIsOpen(false); }
     });
     var filteredOptions = useMemo(function () {
         return options.filter(function (option) {
