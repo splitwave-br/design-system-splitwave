@@ -2,6 +2,9 @@ import { TIcons } from "@/components/Icon";
 import { FloatingDirection } from "@/hooks/useFloatingElement/hooks";
 import { RefObject } from "react";
 
+export type ScrollStrategy = "none" | "close";
+
+
 export interface SelectProps<T = any> extends BaseSelectProps<T> {
   searchable?: boolean;
   exceptionRef?: RefObject<HTMLElement> | undefined;
@@ -12,6 +15,7 @@ export interface SelectProps<T = any> extends BaseSelectProps<T> {
   menuContainerClassname?: string;
   menuInnerClassname?: string;
   onChange?: (option: T | undefined) => void;
+  scrollStrategy?:ScrollStrategy
 }
 
 export interface SelectMenuProps<T = any> extends BaseSelectProps<T> {
