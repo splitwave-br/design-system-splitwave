@@ -1,4 +1,4 @@
-import { BaseSelectProps, TRenderItem } from "../../Select/types";
+import { BaseSelectProps, ScrollStrategy } from "../../Select/types";
 
 export interface MultiSelectProps<T> extends Omit<BaseSelectProps<T>, "value"> {
   value: T[];
@@ -6,4 +6,5 @@ export interface MultiSelectProps<T> extends Omit<BaseSelectProps<T>, "value"> {
   hasClear?: boolean;
   onChange?: (optionValue: any) => void;
   onRemove?: (optionValue?: any) => void;
+  scrollStrategy?: ScrollStrategy
 }
