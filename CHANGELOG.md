@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.41.2](https://github.com/splitwave-br/design-system-splitwave/compare/v1.41.1...v1.41.2) (2025-09-10)
+
+
+### Bug Fixes
+
+* **floating-menu:** Add scroll strategy prop ([1ec74c0](https://github.com/splitwave-br/design-system-splitwave/commit/1ec74c0dfeecc73f328bce1185b709eb0589bce2))
+* **floating-menu:** Add scroll strategy prop ([5422e18](https://github.com/splitwave-br/design-system-splitwave/commit/5422e18c9932359656e9134a21c708169c2ffd64))
+
 ## [1.41.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.41.0...v1.41.1) (2025-09-03)
 
 
