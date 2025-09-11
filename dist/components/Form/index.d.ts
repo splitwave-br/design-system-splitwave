@@ -9,4 +9,6 @@ export declare const Form: {
     Checkbox: typeof RHFCheckbox;
     Select: <T>({ getLabel, getValue, onChange, options, name, ...props }: import(".").IRHFSelect<T>) => import("react/jsx-runtime").JSX.Element;
     MultiSelect: <T>({ getLabel, getValue, onChange, onRemove, options, name, ...props }: import(".").IRHFMultiSelect<T>) => import("react/jsx-runtime").JSX.Element;
+    Radio: ({ label, name, variant, className, id, value, onSelect, }: import(".").RHFRadioInputProps) => import("react/jsx-runtime").JSX.Element;
+    RadioGroup: ({ name, options, variant, className, onSelect, }: import(".").RHFRadioGroupProps) => import("react/jsx-runtime").JSX.Element;
 };
