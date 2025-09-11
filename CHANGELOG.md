@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.42.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.41.2...v1.42.0) (2025-09-11)
+
+
+### Features
+
+* **#397:** Add new radio components ([f3632db](https://github.com/splitwave-br/design-system-splitwave/commit/f3632db0afeba10209f1b895cba66b5380d689f1))
+* **#397:** Add new radio components ([7991fc6](https://github.com/splitwave-br/design-system-splitwave/commit/7991fc66aa863f72496353ac288ba2820704a4f2))
+
 ## [1.41.2](https://github.com/splitwave-br/design-system-splitwave/compare/v1.41.1...v1.41.2) (2025-09-10)
 
 
