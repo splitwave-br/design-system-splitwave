@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useMemo, useRef } from "react";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 
 import styles from "./styles.module.scss";
 import { concatStyles } from "@/utils/concatStyles";

@@ -1,5 +1,4 @@
 .variant__default {
-  // Light theme
   --radio-border-default: var(--colors-gray-500);
   --radio-border-selected: var(--colors-brand-400);
   --radio-bg-default: transparent;
@@ -7,7 +6,6 @@
 }
 
 .dark-theme .variant__default {
-  // Dark theme
   --radio-border-default: var(--colors-dark-gray-500);
   --radio-border-selected: var(--colors-brand-400);
   --radio-bg-default: transparent;
@@ -15,7 +13,6 @@
 }
 
 .variant__success {
-  // Light theme
   --radio-border-default: var(--colors-gray-500);
   --radio-border-selected: var(--colors-success-500);
   --radio-bg-default: transparent;
@@ -23,7 +20,6 @@
 }
 
 .dark-theme .variant__success {
-  // Dark theme
   --radio-border-default: var(--colors-dark-gray-500);
   --radio-border-selected: var(--colors-success-500);
   --radio-bg-default: transparent;
