@@ -116,6 +116,8 @@ import CfgRankingThird from "./components/CfgRankingThird";
 import Connect from "./components/Connect";
 import { Unlink } from "./components/Unlink";
 import { Transfer } from "./components/Transfer";
+import Subscriptions from "./components/Subscription";
+import Subscription from "./components/Subscription";
 
 const icons = {
   access: Access,
@@ -235,6 +237,7 @@ const icons = {
   minus: Minus,
   unlink: Unlink,
   transfer: Transfer,
+  subscription: Subscription
 };
 
 export type TIconSizes = "nano" | "micro" | 1 | 2 | 3 | 4;
