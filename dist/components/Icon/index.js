@@ -118,6 +118,8 @@ import Connect from "./components/Connect";
 import { Unlink } from "./components/Unlink";
 import { Transfer } from "./components/Transfer";
 import { Conversation } from "./components/Conversation";
+import Subscription from "./components/Subscription";
+
 var icons = {
     access: Access,
     alert: Alert,
@@ -237,6 +239,7 @@ var icons = {
     unlink: Unlink,
     transfer: Transfer,
     conversation: Conversation,
+    subscription: Subscription,
 };
 export var Icon = function (_a) {
     var name = _a.name, _b = _a.size, size = _b === void 0 ? 2 : _b, className = _a.className;
