@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.43.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.42.0...v1.43.0) (2025-09-22)
+
+
+### Features
+
+* **icons:** Add subscription icon ([05e4f31](https://github.com/splitwave-br/design-system-splitwave/commit/05e4f319dd81cd78c3cff80fba05705fe702c975))
+* **icons:** Add subscription icon ([be0c9be](https://github.com/splitwave-br/design-system-splitwave/commit/be0c9be1e8939dd6de03eb004f3a3db8cff4b207))
+
+
+### Bug Fixes
+
+* **icon:** Fix alerts and colors ([3a04a9f](https://github.com/splitwave-br/design-system-splitwave/commit/3a04a9ff2dec58c2fadb9aaafe0b7f5cac730c6f))
+
 ## [1.42.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.41.2...v1.42.0) (2025-09-11)
 
 
