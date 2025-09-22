@@ -157,6 +157,7 @@ declare const icons: {
     minus: typeof Minus;
     unlink: () => import("react/jsx-runtime").JSX.Element;
     transfer: () => import("react/jsx-runtime").JSX.Element;
+    conversation: () => import("react/jsx-runtime").JSX.Element;
 };
 export type TIconSizes = "nano" | "micro" | 1 | 2 | 3 | 4;
 export type TIcons = keyof typeof icons;
