@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.44.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.43.0...v1.44.0) (2025-09-22)
+
+
+### Features
+
+* **icons:** Add conversation icon ([79d17e3](https://github.com/splitwave-br/design-system-splitwave/commit/79d17e3f064dfce1741a3f48dd6a67fc200248e9))
+* **icons:** Add conversation icon ([b948adf](https://github.com/splitwave-br/design-system-splitwave/commit/b948adfe8d0be261803240f1f00bce93997a0241))
+
 ## [1.43.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.42.0...v1.43.0) (2025-09-22)
 
 
