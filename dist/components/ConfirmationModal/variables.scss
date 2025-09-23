@@ -1,0 +1,13 @@
+.light-theme {
+  --icon-highlight-blue-light-background: var(--colors-blue-light-100);
+  --icon-highlight-blue-light: var(--colors-blue-light-600);
+  --icon-highlight-red-background: var(--colors-error-200);
+  --icon-highlight-red: var(--colors-error-500);
+}
+
+.dark-theme {
+  --icon-highlight-blue-light-background: var(--colors-blue-light-900);
+  --icon-highlight-blue-light: var(--colors-blue-light-300);
+  --icon-highlight-red-background: var(--colors-error-700);
+  --icon-highlight-red: var(--colors-error-200);
+}

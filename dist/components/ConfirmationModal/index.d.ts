@@ -1,5 +1,6 @@
 import { TButtonVariants } from "../../components/Button";
 import { TIcons } from "../Icon";
+import './variables.scss';
 interface TConfirmationModalIcon {
     name: TIcons;
     variant: "default" | "danger";
