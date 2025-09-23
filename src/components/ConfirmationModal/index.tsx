@@ -3,6 +3,8 @@ import { Modal } from "@/components/Modal";
 import { Button, TButtonVariants } from "@/components/Button";
 import { useModal } from "@/components/Modal/hooks/useModal";
 import { Icon, TIcons } from "../Icon";
+import './variables.scss'
+
 
 interface TConfirmationModalIcon {
   name: TIcons;
@@ -18,6 +20,7 @@ export interface ConfirmationModalProps {
   confirmationText: string;
   actionVariant?: TButtonVariants;
 }
+
 export const ConfirmationModal = ({
   title,
   confirmationText,
@@ -42,6 +45,7 @@ export const ConfirmationModal = ({
     styles.icon,
     icon ? styles[`variant-${icon.variant}`] : "",
   ].join(" ");
+  
   return (
     <Modal.Wrapper title={title}>
       <Modal.Body className={styles.bodyWrapper}>
@@ -58,10 +62,10 @@ export const ConfirmationModal = ({
         </div>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={handleClose} variant="tertiary">
+        <Button size="large" onClick={handleClose} variant="tertiary">
           Cancelar
         </Button>
-        <Button variant={actionVariant} onClick={handleConfirm}>
+        <Button  size="large" variant={actionVariant} onClick={handleConfirm}>
           {confirmationText}
         </Button>
       </Modal.Footer>

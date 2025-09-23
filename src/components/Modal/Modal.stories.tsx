@@ -3,15 +3,18 @@ import { Button } from "@/components/Button";
 import { ModalProvider, useModal } from "./hooks/useModal"; // Ajuste o caminho conforme necessário
 import { Modal } from "./index";
 import ConfirmationModal from "../ConfirmationModal"; // Ajuste o caminho conforme necessário
+import { ThemePreview } from "../ThemePreview";
 
 export default {
   title: "Components/Modal",
   component: Modal.Wrapper,
   decorators: [
     (Story) => (
+      <ThemePreview>
       <ModalProvider>
         <Story />
       </ModalProvider>
+      </ThemePreview>
     ),
   ],
 } as Meta;
@@ -71,7 +74,7 @@ export const ModalWithFooterActions: StoryFn = () => {
           <p>Modal with custom footer actions.</p>
           <Modal.Divider />
           <Modal.Footer>
-            <Button variant="outline" onClick={useModal().closeModal}>
+            <Button variant="tertiary" onClick={useModal().closeModal}>
               Cancel
             </Button>
             <Button>Confirm</Button> {/* Confirm does not close the modal */}
@@ -88,7 +91,7 @@ const FooterActionsModalContent = () => (
       <p>Modal with custom footer actions.</p>
       <Modal.Divider />
       <Modal.Footer>
-        <Button variant="outline" onClick={useModal().closeModal}>
+        <Button variant="tertiary" onClick={useModal().closeModal}>
           Cancel
         </Button>
         <Button>Confirm</Button> {/* Confirm does not close the modal */}
@@ -102,7 +105,7 @@ export const BasicConfirmationModal: StoryFn = () => {
     <div>
       <ConfirmationModal
         icon={{
-          name: "billing",
+          name: "transfer",
           variant: "danger",
         }}
         title="Are you sure?"
