@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.44.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.44.0...v1.44.1) (2025-09-23)
+
+
+### Bug Fixes
+
+* **confirmation-modal:** Fix confirmation modal styles ([3c44028](https://github.com/splitwave-br/design-system-splitwave/commit/3c44028b8eaf8f23386452e0f153089146bc4b95))
+* **confirmation-modal:** Fix confirmation modal styles ([f74d52b](https://github.com/splitwave-br/design-system-splitwave/commit/f74d52b53544638dbb9730bb991aea9d4be89148))
+
 ## [1.44.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.43.0...v1.44.0) (2025-09-22)
 
 
