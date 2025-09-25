@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  width: var(--aside-width);
+  padding: var(--spaces-4) 0;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-shrink: 0;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+
+  border-right: 1px solid var(--aside-border-color);
+  background: var(--aside-background);
+  gap: var(--spaces-3);
+}

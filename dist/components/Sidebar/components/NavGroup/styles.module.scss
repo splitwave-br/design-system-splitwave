@@ -1,0 +1,25 @@
+.wrapper {
+  width: 100%;
+}
+
+.routeWrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--spaces-1);
+  flex: 1;
+}
+
+.wrapperItems {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spaces-1);
+  overflow: hidden;
+
+  transition:
+    max-height 0.3s,
+    padding 0.3s;
+}
+
+.wrapperItems__opened {
+  padding: var(--spaces-micro) 0;
+}

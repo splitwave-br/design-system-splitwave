@@ -1,0 +1,15 @@
+.footer {
+  display: flex;
+  align-items: center;
+  gap: var(--spaces-1);
+
+  width: 100%;
+  height: var(--spaces-6);
+  padding: 0 var(--aside-nav-section-padding);
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  background: var(--component-sidebar-footer-background);
+}
