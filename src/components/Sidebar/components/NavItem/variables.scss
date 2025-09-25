@@ -1,0 +1,26 @@
+:root {
+  --menu-item-spacing: var(--spaces-1) var(--spaces-3);
+  --menu-item-sub-spacing: var(--spaces-1)
+    calc(var(--spaces-micro) + var(--spaces-2));
+  --menu-item-gap: var(--spaces-1);
+}
+
+.light-theme {
+  --menu-item-color: var(--colors-gray-500);
+  --menu-item-color-active: var(--colors-gray-900);
+  --menu-item-background: linear-gradient(
+    to right,
+    #fff,
+    var(--colors-light-gray-200)
+  );
+}
+
+.dark-theme {
+  --menu-item-color: var(--colors-dark-gray-500);
+  --menu-item-color-active: #fff;
+  --menu-item-background: linear-gradient(
+    to right,
+    var(--colors-dark-gray-800),
+    var(--colors-dark-gray-600)
+  );
+}

@@ -1,0 +1,51 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--menu-item-gap);
+  padding: var(--menu-item-spacing);
+  font-size: var(--menu-font-size);
+  color: var(--menu-item-color);
+  text-decoration: none;
+  width: 100%;
+  cursor: pointer;
+
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+  will-change: background-color, color;
+
+  &.noIcon {
+    padding: var(--menu-item-sub-spacing);
+  }
+
+  &.disabled {
+    opacity: 0.4;
+    cursor: not-allowed !important;
+  }
+
+  &.active,
+  &:not(.disabled):hover {
+    border-radius: calc(var(--border-radius-3) + var(--border-radius-1));
+    color: var(--menu-item-color-active);
+    background: var(--menu-item-background);
+  }
+}
+
+.active {
+  .icon {
+    color: var(--colors-brand-400);
+  }
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 6px;
+  margin: 0 var(--spaces-1);
+
+  background-color: var(--colors-gray-400);
+
+  .active & {
+    background: var(--colors-brand-400);
+  }
+}

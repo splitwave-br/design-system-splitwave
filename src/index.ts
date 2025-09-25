@@ -67,3 +67,6 @@ export { useClickOutside } from "./hooks/useClickOutside";
 export { useDebounceValue } from "./hooks/useDebounceValue";
 export { useToggle } from "./hooks/useToggle";
 export { useScrollOutside } from "./hooks/useScrollOutside";
+
+// Sidebar
+export { Sidebar } from "./components/Sidebar";

@@ -1,0 +1,16 @@
+:root {
+  --aside-width: 260px;
+  --aside-nav-section-padding: var(--spaces-2);
+}
+
+.light-theme {
+  --aside-background: #fff;
+  --aside-border-color: var(--colors-gray-200);
+  --component-sidebar-footer-background: var(--colors-light-gray-200);
+}
+
+.dark-theme {
+  --aside-background: var(--colors-dark-gray-900);
+  --aside-border-color: var(--colors-dark-gray-700);
+  --component-sidebar-footer-background: var(--colors-dark-gray-700);
+}
