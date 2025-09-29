@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.45.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.44.1...v1.45.0) (2025-09-29)
+
+
+### Features
+
+* **#12:** Add sidebar component ([ec4ea31](https://github.com/splitwave-br/design-system-splitwave/commit/ec4ea31326565a3581ca4077edf59ba874d9b452))
+* **#12:** Add sidebar component ([fe8a0ba](https://github.com/splitwave-br/design-system-splitwave/commit/fe8a0baa0ee8c2e427d2aa62ff6d1eef3745762a))
+
 ## [1.44.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.44.0...v1.44.1) (2025-09-23)
 
 
