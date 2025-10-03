@@ -1,9 +1,16 @@
 "use client";
 import { Button, ButtonProps } from "@/components/Button";
-import { forwardRef } from "react";
+import { forwardRef, ReactNode, Ref } from "react";
 
-export interface TriggerProps extends ButtonProps {
-  children: any;
+type OmittedButtonProps = Omit<ButtonProps, "children">;
+
+export interface TriggerProps extends OmittedButtonProps {
+  children:
+    | ReactNode
+    | ((
+        props: OmittedButtonProps & { isOpen?: boolean },
+        ref: Ref<HTMLButtonElement>,
+      ) => ReactNode);
   isOpen?: boolean;
 }
 
@@ -13,7 +20,7 @@ const Trigger = forwardRef<HTMLButtonElement, TriggerProps>(
     ref,
   ) => {
     if (typeof children === "function") {
-      return children(props, ref);
+      return children({ ...props, isOpen }, ref);
     }
 
     return (

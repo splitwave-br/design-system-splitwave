@@ -1,4 +1,3 @@
-"use client";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -22,14 +21,10 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 import { jsx as _jsx } from "react/jsx-runtime";
-import { Button } from "../../../components/Button";
-import { forwardRef } from "react";
-var Trigger = forwardRef(function (_a, ref) {
-    var children = _a.children, isOpen = _a.isOpen, _b = _a.variant, variant = _b === void 0 ? "tertiary" : _b, _c = _a.size, size = _c === void 0 ? "medium" : _c, props = __rest(_a, ["children", "isOpen", "variant", "size"]);
-    if (typeof children === "function") {
-        return children(__assign(__assign({}, props), { isOpen: isOpen }), ref);
-    }
-    return (_jsx(Button, __assign({ variant: variant, size: size, ref: ref }, props, { children: children })));
-});
-Trigger.displayName = "Trigger";
-export default Trigger;
+import { RotatingIcon } from "../../../components/RotatingIcon";
+import { useDropdown } from "../hooks/useDropdown";
+export var Arrow = function (_a) {
+    var props = __rest(_a, []);
+    var isOpen = useDropdown().isOpen;
+    return _jsx(RotatingIcon, __assign({ isOpen: isOpen }, props));
+};
