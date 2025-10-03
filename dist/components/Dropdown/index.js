@@ -1,3 +1,4 @@
+import { Arrow } from "./Arrow";
 import Container from "./Container";
 import Divider from "./Divider";
 import Item from "./Item";
@@ -9,4 +10,5 @@ export var Dropdown = {
     Menu: Menu,
     Divider: Divider,
     Item: Item,
+    Arrow: Arrow,
 };

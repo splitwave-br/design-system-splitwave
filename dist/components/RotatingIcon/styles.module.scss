@@ -1,0 +1,8 @@
+.icon {
+  transition: transform 0.3s ease-in-out;
+  transform: rotate(0deg);
+
+  &.isOpen {
+    transform: rotate(180deg);
+  }
+}
