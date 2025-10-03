@@ -162,7 +162,7 @@ declare const icons: {
 };
 export type TIconSizes = "nano" | "micro" | 1 | 2 | 3 | 4;
 export type TIcons = keyof typeof icons;
-type TIcon = {
+export type TIcon = {
     name: TIcons;
     size?: TIconSizes;
     className?: string;
