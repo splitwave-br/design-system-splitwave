@@ -27,7 +27,7 @@ import { forwardRef } from "react";
 var Trigger = forwardRef(function (_a, ref) {
     var children = _a.children, isOpen = _a.isOpen, _b = _a.variant, variant = _b === void 0 ? "tertiary" : _b, _c = _a.size, size = _c === void 0 ? "medium" : _c, props = __rest(_a, ["children", "isOpen", "variant", "size"]);
     if (typeof children === "function") {
-        return children(props, ref);
+        return children(__assign(__assign({}, props), { isOpen: isOpen }), ref);
     }
     return (_jsx(Button, __assign({ variant: variant, size: size, ref: ref }, props, { children: children })));
 });
