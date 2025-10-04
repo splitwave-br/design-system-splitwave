@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.45.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.45.0...v1.45.1) (2025-10-04)
+
+
+### Bug Fixes
+
+* **filter-responsive:** Add classname extension ([0e1c8d9](https://github.com/splitwave-br/design-system-splitwave/commit/0e1c8d911b39db5075ef30eac6957c6089ebb738))
+* **filter-responsive:** Add classname extension ([a5f84aa](https://github.com/splitwave-br/design-system-splitwave/commit/a5f84aaddd5a3a8b4ab8e0e60484bd23593bd5fb))
+
 ## [1.45.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.44.1...v1.45.0) (2025-09-29)
 
 
