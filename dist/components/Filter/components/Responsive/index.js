@@ -8,7 +8,7 @@ import { useFilterContext } from "../../hooks/useFilter";
 import { Button } from "../../../../components/Button";
 import useWindowSize from "../../../../hooks/useWindowSize";
 export var Responsive = function (_a) {
-    var children = _a.children, wrapperFiltersClassName = _a.wrapperFiltersClassName;
+    var children = _a.children, wrapperFiltersClassName = _a.wrapperFiltersClassName, wrapperFiltersContentClassName = _a.wrapperFiltersContentClassName;
     var isMobile = useWindowSize().isMobile;
     var _b = useState(false), isOpen = _b[0], setIsOpen = _b[1];
     var _c = useFilterContext(), filter = _c.filter, getIsActive = _c.getIsActive, cleanAll = _c.cleanAll;
@@ -68,6 +68,7 @@ export var Responsive = function (_a) {
                     isOpen ? styles.wrapperFiltersOpened : "",
                 ]), children: [_jsxs("div", { className: styles.header, children: [_jsx("h3", { children: "Filtros" }), _jsx("button", { onClick: function () { return cleanAll(); }, className: styles.cleanButton, children: "Limpar filtros" })] }), _jsx("div", { className: concatStyles([
                             styles.wrapperFiltersContent,
+                            wrapperFiltersContentClassName,
                             isOpen ? styles.wrapperFiltersContentOpened : "",
                         ]), children: renderChildren }), _jsx("div", { className: styles.actionsWrapper, onClick: function () { return setIsOpen(false); }, children: _jsx(Button, { children: "Voltar" }) })] })] }));
 };
