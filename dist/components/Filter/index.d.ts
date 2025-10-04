@@ -18,7 +18,7 @@ export declare const Filter: {
         isEjected?: boolean;
     } & import("react").RefAttributes<HTMLDivElement>>;
     Wrapper: ({ children, register }: import("./hooks/useFilter").IFilterProviderProps) => import("react/jsx-runtime").JSX.Element;
-    Responsive: ({ children, wrapperFiltersClassName, }: import("./components/Responsive").ResponsiveProps) => import("react/jsx-runtime").JSX.Element;
+    Responsive: ({ children, wrapperFiltersClassName, wrapperFiltersContentClassName, }: import("./components/Responsive").ResponsiveProps) => import("react/jsx-runtime").JSX.Element;
     Field: ({ field, label, mask }: {
         field: string;
         label?: string;

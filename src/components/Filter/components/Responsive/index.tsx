@@ -11,11 +11,13 @@ import useWindowSize from "@/hooks/useWindowSize";
 export type ResponsiveProps = {
   children: React.ReactNode;
   wrapperFiltersClassName?: string;
+  wrapperFiltersContentClassName?: string;
 };
 
 export const Responsive = ({
   children,
   wrapperFiltersClassName,
+  wrapperFiltersContentClassName,
 }: ResponsiveProps) => {
   const { isMobile } = useWindowSize();
   const [isOpen, setIsOpen] = useState(false);
@@ -109,6 +111,7 @@ export const Responsive = ({
         <div
           className={concatStyles([
             styles.wrapperFiltersContent,
+            wrapperFiltersContentClassName,
             isOpen ? styles.wrapperFiltersContentOpened : "",
           ])}
         >
