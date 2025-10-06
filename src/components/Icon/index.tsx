@@ -119,6 +119,8 @@ import { Transfer } from "./components/Transfer";
 import { Conversation } from "./components/Conversation";
 import Subscriptions from "./components/Subscription";
 import Subscription from "./components/Subscription";
+import { BarCode01StrokeRounded } from "./components/BarCode01StrokeRounded";
+import KeyOutline from "./components/KeyOutline";
 
 const icons = {
   access: Access,
@@ -240,6 +242,8 @@ const icons = {
   transfer: Transfer,
   conversation: Conversation,
   subscription: Subscription,
+  ['bar-code-01-stroke-rounded']: BarCode01StrokeRounded,
+  ['key-outline']: KeyOutline
 };
 
 export type TIconSizes = "nano" | "micro" | 1 | 2 | 3 | 4;
