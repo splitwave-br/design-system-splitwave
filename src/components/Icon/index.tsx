@@ -121,6 +121,8 @@ import Subscriptions from "./components/Subscription";
 import Subscription from "./components/Subscription";
 import { BarCode01StrokeRounded } from "./components/BarCode01StrokeRounded";
 import KeyOutline from "./components/KeyOutline";
+import PixOutline from "./components/PixOutline";
+import { Invoice01StrokeRounded } from "./components/Invoice01StrokeRounded";
 
 const icons = {
   access: Access,
@@ -243,7 +245,9 @@ const icons = {
   conversation: Conversation,
   subscription: Subscription,
   ['bar-code-01-stroke-rounded']: BarCode01StrokeRounded,
-  ['key-outline']: KeyOutline
+  ['invoice-01-stroke-rounded']: Invoice01StrokeRounded,
+  ['key-outline']: KeyOutline,
+  ['pix-outline']: PixOutline
 };
 
 export type TIconSizes = "nano" | "micro" | 1 | 2 | 3 | 4;
