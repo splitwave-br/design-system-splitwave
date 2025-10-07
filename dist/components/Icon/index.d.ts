@@ -39,6 +39,8 @@ import { ShopBag } from "./components/ShopBag";
 import { Globe } from "./components/Globe";
 import { Time } from "./components/Time";
 import { Minus } from "./components/Minus";
+import { BarCode01StrokeRounded } from "./components/BarCode01StrokeRounded";
+import { Invoice01StrokeRounded } from "./components/Invoice01StrokeRounded";
 declare const icons: {
     access: () => import("react/jsx-runtime").JSX.Element;
     alert: () => import("react/jsx-runtime").JSX.Element;
@@ -159,10 +161,14 @@ declare const icons: {
     transfer: () => import("react/jsx-runtime").JSX.Element;
     conversation: () => import("react/jsx-runtime").JSX.Element;
     subscription: () => import("react/jsx-runtime").JSX.Element;
+    "bar-code-01-stroke-rounded": typeof BarCode01StrokeRounded;
+    "invoice-01-stroke-rounded": typeof Invoice01StrokeRounded;
+    "key-outline": () => import("react/jsx-runtime").JSX.Element;
+    "pix-outline": () => import("react/jsx-runtime").JSX.Element;
 };
 export type TIconSizes = "nano" | "micro" | 1 | 2 | 3 | 4;
 export type TIcons = keyof typeof icons;
-type TIcon = {
+export type TIcon = {
     name: TIcons;
     size?: TIconSizes;
     className?: string;

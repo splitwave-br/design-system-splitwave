@@ -8,4 +8,5 @@ export declare const Dropdown: {
     Menu: import("react").ForwardRefExoticComponent<import("./Menu").MenuProps & import("react").RefAttributes<HTMLDivElement>>;
     Divider: () => import("react/jsx-runtime").JSX.Element;
     Item: ({ className, shouldCloseOnClick, onClick, ...props }: Item) => import("react/jsx-runtime").JSX.Element;
+    Arrow: ({ ...props }: Partial<import("../Icon").TIcon>) => import("react/jsx-runtime").JSX.Element;
 };
