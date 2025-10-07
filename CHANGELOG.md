@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.46.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.45.1...v1.46.0) (2025-10-07)
+
+
+### Features
+
+* **dropdown-arrow:** Add rotating icon component and dropdown arrow ([5a70aeb](https://github.com/splitwave-br/design-system-splitwave/commit/5a70aeb88040d00e083f0b004382bda4afc5434b))
+* **icons:** Add invoice icon ([7f5f393](https://github.com/splitwave-br/design-system-splitwave/commit/7f5f39330e8d0397a1b6d973f935e439197d8b86))
+* **icons:** Add new icons ([adac792](https://github.com/splitwave-br/design-system-splitwave/commit/adac792f99faf92d9e97bfb2b727c2b27a54de9d))
+
+
+### Bug Fixes
+
+* **dropdown-trigger:** Fix dropdown trigger props types ([9320172](https://github.com/splitwave-br/design-system-splitwave/commit/9320172e6a5bce8a15fd0128f20c053e33365f75))
+* **dropdown-trigger:** Fix dropdown trigger props types ([891a2de](https://github.com/splitwave-br/design-system-splitwave/commit/891a2de3a6e38761e60938cf6d8bb9ea14481789))
+
 ## [1.45.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.45.0...v1.45.1) (2025-10-04)
 
 
