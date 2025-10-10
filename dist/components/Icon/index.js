@@ -124,6 +124,7 @@ import { BarCode01StrokeRounded } from "./components/BarCode01StrokeRounded";
 import KeyOutline from "./components/KeyOutline";
 import PixOutline from "./components/PixOutline";
 import { Invoice01StrokeRounded } from "./components/Invoice01StrokeRounded";
+import { Document } from "./components/Document";
 var icons = (_a = {
         access: Access,
         alert: Alert,
@@ -245,10 +246,11 @@ var icons = (_a = {
         conversation: Conversation,
         subscription: Subscription
     },
-    _a['bar-code-01-stroke-rounded'] = BarCode01StrokeRounded,
-    _a['invoice-01-stroke-rounded'] = Invoice01StrokeRounded,
-    _a['key-outline'] = KeyOutline,
-    _a['pix-outline'] = PixOutline,
+    _a["bar-code-01-stroke-rounded"] = BarCode01StrokeRounded,
+    _a["invoice-01-stroke-rounded"] = Invoice01StrokeRounded,
+    _a["key-outline"] = KeyOutline,
+    _a["pix-outline"] = PixOutline,
+    _a.document = Document,
     _a);
 export var Icon = function (_a) {
     var name = _a.name, _b = _a.size, size = _b === void 0 ? 2 : _b, className = _a.className;

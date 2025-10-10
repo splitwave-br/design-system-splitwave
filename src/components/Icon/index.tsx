@@ -123,6 +123,7 @@ import { BarCode01StrokeRounded } from "./components/BarCode01StrokeRounded";
 import KeyOutline from "./components/KeyOutline";
 import PixOutline from "./components/PixOutline";
 import { Invoice01StrokeRounded } from "./components/Invoice01StrokeRounded";
+import { Document } from "./components/Document";
 
 const icons = {
   access: Access,
@@ -244,10 +245,11 @@ const icons = {
   transfer: Transfer,
   conversation: Conversation,
   subscription: Subscription,
-  ['bar-code-01-stroke-rounded']: BarCode01StrokeRounded,
-  ['invoice-01-stroke-rounded']: Invoice01StrokeRounded,
-  ['key-outline']: KeyOutline,
-  ['pix-outline']: PixOutline
+  ["bar-code-01-stroke-rounded"]: BarCode01StrokeRounded,
+  ["invoice-01-stroke-rounded"]: Invoice01StrokeRounded,
+  ["key-outline"]: KeyOutline,
+  ["pix-outline"]: PixOutline,
+  document: Document,
 };
 
 export type TIconSizes = "nano" | "micro" | 1 | 2 | 3 | 4;
