@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.47.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.46.0...v1.47.0) (2025-10-10)
+
+
+### Features
+
+* **document-icon:** Add document icon ([5f0b8ae](https://github.com/splitwave-br/design-system-splitwave/commit/5f0b8ae15eae43b6eb030b3f1358e55db5a45a6e))
+* **document-icon:** Add document icon ([2b2a6d7](https://github.com/splitwave-br/design-system-splitwave/commit/2b2a6d708209c54b8a318c5050da481f8df860da))
+
 ## [1.46.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.45.1...v1.46.0) (2025-10-07)
 
 
