@@ -165,6 +165,7 @@ declare const icons: {
     "invoice-01-stroke-rounded": typeof Invoice01StrokeRounded;
     "key-outline": () => import("react/jsx-runtime").JSX.Element;
     "pix-outline": () => import("react/jsx-runtime").JSX.Element;
+    document: () => import("react/jsx-runtime").JSX.Element;
 };
 export type TIconSizes = "nano" | "micro" | 1 | 2 | 3 | 4;
 export type TIcons = keyof typeof icons;
