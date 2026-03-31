@@ -124,6 +124,10 @@ import KeyOutline from "./components/KeyOutline";
 import PixOutline from "./components/PixOutline";
 import { Invoice01StrokeRounded } from "./components/Invoice01StrokeRounded";
 import { Document } from "./components/Document";
+import { OctagonX } from "./components/OctagonX";
+import { Pearson } from "./components/Pearson";
+import { SearchBlock } from "./components/SearchBlock";
+import { SubDirectoryArrowRight } from "./components/SubDirectoryarrowRight";
 
 const icons = {
   access: Access,
@@ -185,6 +189,7 @@ const icons = {
   logout: Logout,
   menu: Menu,
   moon: Moon,
+  "octagon-x": OctagonX,
   "money-down": MoneyDown,
   "money-up": MoneyUp,
   "money-exchange": MoneyExchange,
@@ -195,6 +200,7 @@ const icons = {
   "money-send": MoneySend,
   "money-bag": MoneyBag,
   package: Package,
+  pearson: Pearson,
   "paint-board": PaintBoard,
   "pencil-edit": PencilEdit,
   percent: Percent,
@@ -205,6 +211,7 @@ const icons = {
   refresh: Refresh,
   "relationship-stroke": RelationshipStroke,
   search: Search,
+  "search-block": SearchBlock,
   "security-check": SecurityCheck,
   "security-error": SecurityError,
   "security-lock": SecurityLock,
@@ -216,6 +223,7 @@ const icons = {
   "shopping-cart": ShoppingCart,
   "source-code": SourceCode,
   sort: Sort,
+  "sub-directory-arrow-right": SubDirectoryArrowRight,
   swap: Swap,
   swap2: Swap2,
   sun: Sun,
