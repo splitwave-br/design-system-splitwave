@@ -41,6 +41,10 @@ import { Time } from "./components/Time";
 import { Minus } from "./components/Minus";
 import { BarCode01StrokeRounded } from "./components/BarCode01StrokeRounded";
 import { Invoice01StrokeRounded } from "./components/Invoice01StrokeRounded";
+import { OctagonX } from "./components/OctagonX";
+import { Pearson } from "./components/Pearson";
+import { SearchBlock } from "./components/SearchBlock";
+import { SubDirectoryArrowRight } from "./components/SubDirectoryarrowRight";
 declare const icons: {
     access: () => import("react/jsx-runtime").JSX.Element;
     alert: () => import("react/jsx-runtime").JSX.Element;
@@ -101,6 +105,7 @@ declare const icons: {
     logout: () => import("react/jsx-runtime").JSX.Element;
     menu: () => import("react/jsx-runtime").JSX.Element;
     moon: () => import("react/jsx-runtime").JSX.Element;
+    "octagon-x": typeof OctagonX;
     "money-down": () => import("react/jsx-runtime").JSX.Element;
     "money-up": () => import("react/jsx-runtime").JSX.Element;
     "money-exchange": () => import("react/jsx-runtime").JSX.Element;
@@ -111,6 +116,7 @@ declare const icons: {
     "money-send": typeof MoneySend;
     "money-bag": typeof MoneyBag;
     package: typeof Package;
+    pearson: typeof Pearson;
     "paint-board": () => import("react/jsx-runtime").JSX.Element;
     "pencil-edit": () => import("react/jsx-runtime").JSX.Element;
     percent: () => import("react/jsx-runtime").JSX.Element;
@@ -121,6 +127,7 @@ declare const icons: {
     refresh: () => import("react/jsx-runtime").JSX.Element;
     "relationship-stroke": () => import("react/jsx-runtime").JSX.Element;
     search: typeof Search;
+    "search-block": typeof SearchBlock;
     "security-check": () => import("react/jsx-runtime").JSX.Element;
     "security-error": () => import("react/jsx-runtime").JSX.Element;
     "security-lock": () => import("react/jsx-runtime").JSX.Element;
@@ -132,6 +139,7 @@ declare const icons: {
     "shopping-cart": typeof ShoppingCart;
     "source-code": typeof SourceCode;
     sort: typeof Sort;
+    "sub-directory-arrow-right": typeof SubDirectoryArrowRight;
     swap: () => import("react/jsx-runtime").JSX.Element;
     swap2: typeof Swap2;
     sun: () => import("react/jsx-runtime").JSX.Element;
