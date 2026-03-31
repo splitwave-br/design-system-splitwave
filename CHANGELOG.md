@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.48.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.47.0...v1.48.0) (2026-03-31)
+
+
+### Features
+
+* **icons:** Add new icons OctagonX, Pearson, SearchBlock, and SubDir… ([c47b83e](https://github.com/splitwave-br/design-system-splitwave/commit/c47b83e4ac97eee60fbea3f9a82239ffd9fbcb1d))
+* **icons:** Add new icons OctagonX, Pearson, SearchBlock, and SubDirectoryArrowRight ([c795942](https://github.com/splitwave-br/design-system-splitwave/commit/c795942a1d2f6850783ce5b7b477dc209b752800))
+
 ## [1.47.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.46.0...v1.47.0) (2025-10-10)
 
 
