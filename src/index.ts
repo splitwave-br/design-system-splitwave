@@ -25,6 +25,8 @@ export { useFilterFields } from "./components/Filter/hooks/useFields";
 // Table
 export { Table, Cell, Header, Pagination } from "./components/Table";
 export { usePagination } from "./components/Table/hooks/usePagination";
+export { useTableSelection } from "./components/Table/hooks/useTableSelection";
+export type { IUseTableSelectionReturn } from "./components/Table/hooks/useTableSelection";
 
 // Icon
 export { Icon, TIconSizes, TIcons } from "./components/Icon";

@@ -41,4 +41,10 @@ export declare const Cell: {
     }) => import("react/jsx-runtime").JSX.Element;
     ActionItem: ({ className, shouldCloseOnClick, onClick, ...props }: import("../../../Dropdown/Item").default) => import("react/jsx-runtime").JSX.Element;
     Skeleton: () => import("react/jsx-runtime").JSX.Element;
+    Checkbox: ({ checked, onChange, disabled, children, }: import("../../types").TCell & {
+        checked: boolean;
+        onChange: () => void;
+        disabled?: boolean;
+        children?: React.ReactNode;
+    }) => import("react/jsx-runtime").JSX.Element;
 };

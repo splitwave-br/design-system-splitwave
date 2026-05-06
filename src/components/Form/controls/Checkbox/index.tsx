@@ -32,7 +32,6 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           onClick={(e) => {
             if (disabled) return;
             e.stopPropagation();
-            onChange();
           }}
         >
           <label htmlFor={randomId} className={fieldStyles}>

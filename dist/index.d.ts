@@ -12,6 +12,8 @@ export { useFilterContext, useFilter, } from "./components/Filter/hooks/useFilte
 export { useFilterFields } from "./components/Filter/hooks/useFields";
 export { Table, Cell, Header, Pagination } from "./components/Table";
 export { usePagination } from "./components/Table/hooks/usePagination";
+export { useTableSelection } from "./components/Table/hooks/useTableSelection";
+export type { IUseTableSelectionReturn } from "./components/Table/hooks/useTableSelection";
 export { Icon, TIconSizes, TIcons } from "./components/Icon";
 export { Modal } from "./components/Modal";
 export { useModal, ModalProvider } from "./components/Modal/hooks/useModal";

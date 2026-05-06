@@ -8,6 +8,7 @@ import { Actions } from "./Actions";
 import { Dropdown } from "@/components/Dropdown";
 import { Skeleton } from "./Skeleton";
 import { Card } from "./Card";
+import { CheckboxCell } from "./Checkbox";
 
 export const Cell = {
   Date,
@@ -19,6 +20,6 @@ export const Cell = {
   Actions,
   Card,
   ActionItem: Dropdown.Item,
-
   Skeleton: Skeleton,
+  Checkbox: CheckboxCell,
 };
