@@ -8,6 +8,7 @@ import { Actions } from "./Actions";
 import { Dropdown } from "../../../../components/Dropdown";
 import { Skeleton } from "./Skeleton";
 import { Card } from "./Card";
+import { CheckboxCell } from "./Checkbox";
 export var Cell = {
     Date: Date,
     Price: Price,
@@ -19,4 +20,5 @@ export var Cell = {
     Card: Card,
     ActionItem: Dropdown.Item,
     Skeleton: Skeleton,
+    Checkbox: CheckboxCell,
 };

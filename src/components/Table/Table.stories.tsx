@@ -1,7 +1,10 @@
 import { Meta, StoryFn } from "@storybook/react";
 import { Cell, Header, Table } from ".";
 import { ThemePreview } from "../ThemePreview";
-import React, { useCallback, useMemo } from "react";
+import { Button } from "../Button";
+import { Icon } from "../Icon";
+import { useTableSelection } from "./hooks/useTableSelection";
+import { useCallback, useMemo } from "react";
 
 export default {
   component: Table,
@@ -189,6 +192,114 @@ export const TableWithActions: StoryFn = () => {
         );
       }}
     />
+  );
+};
+
+export const TableWithSelection: StoryFn = () => {
+  type TRow = {
+    id: string;
+    date: string;
+    orderId: string;
+    value: number;
+    client: string;
+    status: string;
+  };
+
+  const data: TRow[] = useMemo(
+    () => [
+      { id: "1", date: "2027-01-20T10:00:00", orderId: "32984874", value: 6290, client: "Afonso Silva Fagundes", status: "Aguardando resposta" },
+      { id: "2", date: "2027-01-20T11:00:00", orderId: "32984875", value: 9120, client: "Aparecida Oliveira", status: "Aguardando resposta" },
+      { id: "3", date: "2027-01-20T12:00:00", orderId: "32984876", value: 9120, client: "Benedito Silva", status: "Aguardando resposta" },
+      { id: "4", date: "2027-01-20T13:00:00", orderId: "32984877", value: 5880, client: "Ricardo Oliveira", status: "Aguardando resposta" },
+      { id: "5", date: "2027-01-20T14:00:00", orderId: "32984878", value: 7950, client: "Daniel Costa", status: "Defesa aceita" },
+      { id: "6", date: "2027-01-20T15:00:00", orderId: "32984879", value: 6780, client: "Fabiana Almeida", status: "Defesa recusada" },
+      { id: "7", date: "2027-01-20T16:00:00", orderId: "32984880", value: 8320, client: "Gabriel Rodrigues", status: "Defesa aceita" },
+      { id: "8", date: "2027-01-20T17:00:00", orderId: "32984881", value: 7100, client: "Isabela Cunha", status: "Defesa aceita" },
+    ],
+    [],
+  );
+
+  const { selectedItems, isSelected, toggleItem, toggleAll, isAllSelected } =
+    useTableSelection<TRow>({ items: data });
+
+  const getStatusVariant = (status: string) => {
+    if (status === "Defesa aceita") return "success";
+    if (status === "Defesa recusada") return "error";
+    return "blue";
+  };
+
+  return (
+    <ThemePreview>
+      <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+        <Table<TRow>
+          data={data}
+          renderHeader={() => (
+            <>
+              <Header.Checkbox checked={isAllSelected} onChange={toggleAll}>
+                Data
+              </Header.Checkbox>
+              <Header.Uuid>ID do pedido</Header.Uuid>
+              <Header>Valor</Header>
+              <Header identifier minWidth="160px">Cliente</Header>
+              <Header>Status</Header>
+              <Header.Action isFixed>Ações</Header.Action>
+            </>
+          )}
+          renderRow={(item) => (
+            <>
+              <Cell.Checkbox
+                checked={isSelected(item.id)}
+                onChange={() => toggleItem(item.id)}
+              >
+                <Cell.Date showTime={false}>{item.date}</Cell.Date>
+              </Cell.Checkbox>
+              <Cell.Text shouldTruncateText canCopy>{item.orderId}</Cell.Text>
+              <Cell.Price>{item.value}</Cell.Price>
+              <Cell.Text>{item.client}</Cell.Text>
+              <Cell.Badge variant={getStatusVariant(item.status)}>{item.status}</Cell.Badge>
+              <Cell.Actions isFixed>
+                <Cell.ActionItem>Aceitar</Cell.ActionItem>
+                <Cell.ActionItem>Recusar</Cell.ActionItem>
+              </Cell.Actions>
+            </>
+          )}
+        />
+
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            padding: "12px 16px",
+            borderRadius: "8px",
+            background: "var(--color-background-elevated, #1a1a1a)",
+            border: "1px solid var(--color-border, #333)",
+          }}
+        >
+          <span style={{ fontSize: "14px" }}>
+            {selectedItems.length} {selectedItems.length === 1 ? "item selecionado" : "itens selecionados"}
+          </span>
+          <div style={{ display: "flex", gap: "8px" }}>
+            <Button
+              variant="secondary"
+              disabled={selectedItems.length === 0}
+              onClick={() => alert(`Recusar ${selectedItems.length} itens`)}
+            >
+              <Icon name="cancel" size={2} />
+              Recusar em lote
+            </Button>
+            <Button
+              variant="secondary"
+              disabled={selectedItems.length === 0}
+              onClick={() => alert(`Aceitar ${selectedItems.length} itens`)}
+            >
+              <Icon name="check-circle" size={2} />
+              Aceitar em lote
+            </Button>
+          </div>
+        </div>
+      </div>
+    </ThemePreview>
   );
 };
 

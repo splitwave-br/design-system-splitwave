@@ -14,6 +14,7 @@ export { useFilterFields } from "./components/Filter/hooks/useFields";
 // Table
 export { Table, Cell, Header, Pagination } from "./components/Table";
 export { usePagination } from "./components/Table/hooks/usePagination";
+export { useTableSelection } from "./components/Table/hooks/useTableSelection";
 // Icon
 export { Icon } from "./components/Icon";
 // Modal

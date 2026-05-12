@@ -3,6 +3,7 @@ import styles from "./styles.module.scss";
 import { Date } from "./Date";
 import { Uuid } from "./Uuid";
 import { Action } from "./Action";
+import { CheckboxHeader } from "./Checkbox";
 
 export type HeaderProps = {
   children?: ReactNode;
@@ -25,3 +26,4 @@ export const Header = ({ children, isFixed }: HeaderProps) => {
 Header.Date = Date;
 Header.Uuid = Uuid;
 Header.Action = Action;
+Header.Checkbox = CheckboxHeader;

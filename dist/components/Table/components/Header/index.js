@@ -3,6 +3,7 @@ import styles from "./styles.module.scss";
 import { Date } from "./Date";
 import { Uuid } from "./Uuid";
 import { Action } from "./Action";
+import { CheckboxHeader } from "./Checkbox";
 export var Header = function (_a) {
     var children = _a.children, isFixed = _a.isFixed;
     var className = [styles.header, isFixed ? styles.isFixed : ""].join(" ");
@@ -11,3 +12,4 @@ export var Header = function (_a) {
 Header.Date = Date;
 Header.Uuid = Uuid;
 Header.Action = Action;
+Header.Checkbox = CheckboxHeader;

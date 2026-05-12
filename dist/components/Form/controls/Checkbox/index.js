@@ -18,7 +18,6 @@ export var Checkbox = forwardRef(function (_a, ref) {
                 if (disabled)
                     return;
                 e.stopPropagation();
-                onChange();
             }, children: _jsxs("label", { htmlFor: randomId, className: fieldStyles, children: [_jsxs("div", { className: concatStyles([
                             styles.inputWrapper,
                             isChecked ? styles.isChecked : "",

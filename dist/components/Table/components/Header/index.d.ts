@@ -20,4 +20,12 @@ export declare const Header: {
         (props: HeaderProps): import("react/jsx-runtime").JSX.Element;
         displayName: string;
     };
+    Checkbox: {
+        ({ checked, onChange, disabled, children, ...headerProps }: HeaderProps & {
+            checked: boolean;
+            onChange: () => void;
+            disabled?: boolean;
+        }): import("react/jsx-runtime").JSX.Element;
+        displayName: string;
+    };
 };
