@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.49.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.48.0...v1.49.0) (2026-05-12)
+
+
+### Features
+
+* **table:** Add checkbox selection feature to table component ([18def51](https://github.com/splitwave-br/design-system-splitwave/commit/18def5198137d3169ea84805b9163f0e9dea4e76))
+* **table:** Add checkbox selection feature to table component ([319135f](https://github.com/splitwave-br/design-system-splitwave/commit/319135fc690e6522bea6128be1d64a407642bb43))
+
 ## [1.48.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.47.0...v1.48.0) (2026-03-31)
 
 
