@@ -141,6 +141,10 @@
   }
 }
 
+.groupSeparator {
+  grid-column: 1 / -1;
+}
+
 .footer {
   margin-top: var(--spaces-1);
   background-color: var(--table-header-background);

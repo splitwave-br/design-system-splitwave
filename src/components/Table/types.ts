@@ -26,6 +26,10 @@ export type TTable<T extends ITableData> = {
     onClickPrevPage: () => void;
     limit?: number;
   };
+  groups?: {
+    by: (item: T) => string;
+    renderSeparator: (key: string, items: T[]) => React.JSX.Element;
+  };
 };
 
 export type TCell = {

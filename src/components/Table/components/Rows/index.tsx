@@ -1,5 +1,5 @@
 import { concatStyles } from "@/utils/concatStyles";
-import { useMemo } from "react";
+import { Fragment, useMemo } from "react";
 
 import { Row } from "@/components/Table/components/Row";
 import { ITableData } from "@/components/Table/types";
@@ -23,6 +23,11 @@ type RowsProps<T extends ITableData> = {
   hasPagination?: boolean;
 
   isMobile: boolean;
+
+  groups?: {
+    by: (item: T) => string;
+    renderSeparator: (key: string, items: T[]) => React.JSX.Element;
+  };
 };
 
 export const Rows = <T extends ITableData>({
@@ -40,6 +45,8 @@ export const Rows = <T extends ITableData>({
   hasPagination,
 
   isMobile,
+
+  groups,
 }: RowsProps<T>) => {
   const identifierIndex = useMemo(() => getIdentifierIndex(columns), [columns]);
 
@@ -60,6 +67,22 @@ export const Rows = <T extends ITableData>({
     hasPagination ? styles.hasPagination : "",
   ]);
 
+  const groupedData = useMemo(() => {
+    if (!groups) return null;
+
+    const map = new Map<string, T[]>();
+
+    data?.forEach((item) => {
+      const key = groups.by(item);
+      
+      if (!map.has(key)) map.set(key, []);
+
+      map.get(key)!.push(item);
+    });
+
+    return Array.from(map.entries()).map(([key, items]) => ({ key, items }));
+  }, [data, groups]);
+
   if (isLoading) {
     return (
       <FakeRows
@@ -70,6 +93,32 @@ export const Rows = <T extends ITableData>({
         isMobile={isMobile}
       />
     );
+  }
+
+  if (groupedData) {
+    let globalIndex = 0;
+    return groupedData.map(({ key, items }) => (
+      <Fragment key={key}>
+        <div className={styles.groupSeparator}>
+          {groups!.renderSeparator(key, items)}
+        </div>
+        {items.map((row) => {
+          const idx = globalIndex++;
+          return (
+            <Row
+              rowKey={keyExtractor(row, idx)}
+              key={`row-${keyExtractor(row, idx)}`}
+              row={renderRow(row)}
+              columns={columnsHeader}
+              identifierIndex={identifierIndex}
+              className={rowClassName}
+              onClick={() => onRowClick?.(row)}
+              isMobile={isMobile}
+            />
+          );
+        })}
+      </Fragment>
+    ));
   }
 
   return data?.map?.((row, index) => {

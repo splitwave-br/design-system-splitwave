@@ -303,6 +303,150 @@ export const TableWithSelection: StoryFn = () => {
   );
 };
 
+export const TableWithGroups: StoryFn = () => {
+  type TTransaction = {
+    id: string;
+    groupKey: string;
+    description: string;
+    amount: number;
+    status: string;
+  };
+
+  const data: TTransaction[] = [
+    { id: "1", groupKey: "2024-10-24", description: "Recebimento de venda", amount: 38750, status: "Crédito" },
+    { id: "2", groupKey: "2024-10-24", description: "Pagamento de fornecedor", amount: -18900, status: "Débito" },
+    { id: "3", groupKey: "2024-10-24", description: "Recebimento de vendas do dia", amount: 96390, status: "Crédito" },
+    { id: "4", groupKey: "2024-10-23", description: "Reembolso de despesas", amount: -30200, status: "Débito" },
+    { id: "5", groupKey: "2024-10-23", description: "Crédito de vendas", amount: 22150, status: "Crédito" },
+    { id: "6", groupKey: "2024-10-22", description: "Transferência recebida", amount: 15000, status: "Crédito" },
+    { id: "7", groupKey: "2024-10-22", description: "Pagamento de serviço", amount: -4200, status: "Débito" },
+  ];
+
+  const DATE_LABELS: Record<string, string> = {
+    "2024-10-24": "24 de outubro, quinta-feira",
+    "2024-10-23": "23 de outubro, quarta-feira",
+    "2024-10-22": "22 de outubro, terça-feira",
+  };
+
+  const separatorStyle: React.CSSProperties = {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: "8px 12px",
+    fontSize: "var(--font-size-3)",
+    color: "var(--table-text-color-secondary)",
+    backgroundColor: "var(--table-cell-background)",
+    borderBottom: "1px solid var(--table-border-color)",
+  };
+
+  return (
+    <Table<TTransaction>
+      data={data}
+      keyExtractor={(item) => item.id}
+      renderHeader={() => (
+        <>
+          <Header>Descrição</Header>
+          <Header>Status</Header>
+          <Header>Valor</Header>
+        </>
+      )}
+      renderRow={(item) => (
+        <>
+          <Cell.Text>{item.description}</Cell.Text>
+          <Cell.Badge variant={item.amount > 0 ? "success" : "error"}>{item.status}</Cell.Badge>
+          <Cell.Price hasHighlight>{item.amount}</Cell.Price>
+        </>
+      )}
+      groups={{
+        by: (item) => item.groupKey,
+        renderSeparator: (key) => (
+          <div style={separatorStyle}>
+            <span>{DATE_LABELS[key]}</span>
+            <span>{key}</span>
+          </div>
+        ),
+      }}
+    />
+  );
+};
+
+export const TableWithGroupsAndActions: StoryFn = () => {
+  type TEntry = {
+    id: string;
+    groupKey: string;
+    groupLabel: string;
+    closingBalance: number;
+    description: string;
+    amount: number;
+    balance: number;
+    type: "credit" | "debit";
+  };
+
+  const data: TEntry[] = [
+    { id: "1", groupKey: "2024-10-24", groupLabel: "24 de outubro, quinta-feira", closingBalance: 410119.25, description: "Recebimento de venda", amount: 38750, balance: 410119.25, type: "credit" },
+    { id: "2", groupKey: "2024-10-24", groupLabel: "24 de outubro, quinta-feira", closingBalance: 410119.25, description: "Pagamento de fornecedor", amount: 18900, balance: 371369.25, type: "debit" },
+    { id: "3", groupKey: "2024-10-24", groupLabel: "24 de outubro, quinta-feira", closingBalance: 410119.25, description: "Recebimento de vendas do dia", amount: 96390, balance: 390269.25, type: "credit" },
+    { id: "4", groupKey: "2024-10-23", groupLabel: "23 de outubro, quarta-feira", closingBalance: 293879.25, description: "Reembolso de despesas", amount: 30200, balance: 293879.25, type: "debit" },
+    { id: "5", groupKey: "2024-10-23", groupLabel: "23 de outubro, quarta-feira", closingBalance: 293879.25, description: "Crédito de vendas", amount: 22150, balance: 324079.25, type: "credit" },
+  ];
+
+  const formatCurrency = (value: number) =>
+    value.toLocaleString("pt-BR", { minimumFractionDigits: 2 });
+
+  const separatorStyle: React.CSSProperties = {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: "8px 12px",
+    fontSize: "var(--font-size-3)",
+    color: "var(--table-text-color-secondary)",
+    backgroundColor: "var(--table-cell-background)",
+    borderBottom: "1px solid var(--table-border-color)",
+  };
+
+  return (
+    <ThemePreview>
+      <Table<TEntry>
+        data={data}
+        keyExtractor={(item) => item.id}
+        renderHeader={() => (
+          <>
+            <Header>Descrição</Header>
+            <Header>Tipo</Header>
+            <Header>Valor</Header>
+            <Header>Saldo</Header>
+            <Header.Action isFixed>Ações</Header.Action>
+          </>
+        )}
+        renderRow={(item) => (
+          <>
+            <Cell.Text>{item.description}</Cell.Text>
+            <Cell.Badge variant={item.type === "credit" ? "success" : "error"}>
+              {item.type === "credit" ? "Crédito" : "Débito"}
+            </Cell.Badge>
+            <Cell.Price>{item.amount}</Cell.Price>
+            <Cell.Price>{item.balance}</Cell.Price>
+            <Cell.Actions isFixed>
+              <Cell.ActionItem onClick={() => alert(`Detalhes: ${item.description}`)}>
+                Detalhes
+              </Cell.ActionItem>
+            </Cell.Actions>
+          </>
+        )}
+        groups={{
+          by: (item) => item.groupKey,
+          renderSeparator: (key, items) => (
+            <div style={separatorStyle}>
+              <span>{items[0].groupLabel}</span>
+              <span>Saldo final do dia: R$ {formatCurrency(items[0].closingBalance)}</span>
+            </div>
+          ),
+        }}
+      />
+    </ThemePreview>
+  );
+};
+
 export const TableWithPages: StoryFn = () => {
   const generateFakeData = useCallback((quantity: number) => {
     const baseProducts = [
