@@ -1,0 +1,18 @@
+@import "src/styles/breakpoints";
+
+.root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--component-drawer-background);
+  border: 1px solid var(--component-drawer-border);
+  border-radius: calc(var(--border-radius-3) * 2);
+  box-shadow: 0px 8px 16px 4px var(--component-drawer-shadow);
+  overflow: hidden;
+  cursor: default;
+
+  @include temporary_mobile {
+    border-radius: 0;
+  }
+}

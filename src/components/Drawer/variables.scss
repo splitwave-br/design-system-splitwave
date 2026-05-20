@@ -1,0 +1,21 @@
+.light-theme {
+  --component-drawer-background: var(--colors-neutral-50);
+  --component-drawer-border: transparent;
+  --component-drawer-header: var(--colors-gray-200);
+  --component-drawer-shadow: rgba(102, 112, 133, 0.1);
+  --component-drawer-overlay: rgba(52, 64, 84, 0.4);
+  --component-drawer-close-icon: var(--colors-gray-900);
+  --component-drawer-gradient-end: var(--colors-neutral-50);
+  --component-drawer-gradient-start: rgba(255, 255, 255, 0);
+}
+
+.dark-theme {
+  --component-drawer-background: var(--colors-dark-gray-800);
+  --component-drawer-border: var(--colors-dark-gray-700);
+  --component-drawer-header: var(--colors-dark-gray-900);
+  --component-drawer-shadow: rgba(0, 0, 0, 0.3);
+  --component-drawer-overlay: rgba(11, 13, 14, 0.8);
+  --component-drawer-close-icon: var(--colors-dark-gray-600);
+  --component-drawer-gradient-end: var(--colors-dark-gray-800);
+  --component-drawer-gradient-start: rgba(16, 18, 20, 0);
+}
