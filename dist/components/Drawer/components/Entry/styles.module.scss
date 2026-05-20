@@ -1,0 +1,61 @@
+@import "src/styles/breakpoints";
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: var(--component-drawer-overlay);
+  opacity: 0;
+  transition: opacity 200ms ease;
+  cursor: pointer;
+
+  &[data-state="visible"] {
+    opacity: 1;
+  }
+
+  &[data-clickable="false"] {
+    pointer-events: none;
+    cursor: default;
+  }
+
+  @include temporary_mobile {
+    display: none;
+  }
+}
+
+.drawerWrapper {
+  position: fixed;
+  right: var(--spaces-2);
+  top: var(--spaces-2);
+  bottom: var(--spaces-2);
+  transform: translateX(calc(100% + var(--spaces-2)));
+  transition: transform 300ms ease-out;
+  display: flex;
+
+  &[data-state="visible"] {
+    transform: translateX(0) scale(calc(1 - var(--drawer-depth, 0) * 0.04))
+      translateY(calc(var(--drawer-depth, 0) * -8px));
+  }
+
+  &[data-size="sm"] {
+    width: 320px;
+  }
+
+  &[data-size="md"] {
+    width: 400px;
+  }
+
+  &[data-size="lg"] {
+    width: 560px;
+  }
+
+  @include temporary_mobile {
+    inset: 0;
+    width: 100% !important;
+    transform: translateY(100%);
+    transition: transform 300ms ease-out;
+
+    &[data-state="visible"] {
+      transform: translateY(0) !important;
+    }
+  }
+}

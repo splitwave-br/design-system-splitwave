@@ -1,0 +1,24 @@
+@import "src/styles/breakpoints";
+
+.footer {
+  flex-shrink: 0;
+  padding: var(--spaces-3);
+  display: flex;
+  gap: var(--spaces-3);
+  align-items: center;
+  background: linear-gradient(
+    0deg,
+    var(--component-drawer-gradient-end) 0%,
+    var(--component-drawer-gradient-start) 100%
+  );
+
+  @include temporary_mobile {
+    flex-direction: column-reverse;
+    gap: var(--spaces-2);
+    background: var(--component-drawer-background);
+
+    button {
+      width: 100%;
+    }
+  }
+}

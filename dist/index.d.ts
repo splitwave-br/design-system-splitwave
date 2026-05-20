@@ -34,3 +34,7 @@ export { useDebounceValue } from "./hooks/useDebounceValue";
 export { useToggle } from "./hooks/useToggle";
 export { useScrollOutside } from "./hooks/useScrollOutside";
 export { Sidebar } from "./components/Sidebar";
+export { Drawer } from "./components/Drawer";
+export { DrawerProvider, useDrawer } from "./components/Drawer/hooks/useDrawer";
+export type { DrawerRootProps, DrawerHeaderProps, DrawerBodyProps, DrawerFooterProps, } from "./components/Drawer";
+export type { DrawerOptions } from "./components/Drawer/hooks/useDrawer";

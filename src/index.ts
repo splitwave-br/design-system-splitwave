@@ -72,3 +72,14 @@ export { useScrollOutside } from "./hooks/useScrollOutside";
 
 // Sidebar
 export { Sidebar } from "./components/Sidebar";
+
+// Drawer
+export { Drawer } from "./components/Drawer";
+export { DrawerProvider, useDrawer } from "./components/Drawer/hooks/useDrawer";
+export type {
+  DrawerRootProps,
+  DrawerHeaderProps,
+  DrawerBodyProps,
+  DrawerFooterProps,
+} from "./components/Drawer";
+export type { DrawerOptions } from "./components/Drawer/hooks/useDrawer";
