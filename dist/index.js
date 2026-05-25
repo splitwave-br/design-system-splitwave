@@ -40,3 +40,6 @@ export { useToggle } from "./hooks/useToggle";
 export { useScrollOutside } from "./hooks/useScrollOutside";
 // Sidebar
 export { Sidebar } from "./components/Sidebar";
+// Drawer
+export { Drawer } from "./components/Drawer";
+export { DrawerProvider, useDrawer } from "./components/Drawer/hooks/useDrawer";

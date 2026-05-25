@@ -19,6 +19,7 @@ export const Table = <T extends ITableData>({
   renderRow,
   renderEmptyState,
   pagination,
+  groups,
 }: TTable<T>) => {
   const LIMIT = pagination?.limit ?? 15;
   const { isMobile } = useWindowSize();
@@ -82,6 +83,7 @@ export const Table = <T extends ITableData>({
           onRowClick={onRowClick}
           isLoading={isLoading}
           isMobile={isMobile}
+          groups={groups}
         />
       </div>
 
