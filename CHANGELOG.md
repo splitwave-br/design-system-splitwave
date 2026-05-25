@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.50.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.49.0...v1.50.0) (2026-05-25)
+
+
+### Features
+
+* **Drawer:** Implement Drawer component with Header, Body, Footer, and Entry ([19efe10](https://github.com/splitwave-br/design-system-splitwave/commit/19efe10b8a69599237a22af73f649b55b2f344a3))
+* **table:** Implement grouping feature in Table component with customizable separators ([e2355ce](https://github.com/splitwave-br/design-system-splitwave/commit/e2355ce26774c2d76d5bf0cc801906ae005b68fa))
+* **table:** Implement grouping feature in Table component with customizable separators ([0f32c3f](https://github.com/splitwave-br/design-system-splitwave/commit/0f32c3f80d037bf67e0fa86d55b6fedb04b1ed3c))
+
 ## [1.49.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.48.0...v1.49.0) (2026-05-12)
 
 
