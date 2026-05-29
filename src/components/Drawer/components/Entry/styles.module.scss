@@ -9,7 +9,7 @@
   cursor: pointer;
 
   &[data-state="visible"] {
-    opacity: 1;
+    opacity: 0.8;
   }
 
   &[data-clickable="false"] {
@@ -41,7 +41,7 @@
   }
 
   &[data-size="md"] {
-    width: 400px;
+    width: 450px;
   }
 
   &[data-size="lg"] {
