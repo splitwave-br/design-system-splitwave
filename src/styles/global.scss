@@ -33,6 +33,15 @@
   --border-radius-3: 8px;
   --border-radius-4: 16px;
 
+  /* -------- Z-index layers -------- */
+  /* Drawers stack as: --z-drawer-base + index * --z-drawer-step.
+     Modals sit above the whole drawer stack so a modal opened from
+     within a drawer renders on top without closing the drawer. */
+  --z-toast: 1020;
+  --z-drawer-base: 1050;
+  --z-drawer-step: 10;
+  --z-modal: 2000;
+
   /* -------- Fonts -------- */
   --font-size-1: 10px;
   --font-size-2: 12px;

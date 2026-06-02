@@ -64,7 +64,26 @@ function DrawerProvider(_a) {
             });
         }, ANIMATION_DURATION);
     };
-    return (_jsxs(DrawerContext.Provider, { value: { openDrawer: openDrawer, closeDrawer: closeDrawer }, children: [children, queue.map(function (entry, index) { return (_jsx(DrawerPortalEntry, { entry: entry, index: index, totalCount: queue.length, onClose: closeDrawer }, entry.id)); })] }));
+    var closeAll = function () {
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
+        setQueue(function (prev) {
+            return prev.length === 0
+                ? prev
+                : prev.map(function (entry) { return (__assign(__assign({}, entry), { state: 'closing' })); });
+        });
+        setTimeout(function () {
+            setQueue(function (prev) {
+                var _a, _b, _c;
+                // Only the topmost drawer fires its onClose.
+                (_c = (_b = (_a = prev[prev.length - 1]) === null || _a === void 0 ? void 0 : _a.options) === null || _b === void 0 ? void 0 : _b.onClose) === null || _c === void 0 ? void 0 : _c.call.apply(_c, __spreadArray([_b], args, false));
+                return [];
+            });
+        }, ANIMATION_DURATION);
+    };
+    return (_jsxs(DrawerContext.Provider, { value: { openDrawer: openDrawer, closeDrawer: closeDrawer, closeAll: closeAll }, children: [children, queue.map(function (entry, index) { return (_jsx(DrawerPortalEntry, { entry: entry, index: index, totalCount: queue.length, onClose: closeDrawer }, entry.id)); })] }));
 }
 function useDrawer() {
     return useContext(DrawerContext);

@@ -7,6 +7,7 @@ export interface DrawerOptions {
 interface IDrawerContextData {
     openDrawer: (component: ReactNode, options?: DrawerOptions) => void;
     closeDrawer: (...args: any) => void;
+    closeAll: (...args: any) => void;
 }
 export interface IDrawerEntry {
     id: string;

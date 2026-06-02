@@ -12,8 +12,6 @@ interface DrawerPortalEntryProps {
   onClose: (...args: any) => void;
 }
 
-const BASE_Z_INDEX = 1050;
-
 function DrawerPortalEntry({
   entry,
   index,
@@ -44,7 +42,9 @@ function DrawerPortalEntry({
         className={styles.overlay}
         data-state={dataState}
         data-clickable={String(isTop && entry.options?.closeOnOverlayClick !== false)}
-        style={{ zIndex: BASE_Z_INDEX + index * 10 }}
+        style={{
+          zIndex: `calc(var(--z-drawer-base) + ${index} * var(--z-drawer-step))`,
+        }}
         onMouseDown={handleOverlayClick}
       />
       <div
@@ -53,7 +53,7 @@ function DrawerPortalEntry({
         data-size={entry.options?.size ?? 'md'}
         style={
           {
-            zIndex: BASE_Z_INDEX + index * 10 + 1,
+            zIndex: `calc(var(--z-drawer-base) + ${index} * var(--z-drawer-step) + 1)`,
             '--drawer-depth': depth,
           } as React.CSSProperties
         }

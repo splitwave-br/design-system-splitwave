@@ -31,7 +31,7 @@
 }
 
 .wrapperContainer {
-  z-index: 1020;
+  z-index: var(--z-toast);
   position: fixed;
   bottom: var(--spaces-4);
   right: var(--spaces-4);
