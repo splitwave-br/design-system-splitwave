@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.50.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.50.0...v1.50.1) (2026-06-23)
+
+
+### Bug Fixes
+
+* **Drawer:** adjust overlay opacity and update medium drawer size ([5c33b12](https://github.com/splitwave-br/design-system-splitwave/commit/5c33b12107ee58afd2b58c494b6e6b46a6ca66fd))
+* **Drawer:** adjust overlay opacity and update medium drawer size ([5697b93](https://github.com/splitwave-br/design-system-splitwave/commit/5697b93c2fe31d49e4368f29814feb418390c19a))
+* **Drawer:** refactor z-index handling and add closeAll functionality ([88cbb23](https://github.com/splitwave-br/design-system-splitwave/commit/88cbb23c629e00bc2eeaa37d631c7fa254d54f29))
+
 ## [1.50.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.49.0...v1.50.0) (2026-05-25)
 
 
