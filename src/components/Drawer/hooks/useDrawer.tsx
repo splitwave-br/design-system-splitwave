@@ -19,6 +19,7 @@ export interface DrawerOptions {
 interface IDrawerContextData {
   openDrawer: (component: ReactNode, options?: DrawerOptions) => void;
   closeDrawer: (...args: any) => void;
+  closeAll: (...args: any) => void;
 }
 
 export interface IDrawerEntry {
@@ -70,8 +71,24 @@ function DrawerProvider({ children }: { children: ReactNode }) {
     }, ANIMATION_DURATION);
   };
 
+  const closeAll = (...args: any) => {
+    setQueue((prev) =>
+      prev.length === 0
+        ? prev
+        : prev.map((entry) => ({ ...entry, state: 'closing' as const }))
+    );
+
+    setTimeout(() => {
+      setQueue((prev) => {
+        // Only the topmost drawer fires its onClose.
+        prev[prev.length - 1]?.options?.onClose?.(...args);
+        return [];
+      });
+    }, ANIMATION_DURATION);
+  };
+
   return (
-    <DrawerContext.Provider value={{ openDrawer, closeDrawer }}>
+    <DrawerContext.Provider value={{ openDrawer, closeDrawer, closeAll }}>
       {children}
       {queue.map((entry, index) => (
         <DrawerPortalEntry

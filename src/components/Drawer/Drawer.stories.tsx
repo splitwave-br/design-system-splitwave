@@ -66,7 +66,7 @@ export const Sizes: StoryFn = () => {
       <Button variant="tertiary" onClick={() => openDrawer(<DrawerContent title="Small (320px)" />, { size: 'sm' })}>
         sm — 320px
       </Button>
-      <Button onClick={() => openDrawer(<DrawerContent title="Medium (400px)" />, { size: 'md' })}>
+      <Button onClick={() => openDrawer(<DrawerContent title="Medium (450px)" />, { size: 'md' })}>
         md — 400px
       </Button>
       <Button onClick={() => openDrawer(<DrawerContent title="Large (560px)" />, { size: 'lg' })}>
