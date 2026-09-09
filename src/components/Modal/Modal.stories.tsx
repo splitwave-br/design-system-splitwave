@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { Meta, StoryFn } from "@storybook/react";
 import { Button } from "@/components/Button";
 import { ModalProvider, useModal } from "./hooks/useModal"; // Ajuste o caminho conforme necessário
 import { Modal } from "./index";
 import ConfirmationModal from "../ConfirmationModal"; // Ajuste o caminho conforme necessário
 import { ThemePreview } from "../ThemePreview";
+import { Select } from "../Form/controls/Select";
 
 export default {
   title: "Components/Modal",
@@ -11,9 +13,9 @@ export default {
   decorators: [
     (Story) => (
       <ThemePreview>
-      <ModalProvider>
-        <Story />
-      </ModalProvider>
+        <ModalProvider>
+          <Story />
+        </ModalProvider>
       </ThemePreview>
     ),
   ],
@@ -146,6 +148,51 @@ export const BasicOpenModal: StoryFn = () => {
   return (
     <div style={{ height: "450px" }}>
       <Button onClick={handleOpenModal}>Abrir modal</Button>
+    </div>
+  );
+};
+
+export const SelectWithPortalInsideModal: StoryFn = () => {
+  const { openModal } = useModal();
+
+  const options = [
+    { id: "saques", label: "Saques" },
+    { id: "disputas", label: "Disputas" },
+    { id: "clientes", label: "Clientes" },
+    { id: "resumo", label: "Resumo financeiro por cliente" },
+  ];
+
+  const Content = () => {
+    const { closeModal } = useModal();
+    const [selected, setSelected] = useState<(typeof options)[number]>();
+
+    return (
+      <Modal.Wrapper title="Gerar relatório">
+        <Modal.Body>
+          <span>Tipo de relatório</span>
+          <Select
+            asPortal
+            options={options}
+            getLabel={(option) => option.label}
+            getValue={(option) => option.id}
+            placeholder="Selecione"
+            value={selected?.id}
+            onChange={setSelected}
+          />
+          <Modal.Footer>
+            <Button variant="tertiary" onClick={() => closeModal()}>
+              Cancelar
+            </Button>
+            <Button>Gerar relatório</Button>
+          </Modal.Footer>
+        </Modal.Body>
+      </Modal.Wrapper>
+    );
+  };
+
+  return (
+    <div style={{ height: 450 }}>
+      <Button onClick={() => openModal(<Content />)}>Abrir modal</Button>
     </div>
   );
 };
