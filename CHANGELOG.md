@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.50.2](https://github.com/splitwave-br/design-system-splitwave/compare/v1.50.1...v1.50.2) (2026-09-09)
+
+
+### Bug Fixes
+
+* **FloatingElement:** update z-index handling and improve documentati… ([79592a5](https://github.com/splitwave-br/design-system-splitwave/commit/79592a520aa5ab0ddea0eb4e419ec5768063ae8f))
+* **FloatingElement:** update z-index handling and improve documentation for stacking order ([ea609b8](https://github.com/splitwave-br/design-system-splitwave/commit/ea609b8eac1f713f1504b9d81f2b0d1042deb1ff))
+
 ## [1.50.1](https://github.com/splitwave-br/design-system-splitwave/compare/v1.50.0...v1.50.1) (2026-06-23)
 
 
