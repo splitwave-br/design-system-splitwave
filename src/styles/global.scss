@@ -34,13 +34,20 @@
   --border-radius-4: 16px;
 
   /* -------- Z-index layers -------- */
-  /* Drawers stack as: --z-drawer-base + index * --z-drawer-step.
+  /* Stacking order (lowest to highest): drawer < modal < popover < toast.
+
+     Drawers stack as: --z-drawer-base + index * --z-drawer-step.
      Modals sit above the whole drawer stack so a modal opened from
-     within a drawer renders on top without closing the drawer. */
-  --z-toast: 1020;
+     within a drawer renders on top without closing the drawer.
+     Popovers (Select/MultiSelect menus rendered with `asPortal`) are
+     portaled to document.body, so they must sit above whichever
+     container anchors them - the modal included.
+     Toasts stay on top of everything. */
   --z-drawer-base: 1050;
   --z-drawer-step: 10;
   --z-modal: 2000;
+  --z-popover: 2100;
+  --z-toast: 3000;
 
   /* -------- Fonts -------- */
   --font-size-1: 10px;

@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 var DEFAULT_GAP = 8;
+var FLOATING_Z_INDEX = "var(--z-popover, 2100)";
 function getElementPosition(element) {
     var rect = element.getBoundingClientRect(); // Get the position of the element in relation to the viewport
     var scrollLeft = document.documentElement.scrollLeft;
@@ -37,7 +38,7 @@ export var useFloatingElement = function (_a) {
         }
         if (asPortal) {
             var floatingElement = elementRef.current;
-            floatingElement.style.zIndex = "1011";
+            floatingElement.style.zIndex = FLOATING_Z_INDEX;
             floatingElement.style.top = "".concat(finalTop + window.scrollY, "px");
             floatingElement.style.left = "".concat(triggerLeft + window.scrollX, "px");
             floatingElement.style.width = "".concat(triggerWidth, "px");

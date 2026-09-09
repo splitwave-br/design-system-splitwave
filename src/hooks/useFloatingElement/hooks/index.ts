@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 
 const DEFAULT_GAP = 8;
 
+const FLOATING_Z_INDEX = "var(--z-popover, 2100)";
+
 function getElementPosition(element: any) {
   let rect = element.getBoundingClientRect(); // Get the position of the element in relation to the viewport
   let scrollLeft = document.documentElement.scrollLeft;
@@ -70,7 +72,7 @@ export const useFloatingElement = ({
 
     if (asPortal) {
       const floatingElement = elementRef.current;
-      floatingElement.style.zIndex = "1011";
+      floatingElement.style.zIndex = FLOATING_Z_INDEX;
       floatingElement.style.top = `${finalTop + window.scrollY}px`;
       floatingElement.style.left = `${triggerLeft + window.scrollX}px`;
       floatingElement.style.width = `${triggerWidth}px`;
