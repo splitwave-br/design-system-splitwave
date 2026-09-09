@@ -37,7 +37,9 @@ export var useFloatingElement = function (_a) {
         }
         if (asPortal) {
             var floatingElement = elementRef.current;
-            floatingElement.style.zIndex = "1011";
+            // Portaled to document.body, so it sits as a sibling of Modal.Wrapper
+            // (z-index: 100000) in the stacking order — must exceed that to render above it.
+            floatingElement.style.zIndex = "100001";
             floatingElement.style.top = "".concat(finalTop + window.scrollY, "px");
             floatingElement.style.left = "".concat(triggerLeft + window.scrollX, "px");
             floatingElement.style.width = "".concat(triggerWidth, "px");
