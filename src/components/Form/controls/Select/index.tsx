@@ -10,13 +10,14 @@ import { concatStyles } from "@/utils/concatStyles";
 import { SelectTrigger } from "./components/Trigger";
 import { SelectedValue } from "./components/SelectedValue";
 import { useScrollOutside } from "@/hooks/useScrollOutside";
+import { useMessages } from "@/i18n";
 
 export const Select = <T,>({
   asPortal = false,
   name,
   options,
   prefix,
-  placeholder = "Selecione",
+  placeholder: _placeholder,
   exceptionRef,
   enableDeselect = true,
   searchable = false,
@@ -34,6 +35,8 @@ export const Select = <T,>({
   renderItem,
   ...props
 }: SelectProps<T>) => {
+  const messages = useMessages();
+  const placeholder = _placeholder ?? messages.select.placeholder;
   const containerRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
 

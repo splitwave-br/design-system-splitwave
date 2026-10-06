@@ -3,6 +3,7 @@ import { Icon, TIcons } from "@/components/Icon";
 import styles from "./styles.module.scss";
 import "./variables.scss";
 import { ForwardedRef, forwardRef, useState } from "react";
+import { useMessages } from "@/i18n";
 
 export interface IInput extends React.InputHTMLAttributes<HTMLInputElement> {
   prefix?: TIcons;
@@ -27,6 +28,7 @@ export const InputWithRef = (
   }: IInput,
   ref: ForwardedRef<HTMLInputElement>,
 ) => {
+  const messages = useMessages();
   const [isFocused, setIsFocused] = useState(false);
 
   const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
@@ -67,7 +69,7 @@ export const InputWithRef = (
         ref={ref}
         {...props}
         type={props.type}
-        placeholder={props.placeholder || "Digite"}
+        placeholder={props.placeholder || messages.input.placeholder}
         onFocus={handleFocus}
         onBlur={handleBlur}
         className={className}

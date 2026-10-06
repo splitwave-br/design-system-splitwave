@@ -1,5 +1,6 @@
 import { TCell } from "@/components/Table/types";
 import styles from "./styles.module.scss";
+import { useMessages } from "@/i18n";
 
 type TProps = TCell & {
   children: React.ReactNode;
@@ -28,6 +29,8 @@ export const Text = ({
   canCopy = false,
   onCopy,
 }: TProps) => {
+  const messages = useMessages();
+
   const className = [
     styles.wrapper,
     isFixed ? styles.isFixed : "",
@@ -51,7 +54,7 @@ export const Text = ({
         onClick={handleCopyContent}
       >
         {children}
-        {canCopy && <span className={styles.copyLabel}><span className={styles.threeDots}>...</span> Copiar</span>}
+        {canCopy && <span className={styles.copyLabel}><span className={styles.threeDots}>...</span> {messages.table.copy}</span>}
       </span>
     </div>
   );

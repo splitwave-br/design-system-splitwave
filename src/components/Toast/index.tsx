@@ -2,16 +2,12 @@ import { useEffect, useMemo, useState } from "react";
 import { Icon, TIcons } from "@/components/Icon";
 import styles from "./styles.module.scss";
 import "./variables.scss";
+import { useMessages } from "@/i18n";
 
 export enum PresetEnum {
   Error = "error",
   Success = "success",
 }
-
-const PresetTitles = {
-  [PresetEnum.Error]: "Erro",
-  [PresetEnum.Success]: "Sucesso",
-};
 
 type PresetIconsType = {
   [PresetEnum.Error]: TIcons;
@@ -40,6 +36,7 @@ export function Toast({
   icon,
   preset,
 }: ToastProps) {
+  const messages = useMessages();
   const [hide, setHide] = useState(false);
   const [visible, setVisible] = useState(true);
 
@@ -61,8 +58,8 @@ export function Toast({
 
   const title = useMemo(() => {
     if (_title) return _title;
-    return preset && PresetTitles[preset];
-  }, [_title, preset]);
+    return preset && messages.toast[preset];
+  }, [_title, preset, messages]);
 
   const iconName = useMemo(() => {
     if (icon) return icon;
