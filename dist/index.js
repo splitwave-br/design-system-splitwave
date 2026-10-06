@@ -1,5 +1,5 @@
 // i18n
-export { DesignSystemProvider, ptBR, en } from "./i18n";
+export { DesignSystemProvider, ptBR, en, esMX } from "./i18n";
 // Button
 export { Button } from "./components/Button";
 // ButtonLink
