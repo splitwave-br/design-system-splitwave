@@ -2,7 +2,6 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { DateRange, DayPicker } from "react-day-picker";
-import { ptBR } from "date-fns/locale";
 
 import useWindowSize from "@/hooks/useWindowSize";
 
@@ -15,6 +14,7 @@ import { adjustHorizontalPosition } from "./utils/adjustHorizontalPosition";
 import { createPortal } from "react-dom";
 import { Button } from "../Button";
 import { useClickOutside } from "@/hooks/useClickOutside";
+import { useMessages } from "@/i18n";
 
 const defaultClassNames = {
   root: styles.rdpRoot,
@@ -55,6 +55,7 @@ export const DatePicker = ({
     DateRange | Date | undefined
   >();
   const datePickerRef = useRef<HTMLDivElement>(null);
+  const messages = useMessages();
   const { size } = useWindowSize();
 
   const isSmallScreen = (size?.width || 1366) < 768;
@@ -123,7 +124,7 @@ export const DatePicker = ({
         };
 
   const commonProps = {
-    locale: ptBR,
+    locale: messages.dateLocale,
     defaultMonth: oneMonthAgo,
     showOutsideDays: true,
     fixedWeeks: true,
@@ -139,9 +140,11 @@ export const DatePicker = ({
       <DayPicker {...commonProps} />
       <div className={styles.footer}>
         <Button variant="secondary" onClick={handleToggle}>
-          Cancelar
+          {messages.datePicker.cancel}
         </Button>
-        <Button onClick={handleApplyClick}>Aplicar</Button>
+        <Button onClick={handleApplyClick}>
+          {messages.datePicker.apply}
+        </Button>
       </div>
     </div>
   );
