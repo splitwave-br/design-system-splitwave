@@ -34,7 +34,7 @@ To instal the lib in your project run:
 Os textos internos dos componentes (paginação, filtros, `DatePicker`, `Select`, `Toast` etc.) vêm de um dicionário da lib. O idioma é escolhido pelo `DesignSystemProvider`, que deve ficar **por fora** do `ModalProvider`, `ToastProvider` e `DrawerProvider` pra valer também no que eles renderizam.
 
 ```tsx
-import { DesignSystemProvider, en, ptBR } from "design-system";
+import { DesignSystemProvider, en, esMX, ptBR } from "design-system";
 
 <DesignSystemProvider locale={locale === "en" ? en : ptBR}>
   <ToastProvider>
@@ -49,7 +49,7 @@ Pra trocar só alguns textos, passe `messages` parcial. O resto continua vindo d
 <DesignSystemProvider locale={en} messages={{ select: { empty: "Nothing here" } }}>
 ```
 
-Sem provider, tudo sai em `pt-BR`. No Storybook, o idioma é trocado pelo ícone de globo na toolbar.
+A lib traz três dicionários: `ptBR`, `en` e `esMX` (espanhol do México). Sem provider, tudo sai em `pt-BR`. No Storybook, o idioma é trocado pelo ícone de globo na toolbar.
 
 ### Regras de negócio
 

@@ -1,6 +1,8 @@
 import type { Preview } from "@storybook/react";
 import { createElement } from "react";
-import { DesignSystemProvider, en, ptBR } from "@/i18n";
+import { DesignSystemProvider, en, esMX, ptBR } from "@/i18n";
+
+const locales = { "pt-BR": ptBR, en, "es-MX": esMX };
 import "@/styles/global.scss";
 import "@/styles/breakpoints.scss";
 import "@/styles/components-variables.scss";
@@ -18,7 +20,8 @@ const preview: Preview = {
   decorators: [
     (story, context) => {
       document.body.classList.add("light-theme");
-      const locale = context.globals.locale === "en" ? en : ptBR;
+      const locale =
+        locales[context.globals.locale as keyof typeof locales] ?? ptBR;
       return createElement(DesignSystemProvider, { locale }, story());
     },
   ],
@@ -43,6 +46,7 @@ export const globalTypes = {
       items: [
         { value: "pt-BR", title: "Português" },
         { value: "en", title: "English" },
+        { value: "es-MX", title: "Español (México)" },
       ],
       dynamicTitle: true,
     },
