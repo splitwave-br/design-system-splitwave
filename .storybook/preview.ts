@@ -1,4 +1,6 @@
 import type { Preview } from "@storybook/react";
+import { createElement } from "react";
+import { DesignSystemProvider, en, ptBR } from "@/i18n";
 import "@/styles/global.scss";
 import "@/styles/breakpoints.scss";
 import "@/styles/components-variables.scss";
@@ -14,9 +16,10 @@ const preview: Preview = {
     },
   },
   decorators: [
-    (story) => {
+    (story, context) => {
       document.body.classList.add("light-theme");
-      return story();
+      const locale = context.globals.locale === "en" ? en : ptBR;
+      return createElement(DesignSystemProvider, { locale }, story());
     },
   ],
 };
@@ -29,6 +32,19 @@ export const globalTypes = {
     toolbar: {
       icon: "circlehollow",
       items: ["light", "dark"],
+    },
+  },
+  locale: {
+    name: "Idioma",
+    description: "Idioma dos textos do design-system",
+    defaultValue: "pt-BR",
+    toolbar: {
+      icon: "globe",
+      items: [
+        { value: "pt-BR", title: "Português" },
+        { value: "en", title: "English" },
+      ],
+      dynamicTitle: true,
     },
   },
 };
