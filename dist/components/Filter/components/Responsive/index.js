@@ -7,11 +7,13 @@ import { concatStyles } from "../../../../utils/concatStyles";
 import { useFilterContext } from "../../hooks/useFilter";
 import { Button } from "../../../../components/Button";
 import useWindowSize from "../../../../hooks/useWindowSize";
+import { useMessages } from "../../../../i18n";
 export var Responsive = function (_a) {
     var children = _a.children, wrapperFiltersClassName = _a.wrapperFiltersClassName, wrapperFiltersContentClassName = _a.wrapperFiltersContentClassName;
     var isMobile = useWindowSize().isMobile;
     var _b = useState(false), isOpen = _b[0], setIsOpen = _b[1];
     var _c = useFilterContext(), filter = _c.filter, getIsActive = _c.getIsActive, cleanAll = _c.cleanAll;
+    var messages = useMessages();
     var renderChildren = useMemo(function () {
         return React.Children.map(children, function (c) {
             if (!React.isValidElement(c) || !c)
@@ -62,13 +64,13 @@ export var Responsive = function (_a) {
         });
         return fields;
     }, [isMobile, children]);
-    return (_jsxs("div", { className: styles.wrapper, children: [isMobile && (_jsx("div", { children: _jsxs(Button, { variant: "tertiary", size: "medium", className: styles.button, onClick: function () { return setIsOpen(!isOpen); }, children: ["Filtros", _jsx(Icon, { name: "filter", size: 1 })] }) })), renderNotEjectedChildren, _jsxs("div", { className: concatStyles([
+    return (_jsxs("div", { className: styles.wrapper, children: [isMobile && (_jsx("div", { children: _jsxs(Button, { variant: "tertiary", size: "medium", className: styles.button, onClick: function () { return setIsOpen(!isOpen); }, children: [messages.filter.title, _jsx(Icon, { name: "filter", size: 1 })] }) })), renderNotEjectedChildren, _jsxs("div", { className: concatStyles([
                     styles.wrapperFilters,
                     wrapperFiltersClassName,
                     isOpen ? styles.wrapperFiltersOpened : "",
-                ]), children: [_jsxs("div", { className: styles.header, children: [_jsx("h3", { children: "Filtros" }), _jsx("button", { onClick: function () { return cleanAll(); }, className: styles.cleanButton, children: "Limpar filtros" })] }), _jsx("div", { className: concatStyles([
+                ]), children: [_jsxs("div", { className: styles.header, children: [_jsx("h3", { children: messages.filter.title }), _jsx("button", { onClick: function () { return cleanAll(); }, className: styles.cleanButton, children: messages.filter.clearAll })] }), _jsx("div", { className: concatStyles([
                             styles.wrapperFiltersContent,
                             wrapperFiltersContentClassName,
                             isOpen ? styles.wrapperFiltersContentOpened : "",
-                        ]), children: renderChildren }), _jsx("div", { className: styles.actionsWrapper, onClick: function () { return setIsOpen(false); }, children: _jsx(Button, { children: "Voltar" }) })] })] }));
+                        ]), children: renderChildren }), _jsx("div", { className: styles.actionsWrapper, onClick: function () { return setIsOpen(false); }, children: _jsx(Button, { children: messages.filter.back }) })] })] }));
 };

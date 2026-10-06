@@ -27,12 +27,14 @@ import styles from "./styles.module.scss";
 import { useFilterContext } from "../../hooks/useFilter";
 import { concatStyles } from "../../../../utils/concatStyles";
 import { useFilterFields } from "../../hooks/useFields";
+import { useMessages } from "../../../../i18n";
 export var Content = forwardRef(function (_a, ref) {
     var _b = _a.hasClear, hasClear = _b === void 0 ? true : _b, _c = _a.spacing, spacing = _c === void 0 ? "default" : _c, children = _a.children, _d = _a.shouldCloseOnClick, shouldCloseOnClick = _d === void 0 ? false : _d, className = _a.className, onClose = _a.onClose, 
     // isEjected,
     props = __rest(_a, ["hasClear", "spacing", "children", "shouldCloseOnClick", "className", "onClose"]);
     var clean = useFilterContext().clean;
     var fields = useFilterFields().fields;
+    var messages = useMessages();
     var contentStyles = concatStyles([
         styles.content,
         styles["spacing__".concat(spacing)],
@@ -51,6 +53,6 @@ export var Content = forwardRef(function (_a, ref) {
                 }, className: concatStyles([
                     styles.clean,
                     // isEjected ? styles.cleanEjected : "",
-                ]), children: "Limpar" }))] })));
+                ]), children: messages.filter.clear }))] })));
 });
 Content.displayName = "Menu";
