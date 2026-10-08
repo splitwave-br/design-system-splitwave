@@ -5,6 +5,7 @@ import { ChangeEvent, useEffect, useMemo, useRef, useState } from "react";
 import { Icon } from "@/components/Icon";
 import { Input } from "@/components/Form/controls/Input";
 import { useDebounceValue } from "@/hooks/useDebounceValue";
+import { useMessages } from "@/i18n";
 
 type TPagination = {
   totalPages: number;
@@ -34,6 +35,7 @@ export const Pagination = ({
   currentPage,
 }: TPagination) => {
   const isTyping = useRef(false);
+  const { pagination: t } = useMessages();
 
   const pages = useMemo(() => {
     return Array.from({ length: totalPages }, (_, index) => index);
@@ -82,10 +84,10 @@ export const Pagination = ({
         disabled={isPrevDisabled}
       >
         <Icon name="arrow-left" size={2} />
-        <span>Anterior</span>
+        <span>{t.previous}</span>
       </button>
       <div className={styles.pages}>
-        <span>Página</span>
+        <span>{t.page}</span>
         <Input
           wrapperStyles={styles.inputWrapper}
           placeholder="1"
@@ -98,14 +100,14 @@ export const Pagination = ({
           onChange={(e) => handleInputChange(e.target.value)}
           value={inputValue}
         />
-        <span>de {totalPages}</span>
+        <span>{t.pageOf(totalPages)}</span>
       </div>
       <button
         className={styles.button}
         onClick={handleClickNextPage}
         disabled={isNextDisabled}
       >
-        <span>Próximo</span>
+        <span>{t.next}</span>
         <Icon name="arrow-right" size={2} />
       </button>
     </div>

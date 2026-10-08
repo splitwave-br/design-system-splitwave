@@ -1,3 +1,11 @@
+// i18n
+export { DesignSystemProvider, ptBR, en, esMX } from "./i18n";
+export type {
+  DesignSystemProviderProps,
+  TDesignSystemMessages,
+  TDesignSystemMessagesOverride,
+} from "./i18n";
+
 // Button
 export { Button } from "./components/Button";
 export type { ButtonProps } from "./components/Button";

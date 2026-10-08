@@ -7,6 +7,7 @@ import { concatStyles } from "@/utils/concatStyles";
 import { useFilterContext } from "../../hooks/useFilter";
 import { Button } from "@/components/Button";
 import useWindowSize from "@/hooks/useWindowSize";
+import { useMessages } from "@/i18n";
 
 export type ResponsiveProps = {
   children: React.ReactNode;
@@ -22,6 +23,7 @@ export const Responsive = ({
   const { isMobile } = useWindowSize();
   const [isOpen, setIsOpen] = useState(false);
   const { filter, getIsActive, cleanAll } = useFilterContext();
+  const messages = useMessages();
 
   const renderChildren = useMemo(() => {
     return React.Children.map(children, (c) => {
@@ -88,7 +90,7 @@ export const Responsive = ({
             className={styles.button}
             onClick={() => setIsOpen(!isOpen)}
           >
-            Filtros
+            {messages.filter.title}
             <Icon name="filter" size={1} />
           </Button>
         </div>
@@ -103,9 +105,9 @@ export const Responsive = ({
         ])}
       >
         <div className={styles.header}>
-          <h3>Filtros</h3>
+          <h3>{messages.filter.title}</h3>
           <button onClick={() => cleanAll()} className={styles.cleanButton}>
-            Limpar filtros
+            {messages.filter.clearAll}
           </button>
         </div>
         <div
@@ -118,7 +120,7 @@ export const Responsive = ({
           {renderChildren}
         </div>
         <div className={styles.actionsWrapper} onClick={() => setIsOpen(false)}>
-          <Button>Voltar</Button>
+          <Button>{messages.filter.back}</Button>
         </div>
       </div>
     </div>

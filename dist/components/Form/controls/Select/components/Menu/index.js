@@ -29,8 +29,10 @@ import "../../../../../Dropdown/Item/variables.scss";
 import styles from "./styles.module.scss";
 import { createPortal } from "react-dom";
 import { MenuItem } from "../MenuItem";
+import { useMessages } from "../../../../../../i18n";
 var BaseSelectMenu = function (_a, ref) {
     var handleGetIsSelected = _a.handleGetIsSelected, onChange = _a.onChange, renderItem = _a.renderItem, getValue = _a.getValue, getLabel = _a.getLabel, keyExtractor = _a.keyExtractor, options = _a.options, _b = _a.asPortal, asPortal = _b === void 0 ? false : _b, menuContainerClassname = _a.menuContainerClassname, menuInnerClassname = _a.menuInnerClassname, animationDirection = _a.animationDirection, children = _a.children, props = __rest(_a, ["handleGetIsSelected", "onChange", "renderItem", "getValue", "getLabel", "keyExtractor", "options", "asPortal", "menuContainerClassname", "menuInnerClassname", "animationDirection", "children"]);
+    var messages = useMessages();
     var menuStyles = concatStyles([
         styles.menu,
         styles["to".concat(animationDirection)],
@@ -58,7 +60,7 @@ var BaseSelectMenu = function (_a, ref) {
                             onClick: onClick,
                         });
                     return (_jsx(MenuItem, { isSelected: isSelected, onClick: onClick, children: _jsx("span", { children: getLabel(option) }) }, itemKey));
-                })) : (_jsx(MenuItem, { isSelected: false, className: styles.option__empty, children: "Nenhum item encontrado" })), children] }) })));
+                })) : (_jsx(MenuItem, { isSelected: false, className: styles.option__empty, children: messages.select.empty })), children] }) })));
     return asPortal ? createPortal(content, document.body) : content;
 };
 export var SelectMenu = forwardRef(BaseSelectMenu);

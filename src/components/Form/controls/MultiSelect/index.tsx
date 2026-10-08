@@ -15,6 +15,7 @@ import { useClickOutside } from "@/hooks/useClickOutside";
 import { MenuItem } from "../Select/components/MenuItem";
 import { MultiSelectProps } from "./types";
 import { useScrollOutside } from "@/hooks/useScrollOutside";
+import { useMessages } from "@/i18n";
 
 export function MultiSelect<T>({
   getLabel,
@@ -27,7 +28,7 @@ export function MultiSelect<T>({
   scrollStrategy,
   className,
   options,
-  placeholder = "Selecione",
+  placeholder: _placeholder,
   disableDeselect = false,
   disabled,
   hasClear = true,
@@ -35,6 +36,8 @@ export function MultiSelect<T>({
   value = [],
   ...props
 }: MultiSelectProps<T>) {
+  const messages = useMessages();
+  const placeholder = _placeholder ?? messages.select.placeholder;
   const containerRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -159,7 +162,7 @@ export function MultiSelect<T>({
               onClick={handleClickClear}
               className={styles.cleanButton}
             >
-              Limpar
+              {messages.select.clear}
             </MenuItem>
           )}
         </SelectMenu>
