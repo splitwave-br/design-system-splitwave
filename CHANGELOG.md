@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.51.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.50.2...v1.51.0) (2026-10-08)
+
+
+### Features
+
+* **i18n:** adiciona o DesignSystemProvider e os dicionários ptBR/en ([920c557](https://github.com/splitwave-br/design-system-splitwave/commit/920c557e4932df8cbdf38cbf8eab9513b867dded))
+* **i18n:** adiciona o DesignSystemProvider e os dicionários ptBR/en ([a046434](https://github.com/splitwave-br/design-system-splitwave/commit/a046434d4e237197f915daccb6359b81a71bdc87))
+* **i18n:** adiciona o dicionário esMX ([9df37c0](https://github.com/splitwave-br/design-system-splitwave/commit/9df37c0f40216333db301fa0fc9f7da9a95e03db))
+* **i18n:** DatePicker e Filter seguem o idioma do DesignSystemProvider ([8584811](https://github.com/splitwave-br/design-system-splitwave/commit/8584811d4e461e16d6514a813a7bfd6dcb350390))
+* **i18n:** DatePicker e Filter seguem o idioma do DesignSystemProvider ([185414d](https://github.com/splitwave-br/design-system-splitwave/commit/185414d8c2e5e13024bedad04d705f1ae53e4877))
+* **i18n:** peerDependencies, README e seletor de idioma no Storybook ([a6a2805](https://github.com/splitwave-br/design-system-splitwave/commit/a6a2805a2171cccace9c30c8d6d3a94d1ef1d6a2))
+* **i18n:** peerDependencies, README e seletor de idioma no Storybook ([04c041e](https://github.com/splitwave-br/design-system-splitwave/commit/04c041e6345dcccd56a11c37d60b981fa536e123))
+* **i18n:** textos dos componentes passam a vir do DesignSystemProvider ([854bc09](https://github.com/splitwave-br/design-system-splitwave/commit/854bc097307a57c4b24b5a95db38b2388870f408))
+* **i18n:** textos dos componentes passam a vir do DesignSystemProvider ([ccee4ad](https://github.com/splitwave-br/design-system-splitwave/commit/ccee4ad7390bb48c55ac09382a1ccceceee4fead))
+
 ## [1.50.2](https://github.com/splitwave-br/design-system-splitwave/compare/v1.50.1...v1.50.2) (2026-09-09)
 
 
