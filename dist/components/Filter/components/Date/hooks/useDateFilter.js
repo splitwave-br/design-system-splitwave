@@ -2,16 +2,17 @@ import { END_DATE_FIELD, START_DATE_FIELD, } from "../../../../../components/Fil
 import { useFilterFields } from "../../../../../components/Filter/hooks/useFields";
 import { useFilterContext } from "../../../../../components/Filter/hooks/useFilter";
 import { format, parseISO } from "date-fns";
-import { ptBR } from "date-fns/locale";
+import { useMessages } from "../../../../../i18n";
 import { useEffect, useState } from "react";
 var capitalize = function (str) { return str.charAt(0).toUpperCase() + str.slice(1); };
-var translateDate = function (dateString) {
+var translateDate = function (dateString, locale) {
     var date = parseISO(dateString);
-    var formatted = format(date, "MMM d, yyyy", { locale: ptBR });
+    var formatted = format(date, "MMM d, yyyy", { locale: locale });
     return capitalize(formatted);
 };
 export var useDateFilter = function (props, isPeriod) {
     var _a = useState(false), isOpen = _a[0], setIsOpen = _a[1];
+    var messages = useMessages();
     var _b = useFilterContext(), setFilter = _b.setFilter, getValue = _b.getValue;
     var registerField = useFilterFields().registerField;
     var hasField = !isPeriod && "field" in props;
@@ -59,14 +60,14 @@ export var useDateFilter = function (props, isPeriod) {
             return null;
         }
         return {
-            startDate: translateDate(fieldValue.startDate),
-            endDate: translateDate(fieldValue.endDate),
+            startDate: translateDate(fieldValue.startDate, messages.dateLocale),
+            endDate: translateDate(fieldValue.endDate, messages.dateLocale),
         };
     };
     var selectedDate = getSelectedDate();
     var buttonLabel = !!selectedDate
         ? "".concat(selectedDate.startDate, " - ").concat(selectedDate.endDate)
-        : "Selecione";
+        : messages.filter.selectDate;
     return {
         isOpen: isOpen,
         handleToggle: handleToggle,

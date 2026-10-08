@@ -13,7 +13,6 @@ var __assign = (this && this.__assign) || function () {
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useEffect, useRef, useState } from "react";
 import { DayPicker } from "react-day-picker";
-import { ptBR } from "date-fns/locale";
 import useWindowSize from "../../hooks/useWindowSize";
 import styles from "./styles.module.scss";
 import "./variables.scss";
@@ -23,6 +22,7 @@ import { adjustHorizontalPosition } from "./utils/adjustHorizontalPosition";
 import { createPortal } from "react-dom";
 import { Button } from "../Button";
 import { useClickOutside } from "../../hooks/useClickOutside";
+import { useMessages } from "../../i18n";
 var defaultClassNames = {
     root: styles.rdpRoot,
     months: styles.months,
@@ -51,6 +51,7 @@ export var DatePicker = function (_a) {
     var isOpen = _a.isOpen, mode = _a.mode, parentRef = _a.parentRef, formatter = _a.formatter, handleToggle = _a.handleToggle, handlePickDate = _a.handlePickDate, disabled = _a.disabled, asPortal = _a.asPortal;
     var _b = useState(), selectedDate = _b[0], setSelectedDate = _b[1];
     var datePickerRef = useRef(null);
+    var messages = useMessages();
     var size = useWindowSize().size;
     var isSmallScreen = ((size === null || size === void 0 ? void 0 : size.width) || 1366) < 768;
     var numberOfMonths = isSmallScreen ? 1 : 2;
@@ -103,8 +104,8 @@ export var DatePicker = function (_a) {
             mode: "single",
             selected: selectedDate,
         };
-    var commonProps = __assign({ locale: ptBR, defaultMonth: oneMonthAgo, showOutsideDays: true, fixedWeeks: true, numberOfMonths: numberOfMonths, classNames: combinedClassNames, onSelect: setSelectedDate, disabled: disabled }, modeSpecificProps);
-    var datePickerElement = (_jsxs("div", { className: styles.container, ref: datePickerRef, children: [_jsx(DayPicker, __assign({}, commonProps)), _jsxs("div", { className: styles.footer, children: [_jsx(Button, { variant: "secondary", onClick: handleToggle, children: "Cancelar" }), _jsx(Button, { onClick: handleApplyClick, children: "Aplicar" })] })] }));
+    var commonProps = __assign({ locale: messages.dateLocale, defaultMonth: oneMonthAgo, showOutsideDays: true, fixedWeeks: true, numberOfMonths: numberOfMonths, classNames: combinedClassNames, onSelect: setSelectedDate, disabled: disabled }, modeSpecificProps);
+    var datePickerElement = (_jsxs("div", { className: styles.container, ref: datePickerRef, children: [_jsx(DayPicker, __assign({}, commonProps)), _jsxs("div", { className: styles.footer, children: [_jsx(Button, { variant: "secondary", onClick: handleToggle, children: messages.datePicker.cancel }), _jsx(Button, { onClick: handleApplyClick, children: messages.datePicker.apply })] })] }));
     useEffect(function () {
         if (!asPortal || !isOpen || !parentRef.current || !datePickerRef.current)
             return;

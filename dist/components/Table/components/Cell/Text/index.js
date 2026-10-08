@@ -1,5 +1,6 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import styles from "./styles.module.scss";
+import { useMessages } from "../../../../../i18n";
 // TODO - Move it to a utils file and implement a visual feedback
 function copyToClipboard(text) {
     navigator.clipboard
@@ -13,6 +14,7 @@ function copyToClipboard(text) {
 }
 export var Text = function (_a) {
     var children = _a.children, isFixed = _a.isFixed, _b = _a.shouldTruncateText, shouldTruncateText = _b === void 0 ? false : _b, _c = _a.canCopy, canCopy = _c === void 0 ? false : _c, onCopy = _a.onCopy;
+    var messages = useMessages();
     var className = [
         styles.wrapper,
         isFixed ? styles.isFixed : "",
@@ -27,5 +29,5 @@ export var Text = function (_a) {
             }
         }
     };
-    return (_jsx("div", { className: className, children: _jsxs("span", { className: canCopy ? styles.canCopy : "", onClick: handleCopyContent, children: [children, canCopy && _jsxs("span", { className: styles.copyLabel, children: [_jsx("span", { className: styles.threeDots, children: "..." }), " Copiar"] })] }) }));
+    return (_jsx("div", { className: className, children: _jsxs("span", { className: canCopy ? styles.canCopy : "", onClick: handleCopyContent, children: [children, canCopy && _jsxs("span", { className: styles.copyLabel, children: [_jsx("span", { className: styles.threeDots, children: "..." }), " ", messages.table.copy] })] }) }));
 };
