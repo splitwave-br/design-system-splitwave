@@ -3,6 +3,7 @@ import { Modal } from "@/components/Modal";
 import { Button, TButtonVariants } from "@/components/Button";
 import { useModal } from "@/components/Modal/hooks/useModal";
 import { Icon, TIcons } from "../Icon";
+import { useMessages } from "@/i18n";
 import './variables.scss'
 
 
@@ -31,6 +32,7 @@ export const ConfirmationModal = ({
   onConfirm,
 }: ConfirmationModalProps) => {
   const { closeModal } = useModal();
+  const messages = useMessages();
 
   const handleClose = () => {
     closeModal();
@@ -63,7 +65,7 @@ export const ConfirmationModal = ({
       </Modal.Body>
       <Modal.Footer>
         <Button size="large" onClick={handleClose} variant="tertiary">
-          Cancelar
+          {messages.confirmationModal.cancel}
         </Button>
         <Button  size="large" variant={actionVariant} onClick={handleConfirm}>
           {confirmationText}

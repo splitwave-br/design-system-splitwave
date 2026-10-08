@@ -5,6 +5,7 @@ import styles from "./styles.module.scss";
 import { useFilterContext } from "../../hooks/useFilter";
 import { concatStyles } from "@/utils/concatStyles";
 import { useFilterFields } from "../../hooks/useFields";
+import { useMessages } from "@/i18n";
 
 type TContentProps = {
   children: React.ReactNode;
@@ -32,6 +33,7 @@ export const Content = forwardRef<HTMLDivElement, TContentProps>(
   ) => {
     const { clean } = useFilterContext();
     const { fields } = useFilterFields();
+    const messages = useMessages();
 
     const contentStyles = concatStyles([
       styles.content,
@@ -65,7 +67,7 @@ export const Content = forwardRef<HTMLDivElement, TContentProps>(
               // isEjected ? styles.cleanEjected : "",
             ])}
           >
-            Limpar
+            {messages.filter.clear}
           </span>
         )}
       </div>

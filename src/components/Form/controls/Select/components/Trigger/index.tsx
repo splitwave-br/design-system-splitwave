@@ -3,6 +3,7 @@ import styles from "./styles.module.scss";
 import { concatStyles } from "@/utils/concatStyles";
 import { SearchInput } from "../SearchInput";
 import "../../../Input/variables.scss";
+import { useMessages } from "@/i18n";
 
 type SelectTriggerProps = {
   prefix?: TIcons;
@@ -25,6 +26,8 @@ export const SelectTrigger = ({
   onSearchChange,
   triggerClassname,
 }: SelectTriggerProps) => {
+  const messages = useMessages();
+
   const triggerStyles = concatStyles([
     styles.trigger,
     prefix ? styles.prefix : "",
@@ -38,7 +41,7 @@ export const SelectTrigger = ({
 
       {shouldRenderSearch ? (
         <SearchInput
-          placeholder={selectedLabel || "Pesquise"}
+          placeholder={selectedLabel || messages.select.search}
           value={searchValue}
           onChange={onSearchChange}
         />

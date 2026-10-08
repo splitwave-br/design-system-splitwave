@@ -26,8 +26,10 @@ import { Icon } from "../../../../components/Icon";
 import styles from "./styles.module.scss";
 import "./variables.scss";
 import { forwardRef, useState } from "react";
+import { useMessages } from "../../../../i18n";
 export var InputWithRef = function (_a, ref) {
     var textPrefix = _a.textPrefix, textSuffix = _a.textSuffix, prefix = _a.prefix, suffix = _a.suffix, hasError = _a.hasError, onFocus = _a.onFocus, onBlur = _a.onBlur, wrapperStyles = _a.wrapperStyles, props = __rest(_a, ["textPrefix", "textSuffix", "prefix", "suffix", "hasError", "onFocus", "onBlur", "wrapperStyles"]);
+    var messages = useMessages();
     var _b = useState(false), isFocused = _b[0], setIsFocused = _b[1];
     var handleFocus = function (e) {
         if (onFocus)
@@ -57,6 +59,6 @@ export var InputWithRef = function (_a, ref) {
         hasError ? styles.error : "",
         wrapperStyles,
     ].join(" ");
-    return (_jsxs("div", { className: wrapperClassName, children: [textPrefix && _jsx("span", { className: styles.text__prefix, children: textPrefix }), prefix && _jsx(Icon, { name: prefix, size: "micro" }), _jsx("input", __assign({ ref: ref }, props, { type: props.type, placeholder: props.placeholder || "Digite", onFocus: handleFocus, onBlur: handleBlur, className: className })), suffix && _jsx(Icon, { name: suffix, size: "micro" }), textSuffix && _jsx("span", { className: styles.text__sufix, children: textSuffix })] }));
+    return (_jsxs("div", { className: wrapperClassName, children: [textPrefix && _jsx("span", { className: styles.text__prefix, children: textPrefix }), prefix && _jsx(Icon, { name: prefix, size: "micro" }), _jsx("input", __assign({ ref: ref }, props, { type: props.type, placeholder: props.placeholder || messages.input.placeholder, onFocus: handleFocus, onBlur: handleBlur, className: className })), suffix && _jsx(Icon, { name: suffix, size: "micro" }), textSuffix && _jsx("span", { className: styles.text__sufix, children: textSuffix })] }));
 };
 export var Input = forwardRef(InputWithRef);

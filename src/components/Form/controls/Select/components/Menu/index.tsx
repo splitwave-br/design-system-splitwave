@@ -9,6 +9,7 @@ import styles from "./styles.module.scss";
 import { SelectMenuProps } from "../../types";
 import { createPortal } from "react-dom";
 import { MenuItem } from "../MenuItem";
+import { useMessages } from "@/i18n";
 
 const BaseSelectMenu = <T,>(
   {
@@ -28,6 +29,8 @@ const BaseSelectMenu = <T,>(
   }: SelectMenuProps<T>,
   ref: React.Ref<HTMLDivElement>,
 ) => {
+  const messages = useMessages();
+
   const menuStyles = concatStyles([
     styles.menu,
     styles[`to${animationDirection}`],
@@ -71,7 +74,7 @@ const BaseSelectMenu = <T,>(
           })
         ) : (
           <MenuItem isSelected={false} className={styles.option__empty}>
-            Nenhum item encontrado
+            {messages.select.empty}
           </MenuItem>
         )}
         {children}

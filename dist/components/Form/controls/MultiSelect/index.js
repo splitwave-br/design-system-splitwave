@@ -35,12 +35,15 @@ import { useFloatingElement } from "../../../../hooks/useFloatingElement/hooks";
 import { useClickOutside } from "../../../../hooks/useClickOutside";
 import { MenuItem } from "../Select/components/MenuItem";
 import { useScrollOutside } from "../../../../hooks/useScrollOutside";
+import { useMessages } from "../../../../i18n";
 export function MultiSelect(_a) {
-    var getLabel = _a.getLabel, getValue = _a.getValue, onChange = _a.onChange, renderItem = _a.renderItem, onRemove = _a.onRemove, keyExtractor = _a.keyExtractor, _b = _a.size, size = _b === void 0 ? 2 : _b, scrollStrategy = _a.scrollStrategy, className = _a.className, options = _a.options, _c = _a.placeholder, placeholder = _c === void 0 ? "Selecione" : _c, _d = _a.disableDeselect, disableDeselect = _d === void 0 ? false : _d, disabled = _a.disabled, _e = _a.hasClear, hasClear = _e === void 0 ? true : _e, _f = _a.asPortal, asPortal = _f === void 0 ? false : _f, _g = _a.value, value = _g === void 0 ? [] : _g, props = __rest(_a, ["getLabel", "getValue", "onChange", "renderItem", "onRemove", "keyExtractor", "size", "scrollStrategy", "className", "options", "placeholder", "disableDeselect", "disabled", "hasClear", "asPortal", "value"]);
+    var getLabel = _a.getLabel, getValue = _a.getValue, onChange = _a.onChange, renderItem = _a.renderItem, onRemove = _a.onRemove, keyExtractor = _a.keyExtractor, _b = _a.size, size = _b === void 0 ? 2 : _b, scrollStrategy = _a.scrollStrategy, className = _a.className, options = _a.options, _placeholder = _a.placeholder, _c = _a.disableDeselect, disableDeselect = _c === void 0 ? false : _c, disabled = _a.disabled, _d = _a.hasClear, hasClear = _d === void 0 ? true : _d, _e = _a.asPortal, asPortal = _e === void 0 ? false : _e, _f = _a.value, value = _f === void 0 ? [] : _f, props = __rest(_a, ["getLabel", "getValue", "onChange", "renderItem", "onRemove", "keyExtractor", "size", "scrollStrategy", "className", "options", "placeholder", "disableDeselect", "disabled", "hasClear", "asPortal", "value"]);
+    var messages = useMessages();
+    var placeholder = _placeholder !== null && _placeholder !== void 0 ? _placeholder : messages.select.placeholder;
     var containerRef = useRef(null);
     var menuRef = useRef(null);
-    var _h = useState(false), isOpen = _h[0], setIsOpen = _h[1];
-    var _j = useState(""), searchValue = _j[0], setSearchValue = _j[1];
+    var _g = useState(false), isOpen = _g[0], setIsOpen = _g[1];
+    var _h = useState(""), searchValue = _h[0], setSearchValue = _h[1];
     var animationDirection = useFloatingElement({
         triggerRef: containerRef,
         elementRef: menuRef,
@@ -93,5 +96,5 @@ export function MultiSelect(_a) {
                     if (renderItem)
                         return renderItem({ option: option, isSelected: isSelected, onClick: onClick, key: key });
                     return (_jsxs(MenuItem, { isSelected: isSelected, onClick: onClick, children: [isSelected ? _jsx(Checked, {}) : _jsx(Unchecked, {}), getLabel(option)] }, key));
-                } }, props, { children: shouldRenderClearButton && (_jsx(MenuItem, { isSelected: false, onClick: handleClickClear, className: styles.cleanButton, children: "Limpar" })) })))] }));
+                } }, props, { children: shouldRenderClearButton && (_jsx(MenuItem, { isSelected: false, onClick: handleClickClear, className: styles.cleanButton, children: messages.select.clear })) })))] }));
 }
