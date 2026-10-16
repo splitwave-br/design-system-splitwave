@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.52.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.51.0...v1.52.0) (2026-10-16)
+
+
+### Features
+
+* **i18n:** adiciona o dicionário zhCN ([f74af17](https://github.com/splitwave-br/design-system-splitwave/commit/f74af172be7ab7ad35dab6f87bd89a185516832d))
+* **i18n:** adiciona o dicionário zhCN ([b6b0add](https://github.com/splitwave-br/design-system-splitwave/commit/b6b0addba197f5dd8ba0a3fd17e90965d77fffc7))
+
 ## [1.51.0](https://github.com/splitwave-br/design-system-splitwave/compare/v1.50.2...v1.51.0) (2026-10-08)
 
 
