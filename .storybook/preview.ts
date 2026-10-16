@@ -1,8 +1,8 @@
 import type { Preview } from "@storybook/react";
 import { createElement } from "react";
-import { DesignSystemProvider, en, esMX, ptBR } from "@/i18n";
+import { DesignSystemProvider, en, esMX, ptBR, zhCN } from "@/i18n";
 
-const locales = { "pt-BR": ptBR, en, "es-MX": esMX };
+const locales = { "pt-BR": ptBR, en, "es-MX": esMX, "zh-CN": zhCN };
 import "@/styles/global.scss";
 import "@/styles/breakpoints.scss";
 import "@/styles/components-variables.scss";
@@ -47,6 +47,7 @@ export const globalTypes = {
         { value: "pt-BR", title: "Português" },
         { value: "en", title: "English" },
         { value: "es-MX", title: "Español (México)" },
+        { value: "zh-CN", title: "中文 (简体)" },
       ],
       dynamicTitle: true,
     },

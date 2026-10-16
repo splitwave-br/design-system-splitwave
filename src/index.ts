@@ -1,5 +1,5 @@
 // i18n
-export { DesignSystemProvider, ptBR, en, esMX } from "./i18n";
+export { DesignSystemProvider, ptBR, en, esMX, zhCN } from "./i18n";
 export type {
   DesignSystemProviderProps,
   TDesignSystemMessages,
